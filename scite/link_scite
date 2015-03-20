@@ -1,0 +1,8 @@
+rm ~/.SciTEUser.properties
+ln -s  ~/Dropbox/projects_versioned/dev-edit/scite/_.SciTEUser.properties ~/.SciTEUser.properties
+
+
+# installa
+#    $(SciteDefaultHome) punta a /usr/share/scite/
+# ln -s  ~/Dropbox/projects_versioned/dev-edit/scite/lang/php/php.api /usr/share/scite/php.api
+# ln -s  ~/Dropbox/projects_versioned/dev-edit/scite/lang/php/php.properties /usr/share/scite/php.properties

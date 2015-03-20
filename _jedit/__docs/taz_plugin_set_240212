@@ -1,0 +1,38 @@
+<pluginset>
+    <plugin name="TaskList" jar="TaskList.jar" />
+    <plugin name="Updater" jar="UpdaterPlugin.jar" />
+    <plugin name="Context Menu" jar="ContextMenu.jar" />
+    <plugin name="Console" jar="Console.jar" />
+    <plugin name="Templates" jar="Templates.jar" />
+    <plugin name="QuickNotepad" jar="QuickNotepad.jar" />
+    <plugin name="XercesPlugin" jar="XercesPlugin.jar" />
+    <plugin name="BufferList" jar="BufferList.jar" />
+    <plugin name="Markdown" jar="MarkdownPlugin.jar" />
+    <plugin name="EclipseIcons" jar="EclipseIcons.jar" />
+    <plugin name="Outline" jar="Outline.jar" />
+    <plugin name="Spell Check" jar="SpellCheck.jar" />
+    <plugin name="CtagsInterface" jar="CtagsInterface.jar" />
+    <plugin name="Tags" jar="Tags.jar" />
+    <plugin name="BufferTabs" jar="BufferTabs.jar" />
+    <plugin name="CtagsSideKick" jar="CtagsSideKick.jar" />
+    <plugin name="MacroManager" jar="MacroManager.jar" />
+    <plugin name="GnuRegexp" jar="GnuRegexp.jar" />
+    <plugin name="Highlight" jar="Highlight.jar" />
+    <plugin name="ErrorList" jar="ErrorList.jar" />
+    <plugin name="Fast Open" jar="FastOpen.jar" />
+    <plugin name="JDiff Plugin" jar="JDiffPlugin.jar" />
+    <plugin name="Finish Him!" jar="finish-him.jar" />
+    <plugin name="HelperLauncher" jar="HelperLauncher.jar" />
+    <plugin name="Project Viewer" jar="ProjectViewer.jar" />
+    <plugin name="WhiteSpace" jar="WhiteSpace.jar" />
+    <plugin name="Jakarta Commons" jar="JakartaCommons.jar" />
+    <plugin name="Beauty" jar="Beauty.jar" />
+    <plugin name="LineGuides" jar="LineGuides.jar" />
+    <plugin name="Scala Plugin" jar="ScalacPlugin.jar" />
+    <plugin name="Common Controls" jar="CommonControls.jar" />
+    <plugin name="SuperAbbrevs" jar="SuperAbbrevs.jar" />
+    <plugin name="Script Engine Plugin" jar="ScriptEnginePlugin.jar" />
+    <plugin name="XML" jar="XML.jar" />
+    <plugin name="Emacs Browser" jar="EBrowse.jar" />
+    <plugin name="SideKick" jar="SideKick.jar" />
+ </pluginset>

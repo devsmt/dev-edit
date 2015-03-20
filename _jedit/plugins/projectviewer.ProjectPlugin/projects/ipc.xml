@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project path="/var/www/ipc" url="http://ipc.dev/">
+<property name="projectviewer.folder_tree_state" value="11111101101110000101101100" />
+<property name="projectviewer.import.filterid" value="projectviewer.importer.CVSEntriesFilter" />
+<open-file path="/var/www/ipc/apps/frontend/modules/configurator/actions/actions.class.php" />
+<open-file path="/var/www/ipc/apps/frontend/modules/joystick/templates/indexSuccess.php" />
+<open-file path="/var/www/ipc/lib/ItemCodes.php" />
+<open-file path="/var/www/ipc/test/unit/ItemCodesTest.php" />
+<open-file path="/var/www/ipc/web/js/configurator.js" />
+<directory path="/var/www/ipc/apps">
+<directory path="/var/www/ipc/apps/frontend">
+<directory path="/var/www/ipc/apps/frontend/modules">
+<directory path="/var/www/ipc/apps/frontend/modules/configurator">
+<directory path="/var/www/ipc/apps/frontend/modules/configurator/actions">
+<file path="/var/www/ipc/apps/frontend/modules/configurator/actions/actions.class.php" />
+</directory>
+</directory>
+<directory path="/var/www/ipc/apps/frontend/modules/joystick">
+<directory path="/var/www/ipc/apps/frontend/modules/joystick/templates">
+<file path="/var/www/ipc/apps/frontend/modules/joystick/templates/indexSuccess.php" />
+</directory>
+</directory>
+</directory>
+</directory>
+</directory>
+<directory path="/var/www/ipc/lib">
+<directory path="/var/www/ipc/lib/form">
+<directory path="/var/www/ipc/lib/form/doctrine">
+<file path="/var/www/ipc/lib/form/doctrine/FinituraSpecialeForm.class.php" />
+<file path="/var/www/ipc/lib/form/doctrine/NewsForm.class.php" />
+<file path="/var/www/ipc/lib/form/doctrine/SolutionTranslationForm.class.php" />
+</directory>
+</directory>
+<file path="/var/www/ipc/lib/ItemCodes.php" />
+</directory>
+<directory path="/var/www/ipc/plugins">
+<directory path="/var/www/ipc/plugins/sfFormExtraPlugin">
+<directory path="/var/www/ipc/plugins/sfFormExtraPlugin/lib">
+<directory path="/var/www/ipc/plugins/sfFormExtraPlugin/lib/widget">
+<file path="/var/www/ipc/plugins/sfFormExtraPlugin/lib/widget/sfWidgetFormTextareaTinyMCE.class.php" />
+</directory>
+</directory>
+</directory>
+</directory>
+<directory path="/var/www/ipc/test">
+<directory path="/var/www/ipc/test/unit">
+<file path="/var/www/ipc/test/unit/ItemCodesTest.php" />
+</directory>
+</directory>
+<directory path="/var/www/ipc/web">
+<directory path="/var/www/ipc/web/js">
+<file path="/var/www/ipc/web/js/configurator.js" />
+</directory>
+</directory>
+<file path="/var/www/ipc/commands.php" />
+</project>

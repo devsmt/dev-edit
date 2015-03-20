@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd">
+<!-- 
+Python Commando File
+Copyright (C) 2004  Charles Dominguez
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+INSTALL:
+Place this file in the console/commando/ subdirectory of the user's
+jEdit settings directory.
+    
+Associations:
+To associate this action with python files in jEdit, go to the Compile & Run
+settings for the console plugin and select "python" as the interpreter for
+the python mode.
+    
+Console Error Patterns:
+The following error patterns can be used to highlight python warnings and
+error messages for the Console and ErrorList plugins.
+              Name:Python
+            Regexp:  File "([[:print:]]*)", line (\d+), (.*)
+    Warning Regexp:(.+?):(\d+):(.+)
+Extra Lines regexp:  .*
+          Filename:$1
+       Line Number:$2
+     Error Message:$3
+         
+Properties (Advanced Users):
+The above configuration can be achieved by adding the following properties
+to the user's properties file or to a system-wide .props file.
+    
+Associations:
+mode.python.commando.run=python
+
+Console Error Patterns:
+console.error.Python.extra=\  .*
+console.error.Python.filename=$1
+console.error.Python.line=$2
+console.error.Python.match=\  File "([[\:print\:]]*)", line (\\d+), (.*)
+console.error.Python.message=$3
+console.error.Python.name=Python
+console.error.Python.warning=(.+?)\:(\\d+)\:(.+)
+-->
+<COMMANDO>
+
+<UI>
+    <CAPTION LABEL="Files">
+        <ENTRY LABEL="Script File" VARNAME="file" EVAL="buffer.getPath()" />
+    </CAPTION>
+
+    <CAPTION LABEL="Environment">
+        <ENTRY LABEL="Interpreter" VARNAME="interpreter" DEFAULT="python" />
+    </CAPTION>
+    
+    <CAPTION LABEL="Python Options">
+        <CHOICE LABEL="Optimizations"
+                VARNAME="optimize"
+                DEFAULT="">
+                
+                <OPTION LABEL="None" VALUE=""/>
+                <OPTION LABEL="Basic" VALUE="-O"/>
+                <OPTION LABEL="Basic &amp; Strip Docstrings" VALUE="-OO"/>
+                
+        </CHOICE>
+        <CHOICE LABEL="Division Options"
+                VARNAME="division"
+                DEFAULT="">
+                
+                <OPTION LABEL="Default" VALUE=""/>
+                <OPTION LABEL="Old" VALUE="-Qold"/>
+                <OPTION LABEL="Warn" VALUE="-Qwarn"/>
+                <OPTION LABEL="WarnAll" VALUE="-Qwarnall"/>
+                <OPTION LABEL="New" VALUE="-Qnew"/>
+                
+        </CHOICE>
+        <CHOICE LABEL="Inconsistent Tab Usage"
+                VARNAME="tabIssues"
+                DEFAULT="-t">
+                
+                <OPTION LABEL="No Action" VALUE=""/>
+                <OPTION LABEL="Issue Warning" VALUE="-t"/>
+                <OPTION LABEL="Issue Error" VALUE="-tt"/>
+                
+        </CHOICE>
+        <CHOICE LABEL="Verbosity"
+                VARNAME="verbosity"
+                DEFAULT="">
+                
+                <OPTION LABEL="Normal" VALUE=""/>
+                <OPTION LABEL="Report Module Init" VALUE="-v"/>
+                <OPTION LABEL="Report Module Init, File Searches" VALUE="-vv"/>
+                
+        </CHOICE>
+        <TOGGLE LABEL="Enable Parser Debugging"
+                VARNAME="debugging"
+                DEFAULT='FALSE' />
+        <TOGGLE LABEL="Ignore Environment Variables"
+                VARNAME="ignoreEnv"
+                DEFAULT='FALSE' />
+        <TOGGLE LABEL="Enter Interactive Mode"
+                VARNAME="interactive"
+                DEFAULT='FALSE' />
+        <TOGGLE LABEL="Disable Import of Site Module"
+                VARNAME="skipSite"
+                DEFAULT='FALSE' />
+        <TOGGLE LABEL="Force stdin/stdout/stderr unbuffered"
+                VARNAME="unbuffered"
+                DEFAULT="FALSE" />
+        <ENTRY LABEL="Warning Control"
+                VARNAME="warnings"
+                DEFAULT="" />           
+        <ENTRY LABEL="Additional Options"
+                VARNAME="options"
+                DEFAULT="" />           
+    </CAPTION>  
+    
+    <CAPTION LABEL="Script Options">
+        <ENTRY LABEL="Arguments for Script" VARNAME="arguments" DEFAULT="" />
+    </CAPTION>  
+</UI>
+
+
+<COMMANDS>
+    <COMMAND CONFIRM="FALSE" SHELL="System" TO_BUFFER="FALSE">
+        buff = new StringBuffer();
+        
+        if(interpreter.equals(""))
+        {
+            buff.append("python");
+        }
+        else
+        {
+            buff.append(interpreter);
+        }
+        
+        buff.append(" ");
+        
+        if(debugging)
+            buff.append(" -d ");
+        
+        if(ignoreEnv)
+            buff.append(" -E ");
+        
+        if(interactive)
+            buff.append(" -i ");
+        
+        if(!optimize.equals(""))
+        {
+            buff.append(" ");
+            buff.append(optimize);
+            buff.append(" ");
+        }           
+        
+        if(!division.equals(""))
+        {
+            buff.append(" ");
+            buff.append(division);
+            buff.append(" ");
+        }           
+        
+        if(skipSite)
+            buff.append(" -S ");
+        
+        if(!tabIssues.equals(""))
+        {
+            buff.append(" ");
+            buff.append(tabIssues);
+            buff.append(" ");
+        }           
+        
+        if(unbuffered)
+            buff.append(" -u ");
+        
+        if(!verbosity.equals(""))
+        {
+            buff.append(" ");
+            buff.append(verbosity);
+            buff.append(" ");
+        }           
+        
+        if(!warnings.equals(""))
+        {
+            buff.append(" -W ");
+            buff.append(warnings);
+        }
+        
+        if(!options.equals(""))
+        {
+            buff.append(" ");
+            buff.append(options);
+        }
+        
+        buff.append(" \"");
+        buff.append(file);
+        buff.append("\" ");
+    
+        buff.append(arguments);
+        
+        // return value
+        buff;
+    </COMMAND>
+</COMMANDS>
+
+</COMMANDO>
+

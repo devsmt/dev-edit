@@ -1,0 +1,26 @@
+TODO:                                                        tazio 16-5-2012
+
+correzioni richieste:
+    + A: passaggio cassetto 2 a 3        (B/8-16)
+    - D: agente associato al cliente     (A/2-4)
+    + O: margine PDF DDT                 (B/1-6)
+
+correzioni richieste successivamente:
+    - controllare cancellazione anagrafico da importazione (A/2-16)
+
+
+legenda:
+    - da fare
+    + in testing presso cliente
+    * completato
+    (A/n-N) (priorità A-E/ore min-ore max)
+
+legenda:
+    - da fare
+    + in testing presso cliente
+    * completato
+    #n numero su sistema di gestione bugs con riferimento a descrizione, screenshots, codice sorgente
+    (A/n-N) (priorità A-E/ore min-ore max)
+        priorità: A:bloccante, B:molto scomodo, C:comodità, D:comodità relativa, _: posticipato
+
+

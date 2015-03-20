@@ -1,0 +1,45 @@
+
+<COMMANDO>
+<UI>
+<CAPTION LABEL="PHP_Lint">
+<FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
+</CAPTION>
+<CAPTION LABEL="Path to bin">
+<ENTRY LABEL="(no spaces)" VARNAME="bin_path" DEFAULT="/usr/bin/"/>
+</CAPTION>
+
+<!--
+<CAPTION LABEL="Choose compile or run">
+<CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
+<OPTION  LABEL="run" VALUE="run"/>
+<OPTION LABEL="compile" VALUE="compile"/>
+</CHOICE>
+</CAPTION>
+-->
+
+
+</UI>
+
+<COMMANDS>
+
+<COMMAND SHELL="System" CONFIRM="FALSE">
+<!-- cd to working dir -->
+
+buf = new StringBuilder("cd ");
+buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
+buf.toString();
+
+</COMMAND>
+
+<COMMAND SHELL="System" CONFIRM="FALSE">
+
+buf = new StringBuilder(bin_path);
+buf.append("php -l ");
+buf.append(" ");
+buf.append(file);
+
+</COMMAND>
+
+
+</COMMANDS>
+</COMMANDO>

@@ -1,0 +1,59 @@
+String _returnSystemCommand(View view, String command)
+{
+  // first, check if the plugin is installed.
+  if(jEdit.getPlugin("console.ConsolePlugin") == null)
+  {
+          Macros.error(view,"You must install the Console plugin"
+                  + " to use this macro.");
+          return;
+  }
+  //Macros.message(view, "Getting window manager.");
+  manager = view.getDockableWindowManager();
+  _console = (console.Console) manager.getDockable("console");
+  outputPane = _console.getOutputPane();
+
+  text = outputPane.getText();
+  textLength = text.length();
+  //runInSystemShell(view, command);
+
+  runCommandToBuffer(view, "System", command);
+
+  waitForConsole(view);
+  text = outputPane.getText();
+  textLength = text.length();
+  text = outputPane.getText().substring(textLength);
+  return text;
+}
+
+
+//------------------------------------------------------------------------------
+//  main
+//------------------------------------------------------------------------------
+
+
+/*if(buffer.isNewFile()){
+    buffer.saveAs(view, true);
+} else {
+    buffer.save(view, buffer.getPath());
+}*/
+
+mode = buffer.getMode().getName();
+path = buffer.getPath() + " ";
+
+//runCommandInConsole(view,"System","php ~/Dropbox/php/phpStylist.php "+buffer.getPath());
+//runCommandToBuffer(view, "System","php ~/Dropbox/php/phpStylist.php "+buffer.getPath());
+if(mode.equals("php"))  {
+    String out = _returnSystemCommand( view, "php ~/Dropbox/php/phpStylist.php "+path );
+
+    buffer.save(view, null, true);
+    buffer.saveAs(view, true);
+
+} else {
+    Macros.error(view,"The current file does not appear to be a 'PHP' script(found '"+mode+"' instead).");
+}
+
+
+
+
+
+

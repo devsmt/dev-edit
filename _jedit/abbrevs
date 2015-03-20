@@ -1,0 +1,617 @@
+[global]
+b_|<b>\|</b>
+<!|<!-- \| -->
+table_|\|<table id="" border="0" cellpadding="0" cellspacing="0" class="table table-condensed">\n    <caption>Caption</caption>\n    <thead>\n        <tr>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n        </tr>\n    </thead>    \n    <tbody>\n        <tr>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n        </tr>\n    </tbody>\n</table>
+sql_insert_|INSERT INTO T2 (EMPID, EMPNAME, EMPADDR)\n     VALUES (DEFAULT, :hv_name, :hv_addr)
+mp0_|margin:0; padding:0;
+N|$1 $2 = new $1(\|);
+js_|<script type="text/javascript">\|</script>
+ul_|<ul>\|</ul>
+li_|<li>\|</li>
+sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
+h3_|<h3>\|</h3>
+h6_|<h6>\|</h6>
+margin_|margin:4px auto\|;
+span_|<span class="">\|</span>
+php_|<?php\n
+div_|<div>\|</div>
+textarea_|<textarea rows="5" cols="80">\|</textarea>
+else_|else {\n}
+p_|<p>\|</p>
+label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
+border_|border: 1px solid #\|;
+elseif_| elseif(\|) {\n}\n
+anchor_|<a href="\|"></a>
+if_|if(!empty(\|)){}
+small_|<small></small>
+submit_|<input type="submit" value="Salva" id="">
+checkbox_|<input type="checkbox" name="" value="" />
+th_|<th>\|</th>
+input_file_|<input type="file" accept=".someext,image/*">
+h2_|<h2>\|</h2>
+input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0"/>
+h5_|<h5>\|</h5>
+htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
+option_|<option value="" selected></option>
+//--|//------------------------------------------------------------------------------
+len_|length
+dief_|die(__FUNCTION__."\|");
+hr_|<hr style="" />
+css_|<link rel="stylesheet" type="text/css" href="\|">
+style_|<style type="text/css">\|</style>
+for_|for($i=0;$i<count($a);$i++){\|}
+phpo_|<?=\|?>
+jq_|<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+img_|<img src="/img/\|" border="0" alt="" onerror="this.src='/img/NA.png'"/>
+form_|<form action="" method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
+foreach_|foreach($a as $k=>$v){\|}
+link_|<link rel="stylesheet" type="text/css" href="\|"/>
+fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
+h1_|<h1>\|</h1>
+select_|<select name="">\n  <option value="">Value 1</option> \n</select>
+h4_|<h4>\|</h4>
+[c++]
+[sqr]
+[nsis2]
+[asp]
+[latex]
+[factor]
+[cfscript]
+[batch]
+[assembly-mcs51]
+[vrml2]
+[groovy]
+[relax-ng-compact]
+[icon]
+[velocity]
+[patch]
+[beanshell]
+[pl1]
+[fortran90]
+[pyrex]
+[inno-setup]
+[inform]
+[netrexx]
+[eiffel]
+[fortran]
+[pl-sql9]
+[chill]
+[json]
+[macroscheduler]
+[smalltalk]
+[idl]
+[haxe]
+[pvwave]
+[smarty]
+[ada95]
+[pl-sql]
+[vala]
+[apacheconf]
+[htaccess]
+[clojure]
+[io]
+[pure]
+[sbt]
+[properties]
+[metapost]
+[rhtml]
+[powerdynamo]
+[vhdl]
+[logs]
+[maple]
+[lotos]
+[django]
+[ada]
+[php]
+foreach_|foreach($a as $k=>$v){\|}
+twb_row_|    <div class="container-fluid">\n      <div class="row-fluid">\n\t<div class="span3">\n        </div>\n      </div>\n    </div>
+php_|<?php\n
+radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
+twb_button_|<button type="button" class="btn btn-primary btn-small">txt</button>
+collapse_|border-collapse:collapse;
+global_|$GLOBALS[''] = '';
+zf_get_|$this->getRequest()->getParam('name\|');
+if_|if( !empty(\|) ) {\n}
+legend_|<fieldset>\n    <legend>description:</legend>\n \n</fieldset>
+try_|try {\n\n\|} catch (Exception $e) {\n    $msg = sprintf('Caught exception: %s line:%s file:%s',$e->getMessage(),$e->getFile(), $e->getLine() );\n    $logger->log($msg);\n//} finally {\n}\n
+twb_icon_|<i class="icon-"></i> icon-download-alt
+zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
+sprintf_|sprintf('%s %d', $s, $i);
+round_|round($f, 2);
+header_|header("Location: $url");
+zf_url_|echo $this->url($par=array('username' => 'martel'), $route_name='user');
+zf_session_|$ses = new Zend_Session_Namespace('_l10n_');\n$ses->var = '';
+input_|<input type="text" name="\|" value="">
+for_|for( $i=0; $i < count($a); $i++){\|}
+array_|$\|=array();
+unlink_|if( unlink($path) ){}
+str_match_|str_match($str, $substr\|)
+case_|case \|: {\n}  break;
+str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
+dirname_|dirname( realpath(__FILE__) )
+call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
+zf_post_|$this->getRequest()->getPost('name\|');
+array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
+date_add_|$date = new DateTime('2010-09-17');\n$date->add(new DateInterval('P1D')); // P1D=Period of 1 day\n$str_date = $date->format('Y-m-d');
+dbg_|var_dump(\|);die();
+number_format_|number_format($number, 2, ',', '.');
+__END__|$html=<<<__END__\n\|__END__;\n
+namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
+assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
+contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
+substr_count_|$c = substr_count($str, $usbstr\|);
+substr_|substr($s\|,0,2);
+issetor_|$\|= isset($a['']) ? $a[''] : null;
+implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
+in_array_|in_array('',$a);
+whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
+ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
+firebug_|FB::send('test');
+strpos_|strpos($str, $substr\|) !== false
+html_|<html>\n<head></head>\n<body>\|</body>\n</html>
+static_|//\n\tpublic static function \|(){ return ; }
+zf_config_|Zend_Registry::get('config')->company->email->support;
+sleep_|sleep(10);// seconds
+is_callable_|is_callable(array($obj, 'method_name'), false);
+date_|date('Y-m-d H:i:s');
+css_|<link href="\|" rel="stylesheet" type="text/css" />
+dump_|dump(\|,'');//dbg:
+zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
+nbsp_|&nbsp;
+array_key_exists_|array_key_exists($key, $a\|)
+define_|define("\|", "", false);
+extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
+table_|<table>\n\t<tr>\n\t\t<td>\|\t\t</td>\n\t</tr>\n</table>
+assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
+opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
+qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
+background_|background:#ffffff url('img_tree.png') no-repeat right top;
+<<<|$\| = <<<__END__\n__END__;
+private_|//\nprivate function \|(){ return true; }
+print_r_|print_r(\|,true);
+filterstr_|$v = preg_replace('/[^0-9A-Z$]/', '',  substr(trim($v), 0, 6) );
+require_|require_once dirname(__FILE__).'/\|';
+tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
+instanceof_|if( !($var instanceof ParentClass) ){ }
+str_replace_|str_replace('','',\|);
+file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
+protected_|protected function \|(){}
+f_|function(){}
+tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
+//--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
+switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
+preg_match_|// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n  $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n  die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n}\n
+rand_|rand(0,100);
+method_|protected function \|(hint $v){ \nreturn ; \n}
+bs_|&nbsp;
+filter_|$v = filter_var($v, FILTER_SANITIZE_EMAIL);
+ff_|( \| ) ? ( ) : ( );
+__construct_|public function __construct(){\n    parent::__construct();\n}
+e_|<?=$\|?>
+construct_|public function __construct(){\n   parent::__construct();\n\|}
+file_|file_put_contents($path\|,$str);
+array_slice_|array_slice($a, $pos, $len);
+td_|<td>\|&nbsp;</td>
+__map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
+hidden_|<input name="" value="" type="hidden">
+ini_get_|$v = ini_get('display_errors');
+zf_registry_|Zend_Registry::set('acl', $acl);
+br_|<br />
+zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
+apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $r) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n    var_dump( $val );\n}\n
+interface_|interface ICommand {\n    // \n    public function run();\n}
+glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
+assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
+trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHello();\n        echo 'World!';\n    }\n}\nclass MyHelloWorld extends Base {\n    use SayWorld;\n}
+methods_|echo '<pre>';\nvar_dump(get_class_methods(\|));\ndie(__FILE__.''.__FUNCTION__);
+while_|while($a=mysql_fetch_array($rs)){\|}
+phpo_|<?=\|;?>
+execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
+finally_|finally {\n\|}
+public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
+var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
+array_filter_|array_filter($a, function ($s){ return !empty($s); });
+jqonclick_|$("a").click(function(ev) {\n    ev.preventDefault();    \n});
+location_|header('Location: http://www.test.it/');
+zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
+zf_redirect_|$url = $this->view->url(array(),'route_name');\n$this->_redirect($url);
+dir_|dirname(__FILE__).'/lib.php'
+twb_tabs_|<ul class="nav nav-tabs">\n  <li class="active">\n    <a href="#">Home</a>\n  </li>\n  <li><a href="#">...</a></li>\n  <li><a href="#">...</a></li>\n</ul>
+check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
+zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
+base_convert_|base_convert($i, 10, $tobase=36 );
+explode_|explode( ',', $s\|);
+die_|die(__FUNCTION__.\|);
+zdbg_|Zend_Debug::dump($, 'label:');
+hc_|<!-- \|-->
+echo_|echo "\|"; // dbg
+propel_dbg_|$sql = BasePeer::createSelectSql($c, $a=array() );
+str_pos_|strpos($str, $substr\| ) !== false
+pre_|<pre>\|</pre>
+nb_|&nbsp;
+getParam_|$request->getParameter($name);
+mail_|$mail_res = mail($to, $subject, $message);
+out_|echo htmlspecialchars($s, ENT_QUOTES);
+const_|const CONSTANT = 'str';
+typeof_|$var instanceof ParentClass
+zf_env_|'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENVIRONMENT)
+function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
+throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
+if__|$\| = isset($c) ? $c : null;
+a_|$\| = array();
+date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
+script_|<script language="JavaScript" type="text/JavaScript">\|</script>
+array_fill_|array_fill($i=0, $n=10 , $v='');
+return_|return\| true;
+preg_replace_|$str = preg_replace('/[^a-zA-Z0-9]/', '', $str);
+zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
+except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
+chmod_|chmod(/somedir/somefile', 0755);// use octal val
+trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
+zf_flash_|$this->_helper->flashMessenger->addMessage('');
+sort_|asort($a, SORT_STRING);// &$a; asort() for keys, sort() for values, returns bool
+array_reduce_|$b = array_reduce($a,function($v, $w){\n    $v += $w;\n    return $v;\n});
+else_|else {\|}
+class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function (){}\n}
+border_|border: 1px solid #\|;
+microtime_|$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true)- $time_start );
+move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
+set_time_limit_|set_time_limit(0);
+escape_|echo htmlspecialchars($s, ENT_QUOTES);
+[yab]
+[lua]
+[makefile]
+[sas]
+[rtf]
+[ptl]
+[gcbasic]
+[xsl]
+[moin]
+[bibtex]
+[hxml]
+[modula3]
+[perl]
+[tsp]
+[transact-sql]
+[lisp]
+[smi-mib]
+[actionscript]
+[pop11]
+[progress]
+[jamon]
+[ini]
+[less]
+mp0_|margin:0; padding:0;
+alpha_|opacity:0.85;\nfilter:alpha(opacity=85);
+[html]
+<!--|<!--  \|-->
+script_|<script src="\|"></script>
+[go]
+print_|fmt.Printf("Hello %d\\n", 23)\nfmt.Fprint(os.Stdout, "Hello ", 23, "\\n")\nfmt.Println("Hello", 23)\nfmt.Println(fmt.Sprint("Hello ", 23))
+function_|func Fnamw(url string) (string, error) {\n    if ok {\n        return res, nil\n    }\n    return "", fmt.Errorf("not found: %s", url)\n}
+array_string_|as_ := [...]string{"7", "8","9"}
+foreach_|    for k, v := range pow {\n        fmt.Printf("2**%d = %d\\n", k, v)\n    }
+main_|/*\nscopo del programma:\n*/\npackage main\nimport (\n    "fmt"\n)\nfunc init(){}\nfunc main() {\n    fmt.Println("Hello, go")\n}
+make_|//for slices, maps and channels: use make, initilize to zero\n//for arrays, structs and all value types: use new\nvar v  []int = make([]int, 100) // slice int inizializzata a 0 di 100 elementi
+method_|func (f *fakeFetcher) Fetch(url string) (body string, urls []string, error) {\n    res, ok := some_method_call();\n    if ok {\n        return res.body, res.urls, nil\n    }\n    return "", nil, fmt.Errorf("not found: %s", url)\n}
+echo_|fmt.Println("Hello", 23)
+mapi_|imap := map[string]int{\n    "a": 1,\n    "b": 2,\n}
+for_|for i := 0; i < len(p); i++ {\n    fmt.Printf("p[%d] == %d\\n", i, p[i])\n}
+switch_|    // switch\n    switch os := runtime.GOOS; os {\n    case "darwin":\n        fmt.Println("OS X.")\n    case "linux":\n        fmt.Println("Linux.")\n    default:\n        fmt.Printf("%s.", os)\n    }
+ife_|if value, err := pack1.Func1(param1); err != nil {\n}
+log_|log.Fatal("$USER not set")
+delete_|delete(map, "key")
+array_int_|array := [...]int{7, 8, 9}
+flag_|    var goRoot = "";\n    flag.StringVar(&goRoot, "goroot", goRoot, "Go root directory")
+new_|//for arrays, structs and all value types: returns pinter\nvar f File = new(File)
+map_struct_|m = map[string]Vertex{\n    "Bell Labs": Vertex{X:2, Y:5},\n    "Google":    Vertex{X:5, Y:8},\n}\nfor k, v := range m {\n    fmt.Printf("The value for %s: %d %d \\n", k, v.X, v.Y )\n}
+interface_|type Block interface {\n    BlockSize() int\n    Encrypt(src, dst []byte)\n    Decrypt(src, dst []byte)\n}
+if_|if v, ok := map[k]; ok { \n    fmt.Println(k, v, " key is present")\n}
+struct_|type Circle struct {\nx, y, r float64\n}\nc := new(Circle)\nc := Circle{x: 0, y: 0, r: 5}\nfmt.Println(c.x, c.y, c.r)
+err_|if err != nil { panic(err) }
+class_|// Simple counter server.\ntype Counter struct {\n    n int\n}\n\nfunc (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {\n    ctr.n++\n    fmt.Fprintf(w, "counter = %d\\n", ctr.n)\n}
+args_|func myadd(args ...int) int {\n    total := 0\n    for _, v := range args {\n        total += v\n    }\n    return total\n}
+array_|slice1 := []int{1,2,3}
+map_|mi := make(map[string]int)\nmi["Answer"] = 42    \nfor k, v := range mi {\n}\n
+[sgml]
+[bcel]
+[psp]
+[antlr]
+[cmake]
+[ant]
+[assembly-m68k]
+[omnimark]
+[interlis]
+[mxml]
+[avro]
+[cvs-commit]
+[lilypond]
+[jsp]
+[foxpro]
+[rfc]
+[tex]
+[mail]
+[assembly-macro32]
+[svn-commit]
+[aspect-j]
+[squidconf]
+[rview]
+[jhtml]
+[jedit-actions]
+[gradle]
+[embperl]
+[mysql]
+[rd]
+[zpt]
+[objective-c]
+[mqsc]
+[lex]
+[prolog]
+[assembly-r2000]
+[sdl/pr]
+[hex]
+[swig]
+[javafx]
+[rebol]
+[s+]
+[dsssl]
+[forth]
+[nqc]
+[RPG]
+function_|     D calc_int        PR            10I 0\n     D    parm1                       5I 0 VALUE\n      * must match the corresponding prototype\n      * (PI is optional if the SubR does not return and does not have any parameters)\n      * Other def of variables, constants and prototypes, are LOCAL definitions\n      * Calc may refer to both local and global definitions\n      * SubR must contain a RETURN operation\n     P calc_int        B\n     D calc_int        PI            10I 0\n     D    parm1                       5I 0 VALUE\n     D Result          S             10I 0\n      /free\n         Result = parm1 +1;\n         return Result;\n      /end-free\n     P                 E
+read_|read(e) File_Name;\nif %error(File_Name);\n    // TODO: error reporting\nelse;\n    dow not %eof(File_Name);\n        // TODO: process record\n        read File_Name;// read next\n    enddo;\nelse;
+dou_|dou exit;\n    if cond = 1;\n        exit = *on;\n    else;\nenddo;
+free_|/free\n/end-free
+setgt_|setgt *Hival FileName;//go to file EOF\nReadP FileName;\ndow not %eof(FileName);\n    // process record\n    ReadP FileName;\nenddo;
+sub_|begsr name;\nendsr;
+setll_|setll *loval FileName;\ndow (1=1);\n  read FileName;\n  if %eof;\n    leave;\n  endif;\n  if $oo <=0;\n    iter;\n  endif;\nenddo;
+chain_|      * tabella di base\n     F intct30L uf a e           k disk    rename(intct0:intct_30) prefix(t_)\n      * DS Key, è automaticamente qualified\n     D OrdRecKeys      ds                  likerec(intct_30:*key)\n\n      /free\n         OrdRecKeys.t_tcoage   = i_coage;\n         OrdRecKeys.t_tanord   = i_anord;//puoi usare campi multipli\n         chain(e) %kds(OrdRecKeys) intct_30;\n         if %error;\n           // TODO: report key not found\n         endif;\n         if %found();\n           // t_tdaord accessibile... elabora il record come in fixed\n         endif;\n      /end-free
+atoi_|%unsh()
+replace_|\nresult_str = %replace(sustr:s1:%scan(sustr:s1):%len(sustr));
+for_|D $i              s              3u 0\nfor $i=1 to %elem(ArrayName);\n// for $i = %elem(ArrayName) downto 1 by 1;\n    ArrayName($i);\n    //iter; leave; \nendfor;\n
+h_|     H DECEDIT('0,') DATEDIT(*YMD/)\n     H option(*srcstmt : *nodebugio)\n     H dftactgrp(*no) bnddir('AW')
+switch_|    select;\n        when opt = 'A';\n            exsr AddRec;\n        when opt = 'D';\n            exsr DelRec;\n        when opt = 'C';\n            exsr ChgRec;\n    endsl;
+try_|monitor;\n\non-error;\n    retval = 'ERROR';\nendmon;
+monitor_|monitor;\n    \non-error;\n    retval = 'ERROR';\nendmon;
+while_|    dow not *in03;\n    enddo;
+sql_select_many_|     D $matM2          ds                  QUALIFIED\n     D  des1                         70a\n     D  des2                         70a\n     * per estrarre tutti i campi \n     D $zntcl        E DS                  QUALIFIED OCCURS( 50 ) INZ\n     D                                     EXTNAME( zntcl00f )\n \n     exec sql select padem1, padem2 into :$MATM2 from MATM200f;\n     if SQLCOD<>0;\n        errore = '1';\n        o_errstr  = 'SQL error SQLCOD: '+%char(SQLCOD) ;\n        o_errn = SQLCOD;\n     endif;
+*--|*-----------------------------------------------------------------------
+string_|%char() \n// cast a char di I e F
+date_|//*ISO: \n//*USA: 12312004\nD date   S    D\ndate = %char( %date(ymd:*ISO) : *USA ); \ndate = %date('040596':*MDY0);// date='1996-04-05'
+callpp_|// per usare i prototipi occorrono delle specifiche\nH dftactgrp(*no) bnddir('AW')\n  /copy *libl/srccpy,cpy_protaw\n     // prototipo di funzione, su modulo esterno\n     D aw_getc         pr             1n   EXTPROC('AW_GETC')\n     D   aw_getc_daor                 8p 0 value\n     D   aw_getc_nuor                11p 0 value\n     D   aw_getc_note                30A\n\n       // chiamata di una funzione con prototipo\n       callp aw_getc(da_ord:nu_ord:$awc_note);
+copy_|/COPY $lib/$file,$function\n/IF NOT DEFINED $MODNAME\n/DEFINE $MODNAME\n    // code goes here\n/ENDIF
+str_pos_|pos = %scan('test':s_email);
+dow_|    dow not *in03;\n    enddo;
+if_|if ();\nelseif ();\nelse;\nendif;
+charat_|pos = %check('@':s_email);
+callp_|// prototipo comando esterno\n// uso:\n//       $cmd = 'CHGJOB CCSID(*SYSVAL)';\n//       callp exec(%trim($cmd):%len(%trim($cmd)));\n     D myexec          pr                  extpgm('lib/QCMDEXC')\n     D   ex_cmd                   32702a   const\n     D   ex_cmdlen                   15p 5 const\n\n\n
+sql_select_one_|exec SQL  SELECT FName, LName, email INTO :fstname,:lstname,:email\n  FROM  contacts\n    WHERE cstnbr = :client\n    FETCH FIRST ROW ONLY;\nif (SqlCod<>0 or SQLSTATE >= '02000'); \n    // NOT FOUND leavesr;\nelse;  \n    // FOUND\nendif;\n\n
+char_replace_|str_dec = %xlate('$.,':' ':'$1,000.11');
+strtoupper_|     D U_case          C                   CONST('ABCDEFGHIJKLMNOPQRST-\n     D                                     UVWXYZAEEIOU')\n     D L_Case          C                   CONST('abcdefghijklmnopqrst-\n     D                                     uvwxyzàèéìòù')\n     $$_des = %xlate(l_case:u_case:$$_des);
+int_|%int() \n//usa unsh() per float, cast a positivo
+[s#]
+[fhtml]
+[occam]
+[objectrexx]
+[rpm-spec]
+[apdl]
+[myghty]
+[cplex-lp]
+[scala]
+[tcl]
+[rcp]
+[template-toolkit]
+[sip]
+[python]
+[i4gl]
+[clips]
+[roff]
+[rest]
+[stata]
+[twiki]
+[text]
+code_|<code bash>\n\|\n</code>
+class_|// funzione:\nclass \|// extends implements\n{\n\n}
+glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\n}
+[awk]
+[verilog]
+[outline]
+[erlang]
+[yaml]
+[assembly-ags]
+[shellscript]
+[gettext]
+[jcl]
+[jflex]
+[d]
+[c]
+[coldfusion]
+[b]
+[maven]
+[typoscript]
+[scheme]
+[dart]
+[texinfo]
+[slax]
+[assembly-agc]
+[java]
+ne|nextElement()
+Il|SwingUtilities.invokeLater(new Runnable()\n{\n\tpublic void run()\n\t{\n\t\t\|\n\t}\n});
+W|while($1)\n{\n\t\|\n}
+V|Vector
+Fd|for(int $1 = $2 - 1; $1 >= 0; $1--)\n{\n\t\|\n}
+serr|System.err.println(\|);
+Fc|for(int $1 = 0; $1 < $2.size(); $1++)\n{\n\t$3 \| = ($3)$2.get($1);\n}
+Ie|if($1)\n{\n\t|\n}\nelse\n{\n\t\n}\n
+VDE|VFS.DirectoryEntry
+S|String
+JE|JEditTextArea
+Fa|for(int $1 = 0; $1 < $2.length; $1++)\n{\n\t$3 \| = $2[$1];\n}
+P|public
+O|Object
+N|$1 $2 = new $1(\|);
+gta|getTextArea()
+gp|jEdit.getProperty(\|)
+I|if($1)\n{\n\t\|\n}
+H|Hashtable
+F|for(int $1 = 0; $1 < $2; $1++)\n{\n\t\|\n}
+Br|BufferedReader $1 = new BufferedReader(\|);
+E|Exception
+D|do\n{\n\t\|\n}\nwhile($1);
+sp|jEdit.setProperty(\|);
+Mal|MalformedURLException
+C|$1 $2 = ($1)\|
+B|Buffer
+ogs|import org.gjt.sp.
+hme|hasMoreElements()
+El|else\n{\n\t\|\n}
+IO|IOException
+gb|getBuffer()
+IN|$1 $2 = ($1)$3.next();
+Ei|else if($1)\n{\n\t\|\n}
+chs|Box.createHorizontalStrut(\|)
+Cget|($1)$2.get($3)
+sbp|jEdit.setBooleanProperty(\|);
+cg|Box.createGlue()
+logw|Log.log(Log.WARNING,this,\|);
+CtoArray|($1[])$2.toArray(new $1[$2.size()])
+logn|Log.log(Log.NOTICE,this,\|);
+logm|Log.log(Log.MESSAGE,this,\|);
+DMTN|DefaultMutableTreeNode
+loge|Log.log(Log.ERROR,this,\|);
+cvs|Box.createVerticalStrut(\|)
+logd|Log.log(Log.DEBUG,this,\|);
+WI|while($1.hasNext())\n{\n\t\|\n}
+ogsu|import org.gjt.sp.util.
+gbp|jEdit.getBooleanProperty(\|)
+main_|    public static void main(String[] args)\n    {\|}
+sout|System.out.println(\|);
+ogsj|import org.gjt.sp.jedit.
+[assembly-parrot]
+[xml]
+[dot]
+[rakefile]
+[cil]
+[powershell]
+[postscript]
+[logtalk]
+[sql-loader]
+[redcode]
+[literate-haskell]
+[renderman-rib]
+[doxygen]
+[javacc]
+[pike]
+[ruby]
+[applescript]
+[ml]
+[pascal]
+//--|//------------------------------------------------------------------------------
+case_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
+while_|cds.First;\nwhile(not cds.EOF) do begin\n  cds.Next;\nend;
+switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
+[c#]
+[bbj]
+[freemarker]
+[coffeescript]
+[vbscript]
+[url]
+[visualbasic]
+[povray]
+[jmk]
+[icalendar]
+[slate]
+[tld]
+[shtml]
+[haskell]
+[gsp]
+[hlsl]
+[n3]
+[typescript]
+[plaintex]
+[cobol]
+[csv]
+[css]
+dbg_|border: 1px solid #\|;/*dbg*/
+remove_|display: none;
+hide_|visibility:hidden;\n/*occupa posto nel layout*/
+mediaquery_|/* 480 768 */\n@media only screen and (max-width : 1024px) {\n}
+alpha_|opacity:0.85;\nfilter:alpha(opacity=85);
+show_|display:block;
+[assembly-x86]
+[binsource-agc]
+[javascript]
+jqforeach_|$.each(a, function(i,key){\|});
+jqwrap_|$("p").slice(1,3).wrap("<i></i>");\n
+jqjson_|$.getJSON("test.js",\n   { name: "John", time: "2pm" },\n   function(json){\n     alert("JSON Data: " + json.users[3].name);\n   }\n );
+json_parse_|JSON.parse(text);
+jqmerge_|var a = $.merge( [1,2], [3,4] );
+jqajax_|$.ajax({\n  url: '/data/people.json',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
+switch_|switch(\|) {\n  case : \n  break;\n  default: \n    //istruzioni \n}
+regexp_|var regexp = new RegExp(sQuery, 'gi');
+to_array_|var args = Array.prototype.slice.call(arguments);
+jqpost_|$.post("/url.php", { "k": "" }, function(data){\n   console.log(data);\|}, "json");
+jqeach_|$('li').each(function(index) {\n    alert(index + ': ' + $(this).text());\n});
+jqcheckbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
+isset_|if (typeof $var != 'undefined'){}
+jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
+apply_|fun.apply(thisArg[, argsArray]);
+typeof_|typeof \|!= 'undefined'
+require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});
+jqfind_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
+jqhover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
+json_|JSON.parse(text);\nJSON.stringify(data);
+factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
+js_log_|console.log();
+jqappend_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n
+join_|array.join(',');
+throw_|throw new Error(msg);
+class_|// funzione:\nfunction Person(name) {\n    var privateName = name || "I am private"; \n    var privateMethod = function() {\n        return privateName; \n    }\n    this.publicName = "I am public"; \n    this.publicMethod = function() {\n        alert(privateName + " get from public method!"); \n    }\n}\n// var obj3= new Person("robert");
+jqget_|$.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n});
+jqextend_|var settings = $.extend({ test: 1 }, opt);\n
+jqready_|$(function(){\|});
+interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
+jqisnode_|if( $('#selector').length > 0 ) {}
+if_|if( $jq_selection.length && !_.isEmpty(o) ) {\|}
+jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
+jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
+function_|var \| = function(){};
+while_|while( true ){\|}
+jqsubmit_|$('form').submit(function(e){\n    e.preventDefault();\n\n    var isErrorFree = true;\n\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n\n\n    if (isErrorFree){ $.post( url, data, callback, type ) }\n\n    return isErrorFree;\n});
+jqis_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
+json_encode_|JSON.stringify(data);
+jqfilter_|$(".parent").find(".bar").filter("p");
+lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
+prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
+//--|\|//------------------------------------------------------------------------------
+settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
+jqload_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
+except_|throw "errormsg\|";
+stop_|e.stopPropagation();//bubbling\ne.preventDefault();
+module_|module = function() {\n  // ... module privates and aliases\n\n  // public\n  return {\n    // ... module constants\n    init: function() {\n      return this;\n    },\n\n  };\n}().init();
+jsfilter_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
+jqanimate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
+replace_|s.replace("old","new");
+jqhasnode_|if( $('#selector').length > 0 ) {}
+for_|for( var i=0; i<a.length; i++) {\|}
+jqdisable_|$('#sameAsShipping').change(function(){\n    if( this.checked ){\n        $('#billingInfo input:text').attr('disabled','disabled');\n    } else {\n        $('#billingInfo input:text').removeAttr('disabled');\n    }\n}).trigger('change');
+jqclick_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
+method_|    method: function() {\n    },
+define_|define(["my/dependency"],\n    function(dependency) {\n        // private code\n        return function() {\n            // public code\n        }\n    }\n);
+log_|console.log(\|);
+jqtarget_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
+foreach_|for(var k in a){\n  if(a.hasOwnProperty(k)){\n    var v = a[k];\|}}
+bind_|fun.bind(thisArg[, arg1[, arg2[, ...]]])
+clo_|function(){}
+try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
+jqslide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
+jqgrep_|months = $.grep(months, function(value, i) {\nreturn ( value.indexOf('J') == 0 );\n});\n
+jqdata_|$('#myId').data('myObject', {\nlabel: $('#myLabel')[0]\n});\nvar myObject = $('#myId').data('myObject');\n
+jqfade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
+call_|fun.call(thisArg[, arg1[, arg2[, ...]]])
+jqeffects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
+jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
+object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
+[uscript]
+[gnuplot]
+[xq]

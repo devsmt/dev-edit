@@ -1,0 +1,22 @@
+// This is a recorded macro. First, check over the
+// commands to make sure this is what you intended. Then,
+// save this buffer, and the macro should appear in the
+// Macros menu.
+String myText = "";
+//textArea.getSelection()
+
+myText = textArea.getSelectedText();
+
+if( myText == null ){
+	myText = Macros.input(view, "Inserisci una stringa da cercare", "");
+} else {
+	SearchAndReplace.setSearchString(myText);
+	SearchAndReplace.setAutoWrapAround(true);
+	SearchAndReplace.setReverseSearch(false);
+	SearchAndReplace.setIgnoreCase(true);
+	SearchAndReplace.setRegexp(false);
+	SearchAndReplace.setSearchFileSet(new CurrentBufferSet());
+	SearchAndReplace.find(view);
+}
+
+

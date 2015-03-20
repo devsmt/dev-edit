@@ -1,0 +1,5 @@
+program=(*\ntest program\n*)\nprogram Hello;\nbegin\n  writeln('Hello, world.');\nend.
+unit=
+for=
+while=
+try=

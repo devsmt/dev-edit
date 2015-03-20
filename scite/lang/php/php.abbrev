@@ -1,0 +1,52 @@
+php=<?php\n|\n
+js=<script type="text/javascript">\n|\n</script>
+if=if (|) {\n    \n}
+ie=if (|) {\n    \n} else {\n    \n}
+else=else {\n    |\n}
+elseif=else if (|) {\n    \n}
+for=for($i=0; $i<count(|); $i++) {\n    \n}
+foreach=foreach (|) {\n    \n}
+while=while (|) {\n    \n}
+do=do {\n    \n} while (|);
+switch=switch (|) {\n    \n}
+try=try {\n    |\n} catch () {\n    \n}
+fcn=function |() {\n    \n}
+cls=class | {\n    \n}
+fc=final class | {\n    \n}
+ac=abstract class | {\n    \n}
+pf=public function |() {\n    \n}
+rf=protected function |() {\n    \n}
+vf=private function |() {\n    \n}
+fpf=final public function |() {\n    \n}
+frf=final protected function |() {\n    \n}
+fvf=final private function |() {\n    \n}
+fn=function |
+sf=static function |();
+a=abstract |
+e=extends |
+f=final |
+s=static |
+p=public |
+r=protected |
+v=private |
+ns=namespace |
+ps=public static |
+rs=protected static |
+vs=private static |
+psf=public static function |() {\n    \n}
+rsf=protected static function |() {\n    \n}
+vsf=private static function |() {\n    \n}
+fpsf=final public static function |() {\n    \n}
+frsf=final protected static function |() {\n    \n}
+fvsf=final private static function |() {\n    \n}
+apf=abstract public function |();
+apsf=abstract public static function |();
+itf=interface | {\n    \n}
+# Symfony shortcuts
+act=final class |_action extends action {\n    public static function run() {\n        \n    }\n}
+form=insert form code here
+php=<?php \n/**\n * In sintesi a cosa serve quesxto programma.\n */\n\nnamespace Utils;\n\n// bootstrap code if needed\n\n\n|\n
+obj=final class | {\n    public static function () {\n        \n    }\n}
+parameters=$default = array(\n'fields'=>'*'\n...\n);\nextract( array_merge($default, $opt) );
+
+

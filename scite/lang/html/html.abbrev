@@ -1,0 +1,10 @@
+xhtml=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="it-IT"><html>\n<html>\n<head>\n<title></title>\n<body>|\n</body>\n</html>
+html=<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html>\n<html>\n<head>\n<title></title>\n<body>|\n</body>\n</html>
+h1=<h1>|</h1>\n
+h2=<h2>|</h2>\n
+h3=<h3>|</h3>\n
+h4=<h1>|</h4>\n
+h5=<h5>|</h5>\n
+h6=<h6>|</h6>\n
+form=<form></form>
+div=<div id="|"></div>

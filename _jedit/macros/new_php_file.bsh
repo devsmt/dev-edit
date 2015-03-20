@@ -1,0 +1,13 @@
+// This is a recorded macro. First, check over the
+// commands to make sure this is what you intended. Then,
+// save this buffer, and the macro should appear in the
+// Macros menu.
+jEdit.newFile(view);
+textArea.setSelectedText("<?php");
+textArea.insertEnterAndIndent();
+textArea.insertEnterAndIndent();
+textArea.insertEnterAndIndent();
+textArea.setSelectedText("?>");
+textArea.goToPrevLine(false);
+textArea.goToPrevLine(false);
+buffer.save(view,'c:\test.txt',true);

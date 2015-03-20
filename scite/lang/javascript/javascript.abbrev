@@ -1,0 +1,3 @@
+fcn=function |() {\n    \n}
+for=for(var i=0; i<|.length; i++){\n}
+len=length

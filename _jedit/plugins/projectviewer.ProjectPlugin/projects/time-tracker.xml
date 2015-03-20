@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project path="/var/www/time_tracker">
+<property name="projectviewer.folder_tree_state" value="1111110101011101100" />
+<property name="projectviewer.import.filterid" value="projectviewer.importer.CVSEntriesFilter" />
+<directory path="/var/www/time_tracker/apps">
+<directory path="/var/www/time_tracker/apps/backend">
+<directory path="/var/www/time_tracker/apps/backend/modules">
+<directory path="/var/www/time_tracker/apps/backend/modules/dashboard">
+<directory path="/var/www/time_tracker/apps/backend/modules/dashboard/actions">
+<file path="/var/www/time_tracker/apps/backend/modules/dashboard/actions/actions.class.php" />
+</directory>
+<directory path="/var/www/time_tracker/apps/backend/modules/dashboard/templates">
+<file path="/var/www/time_tracker/apps/backend/modules/dashboard/templates/indexSuccess.php" />
+</directory>
+</directory>
+</directory>
+</directory>
+</directory>
+<directory path="/var/www/time_tracker/bin">
+<file path="/var/www/time_tracker/bin/ncurses_spike.php" />
+</directory>
+<directory path="/var/www/time_tracker/lib">
+<directory path="/var/www/time_tracker/lib/form">
+<directory path="/var/www/time_tracker/lib/form/doctrine">
+<file path="/var/www/time_tracker/lib/form/doctrine/InvoiceForm.class.php" />
+</directory>
+</directory>
+<directory path="/var/www/time_tracker/lib/model">
+<directory path="/var/www/time_tracker/lib/model/doctrine">
+<file path="/var/www/time_tracker/lib/model/doctrine/ContocorrenteTable.class.php" />
+<file path="/var/www/time_tracker/lib/model/doctrine/InvoiceTable.class.php" />
+</directory>
+</directory>
+</directory>
+</project>

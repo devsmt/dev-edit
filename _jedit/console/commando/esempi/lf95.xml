@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+
+<!-- Compile current buffer with the Lahey-Fujitsu Fortran 95 compiler. -->
+<!-- Use: In order to create a definition for the LF95 compiler, place the current
+     file at the Commando subdirectory (you should find it somewhere in $HOME/.jedit).
+     It creates a tab under the name "lf95" in the Commando toolbar, which you can use
+     to compile-run the buffer with all the available options. -->
+
+<!-- Created by Christos Tsironis (ctsir@hotmail.com), 02-12-2005 -->
+
+<!DOCTYPE COMMANDO SYSTEM "commando.dtd">
+
+<COMMANDO>
+  <UI>
+	<CAPTION LABEL="Compile">
+	 <FILE_ENTRY LABEL="LF95 command" 
+	        VARNAME="lf95" DEFAULT="lf95" />
+	  <FILE_ENTRY LABEL="Source file(s)" 
+	        VARNAME="source" EVAL="buffer.getName()" />
+	</CAPTION>
+	<CAPTION LABEL="Compiler Options">
+	 <TOGGLE LABEL="Extend single precision reals to double precision"
+	        VARNAME="spr2dpr" DEFAULT="FALSE" />
+         <TOGGLE LABEL="Extend integers to long integers"
+	        VARNAME="int2long" DEFAULT="FALSE" />	
+	  <TOGGLE LABEL="Ensure consistent arithmetic precision"
+	        VARNAME="arprec" DEFAULT="FALSE" />
+	  <TOGGLE LABEL="Deallocate allocatable arrays"
+	        VARNAME="dealloc" DEFAULT="FALSE" />
+	  <TOGGLE LABEL="Display warnings"
+	        VARNAME="warn" DEFAULT="TRUE" />
+	  <TOGGLE LABEL="Turn on F95 conformance warnings"
+	        VARNAME="f95warn" DEFAULT="FALSE" />	
+	</CAPTION>
+	<CAPTION LABEL="Linker options">
+	  <TOGGLE LABEL="Classical, memory and interprocedural optimizations" 
+	        VARNAME="optims" DEFAULT="FALSE" />
+	  <TOGGLE LABEL="Automatic parallelization" 
+	        VARNAME="autopar" DEFAULT="FALSE" />
+	  <TOGGLE LABEL="Enable OpenMP directives" 
+	        VARNAME="openmp" DEFAULT="FALSE" />
+	  <DIR_ENTRY LABEL="Directory containing include files" 
+	        VARNAME="incldir" DEFAULT="" />
+	  <DIR_ENTRY LABEL="Directory containing module files" 
+	        VARNAME="moddir" DEFAULT="" />
+	  <ENTRY LABEL="Specify library to link" 
+	        VARNAME="linklib" DEFAULT="" />
+	  <DIR_ENTRY LABEL="Specify directory to find library in" 
+	        VARNAME="linkpath" DEFAULT="" />
+	  <ENTRY LABEL="Specify output file name" 
+                VARNAME="output" DEFAULT="" /> 
+	</CAPTION>
+	<CAPTION LABEL="Other options">
+	 <TOGGLE LABEL="Suppress linking after compile" 
+	        VARNAME="noautolink" DEFAULT="FALSE" />
+	 <TOGGLE LABEL="Generate debugging information" 
+	        VARNAME="dbginf" DEFAULT="TRUE" />
+	 <ENTRY LABEL="Additional LF95 options"
+	        VARNAME="addopts" DEFAULT="" />
+	</CAPTION>
+  </UI>
+  <COMMANDS>
+	<COMMAND SHELL="System" CONFIRM="FALSE"> <!-- change to working directory -->
+	  buf = new StringBuffer("cd ");
+	  buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
+	  buf.toString();
+	</COMMAND>
+	<COMMAND SHELL="System" CONFIRM="FALSE">
+	  buf = new StringBuffer(lf95);
+          if(arprec) buf.append(" --[n]ap");	
+	  if(dealloc) buf.append(" --[n]dal");  
+	  if(spr2dpr) buf.append(" --[n]dbl");
+	  if(f95warn) buf.append(" --[n]f95");
+	  if(int2long) buf.append(" --[n]long");
+	  if(warn) buf.append(" --[n]warn");
+	  if(noautolink) buf.append(" -c");
+	  if(dbginf) buf.append(" -g");
+	  if(!incldir.equals("")) {
+		buf.append(" ");
+         	buf.append("-I "+incldir);
+	  }
+	  if(!moddir.equals("")) {
+		buf.append(" ");
+		buf.append("-M "+moddir);
+	  }
+	  if(!linklib.equals("")) {
+		buf.append(" ");
+		buf.append("-l "+linklib);
+	  }
+	  if(!linkpath.equals("")) {
+		buf.append(" ");
+		buf.append("-L "+linkpath);
+	  } 
+	  if(optims) buf.append(" -O");
+   	  if(!output.equals("")) {
+		buf.append(" ");
+		buf.append("-o "+output);
+	  }  
+	  if(openmp) buf.append(" --[n]openmp");
+	  if(autopar) buf.append(" --[n]parallel");
+	  if(!addopts.equals("")) {
+		buf.append(" ");
+		buf.append(addopts);
+	  }
+          buf.append(" ");
+	  buf.append(source);
+	  buf.toString();
+	</COMMAND>
+  </COMMANDS>
+</COMMANDO>
+

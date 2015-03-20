@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QUnit Test Suite</title>
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qunit/1.13.0/qunit.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/qunit/1.13.0/qunit.min.js"></script>
+
+
+<!-- Your application -->
+<script src="app.js"></script>
+
+<!-- Your tests
+<script src="tests.js"></script>
+-->
+<script>
+//Separate tests into modules.
+module("Module B");
+
+test("some other test", function() {
+  //Specify how many assertions are expected to run within a test.
+  expect(2);
+  //A comparison assertion, equivalent to JUnit's assertEquals.
+  equals( true, false, "failing test" );
+  equals( true, true, "passing test" );
+});
+</script>
+</head>
+<body>
+    <h1 id="qunit-header">QUnit Test Suite</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests">test markup, hidden.</ol>
+</body>
+</html>

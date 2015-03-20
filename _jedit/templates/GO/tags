@@ -1,0 +1,15 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+S	main.go	/^const S = "test str"$/;"	c
+Vertex	main.go	/^type Vertex struct {$/;"	t
+_add	main.go	/^func _add(x int, y int) int {$/;"	f
+_swap	main.go	/^func _swap(x, y string) (string, string) {$/;"	f
+i	main.go	/^var i int = 0$/;"	v
+main	hello.go	/^func main() {$/;"	f
+main	hello.go	/^package main$/;"	p
+main	main.go	/^func main() {$/;"	f
+main	main.go	/^package main$/;"	p

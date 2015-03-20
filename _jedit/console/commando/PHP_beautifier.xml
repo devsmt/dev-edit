@@ -1,0 +1,78 @@
+
+<COMMANDO>
+<UI>
+<CAPTION LABEL="php_beautifier">
+<FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
+</CAPTION>
+<CAPTION LABEL="Path to bin">
+<ENTRY LABEL="(no spaces)" VARNAME="bin_path" DEFAULT="/usr/bin/"/>
+</CAPTION>
+
+<!--
+<CAPTION LABEL="Choose compile or run">
+<CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
+<OPTION  LABEL="run" VALUE="run"/>
+<OPTION LABEL="compile" VALUE="compile"/>
+</CHOICE>
+</CAPTION>
+-->
+
+
+</UI>
+
+<COMMANDS>
+
+<COMMAND SHELL="System" CONFIRM="FALSE">
+<!-- cd to working dir -->
+
+buf = new StringBuilder("cd ");
+buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
+buf.toString();
+
+</COMMAND>
+
+<COMMAND SHELL="System" CONFIRM="FALSE">
+// do backup orig
+buf = new StringBuilder("");
+buf.append("cp ");
+buf.append(file);
+buf.append(" /tmp/");
+buf.append(file);
+buf.append("_ ");// backup suffix "_"
+</COMMAND>
+
+<COMMAND SHELL="System" CONFIRM="FALSE">
+// beautify in ".phpB"
+buf = new StringBuilder(bin_path);
+buf.append("php_beautifier");
+
+// non funziona zfish()
+// non funziona NewLines(before=if:switch:T_CLASS,after=T_COMMENT:function)\"
+
+// buf.append(" --filters=\\"ArrayNested()\\"  ");
+// filters = "ArrayNested() NewLines(before=switch:while:for:foreach:T_CLASS:return:break) Pear(add-header=false)"
+
+buf.append(" -f ");
+buf.append(file);
+buf.append(" -o /tmp/");
+buf.append(file);
+buf.append("B ");
+
+</COMMAND>
+
+
+
+
+<COMMAND SHELL="System" CONFIRM="FALSE">
+// mv beuty in orig
+buf = new StringBuilder("");
+buf.append("mv /tmp/");
+buf.append(file);
+buf.append("B ");
+buf.append(file);
+buf.append("");
+</COMMAND>
+
+
+</COMMANDS>
+</COMMANDO>

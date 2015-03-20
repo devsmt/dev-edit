@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+    <PROPS>
+        <PROPERTY NAME="commentStart" VALUE="/*" />
+        <PROPERTY NAME="commentEnd" VALUE="*/" />
+        <PROPERTY NAME="lineComment" VALUE="//" />
+        <PROPERTY NAME="wordBreakChars" VALUE=",+-=&lt;&gt;/?^&amp;*" />
+
+        <!-- Auto indent -->
+        <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+        <PROPERTY NAME="indentCloseBrackets" VALUE="}" />
+        <PROPERTY NAME="unalignedOpenBrackets" VALUE="(" />
+        <PROPERTY NAME="unalignedCloseBrackets" VALUE=")" />
+        <PROPERTY NAME="indentNextLine"
+            VALUE="(?!^\s*(#|//)).*(\b(if|while|for)\s*\(.*\)|\b(else|do)\b)[^{;]*$" />
+        <PROPERTY NAME="unindentThisLine"
+            VALUE="^\s*((case\b.*|[\p{Alpha}_][\p{Alnum}_]*)\s*:(?!:)).*$" />
+        <PROPERTY NAME="electricKeys" VALUE=":" />
+    </PROPS>
+
+    <RULES
+        IGNORE_CASE="FALSE"
+        HIGHLIGHT_DIGITS="TRUE" DIGIT_RE="[0-9][0-9a-zA-Z]*">
+        <EOL_SPAN TYPE="KEYWORD2" AT_WHITESPACE_END="TRUE" DELEGATE="CPP">#</EOL_SPAN>
+
+        <IMPORT DELEGATE="LEX"/>
+        <IMPORT DELEGATE="CORE"/>
+    </RULES>
+
+    <RULES SET="LEX" IGNORE_CASE="FALSE">
+        <IMPORT DELEGATE="COMMENTS" />
+        <IMPORT DELEGATE="C_LEXER" />
+    </RULES>
+
+    <!-- Comments, Trigraph, Alternate-Tokens -->
+    <RULES SET="C_LEXER"
+        IGNORE_CASE="FALSE"
+        HIGHLIGHT_DIGITS="TRUE" DIGIT_RE="[0-9][0-9a-zA-Z]*">
+
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+            <BEGIN>L"</BEGIN>
+            <END>"</END>
+        </SPAN>
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+            <BEGIN>"</BEGIN>
+            <END>"</END>
+        </SPAN>
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+            <BEGIN>L'</BEGIN>
+            <END>'</END>
+        </SPAN>
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+            <BEGIN>'</BEGIN>
+            <END>'</END>
+        </SPAN>
+
+        <!-- Trigraphs -->
+        <SEQ TYPE="LITERAL4">??(</SEQ>
+        <SEQ TYPE="LITERAL4">??/</SEQ>
+        <SEQ TYPE="LITERAL4">??)</SEQ>
+        <SEQ TYPE="LITERAL4">??'</SEQ>
+        <SEQ TYPE="LITERAL4">??&lt;</SEQ>
+        <SEQ TYPE="LITERAL4">??!</SEQ>
+        <SEQ TYPE="LITERAL4">??&gt;</SEQ>
+        <SEQ TYPE="LITERAL4">??-</SEQ>
+        <SEQ TYPE="LITERAL4">??=</SEQ>
+
+        <!-- Alternate tokens -->
+        <SEQ TYPE="LITERAL4">&lt;:</SEQ>
+        <SEQ TYPE="LITERAL4">:&gt;</SEQ>
+        <SEQ TYPE="LITERAL4">&lt;%</SEQ>
+        <SEQ TYPE="LITERAL4">%&gt;</SEQ>
+        <SEQ TYPE="LITERAL4">%:</SEQ>
+
+        <!-- Labels.
+            This is a part of core language syntax, but must be here
+            because it can't work after SEQ for ':'. -->
+        <MARK_PREVIOUS AT_WHITESPACE_END="TRUE"
+            MATCH_TYPE="OPERATOR"
+            TYPE="LABEL">:</MARK_PREVIOUS>
+
+        <!-- Function-like macro or function calls.
+            This can't work after SEQ for '('. -->
+        <MARK_PREVIOUS
+            TYPE="FUNCTION"
+            MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
+
+        <SEQ TYPE="OPERATOR">=</SEQ>
+        <SEQ TYPE="OPERATOR">!</SEQ>
+        <SEQ TYPE="OPERATOR">+</SEQ>
+        <SEQ TYPE="OPERATOR">-</SEQ>
+        <SEQ TYPE="OPERATOR">/</SEQ>
+        <SEQ TYPE="OPERATOR">*</SEQ>
+        <SEQ TYPE="OPERATOR">&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;</SEQ>
+        <SEQ TYPE="OPERATOR">%</SEQ>
+        <SEQ TYPE="OPERATOR">&amp;</SEQ>
+        <SEQ TYPE="OPERATOR">|</SEQ>
+        <SEQ TYPE="OPERATOR">^</SEQ>
+        <SEQ TYPE="OPERATOR">~</SEQ>
+        <SEQ TYPE="OPERATOR">?</SEQ>
+        <SEQ TYPE="OPERATOR">:</SEQ>
+        <SEQ TYPE="OPERATOR">.</SEQ>
+        <SEQ TYPE="OPERATOR">,</SEQ>
+        <SEQ TYPE="OPERATOR">[</SEQ>
+        <SEQ TYPE="OPERATOR">]</SEQ>
+        <SEQ TYPE="OPERATOR">)</SEQ>
+        <SEQ TYPE="OPERATOR">}</SEQ>
+        <SEQ TYPE="OPERATOR">{</SEQ>
+        <SEQ TYPE="OPERATOR">;</SEQ>
+
+        <KEYWORDS>
+
+            <KEYWORD3>and</KEYWORD3>
+            <KEYWORD3>bitor</KEYWORD3>
+            <KEYWORD3>not</KEYWORD3>
+            <KEYWORD3>or</KEYWORD3>
+            <KEYWORD3>xor</KEYWORD3>
+
+        </KEYWORDS>
+    </RULES>
+
+    <!-- Core language -->
+    <RULES SET="CORE"
+        IGNORE_CASE="true"
+        HIGHLIGHT_DIGITS="TRUE" DIGIT_RE="[0-9][0-9a-zA-Z]*">
+        <KEYWORDS>
+
+
+
+            <!-- Keywords -->
+            <KEYWORD1>free</KEYWORD1>
+            <KEYWORD1>end-free</KEYWORD1>
+
+            <KEYWORD1>if</KEYWORD1>
+            <KEYWORD1>else</KEYWORD1>
+            <KEYWORD1>elseif</KEYWORD1>
+            <KEYWORD1>endif</KEYWORD1>
+            <KEYWORD1>for</KEYWORD1>
+            <KEYWORD1>endfor</KEYWORD1>
+            <KEYWORD1>leave</KEYWORD1>
+            <KEYWORD1>iter</KEYWORD1>
+            <KEYWORD1>return</KEYWORD1>
+            <KEYWORD1>monitor</KEYWORD1>
+            <KEYWORD1>on-error</KEYWORD1>
+            <KEYWORD1>endmon</KEYWORD1>
+
+            <KEYWORD1>eval</KEYWORD1>
+            <KEYWORD1>exsr</KEYWORD1>
+            <KEYWORD1>exec</KEYWORD1>
+            <KEYWORD1>sql</KEYWORD1>
+
+            <KEYWORD1>/free</KEYWORD1>
+            <KEYWORD1>/end-free</KEYWORD1>
+            <KEYWORD1>/exec</KEYWORD1>
+            <KEYWORD1>/end-exec</KEYWORD1>
+            <!-- Keywords -->
+            <KEYWORD2>begsr</KEYWORD2>
+            <KEYWORD2>endsr</KEYWORD2>
+            <KEYWORD2>dim</KEYWORD2>
+
+
+            <!-- def specification keyword -->
+            <KEYWORD2>export</KEYWORD2>
+            <KEYWORD2>const</KEYWORD2>
+            <KEYWORD2>INZ</KEYWORD2>
+            <KEYWORD2>LEN</KEYWORD2>
+            <KEYWORD2>LIKE</KEYWORD2>
+            <KEYWORD2>LIKEDS</KEYWORD2>
+            <KEYWORD2>LIKEREC</KEYWORD2>
+            <KEYWORD2>NOOPT</KEYWORD2>
+            <KEYWORD2>OCCURS</KEYWORD2>
+            <KEYWORD2>OVERLAY</KEYWORD2>
+            <KEYWORD2>PACKEVEN</KEYWORD2>
+            <KEYWORD2>PERRCD</KEYWORD2>
+            <KEYWORD2>PREFIX</KEYWORD2>
+            <KEYWORD2>QUALIFIED</KEYWORD2>
+            <KEYWORD2>PROCPTR</KEYWORD2>
+            <KEYWORD2>STATIC</KEYWORD2>
+            <KEYWORD2>TEMPLATE</KEYWORD2>
+            <KEYWORD2>TIMFMT</KEYWORD2>
+            <KEYWORD2>TOFILE</KEYWORD2>
+            <KEYWORD2>VARYING</KEYWORD2>
+
+
+
+
+            <!-- Types -->
+            <KEYWORD3>long</KEYWORD3>
+            <KEYWORD3>struct</KEYWORD3>
+
+            <LITERAL2>false</LITERAL2>
+            <LITERAL2>plist</LITERAL2>
+            <LITERAL2>parm</LITERAL2>
+
+
+            <!-- keywords -->
+            <MARKUP>*srcstmt</MARKUP>
+            <MARKUP>*nodebugio</MARKUP>
+            <MARKUP>*entry</MARKUP>
+            <MARKUP>*blanks</MARKUP>
+            <MARKUP>pragma</MARKUP>
+            <MARKUP>*inlr</MARKUP>
+            <MARKUP>*on</MARKUP>
+            <MARKUP>*off</MARKUP>
+
+            <!-- BIFs -->
+            <KEYWORD2>%ABS</KEYWORD2>
+            <KEYWORD2>%ADDR</KEYWORD2>
+            <KEYWORD2>%ALLOC</KEYWORD2>
+            <KEYWORD2>%CHAR</KEYWORD2>
+            <KEYWORD2>%CHECK</KEYWORD2>
+            <KEYWORD2>%CHECKR</KEYWORD2>
+            <KEYWORD2>%DATE</KEYWORD2>
+            <KEYWORD2>%DAYS</KEYWORD2>
+            <KEYWORD2>%DEC</KEYWORD2>
+            <KEYWORD2>%DECH</KEYWORD2>
+            <KEYWORD2>%DECPOS</KEYWORD2>
+            <KEYWORD2>%DIFF</KEYWORD2>
+            <KEYWORD2>%DIV</KEYWORD2>
+            <KEYWORD2>%EDITC</KEYWORD2>
+            <KEYWORD2>%EDITFLT</KEYWORD2>
+            <KEYWORD2>%EDITW</KEYWORD2>
+            <KEYWORD2>%ELEM</KEYWORD2>
+            <KEYWORD2>%EOF</KEYWORD2>
+            <KEYWORD2>%EQUAL</KEYWORD2>
+            <KEYWORD2>%ERROR</KEYWORD2>
+            <KEYWORD2>%FLOAT</KEYWORD2>
+            <KEYWORD2>%FOUND</KEYWORD2>
+            <KEYWORD2>%GRAPH</KEYWORD2>
+            <KEYWORD2>%HOURS</KEYWORD2>
+            <KEYWORD2>%INT</KEYWORD2>
+            <KEYWORD2>%INTH</KEYWORD2>
+            <KEYWORD2>%LEN</KEYWORD2>
+            <KEYWORD2>%LOOKUPxx</KEYWORD2>
+            <KEYWORD2>%MINUTES</KEYWORD2>
+            <KEYWORD2>%MONTHS</KEYWORD2>
+            <KEYWORD2>%MSECONDS</KEYWORD2>
+            <KEYWORD2>%NULLIND</KEYWORD2>
+            <KEYWORD2>%OCCUR</KEYWORD2>
+            <KEYWORD2>%OPEN</KEYWORD2>
+            <KEYWORD2>%PADDR</KEYWORD2>
+            <KEYWORD2>%PARMS</KEYWORD2>
+            <KEYWORD2>%REALLOC</KEYWORD2>
+            <KEYWORD2>%REM</KEYWORD2>
+            <KEYWORD2>%REPLACE</KEYWORD2>
+            <KEYWORD2>%SCAN</KEYWORD2>
+            <KEYWORD2>%SECONDS</KEYWORD2>
+            <KEYWORD2>%SHTDN</KEYWORD2>
+            <KEYWORD2>%SIZE</KEYWORD2>
+            <KEYWORD2>%SQRT</KEYWORD2>
+            <KEYWORD2>%STATUS</KEYWORD2>
+            <KEYWORD2>%STR</KEYWORD2>
+            <KEYWORD2>%SUBDT</KEYWORD2>
+            <KEYWORD2>%SUBST</KEYWORD2>
+            <KEYWORD2>%THIS</KEYWORD2>
+            <KEYWORD2>%TIME</KEYWORD2>
+            <KEYWORD2>%TIMESTAMP</KEYWORD2>
+            <KEYWORD2>%TLOOKUPxx</KEYWORD2>
+            <KEYWORD2>%TRIM</KEYWORD2>
+            <KEYWORD2>%TRIML</KEYWORD2>
+            <KEYWORD2>%TRIMR</KEYWORD2>
+            <KEYWORD2>%UCS2</KEYWORD2>
+            <KEYWORD2>%UNS</KEYWORD2>
+            <KEYWORD2>%UNSH</KEYWORD2>
+            <KEYWORD2>%XFOOT</KEYWORD2>
+            <KEYWORD2>%XLATE</KEYWORD2>
+            <KEYWORD2>%YEARS</KEYWORD2>
+
+            <!-- operations -->
+            <KEYWORD3>write</KEYWORD3>
+            <KEYWORD3>update</KEYWORD3>
+
+            <KEYWORD4>BLANK</KEYWORD4>
+            <KEYWORD4>BLANKS</KEYWORD4>
+            <KEYWORD4>ZERO</KEYWORD4>
+            <KEYWORD4>ZEROS</KEYWORD4>
+            <KEYWORD4>HIVAL</KEYWORD4>
+            <KEYWORD4>LOVAL</KEYWORD4>
+            <KEYWORD4>NULL</KEYWORD4>
+            <KEYWORD4>ON</KEYWORD4>
+            <KEYWORD4>OFF</KEYWORD4>
+            <KEYWORD4>DMY</KEYWORD4>
+
+
+
+
+
+        </KEYWORDS>
+    </RULES>
+
+
+
+
+    <!-- Different comment styles. -->
+    <RULES SET="COMMENTS">
+        <!-- Doxygen comment, Javadoc style -->
+        <SEQ TYPE="COMMENT1">/**/</SEQ>
+        <SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">
+            <BEGIN>/**&lt;</BEGIN>
+            <END>*/</END>
+        </SPAN>
+        <SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">
+            <BEGIN>/**</BEGIN>
+            <END>*/</END>
+        </SPAN>
+        <EOL_SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">///&lt;</EOL_SPAN>
+        <EOL_SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">///</EOL_SPAN>
+
+        <!-- Doxygen comment, Qt style -->
+        <SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">
+            <BEGIN>/*!&lt;</BEGIN>
+            <END>*/</END>
+        </SPAN>
+        <SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">
+            <BEGIN>/*!</BEGIN>
+            <END>*/</END>
+        </SPAN>
+        <EOL_SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">//!&lt;</EOL_SPAN>
+        <EOL_SPAN TYPE="COMMENT3" DELEGATE="doxygen::DOXYGEN">//!</EOL_SPAN>
+
+        <!-- C style comment
+        <SPAN TYPE="COMMENT1">
+            <BEGIN>/*</BEGIN>
+            <END>*/</END>
+        </SPAN>
+        -->
+        <EOL_SPAN TYPE="COMMENT1">//</EOL_SPAN>
+    </RULES>
+
+
+
+
+
+
+</MODE>
+

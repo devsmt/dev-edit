@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project path="/home/taz/.jedit">
+<property name="projectviewer.folder_tree_state" value="100000000000000000000000000" />
+<property name="projectviewer.import.filterid" value="projectviewer.importer.GlobFilter" />
+<directory path="/home/taz/.jedit/CtagsInterface">
+<directory path="/home/taz/.jedit/CtagsInterface/index">
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.fdt" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.fdx" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.fnm" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.frq" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.nrm" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.prx" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.tii" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_0.tis" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7u.cfs" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.fdt" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.fdx" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.fnm" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.frq" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.nrm" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.prx" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.tii" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v.tis" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_7v_4.del" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_8d.cfs" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_8e.cfs" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_8f.cfs" />
+<file path="/home/taz/.jedit/CtagsInterface/index/_8g.cfs" />
+<file path="/home/taz/.jedit/CtagsInterface/index/segments.gen" />
+<file path="/home/taz/.jedit/CtagsInterface/index/segments_8i" />
+<file path="/home/taz/.jedit/CtagsInterface/index/write.lock" />
+</directory>
+<file path="/home/taz/.jedit/CtagsInterface/files0" />
+<file path="/home/taz/.jedit/CtagsInterface/tags0" />
+</directory>
+<directory path="/home/taz/.jedit/DockableWindowManager">
+<file path="/home/taz/.jedit/DockableWindowManager/perspective-view0.xml" />
+<file path="/home/taz/.jedit/DockableWindowManager/perspective-view1.xml" />
+</directory>
+<directory path="/home/taz/.jedit/SuperAbbrevs">
+<file path="/home/taz/.jedit/SuperAbbrevs/abbrev_functions.bsh" />
+<file path="/home/taz/.jedit/SuperAbbrevs/beanshell" />
+<file path="/home/taz/.jedit/SuperAbbrevs/c" />
+<file path="/home/taz/.jedit/SuperAbbrevs/css" />
+<file path="/home/taz/.jedit/SuperAbbrevs/global" />
+<file path="/home/taz/.jedit/SuperAbbrevs/global.variables" />
+<file path="/home/taz/.jedit/SuperAbbrevs/html" />
+<file path="/home/taz/.jedit/SuperAbbrevs/java" />
+<file path="/home/taz/.jedit/SuperAbbrevs/javacc" />
+<file path="/home/taz/.jedit/SuperAbbrevs/javascript" />
+<file path="/home/taz/.jedit/SuperAbbrevs/ml" />
+<file path="/home/taz/.jedit/SuperAbbrevs/pascal" />
+<file path="/home/taz/.jedit/SuperAbbrevs/php" />
+<file path="/home/taz/.jedit/SuperAbbrevs/ruby" />
+<file path="/home/taz/.jedit/SuperAbbrevs/scheme" />
+<file path="/home/taz/.jedit/SuperAbbrevs/shellscript" />
+<file path="/home/taz/.jedit/SuperAbbrevs/template_generation_functions.bsh" />
+<file path="/home/taz/.jedit/SuperAbbrevs/tex" />
+<file path="/home/taz/.jedit/SuperAbbrevs/text" />
+<file path="/home/taz/.jedit/SuperAbbrevs/vhdl" />
+<file path="/home/taz/.jedit/SuperAbbrevs/xml" />
+<file path="/home/taz/.jedit/SuperAbbrevs/xsl" />
+</directory>
+<directory path="/home/taz/.jedit/console">
+<directory path="/home/taz/.jedit/console/commando">
+<directory path="/home/taz/.jedit/console/commando/esempi">
+<file path="/home/taz/.jedit/console/commando/esempi/coffee.xml" />
+<file path="/home/taz/.jedit/console/commando/esempi/g77.xml" />
+<file path="/home/taz/.jedit/console/commando/esempi/lf95.xml" />
+<file path="/home/taz/.jedit/console/commando/esempi/python.xml" />
+</directory>
+</directory>
+</directory>
+<directory path="/home/taz/.jedit/jars">
+<file path="/home/taz/.jedit/jars/Beauty.jar" />
+<file path="/home/taz/.jedit/jars/BufferList.jar" />
+<file path="/home/taz/.jedit/jars/BufferTabs.jar" />
+<file path="/home/taz/.jedit/jars/Code2HTML.jar" />
+<file path="/home/taz/.jedit/jars/ColumnRuler.jar" />
+<file path="/home/taz/.jedit/jars/CommonControls.jar" />
+<file path="/home/taz/.jedit/jars/Completion.jar" />
+<file path="/home/taz/.jedit/jars/Console.jar" />
+<file path="/home/taz/.jedit/jars/ContextMenu.jar" />
+<file path="/home/taz/.jedit/jars/CtagsInterface.jar" />
+<file path="/home/taz/.jedit/jars/CtagsSideKick.jar" />
+<file path="/home/taz/.jedit/jars/EclipseIcons.jar" />
+<file path="/home/taz/.jedit/jars/ErrorList.jar" />
+<file path="/home/taz/.jedit/jars/FTP.jar" />
+<file path="/home/taz/.jedit/jars/FastOpen.jar" />
+<file path="/home/taz/.jedit/jars/GnuRegexp.jar" />
+<file path="/home/taz/.jedit/jars/Highlight.jar" />
+<file path="/home/taz/.jedit/jars/Hyperlinks.jar" />
+<file path="/home/taz/.jedit/jars/JDiffPlugin.jar" />
+<file path="/home/taz/.jedit/jars/JSLint.jar" />
+<file path="/home/taz/.jedit/jars/JakartaCommons.jar" />
+<file path="/home/taz/.jedit/jars/JavaScriptShell.jar" />
+<file path="/home/taz/.jedit/jars/LucenePlugin.jar" />
+<file path="/home/taz/.jedit/jars/MarkdownPlugin.jar" />
+<file path="/home/taz/.jedit/jars/MarkerSets.jar" />
+<file path="/home/taz/.jedit/jars/Minimap.jar" />
+<file path="/home/taz/.jedit/jars/Navigator.jar" />
+<file path="/home/taz/.jedit/jars/Outline.jar" />
+<file path="/home/taz/.jedit/jars/PHPParser.jar" />
+<file path="/home/taz/.jedit/jars/ProjectViewer.jar" />
+<file path="/home/taz/.jedit/jars/QuickNotepad.jar" />
+<file path="/home/taz/.jedit/jars/RhinoPlugin.jar" />
+<file path="/home/taz/.jedit/jars/ScalacPlugin.jar" />
+<file path="/home/taz/.jedit/jars/ScriptEnginePlugin.jar" />
+<file path="/home/taz/.jedit/jars/Sessions.jar" />
+<file path="/home/taz/.jedit/jars/SideKick.jar" />
+<file path="/home/taz/.jedit/jars/SpellCheck.jar" />
+<file path="/home/taz/.jedit/jars/SuperAbbrevs.jar" />
+<file path="/home/taz/.jedit/jars/Tags.jar" />
+<file path="/home/taz/.jedit/jars/TaskList.jar" />
+<file path="/home/taz/.jedit/jars/Templates.jar" />
+<file path="/home/taz/.jedit/jars/UpdaterPlugin.jar" />
+<file path="/home/taz/.jedit/jars/WhiteSpace.jar" />
+<file path="/home/taz/.jedit/jars/XML.jar" />
+<file path="/home/taz/.jedit/jars/XPTracker.jar" />
+<file path="/home/taz/.jedit/jars/XercesPlugin.jar" />
+<file path="/home/taz/.jedit/jars/bcel-5.2.jar" />
+<file path="/home/taz/.jedit/jars/colorchooser.jar" />
+<file path="/home/taz/.jedit/jars/commons-codec-1.3.jar" />
+<file path="/home/taz/.jedit/jars/commons-collections-3.2.jar" />
+<file path="/home/taz/.jedit/jars/commons-httpclient-3.0.1.jar" />
+<file path="/home/taz/.jedit/jars/commons-lang-2.3.jar" />
+<file path="/home/taz/.jedit/jars/commons-logging-1.1.jar" />
+<file path="/home/taz/.jedit/jars/commons-net-1.4.1.jar" />
+<file path="/home/taz/.jedit/jars/finish-him.jar" />
+<file path="/home/taz/.jedit/jars/hunspell.jar" />
+<file path="/home/taz/.jedit/jars/jing.jar" />
+<file path="/home/taz/.jedit/jars/jna.jar" />
+<file path="/home/taz/.jedit/jars/jsch.jar" />
+<file path="/home/taz/.jedit/jars/kappalayout.jar" />
+<file path="/home/taz/.jedit/jars/log4j-1.2.14.jar" />
+<file path="/home/taz/.jedit/jars/lucene-core.jar" />
+<file path="/home/taz/.jedit/jars/lucene-highlighter.jar" />
+<file path="/home/taz/.jedit/jars/lucene-memory.jar" />
+<file path="/home/taz/.jedit/jars/mysql-connector-java-2.0.14-bin.jar" />
+<file path="/home/taz/.jedit/jars/oro-2.0.8.jar" />
+<file path="/home/taz/.jedit/jars/parboiled4j-0.9.9.0.jar" />
+<file path="/home/taz/.jedit/jars/pegdown-0.8.5.4.jar" />
+<file path="/home/taz/.jedit/jars/relaxngDatatype.jar" />
+<file path="/home/taz/.jedit/jars/resolver.jar" />
+<file path="/home/taz/.jedit/jars/rhino.jar" />
+<file path="/home/taz/.jedit/jars/script-api.jar" />
+<file path="/home/taz/.jedit/jars/trang.jar" />
+<file path="/home/taz/.jedit/jars/velocity-1.5.jar" />
+<file path="/home/taz/.jedit/jars/ws-commons-util-1.0.2.jar" />
+<file path="/home/taz/.jedit/jars/xercesImpl.jar" />
+<file path="/home/taz/.jedit/jars/xmlrpc-client-3.1.jar" />
+<file path="/home/taz/.jedit/jars/xmlrpc-common-3.1.jar" />
+</directory>
+<directory path="/home/taz/.jedit/jars-cache">
+<file path="/home/taz/.jedit/jars-cache/Beauty.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/BufferList.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/BufferTabs.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Code2HTML.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ColumnRuler.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/CommonControls.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Completion.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Console.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ContextMenu.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/CtagsInterface.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/CtagsSideKick.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/EclipseIcons.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ErrorList.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/FTP.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/FastOpen.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/GnuRegexp.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Highlight.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Hyperlinks.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/JDiffPlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/JSLint.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/JakartaCommons.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/JavaScriptShell.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/LucenePlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/MarkdownPlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/MarkerSets.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Minimap.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Navigator.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Outline.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/PHPParser.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ProjectViewer.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/QuickNotepad.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/RhinoPlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ScalacPlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ScriptEnginePlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Sessions.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/SideKick.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/SpellCheck.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/SuperAbbrevs.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/TaskList.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/Templates.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/UpdaterPlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/WhiteSpace.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/XML.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/XPTracker.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/XercesPlugin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/bcel-5.2.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/colorchooser.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/commons-codec-1.3.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/commons-collections-3.2.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/commons-httpclient-3.0.1.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/commons-lang-2.3.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/commons-logging-1.1.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/commons-net-1.4.1.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/finish-him.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/hunspell.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/jing.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/jna.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/jsch.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/kappalayout.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/log4j-1.2.14.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/lucene-core.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/lucene-highlighter.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/lucene-memory.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/mysql-connector-java-2.0.14-bin.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/oro-2.0.8.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/parboiled4j-0.9.9.0.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/pegdown-0.8.5.4.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/relaxngDatatype.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/resolver.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/rhino.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/script-api.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/trang.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/velocity-1.5.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/ws-commons-util-1.0.2.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/xercesImpl.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/xmlrpc-client-3.1.jar.summary" />
+<file path="/home/taz/.jedit/jars-cache/xmlrpc-common-3.1.jar.summary" />
+</directory>
+<directory path="/home/taz/.jedit/keymaps">
+<file path="/home/taz/.jedit/keymaps/imported_keys.props" />
+</directory>
+<directory path="/home/taz/.jedit/macros">
+<directory path="/home/taz/.jedit/macros/CI">
+<file path="/home/taz/.jedit/macros/CI/Duplicate_Line.bsh" />
+<file path="/home/taz/.jedit/macros/CI/catch_line.bsh" />
+<file path="/home/taz/.jedit/macros/CI/clean_php.bsh" />
+<file path="/home/taz/.jedit/macros/CI/comment.bsh" />
+<file path="/home/taz/.jedit/macros/CI/templatize.bsh" />
+<file path="/home/taz/.jedit/macros/CI/templatize_css.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/macros/esempi_macro">
+<directory path="/home/taz/.jedit/macros/esempi_macro/Files">
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Browse_Directory.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Buffer_Switcher.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Close_All_Except_Active.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Copy_Name_to_Clipboard.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Copy_Path_to_Clipboard.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Delete_Current.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Glob_Close.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Insert_Selection.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Next_Dirty_Buffer.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Open_Path.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Open_Selection.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Files/Toggle_ReadOnly.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/macros/esempi_macro/Interface">
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Decrease_Font_Size.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Increase_Font_Size.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Open_Context_Menu.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Toggle_Bottom_Docking_Area.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Toggle_Left_Docking_Area.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Toggle_Right_Docking_Area.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Interface/Toggle_Top_Docking_Area.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/macros/esempi_macro/Java">
+<file path="/home/taz/.jedit/macros/esempi_macro/Java/Create_Constructor.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Java/Get_Class_Name.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Java/Get_Package_Name.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Java/Java_File_Save.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Java/Make_Get_and_Set_Methods.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Java/Preview_JavaDoc_Of_Current_Buffer.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/macros/esempi_macro/Misc">
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Display_Abbreviations.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Display_Actions.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Display_Character_Code.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Display_Shortcuts.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Evaluate_Buffer_in_BeanShell.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Hex_Convert.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/HyperSearch_Results_to_Buffer.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Include_Guard.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Make_Bug_Report.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Run_Script.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Misc/Show_Threads.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/macros/esempi_macro/Properties">
+<file path="/home/taz/.jedit/macros/esempi_macro/Properties/Insert_Buffer_Properties.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Properties/Look_and_Feel_Properties.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Properties/System_Properties.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Properties/jEdit_Properties.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/macros/esempi_macro/Text">
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Add_Prefix_and_Suffix.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Color_Picker.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Duplicate_Line.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Insert_Date.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Insert_Tag.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Next_Char.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Reverse_Lines.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Text/Single_Space_Buffer.bsh" />
+</directory>
+<file path="/home/taz/.jedit/macros/esempi_macro/Insert_Blank_Lines.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Move_Line_Down.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/Move_Line_Up.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/find_next_by_selection.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/load_UTF8.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/run_script.bsh" />
+<file path="/home/taz/.jedit/macros/esempi_macro/run_script_arguments.bsh" />
+</directory>
+<file path="/home/taz/.jedit/macros/delete_blank_lines.bsh" />
+<file path="/home/taz/.jedit/macros/js_unzip.bsh" />
+<file path="/home/taz/.jedit/macros/phpStyle.bsh" />
+</directory>
+<directory path="/home/taz/.jedit/modes">
+<file path="/home/taz/.jedit/modes/actionscript.xml" />
+<file path="/home/taz/.jedit/modes/catalog" />
+<file path="/home/taz/.jedit/modes/coffeescript.xml" />
+<file path="/home/taz/.jedit/modes/less.xml" />
+</directory>
+<directory path="/home/taz/.jedit/plugins">
+<directory path="/home/taz/.jedit/plugins/beauty.BeautyPlugin">
+<file path="/home/taz/.jedit/plugins/beauty.BeautyPlugin/javascript.properties" />
+<file path="/home/taz/.jedit/plugins/beauty.BeautyPlugin/php.properties" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/gatchan.highlight.HighlightPlugin">
+<file path="/home/taz/.jedit/plugins/gatchan.highlight.HighlightPlugin/highlights.ser" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin">
+<directory path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__">
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.fdt" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.fdx" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.fnm" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.frq" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.nrm" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.prx" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.tii" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_0.tis" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/_1.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/segments.gen" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/__CENTRAL__/segments_3" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes">
+<directory path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/amams">
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/amams/segments.gen" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/amams/segments_1" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter">
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.fdt" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.fdx" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.fnm" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.frq" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.nrm" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.prx" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.tii" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u.tis" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_12u_6.del" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_134.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_13d.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_13e.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_13g.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_13j.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/_13k.cfs" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/segments.gen" />
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes/autocenter/segments_13a" />
+</directory>
+</directory>
+<file path="/home/taz/.jedit/plugins/gatchan.jedit.lucene.LucenePlugin/indexes.cfg" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/marker.MarkerSetsPlugin">
+<file path="/home/taz/.jedit/plugins/marker.MarkerSetsPlugin/markerSets.xml" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin">
+<directory path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects">
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects/amams.xml" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects/autocenter.xml" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects/axa.xml" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects/ipc.xml" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects/logico-web.xml" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/projects/time-tracker.xml" />
+</directory>
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/config.properties" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/fileassocs.properties" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/filters.properties" />
+<file path="/home/taz/.jedit/plugins/projectviewer.ProjectPlugin/pv.xml" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/tasklist.TaskListPlugin">
+<file path="/home/taz/.jedit/plugins/tasklist.TaskListPlugin/binary.props" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/updater.UpdaterPlugin">
+<file path="/home/taz/.jedit/plugins/updater.UpdaterPlugin/jeditInstall.jar" />
+</directory>
+<directory path="/home/taz/.jedit/plugins/xml.XmlPlugin">
+<file path="/home/taz/.jedit/plugins/xml.XmlPlugin/schemas.xml" />
+</directory>
+</directory>
+<directory path="/home/taz/.jedit/sessions">
+<file path="/home/taz/.jedit/sessions/default.xml" />
+</directory>
+<directory path="/home/taz/.jedit/templates">
+<directory path="/home/taz/.jedit/templates/HTML">
+<file path="/home/taz/.jedit/templates/HTML/HTML5.html" />
+<file path="/home/taz/.jedit/templates/HTML/HTML5_minimal.html" />
+<file path="/home/taz/.jedit/templates/HTML/QUnit.html" />
+<file path="/home/taz/.jedit/templates/HTML/html_bootstrap.html" />
+<file path="/home/taz/.jedit/templates/HTML/html_bootstrap_fluid.html" />
+</directory>
+<directory path="/home/taz/.jedit/templates/JS">
+<file path="/home/taz/.jedit/templates/JS/base.js" />
+<file path="/home/taz/.jedit/templates/JS/jq_plugin.js" />
+<file path="/home/taz/.jedit/templates/JS/module.js" />
+<file path="/home/taz/.jedit/templates/JS/qunit.js" />
+<file path="/home/taz/.jedit/templates/JS/require_js.js" />
+</directory>
+<directory path="/home/taz/.jedit/templates/PHP">
+<directory path="/home/taz/.jedit/templates/PHP/ZF">
+<file path="/home/taz/.jedit/templates/PHP/ZF/cli.php" />
+</directory>
+<file path="/home/taz/.jedit/templates/PHP/cli.php" />
+</directory>
+<directory path="/home/taz/.jedit/templates/XMLPlugin">
+<file path="/home/taz/.jedit/templates/XMLPlugin/docbook-article-4.4.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/html-frameset.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/html-strict.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/html-transitional.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/schema-relax-ng.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/schema-xsd.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/xhtml-frameset.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/xhtml-strict.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/xhtml-transitional.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/xslt-1.0.vm" />
+<file path="/home/taz/.jedit/templates/XMLPlugin/xslt-2.0.vm" />
+</directory>
+<directory path="/home/taz/.jedit/templates/project_management">
+<file path="/home/taz/.jedit/templates/project_management/todo.txt" />
+</directory>
+</directory>
+<directory path="/home/taz/.jedit/velocity">
+<file path="/home/taz/.jedit/velocity/accelerator-mappings" />
+</directory>
+<file path="/home/taz/.jedit/abbrevs" />
+<file path="/home/taz/.jedit/activity.log" />
+<file path="/home/taz/.jedit/history" />
+<file path="/home/taz/.jedit/killring.xml" />
+<file path="/home/taz/.jedit/mirrorList.xml" />
+<file path="/home/taz/.jedit/perspective.xml" />
+<file path="/home/taz/.jedit/pluginMgr-Cached.xml.gz" />
+<file path="/home/taz/.jedit/printspec" />
+<file path="/home/taz/.jedit/properties" />
+<file path="/home/taz/.jedit/qn.txt" />
+<file path="/home/taz/.jedit/recent.xml" />
+<file path="/home/taz/.jedit/server" />
+<file path="/home/taz/.jedit/taz_plugin_set_240212" />
+</project>

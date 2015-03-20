@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project path="/var/www/axa" url="http://faroassicurazioni.dev/axa/">
+<property name="projectviewer.folder_tree_state" value="1100100000000000000000" />
+<property name="projectviewer.import.filterid" value="projectviewer.importer.CVSEntriesFilter" />
+<directory path="/var/www/axa/admin">
+<file path="/var/www/axa/admin/gestione_archivio_cartaceo.php" />
+</directory>
+<directory path="/var/www/axa/bin">
+<file path="/var/www/axa/bin/batch_notifiche.php" />
+</directory>
+<directory path="/var/www/axa/common">
+<directory path="/var/www/axa/common/model">
+<file path="/var/www/axa/common/model/all.php" />
+<file path="/var/www/axa/common/model/axa_note.php" />
+<file path="/var/www/axa/common/model/axa_user.php" />
+</directory>
+<file path="/var/www/axa/common/Banchmark.php" />
+<file path="/var/www/axa/common/Bootstrap.php" />
+<file path="/var/www/axa/common/Debug.php" />
+<file path="/var/www/axa/common/Env.php" />
+<file path="/var/www/axa/common/FilePresenter.php" />
+<file path="/var/www/axa/common/Mail.php" />
+<file path="/var/www/axa/common/TableEditor.php" />
+<file path="/var/www/axa/common/Url.php" />
+<file path="/var/www/axa/common/Utils.php" />
+</directory>
+<directory path="/var/www/axa/docs">
+<file path="/var/www/axa/docs/todo.txt" />
+</directory>
+<directory path="/var/www/axa/gest_agenz">
+<file path="/var/www/axa/gest_agenz/polizze2.php" />
+<file path="/var/www/axa/gest_agenz/printer_sospesi.php" />
+</directory>
+<directory path="/var/www/axa/log">
+<file path="/var/www/axa/log/mailer.log" />
+</directory>
+<directory path="/var/www/axa/public">
+<file path="/var/www/axa/public/mailer.php" />
+</directory>
+<directory path="/var/www/axa/tests">
+<directory path="/var/www/axa/tests/env">
+<file path="/var/www/axa/tests/env/php_mail.php" />
+<file path="/var/www/axa/tests/env/smtp_mail.php" />
+</directory>
+</directory>
+<file path="/var/www/axa/composer.json" />
+<file path="/var/www/axa/composer.txt" />
+</project>
