@@ -1,0 +1,16 @@
+/_jedit/nosplash
+/_jedit/perspective.xml
+/_jedit/pluginMgr-Cached.xml.gz
+/_jedit/printspec
+/_jedit/qn.txt
+/_jedit/recent.xml
+/_jedit/server
+/_jedit/activity.log
+/_jedit/killring.xml
+/_jedit/mirrorList.xml
+/_jedit/history
+/_jedit/sessions/*.xml
+/_jedit/jars/*.jar
+/_jedit/cache/*
+/_jedit/jars-cache/*.jar.summary
+/_jedit/DockableWindowManager/perspective-view0.xml

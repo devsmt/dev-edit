@@ -5,6 +5,6 @@ test("some other test", function() {
   //Specify how many assertions are expected to run within a test.
   expect(2);
   //A comparison assertion, equivalent to JUnit's assertEquals.
-  equals( true, false, "failing test" );
-  equals( true, true, "passing test" );
+  equal( true, false, "failing test" );
+  equal( true, true, "passing test" );
 });

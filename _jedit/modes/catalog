@@ -8,6 +8,8 @@
 
 
   <MODE NAME="less" FILE="less.xml" FILE_NAME_GLOB="*.less" />
+  <MODE NAME="sass" FILE="sass.xml" FILE_NAME_GLOB="*.scss" />
+  <MODE NAME="sass" FILE="creole.xml" FILE_NAME_GLOB="*.creole" />
   <!-- disable typoscript -->
   <MODE NAME="typoscript"  FILE="typoscript.xml" FILE_NAME_GLOB="*.tsXXX"/>
   <MODE NAME="typescript" FILE="typescript.xml" FILE_NAME_GLOB="*.ts" />

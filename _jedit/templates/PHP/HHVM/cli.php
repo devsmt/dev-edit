@@ -1,10 +1,12 @@
-#!/usr/bin/env php
+#!/usr/bin/env hhvm
 <?php
 /*
 scopo del programma
 */
 
-
+//----------------------------------------------------------------------------
+//  testing utils
+//----------------------------------------------------------------------------
 function is($val, $expected_val, $description = '') {
     $pass = ($val == $expected_val);
     TestCLI::ok($pass, $description);
@@ -35,8 +37,9 @@ class TestCLI {
         }
     }
 }
-
+//----------------------------------------------------------------------------
 // cli utils
+//----------------------------------------------------------------------------
 class CLI {
     //
     public function parse(array $argv) {
@@ -114,7 +117,10 @@ class CLI {
         return $s;
     }
 }
+
+//----------------------------------------------------------------------------
 // actions
+//----------------------------------------------------------------------------
 class ProgController {
     static $a_flags = array();
     public static function actionUsage($argv){
@@ -143,18 +149,15 @@ class CommandLineOption {
 //------------------------------------------------------------------------------
 //  main
 //------------------------------------------------------------------------------
-$stdin_txt = stream_get_contents(STDIN);
-$action = isset($argv[1])?$argv[1]:'test';
+//$stdin_txt = stream_get_contents(STDIN);
+$action = isset($argv[1]) ? $argv[1] : 'test';
 
 switch($action) {
     case 'x':
         die(' ... ');
     break;
-    case 'test':
-        die(ProgController::actionTest());
-    break;
     default:
-        die(ProgController::actionUsage());
+        die(ProgController::usageAction());
     break;
 }
 
