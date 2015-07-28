@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+/*
+scopo del programma
+*/
+while( $line=fgets(STDIN) ){ echo $line; }
+exit();

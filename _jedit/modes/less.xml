@@ -3,434 +3,439 @@
 <!DOCTYPE MODE SYSTEM "xmode.dtd">
 
 <MODE>
-	<PROPS>
-		<PROPERTY NAME="commentStart" VALUE="/*" />
-		<PROPERTY NAME="commentEnd" VALUE="*/" />
-		<PROPERTY NAME="indentOpenBrackets" VALUE="{" />
-		<PROPERTY NAME="indentCloseBrackets" VALUE="}" />
-		<PROPERTY NAME="noWordSep" VALUE="-" />
-		<PROPERTY NAME="noWordSep" VALUE="_" />
-	</PROPS>
+    <PROPS>
+        <PROPERTY NAME="commentStart" VALUE="/*" />
+        <PROPERTY NAME="commentEnd" VALUE="*/" />
+        <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+        <PROPERTY NAME="indentCloseBrackets" VALUE="}" />
+        <PROPERTY NAME="noWordSep" VALUE="-" />
+        <PROPERTY NAME="noWordSep" VALUE="_" />
+    </PROPS>
 
-	<RULES IGNORE_CASE="TRUE"
-		HIGHLIGHT_DIGITS="TRUE"
-		DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
-		NO_WORD_SEP="-_%">
+    <RULES IGNORE_CASE="TRUE"
+        HIGHLIGHT_DIGITS="TRUE"
+        DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
+        NO_WORD_SEP="-_%">
 
-		<!-- classes: -->
-		<MARK_FOLLOWING TYPE="LITERAL1">.</MARK_FOLLOWING>
-		<!-- IDs: -->
-		<MARK_FOLLOWING TYPE="LITERAL2">#</MARK_FOLLOWING>
+        <!-- classes: -->
+        <MARK_FOLLOWING TYPE="LITERAL1">.</MARK_FOLLOWING>
+        <!-- IDs: -->
+        <MARK_FOLLOWING TYPE="LITERAL2">#</MARK_FOLLOWING>
 
-		<SEQ TYPE="OPERATOR">&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">&gt;</SEQ>
 
-		<!-- TODO: selectors, see http://www.w3.org/TR/REC-CSS2/selector.html -->
+        <!-- TODO: selectors, see http://www.w3.org/TR/REC-CSS2/selector.html -->
 
-		<SEQ TYPE="OPERATOR" DELEGATE="PSEUDO">:</SEQ>
-		<SEQ TYPE="OPERATOR">,</SEQ>
+        <SEQ TYPE="OPERATOR" DELEGATE="PSEUDO">:</SEQ>
+        <SEQ TYPE="OPERATOR">,</SEQ>
 
-		<!-- property blocks: -->
-		<SPAN TYPE="OPERATOR" DELEGATE="PROPERTIES">
-			<BEGIN>{</BEGIN>
-			<END>}</END>
-		</SPAN>
+        <!-- property blocks: -->
+        <SPAN TYPE="OPERATOR" DELEGATE="PROPERTIES">
+            <BEGIN>{</BEGIN>
+            <END>}</END>
+        </SPAN>
 
-		<IMPORT DELEGATE="GLOBAL" />
-		<IMPORT DELEGATE="html::TAGS" />
-	</RULES>
-
-
-	<!-- Pseudo classes like ":active" -->
-	<RULES SET="PSEUDO">
-		<!-- Delegate back: -->
-		<SEQ TYPE="NULL" DELEGATE="MAIN"> </SEQ>
-		<SEQ TYPE="OPERATOR" DELEGATE="MAIN">,</SEQ>
-
-		<SEQ TYPE="OPERATOR" DELEGATE="PROPERTIES">{</SEQ>
-
-		<SPAN_REGEXP HASH_CHAR="lang" TYPE="KEYWORD4">
-			<BEGIN>lang\s*\(</BEGIN>
-			<END>)</END>
-		</SPAN_REGEXP>
-
-		<SPAN_REGEXP HASH_CHAR="lang" TYPE="KEYWORD4">
-			<BEGIN>lang\s*\(</BEGIN>
-			<END>)</END>
-		</SPAN_REGEXP>
-
-		<!-- For delegating to PROPERTIES: -->
-		<IMPORT DELEGATE="GLOBAL" />
-
-		<KEYWORDS>
-			<KEYWORD4>after</KEYWORD4>
-			<KEYWORD4>before</KEYWORD4>
-			<KEYWORD4>first-child</KEYWORD4>
-			<KEYWORD4>last-child</KEYWORD4>
-			<KEYWORD4>link</KEYWORD4>
-			<KEYWORD4>visited</KEYWORD4>
-			<KEYWORD4>active</KEYWORD4>
-			<KEYWORD4>hover</KEYWORD4>
-			<KEYWORD4>focus</KEYWORD4>
-		</KEYWORDS>
-	</RULES>
-
-	<!-- Properties: -->
-	<RULES SET="PROPERTIES" ESCAPE="\">
-		<!-- Delegate back -->
-		<SEQ TYPE="OPERATOR" DELEGATE="MAIN">}</SEQ>
-
-		<SEQ TYPE="OPERATOR" DELEGATE="PROP_VALUE">:</SEQ>
-
-		<IMPORT DELEGATE="GLOBAL" />
-
-		<KEYWORDS>
-			<!-- CSS2 & 3 properties -->
-
-			<!-- Color and background properties -->
-			<KEYWORD2>background</KEYWORD2>
-			<KEYWORD2>background-attachment</KEYWORD2>
-			<KEYWORD2>background-color</KEYWORD2>
-			<KEYWORD2>background-image</KEYWORD2>
-			<KEYWORD2>background-position</KEYWORD2>
-			<KEYWORD2>background-repeat</KEYWORD2>
-			<KEYWORD2>background-origin</KEYWORD2>
-			<KEYWORD2>background-clip</KEYWORD2>
-			<KEYWORD2>background-size</KEYWORD2>
-			<KEYWORD2>color</KEYWORD2>
-			<KEYWORD2>opacity</KEYWORD2>
-
-			<!-- Font properties -->
-			<KEYWORD2>font</KEYWORD2>
-			<KEYWORD2>font-family</KEYWORD2>
-			<KEYWORD2>font-size</KEYWORD2>
-			<KEYWORD2>font-style</KEYWORD2>
-			<KEYWORD2>font-variant</KEYWORD2>
-			<KEYWORD2>font-weight</KEYWORD2>
-			<KEYWORD2>font-stretch</KEYWORD2>
-			<KEYWORD2>src</KEYWORD2>
-			<KEYWORD2>definition-src</KEYWORD2>
-			<KEYWORD2>unicode-range</KEYWORD2>
-			<KEYWORD2>panose-1</KEYWORD2>
-			<KEYWORD2>stemv</KEYWORD2>
-			<KEYWORD2>stemh</KEYWORD2>
-			<KEYWORD2>units-per-em</KEYWORD2>
-			<KEYWORD2>slope</KEYWORD2>
-			<KEYWORD2>cap-height</KEYWORD2>
-			<KEYWORD2>x-height</KEYWORD2>
-			<KEYWORD2>ascent</KEYWORD2>
-			<KEYWORD2>descent</KEYWORD2>
-			<KEYWORD2>baseline</KEYWORD2>
-			<KEYWORD2>centerline</KEYWORD2>
-			<KEYWORD2>mathline</KEYWORD2>
-			<KEYWORD2>topline</KEYWORD2>
-
-			<!-- Text properties -->
-			<KEYWORD2>letter-spacing</KEYWORD2>
-			<KEYWORD2>text-align</KEYWORD2>
-			<KEYWORD2>text-shadow</KEYWORD2>
-			<KEYWORD2>text-decoration</KEYWORD2>
-			<KEYWORD2>text-indent</KEYWORD2>
-			<KEYWORD2>text-overflow</KEYWORD2>
-			<KEYWORD2>text-transform</KEYWORD2>
-			<KEYWORD2>word-spacing</KEYWORD2>
-			<KEYWORD2>letter-spacing</KEYWORD2>
-			<KEYWORD2>white-space</KEYWORD2>
-
-			<!-- Box properties -->
-			<KEYWORD2>border</KEYWORD2>
-			<KEYWORD2>bottom</KEYWORD2>
-			<KEYWORD2>border</KEYWORD2>
-			<KEYWORD2>border-bottom</KEYWORD2>
-			<KEYWORD2>border-bottom-color</KEYWORD2>
-			<KEYWORD2>border-bottom-style</KEYWORD2>
-			<KEYWORD2>border-bottom-width</KEYWORD2>
-			<KEYWORD2>border-collapse</KEYWORD2>
-			<KEYWORD2>border-color</KEYWORD2>
-			<KEYWORD2>border-left</KEYWORD2>
-			<KEYWORD2>border-left-color</KEYWORD2>
-			<KEYWORD2>border-left-style</KEYWORD2>
-			<KEYWORD2>border-left-width</KEYWORD2>
-			<KEYWORD2>border-right</KEYWORD2>
-			<KEYWORD2>border-right-color</KEYWORD2>
-			<KEYWORD2>border-right-style</KEYWORD2>
-			<KEYWORD2>border-right-width</KEYWORD2>
-			<KEYWORD2>border-spacing</KEYWORD2>
-			<KEYWORD2>border-style</KEYWORD2>
-			<KEYWORD2>border-top</KEYWORD2>
-			<KEYWORD2>border-top-color</KEYWORD2>
-			<KEYWORD2>border-top-style</KEYWORD2>
-			<KEYWORD2>border-top-width</KEYWORD2>
-			<KEYWORD2>border-width</KEYWORD2>
-			<KEYWORD2>border-bottom-left-radius</KEYWORD2>
-			<KEYWORD2>border-bottom-right-radius</KEYWORD2>
-			<KEYWORD2>border-radius</KEYWORD2>
-			<KEYWORD2>border-top-left-radius</KEYWORD2>
-			<KEYWORD2>border-top-right-radius</KEYWORD2>
-			<KEYWORD2>box-align</KEYWORD2>
-			<KEYWORD2>box-direction</KEYWORD2>
-			<KEYWORD2>box-flex</KEYWORD2>
-			<KEYWORD2>box-ordinal-group</KEYWORD2>
-			<KEYWORD2>box-orient</KEYWORD2>
-			<KEYWORD2>box-pack</KEYWORD2>
-			<KEYWORD2>box-sizing</KEYWORD2>
-			<KEYWORD2>box-shadow</KEYWORD2>
-			<KEYWORD2>clear</KEYWORD2>
-			<KEYWORD2>float</KEYWORD2>
-			<KEYWORD2>height</KEYWORD2>
-			<KEYWORD2>margin</KEYWORD2>
-			<KEYWORD2>margin-bottom</KEYWORD2>
-			<KEYWORD2>margin-left</KEYWORD2>
-			<KEYWORD2>margin-right</KEYWORD2>
-			<KEYWORD2>margin-top</KEYWORD2>
-			<KEYWORD2>padding</KEYWORD2>
-			<KEYWORD2>padding-bottom</KEYWORD2>
-			<KEYWORD2>padding-left</KEYWORD2>
-			<KEYWORD2>padding-right</KEYWORD2>
-			<KEYWORD2>padding-top</KEYWORD2>
-
-			<KEYWORD2>column-count</KEYWORD2>
-			<KEYWORD2>column-fill</KEYWORD2>
-			<KEYWORD2>column-gap</KEYWORD2>
-			<KEYWORD2>column-rule</KEYWORD2>
-			<KEYWORD2>column-rule-color</KEYWORD2>
-			<KEYWORD2>column-rule-style</KEYWORD2>
-			<KEYWORD2>column-rule-width</KEYWORD2>
-			<KEYWORD2>column-span</KEYWORD2>
-			<KEYWORD2>column-width</KEYWORD2>
-			<KEYWORD2>columns</KEYWORD2>
-
-			<KEYWORD2>handing-punctuation</KEYWORD2>
+        <IMPORT DELEGATE="GLOBAL" />
+        <IMPORT DELEGATE="html::TAGS" />
+    </RULES>
 
 
+    <!-- Pseudo classes like ":active" -->
+    <RULES SET="PSEUDO">
+        <!-- Delegate back: -->
+        <SEQ TYPE="NULL" DELEGATE="MAIN"> </SEQ>
+        <SEQ TYPE="OPERATOR" DELEGATE="MAIN">,</SEQ>
 
-			<!-- Visual formatting properties -->
-			<KEYWORD2>display</KEYWORD2>
-			<KEYWORD2>position</KEYWORD2>
-			<KEYWORD2>top</KEYWORD2>
-			<KEYWORD2>right</KEYWORD2>
-			<KEYWORD2>bottom</KEYWORD2>
-			<KEYWORD2>left</KEYWORD2>
-			<KEYWORD2>float</KEYWORD2>
-			<KEYWORD2>z-index</KEYWORD2>
-			<KEYWORD2>direction</KEYWORD2>
-			<KEYWORD2>unicode-bidi</KEYWORD2>
-			<KEYWORD2>width</KEYWORD2>
-			<KEYWORD2>min-width</KEYWORD2>
-			<KEYWORD2>max-width</KEYWORD2>
-			<KEYWORD2>height</KEYWORD2>
-			<KEYWORD2>min-height</KEYWORD2>
-			<KEYWORD2>max-height</KEYWORD2>
-			<KEYWORD2>line-height</KEYWORD2>
-			<KEYWORD2>vertical-align</KEYWORD2>
+        <SEQ TYPE="OPERATOR" DELEGATE="PROPERTIES">{</SEQ>
 
-			<!-- Visual effects -->
-			<KEYWORD2>overflow</KEYWORD2>
-			<KEYWORD2>overflow-x</KEYWORD2>
-			<KEYWORD2>overflow-y</KEYWORD2>
-			<KEYWORD2>clip</KEYWORD2>
-			<KEYWORD2>visibility</KEYWORD2>
-			<KEYWORD2>perspective</KEYWORD2>
-			<KEYWORD2>perspective-origin</KEYWORD2>
-			<KEYWORD2>transform</KEYWORD2>
-			<KEYWORD2>transform-origin</KEYWORD2>
-			<KEYWORD2>transform-style</KEYWORD2>
-			<KEYWORD2>transition</KEYWORD2>
-			<KEYWORD2>transition-property</KEYWORD2>
-			<KEYWORD2>transition-duration</KEYWORD2>
-			<KEYWORD2>transition-timing-function</KEYWORD2>
-			<KEYWORD2>transition-delay</KEYWORD2>
+        <SPAN_REGEXP HASH_CHAR="lang" TYPE="KEYWORD4">
+            <BEGIN>lang\s*\(</BEGIN>
+            <END>)</END>
+        </SPAN_REGEXP>
 
-			<!-- Page properties -->
-			<KEYWORD2>page-break-before</KEYWORD2>
-			<KEYWORD2>page-break-after</KEYWORD2>
-			<KEYWORD2>page-break-inside</KEYWORD2>
-			<KEYWORD2>orphans</KEYWORD2>
-			<KEYWORD2>widows</KEYWORD2>
+        <SPAN_REGEXP HASH_CHAR="lang" TYPE="KEYWORD4">
+            <BEGIN>lang\s*\(</BEGIN>
+            <END>)</END>
+        </SPAN_REGEXP>
 
-			<!-- Table properties -->
-			<KEYWORD2>caption-side</KEYWORD2>
-			<KEYWORD2>table-layout</KEYWORD2>
-			<KEYWORD2>border-collapse</KEYWORD2>
-			<KEYWORD2>border-spacing</KEYWORD2>
-			<KEYWORD2>empty-cells</KEYWORD2>
-			<KEYWORD2>speak-headers</KEYWORD2>
+        <!-- For delegating to PROPERTIES: -->
+        <IMPORT DELEGATE="GLOBAL" />
 
-			<!-- User interface -->
-			<KEYWORD2>cursor</KEYWORD2>
-			<KEYWORD2>outline</KEYWORD2>
-			<KEYWORD2>outline-width</KEYWORD2>
-			<KEYWORD2>outline-style</KEYWORD2>
-			<KEYWORD2>outline-color</KEYWORD2>
-			<KEYWORD2>outline-offset</KEYWORD2>
+        <KEYWORDS>
+            <KEYWORD4>after</KEYWORD4>
+            <KEYWORD4>before</KEYWORD4>
+            <KEYWORD4>first-child</KEYWORD4>
+            <KEYWORD4>last-child</KEYWORD4>
+            <KEYWORD4>link</KEYWORD4>
+            <KEYWORD4>visited</KEYWORD4>
+            <KEYWORD4>active</KEYWORD4>
+            <KEYWORD4>hover</KEYWORD4>
+            <KEYWORD4>focus</KEYWORD4>
+        </KEYWORDS>
+    </RULES>
 
-			<!-- Aural properties -->
-			<KEYWORD2>azimuth</KEYWORD2>
-			<KEYWORD2>volume</KEYWORD2>
-			<KEYWORD2>speak</KEYWORD2>
-			<KEYWORD2>pause</KEYWORD2>
-			<KEYWORD2>pause-before</KEYWORD2>
-			<KEYWORD2>pause-after</KEYWORD2>
-			<KEYWORD2>cue</KEYWORD2>
-			<KEYWORD2>cue-before</KEYWORD2>
-			<KEYWORD2>cue-after</KEYWORD2>
-			<KEYWORD2>play-during</KEYWORD2>
-			<KEYWORD2>elevation</KEYWORD2>
-			<KEYWORD2>speech-rate</KEYWORD2>
-			<KEYWORD2>voice-family</KEYWORD2>
-			<KEYWORD2>pitch</KEYWORD2>
-			<KEYWORD2>pitch-range</KEYWORD2>
-			<KEYWORD2>stress</KEYWORD2>
-			<KEYWORD2>richness</KEYWORD2>
-			<KEYWORD2>speak-punctuation</KEYWORD2>
-			<KEYWORD2>speak-numeral</KEYWORD2>
-			<KEYWORD2>speak-header-cell</KEYWORD2>
+    <!-- Properties: -->
+    <RULES SET="PROPERTIES" ESCAPE="\">
+        <!-- Delegate back -->
+        <SEQ TYPE="OPERATOR" DELEGATE="MAIN">}</SEQ>
 
-			<KEYWORD2>animation</KEYWORD2>
-			<KEYWORD2>animation-name</KEYWORD2>
-			<KEYWORD2>animation-duration</KEYWORD2>
-			<KEYWORD2>animation-timing-function</KEYWORD2>
-			<KEYWORD2>animation-delay</KEYWORD2>
-			<KEYWORD2>animation-iteration-count</KEYWORD2>
-			<KEYWORD2>animation-direction</KEYWORD2>
-			<KEYWORD2>animation-play-state</KEYWORD2>
+        <SEQ TYPE="OPERATOR" DELEGATE="PROP_VALUE">:</SEQ>
 
-			<KEYWORD2>appearance</KEYWORD2>
+        <IMPORT DELEGATE="GLOBAL" />
 
-			<!-- these properties are proposed for css3, but are either not
-			supported by any browser or are specific to a single browser. -->
-			<INVALID>alignment-adjust</INVALID>
-			<INVALID>alignment-baseline</INVALID>
-			<INVALID>backface-visibility</INVALID>
-			<INVALID>baseline-shift</INVALID>
-			<INVALID>bookmark-label</INVALID>
-			<INVALID>bookmark-level</INVALID>
-			<INVALID>bookmark-target</INVALID>
-			<INVALID>border-image-outset</INVALID>
-			<INVALID>border-image-repeat</INVALID>
-			<INVALID>border-image-slice</INVALID>
-			<INVALID>border-image-source</INVALID>
-			<INVALID>border-image-width</INVALID>
-			<INVALID>box-decoration-break</INVALID>
-			<INVALID>box-flex-group</INVALID>
-			<INVALID>box-lines</INVALID>
-			<INVALID>color-profile</INVALID>
-			<INVALID>column-fill</INVALID>
-			<INVALID>crop</INVALID>
-			<INVALID>dominant-baseline</INVALID>
-			<INVALID>drop-initial-after-adjust</INVALID>
-			<INVALID>drop-initial-after-align</INVALID>
-			<INVALID>drop-initial-before-adjust</INVALID>
-			<INVALID>drop-initial-before-align</INVALID>
-			<INVALID>drop-initial-size</INVALID>
-			<INVALID>drop-initial-value</INVALID>
-			<INVALID>fit</INVALID>
-			<INVALID>fit-position</INVALID>
-			<INVALID>float-offset</INVALID>
-			<INVALID>font-stretch</INVALID>
-			<INVALID>font-size-adjust</INVALID>
-			<INVALID>grid-columns</INVALID>
-			<INVALID>grid-rows</INVALID>
-			<INVALID>hanging-punctuation</INVALID>
-			<INVALID>hyphenate-after</INVALID>
-			<INVALID>hyphenate-before</INVALID>
-			<INVALID>hyphenate-characters</INVALID>
-			<INVALID>hyphenate-lines</INVALID>
-			<INVALID>hyphenate-resource</INVALID>
-			<INVALID>hyphens</INVALID>
-			<INVALID>icon</INVALID>
-			<INVALID>image-orientation</INVALID>
-			<INVALID>image-resolution</INVALID>
-			<INVALID>inline-box-align</INVALID>
-			<INVALID>line-stacking</INVALID>
-			<INVALID>line-stacking-ruby</INVALID>
-			<INVALID>line-stacking-shift</INVALID>
-			<INVALID>line-stacking-strategy</INVALID>
-			<INVALID>mark</INVALID>
-			<INVALID>mark-after</INVALID>
-			<INVALID>mark-before</INVALID>
-			<INVALID>marks</INVALID>
-			<INVALID>marquee-direction</INVALID>
-			<INVALID>marquee-play-count</INVALID>
-			<INVALID>marquee-speed</INVALID>
-			<INVALID>marquee-style</INVALID>
-			<INVALID>move-to</INVALID>
-			<INVALID>nav-down</INVALID>
-			<INVALID>nav-index</INVALID>
-			<INVALID>nav-left</INVALID>
-			<INVALID>nav-right</INVALID>
-			<INVALID>nav-up</INVALID>
-			<INVALID>overflow-style</INVALID>
-			<INVALID>page</INVALID>
-			<INVALID>page-policy</INVALID>
-			<INVALID>phonemes</INVALID>
-			<INVALID>punctuation-trim</INVALID>
-			<INVALID>rest</INVALID>
-			<INVALID>rest-after</INVALID>
-			<INVALID>rest-before</INVALID>
-			<INVALID>rotation</INVALID>
-			<INVALID>rotation-point</INVALID>
-			<INVALID>ruby-align</INVALID>
-			<INVALID>ruby-overhang</INVALID>
-			<INVALID>ruby-position</INVALID>
-			<INVALID>ruby-span</INVALID>
-			<INVALID>size</INVALID>
-			<INVALID>string-set</INVALID>
-			<INVALID>target</INVALID>
-			<INVALID>target-name</INVALID>
-			<INVALID>target-new</INVALID>
-			<INVALID>target-position</INVALID>
-			<INVALID>text-align-last</INVALID>
-			<INVALID>text-emphasis</INVALID>
-			<INVALID>text-height</INVALID>
-			<INVALID>text-outline</INVALID>
-			<INVALID>text-wrap</INVALID>
-			<INVALID>voice-balance</INVALID>
-			<INVALID>voice-duration</INVALID>
-			<INVALID>voice-pitch</INVALID>
-			<INVALID>voice-pitch-range</INVALID>
-			<INVALID>voice-rate</INVALID>
-			<INVALID>voice-stress</INVALID>
-			<INVALID>voice-volume</INVALID>
+        <KEYWORDS>
+            <!-- CSS2 & 3 properties -->
 
-		</KEYWORDS>
-	</RULES>
+            <!-- Color and background properties -->
+            <KEYWORD2>background</KEYWORD2>
+            <KEYWORD2>background-attachment</KEYWORD2>
+            <KEYWORD2>background-color</KEYWORD2>
+            <KEYWORD2>background-image</KEYWORD2>
+            <KEYWORD2>background-position</KEYWORD2>
+            <KEYWORD2>background-repeat</KEYWORD2>
+            <KEYWORD2>background-origin</KEYWORD2>
+            <KEYWORD2>background-clip</KEYWORD2>
+            <KEYWORD2>background-size</KEYWORD2>
+            <KEYWORD2>color</KEYWORD2>
+            <KEYWORD2>opacity</KEYWORD2>
+            <KEYWORD2>rendering-intent</KEYWORD2>
+
+            <!-- Font properties -->
+            <KEYWORD2>font</KEYWORD2>
+            <KEYWORD2>font-family</KEYWORD2>
+            <KEYWORD2>font-size</KEYWORD2>
+            <KEYWORD2>font-style</KEYWORD2>
+            <KEYWORD2>font-variant</KEYWORD2>
+            <KEYWORD2>font-weight</KEYWORD2>
+            <KEYWORD2>font-stretch</KEYWORD2>
+            <KEYWORD2>src</KEYWORD2>
+            <KEYWORD2>definition-src</KEYWORD2>
+            <KEYWORD2>unicode-range</KEYWORD2>
+            <KEYWORD2>panose-1</KEYWORD2>
+            <KEYWORD2>stemv</KEYWORD2>
+            <KEYWORD2>stemh</KEYWORD2>
+            <KEYWORD2>units-per-em</KEYWORD2>
+            <KEYWORD2>slope</KEYWORD2>
+            <KEYWORD2>cap-height</KEYWORD2>
+            <KEYWORD2>x-height</KEYWORD2>
+            <KEYWORD2>ascent</KEYWORD2>
+            <KEYWORD2>descent</KEYWORD2>
+            <KEYWORD2>baseline</KEYWORD2>
+            <KEYWORD2>centerline</KEYWORD2>
+            <KEYWORD2>mathline</KEYWORD2>
+            <KEYWORD2>topline</KEYWORD2>
+
+            <!-- Text properties -->
+            <KEYWORD2>letter-spacing</KEYWORD2>
+            <KEYWORD2>text-align</KEYWORD2>
+            <KEYWORD2>text-shadow</KEYWORD2>
+            <KEYWORD2>text-decoration</KEYWORD2>
+            <KEYWORD2>text-indent</KEYWORD2>
+            <KEYWORD2>text-justify</KEYWORD2>
+            <KEYWORD2>text-overflow</KEYWORD2>
+            <KEYWORD2>text-transform</KEYWORD2>
+            <KEYWORD2>word-break</KEYWORD2>
+            <KEYWORD2>word-spacing</KEYWORD2>
+            <KEYWORD2>word-wrap</KEYWORD2>
+            <KEYWORD2>letter-spacing</KEYWORD2>
+            <KEYWORD2>white-space</KEYWORD2>
+
+            <!-- Box properties -->
+            <KEYWORD2>border</KEYWORD2>
+            <KEYWORD2>bottom</KEYWORD2>
+            <KEYWORD2>border</KEYWORD2>
+            <KEYWORD2>border-bottom</KEYWORD2>
+            <KEYWORD2>border-bottom-color</KEYWORD2>
+            <KEYWORD2>border-bottom-style</KEYWORD2>
+            <KEYWORD2>border-bottom-width</KEYWORD2>
+            <KEYWORD2>border-collapse</KEYWORD2>
+            <KEYWORD2>border-color</KEYWORD2>
+            <KEYWORD2>border-left</KEYWORD2>
+            <KEYWORD2>border-left-color</KEYWORD2>
+            <KEYWORD2>border-left-style</KEYWORD2>
+            <KEYWORD2>border-left-width</KEYWORD2>
+            <KEYWORD2>border-right</KEYWORD2>
+            <KEYWORD2>border-right-color</KEYWORD2>
+            <KEYWORD2>border-right-style</KEYWORD2>
+            <KEYWORD2>border-right-width</KEYWORD2>
+            <KEYWORD2>border-spacing</KEYWORD2>
+            <KEYWORD2>border-style</KEYWORD2>
+            <KEYWORD2>border-top</KEYWORD2>
+            <KEYWORD2>border-top-color</KEYWORD2>
+            <KEYWORD2>border-top-style</KEYWORD2>
+            <KEYWORD2>border-top-width</KEYWORD2>
+            <KEYWORD2>border-width</KEYWORD2>
+            <KEYWORD2>border-bottom-left-radius</KEYWORD2>
+            <KEYWORD2>border-bottom-right-radius</KEYWORD2>
+            <KEYWORD2>border-radius</KEYWORD2>
+            <KEYWORD2>border-top-left-radius</KEYWORD2>
+            <KEYWORD2>border-top-right-radius</KEYWORD2>
+            <KEYWORD2>box-align</KEYWORD2>
+            <KEYWORD2>box-direction</KEYWORD2>
+            <KEYWORD2>box-flex</KEYWORD2>
+            <KEYWORD2>box-ordinal-group</KEYWORD2>
+            <KEYWORD2>box-orient</KEYWORD2>
+            <KEYWORD2>box-pack</KEYWORD2>
+            <KEYWORD2>box-sizing</KEYWORD2>
+            <KEYWORD2>box-shadow</KEYWORD2>
+            <KEYWORD2>clear</KEYWORD2>
+            <KEYWORD2>float</KEYWORD2>
+            <KEYWORD2>height</KEYWORD2>
+            <KEYWORD2>margin</KEYWORD2>
+            <KEYWORD2>margin-bottom</KEYWORD2>
+            <KEYWORD2>margin-left</KEYWORD2>
+            <KEYWORD2>margin-right</KEYWORD2>
+            <KEYWORD2>margin-top</KEYWORD2>
+            <KEYWORD2>padding</KEYWORD2>
+            <KEYWORD2>padding-bottom</KEYWORD2>
+            <KEYWORD2>padding-left</KEYWORD2>
+            <KEYWORD2>padding-right</KEYWORD2>
+            <KEYWORD2>padding-top</KEYWORD2>
+
+            <KEYWORD2>column-count</KEYWORD2>
+            <KEYWORD2>column-fill</KEYWORD2>
+            <KEYWORD2>column-gap</KEYWORD2>
+            <KEYWORD2>column-rule</KEYWORD2>
+            <KEYWORD2>column-rule-color</KEYWORD2>
+            <KEYWORD2>column-rule-style</KEYWORD2>
+            <KEYWORD2>column-rule-width</KEYWORD2>
+            <KEYWORD2>column-span</KEYWORD2>
+            <KEYWORD2>column-width</KEYWORD2>
+            <KEYWORD2>columns</KEYWORD2>
+
+            <KEYWORD2>handing-punctuation</KEYWORD2>
 
 
-	<!-- Values: -->
-	<RULES SET="PROP_VALUE"
-		HIGHLIGHT_DIGITS="TRUE"
-		DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
-		NO_WORD_SEP="-_%">
 
-		<SPAN TYPE="LITERAL1" ESCAPE="\">
-			<BEGIN>"</BEGIN>
-			<END>"</END>
-		</SPAN>
+            <!-- Visual formatting properties -->
+            <KEYWORD2>display</KEYWORD2>
+            <KEYWORD2>position</KEYWORD2>
+            <KEYWORD2>top</KEYWORD2>
+            <KEYWORD2>right</KEYWORD2>
+            <KEYWORD2>bottom</KEYWORD2>
+            <KEYWORD2>left</KEYWORD2>
+            <KEYWORD2>float</KEYWORD2>
+            <KEYWORD2>z-index</KEYWORD2>
+            <KEYWORD2>direction</KEYWORD2>
+            <KEYWORD2>unicode-bidi</KEYWORD2>
+            <KEYWORD2>width</KEYWORD2>
+            <KEYWORD2>min-width</KEYWORD2>
+            <KEYWORD2>max-width</KEYWORD2>
+            <KEYWORD2>height</KEYWORD2>
+            <KEYWORD2>min-height</KEYWORD2>
+            <KEYWORD2>max-height</KEYWORD2>
+            <KEYWORD2>line-height</KEYWORD2>
+            <KEYWORD2>vertical-align</KEYWORD2>
 
-		<!-- "functions" -->
-		<SPAN_REGEXP TYPE="LITERAL1" HASH_CHARS="RU" MATCH_TYPE="KEYWORD1">
-			<BEGIN>(rgb|url)\s*\(</BEGIN>
-			<END>)</END>
-		</SPAN_REGEXP>
+            <!-- Visual effects -->
+            <KEYWORD2>overflow</KEYWORD2>
+            <KEYWORD2>overflow-x</KEYWORD2>
+            <KEYWORD2>overflow-y</KEYWORD2>
+            <KEYWORD2>clip</KEYWORD2>
+            <KEYWORD2>visibility</KEYWORD2>
+            <KEYWORD2>perspective</KEYWORD2>
+            <KEYWORD2>perspective-origin</KEYWORD2>
+            <KEYWORD2>transform</KEYWORD2>
+            <KEYWORD2>transform-origin</KEYWORD2>
+            <KEYWORD2>transform-style</KEYWORD2>
+            <KEYWORD2>transition</KEYWORD2>
+            <KEYWORD2>transition-property</KEYWORD2>
+            <KEYWORD2>transition-duration</KEYWORD2>
+            <KEYWORD2>transition-timing-function</KEYWORD2>
+            <KEYWORD2>transition-delay</KEYWORD2>
 
-		<!-- <SEQ DELEGATE="PROP_VALUE_COLOR">#</SEQ> -->
-		<MARK_FOLLOWING TYPE="DIGIT">#</MARK_FOLLOWING>
+            <!-- Page properties -->
+            <KEYWORD2>page-break-before</KEYWORD2>
+            <KEYWORD2>page-break-after</KEYWORD2>
+            <KEYWORD2>page-break-inside</KEYWORD2>
+            <KEYWORD2>orphans</KEYWORD2>
+            <KEYWORD2>widows</KEYWORD2>
 
-		<SEQ_REGEXP HASH_CHAR="!" TYPE="KEYWORD2">!\s*important</SEQ_REGEXP>
+            <!-- Table properties -->
+            <KEYWORD2>caption-side</KEYWORD2>
+            <KEYWORD2>table-layout</KEYWORD2>
+            <KEYWORD2>border-collapse</KEYWORD2>
+            <KEYWORD2>border-spacing</KEYWORD2>
+            <KEYWORD2>empty-cells</KEYWORD2>
+            <KEYWORD2>speak-headers</KEYWORD2>
 
-		<!-- proprietary IE function: -->
-		<SPAN_REGEXP TYPE="FUNCTION" DELEGATE="javascript::MAIN" HASH_CHAR="expression">
-			<BEGIN>expression\s*\(</BEGIN>
-			<END>)</END>
-		</SPAN_REGEXP>
+            <!-- User interface -->
+            <KEYWORD2>cursor</KEYWORD2>
+            <KEYWORD2>outline</KEYWORD2>
+            <KEYWORD2>outline-width</KEYWORD2>
+            <KEYWORD2>outline-style</KEYWORD2>
+            <KEYWORD2>outline-color</KEYWORD2>
+            <KEYWORD2>outline-offset</KEYWORD2>
 
-		<!-- Delegate back: -->
-		<SEQ TYPE="OPERATOR" DELEGATE="PROPERTIES">;</SEQ>
-		<SEQ TYPE="INVALID" DELEGATE="MAIN">}</SEQ> <!-- end properties block, but it's invalid -->
+            <!-- Aural properties -->
+            <KEYWORD2>azimuth</KEYWORD2>
+            <KEYWORD2>volume</KEYWORD2>
+            <KEYWORD2>speak</KEYWORD2>
+            <KEYWORD2>pause</KEYWORD2>
+            <KEYWORD2>pause-before</KEYWORD2>
+            <KEYWORD2>pause-after</KEYWORD2>
+            <KEYWORD2>cue</KEYWORD2>
+            <KEYWORD2>cue-before</KEYWORD2>
+            <KEYWORD2>cue-after</KEYWORD2>
+            <KEYWORD2>play-during</KEYWORD2>
+            <KEYWORD2>elevation</KEYWORD2>
+            <KEYWORD2>speech-rate</KEYWORD2>
+            <KEYWORD2>voice-family</KEYWORD2>
+            <KEYWORD2>pitch</KEYWORD2>
+            <KEYWORD2>pitch-range</KEYWORD2>
+            <KEYWORD2>stress</KEYWORD2>
+            <KEYWORD2>richness</KEYWORD2>
+            <KEYWORD2>speak-punctuation</KEYWORD2>
+            <KEYWORD2>speak-numeral</KEYWORD2>
+            <KEYWORD2>speak-header-cell</KEYWORD2>
 
-		<IMPORT DELEGATE="GLOBAL" />
+            <KEYWORD2>animation</KEYWORD2>
+            <KEYWORD2>animation-name</KEYWORD2>
+            <KEYWORD2>animation-duration</KEYWORD2>
+            <KEYWORD2>animation-timing-function</KEYWORD2>
+            <KEYWORD2>animation-delay</KEYWORD2>
+            <KEYWORD2>animation-iteration-count</KEYWORD2>
+            <KEYWORD2>animation-direction</KEYWORD2>
+            <KEYWORD2>animation-play-state</KEYWORD2>
 
-		<KEYWORDS>
+            <KEYWORD2>appearance</KEYWORD2>
+
+            <!-- these properties are proposed for css3, but are either not
+            supported by any browser or are specific to a single browser. -->
+            <INVALID>alignment-adjust</INVALID>
+            <INVALID>alignment-baseline</INVALID>
+            <INVALID>backface-visibility</INVALID>
+            <INVALID>baseline-shift</INVALID>
+            <INVALID>bookmark-label</INVALID>
+            <INVALID>bookmark-level</INVALID>
+            <INVALID>bookmark-target</INVALID>
+            <INVALID>border-image</INVALID>
+            <INVALID>border-image-outset</INVALID>
+            <INVALID>border-image-repeat</INVALID>
+            <INVALID>border-image-slice</INVALID>
+            <INVALID>border-image-source</INVALID>
+            <INVALID>border-image-width</INVALID>
+            <INVALID>box-decoration-break</INVALID>
+            <INVALID>box-flex-group</INVALID>
+            <INVALID>box-lines</INVALID>
+            <INVALID>color-profile</INVALID>
+            <INVALID>column-fill</INVALID>
+            <INVALID>crop</INVALID>
+            <INVALID>dominant-baseline</INVALID>
+            <INVALID>drop-initial-after-adjust</INVALID>
+            <INVALID>drop-initial-after-align</INVALID>
+            <INVALID>drop-initial-before-adjust</INVALID>
+            <INVALID>drop-initial-before-align</INVALID>
+            <INVALID>drop-initial-size</INVALID>
+            <INVALID>drop-initial-value</INVALID>
+            <INVALID>fit</INVALID>
+            <INVALID>fit-position</INVALID>
+            <INVALID>float-offset</INVALID>
+            <INVALID>font-stretch</INVALID>
+            <INVALID>font-size-adjust</INVALID>
+            <INVALID>grid-columns</INVALID>
+            <INVALID>grid-rows</INVALID>
+            <INVALID>hanging-punctuation</INVALID>
+            <INVALID>hyphenate-after</INVALID>
+            <INVALID>hyphenate-before</INVALID>
+            <INVALID>hyphenate-characters</INVALID>
+            <INVALID>hyphenate-lines</INVALID>
+            <INVALID>hyphenate-resource</INVALID>
+            <INVALID>hyphens</INVALID>
+            <INVALID>icon</INVALID>
+            <INVALID>image-orientation</INVALID>
+            <INVALID>image-resolution</INVALID>
+            <INVALID>inline-box-align</INVALID>
+            <INVALID>line-stacking</INVALID>
+            <INVALID>line-stacking-ruby</INVALID>
+            <INVALID>line-stacking-shift</INVALID>
+            <INVALID>line-stacking-strategy</INVALID>
+            <INVALID>mark</INVALID>
+            <INVALID>mark-after</INVALID>
+            <INVALID>mark-before</INVALID>
+            <INVALID>marks</INVALID>
+            <INVALID>marquee-direction</INVALID>
+            <INVALID>marquee-play-count</INVALID>
+            <INVALID>marquee-speed</INVALID>
+            <INVALID>marquee-style</INVALID>
+            <INVALID>move-to</INVALID>
+            <INVALID>nav-down</INVALID>
+            <INVALID>nav-index</INVALID>
+            <INVALID>nav-left</INVALID>
+            <INVALID>nav-right</INVALID>
+            <INVALID>nav-up</INVALID>
+            <INVALID>overflow-style</INVALID>
+            <INVALID>page</INVALID>
+            <INVALID>page-policy</INVALID>
+            <INVALID>phonemes</INVALID>
+            <INVALID>punctuation-trim</INVALID>
+            <INVALID>rest</INVALID>
+            <INVALID>rest-after</INVALID>
+            <INVALID>rest-before</INVALID>
+            <INVALID>rotation</INVALID>
+            <INVALID>rotation-point</INVALID>
+            <INVALID>ruby-align</INVALID>
+            <INVALID>ruby-overhang</INVALID>
+            <INVALID>ruby-position</INVALID>
+            <INVALID>ruby-span</INVALID>
+            <INVALID>size</INVALID>
+            <INVALID>string-set</INVALID>
+            <INVALID>target</INVALID>
+            <INVALID>target-name</INVALID>
+            <INVALID>target-new</INVALID>
+            <INVALID>target-position</INVALID>
+            <INVALID>text-align-last</INVALID>
+            <INVALID>text-emphasis</INVALID>
+            <INVALID>text-height</INVALID>
+            <INVALID>text-outline</INVALID>
+            <INVALID>text-wrap</INVALID>
+            <INVALID>voice-balance</INVALID>
+            <INVALID>voice-duration</INVALID>
+            <INVALID>voice-pitch</INVALID>
+            <INVALID>voice-pitch-range</INVALID>
+            <INVALID>voice-rate</INVALID>
+            <INVALID>voice-stress</INVALID>
+            <INVALID>voice-volume</INVALID>
+
+        </KEYWORDS>
+    </RULES>
+
+
+    <!-- Values: -->
+    <RULES SET="PROP_VALUE"
+        HIGHLIGHT_DIGITS="TRUE"
+        DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
+        NO_WORD_SEP="-_%">
+
+        <SPAN TYPE="LITERAL1" ESCAPE="\">
+            <BEGIN>"</BEGIN>
+            <END>"</END>
+        </SPAN>
+
+        <!-- "functions" -->
+        <SPAN_REGEXP TYPE="LITERAL1" HASH_CHARS="RU" MATCH_TYPE="KEYWORD1">
+            <BEGIN>(rgb|url)\s*\(</BEGIN>
+            <END>)</END>
+        </SPAN_REGEXP>
+
+        <!-- <SEQ DELEGATE="PROP_VALUE_COLOR">#</SEQ> -->
+        <MARK_FOLLOWING TYPE="DIGIT">#</MARK_FOLLOWING>
+
+        <SEQ_REGEXP HASH_CHAR="!" TYPE="KEYWORD2">!\s*important</SEQ_REGEXP>
+
+        <!-- proprietary IE function: -->
+        <SPAN_REGEXP TYPE="FUNCTION" DELEGATE="javascript::MAIN" HASH_CHAR="expression">
+            <BEGIN>expression\s*\(</BEGIN>
+            <END>)</END>
+        </SPAN_REGEXP>
+
+        <!-- Delegate back: -->
+        <SEQ TYPE="OPERATOR" DELEGATE="PROPERTIES">;</SEQ>
+        <SEQ TYPE="INVALID" DELEGATE="MAIN">}</SEQ> <!-- end properties block, but it's invalid -->
+
+        <IMPORT DELEGATE="GLOBAL" />
+
+        <KEYWORDS>
             <KEYWORD3>above</KEYWORD3>
             <KEYWORD3>absolute</KEYWORD3>
             <KEYWORD3>absolute-colorimetric</KEYWORD3>
@@ -505,6 +510,7 @@
             <KEYWORD3>distribute-space</KEYWORD3>
             <KEYWORD3>dotted</KEYWORD3>
             <KEYWORD3>double</KEYWORD3>
+            <KEYWORD3>resize</KEYWORD3>
             <KEYWORD3>e-resize</KEYWORD3>
             <KEYWORD3>ease</KEYWORD3>
             <KEYWORD3>ease-in</KEYWORD3>
@@ -885,52 +891,52 @@
             <KEYWORD4>yellow</KEYWORD4>
             <KEYWORD4>yellowgreen</KEYWORD4>
 
-			<!-- "functions", here for autocomplete: -->
-			<KEYWORD1>rgb</KEYWORD1>
-			<KEYWORD1>rgba</KEYWORD1>
-			<KEYWORD1>hsl</KEYWORD1>
-			<KEYWORD1>hsla</KEYWORD1>
-			<KEYWORD1>url</KEYWORD1>
-		</KEYWORDS>
-	</RULES>
+            <!-- "functions", here for autocomplete: -->
+            <KEYWORD1>rgb</KEYWORD1>
+            <KEYWORD1>rgba</KEYWORD1>
+            <KEYWORD1>hsl</KEYWORD1>
+            <KEYWORD1>hsla</KEYWORD1>
+            <KEYWORD1>url</KEYWORD1>
+        </KEYWORDS>
+    </RULES>
 
 
-	<RULES SET="GLOBAL">
-		<SEQ TYPE="OPERATOR">:</SEQ>
-		<SEQ TYPE="NULL">;</SEQ>
-		<SPAN TYPE="NULL" ESCAPE="\">
-			<BEGIN>(</BEGIN>
-			<END>)</END>
-		</SPAN>
-		<SEQ TYPE="OPERATOR">{</SEQ>
-		<SEQ TYPE="OPERATOR">}</SEQ>
-		<SEQ TYPE="OPERATOR">,</SEQ>
-		<SEQ TYPE="OPERATOR">.</SEQ>
-		<SEQ TYPE="OPERATOR">!</SEQ>
+    <RULES SET="GLOBAL">
+        <SEQ TYPE="OPERATOR">:</SEQ>
+        <SEQ TYPE="NULL">;</SEQ>
+        <SPAN TYPE="NULL" ESCAPE="\">
+            <BEGIN>(</BEGIN>
+            <END>)</END>
+        </SPAN>
+        <SEQ TYPE="OPERATOR">{</SEQ>
+        <SEQ TYPE="OPERATOR">}</SEQ>
+        <SEQ TYPE="OPERATOR">,</SEQ>
+        <SEQ TYPE="OPERATOR">.</SEQ>
+        <SEQ TYPE="OPERATOR">!</SEQ>
 
-		<SPAN TYPE="COMMENT1">
-			<BEGIN>/*</BEGIN>
-			<END>*/</END>
-		</SPAN>
+        <SPAN TYPE="COMMENT1">
+            <BEGIN>/*</BEGIN>
+            <END>*/</END>
+        </SPAN>
 
-		<KEYWORDS>
-			<!-- Generated content, automatic listing -->
-			<KEYWORD2>content</KEYWORD2>
-			<KEYWORD2>quotes</KEYWORD2>
-			<KEYWORD2>counter-reset</KEYWORD2>
-			<KEYWORD2>counter-increment</KEYWORD2>
-			<KEYWORD2>marker-offset</KEYWORD2>
-			<KEYWORD2>list-style</KEYWORD2>
-			<KEYWORD2>list-style-image</KEYWORD2>
-			<KEYWORD2>list-style-position</KEYWORD2>
-			<KEYWORD2>list-style-type</KEYWORD2>
+        <KEYWORDS>
+            <!-- Generated content, automatic listing -->
+            <KEYWORD2>content</KEYWORD2>
+            <KEYWORD2>quotes</KEYWORD2>
+            <KEYWORD2>counter-reset</KEYWORD2>
+            <KEYWORD2>counter-increment</KEYWORD2>
+            <KEYWORD2>marker-offset</KEYWORD2>
+            <KEYWORD2>list-style</KEYWORD2>
+            <KEYWORD2>list-style-image</KEYWORD2>
+            <KEYWORD2>list-style-position</KEYWORD2>
+            <KEYWORD2>list-style-type</KEYWORD2>
 
-			<KEYWORD2>@import</KEYWORD2>
-			<KEYWORD2>@media</KEYWORD2>
-			<KEYWORD2>@page</KEYWORD2>
-			<KEYWORD2>@font-face</KEYWORD2>
-		</KEYWORDS>
-	</RULES>
+            <KEYWORD2>@import</KEYWORD2>
+            <KEYWORD2>@media</KEYWORD2>
+            <KEYWORD2>@page</KEYWORD2>
+            <KEYWORD2>@font-face</KEYWORD2>
+        </KEYWORDS>
+    </RULES>
 
 </MODE>
 

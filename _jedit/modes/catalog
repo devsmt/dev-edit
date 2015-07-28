@@ -7,12 +7,24 @@
     <!-- <MODE NAME="foo" FILE="foo.xml" FILE_NAME_GLOB="*.foo" /> -->
 
 
-  <MODE NAME="less" FILE="less.xml" FILE_NAME_GLOB="*.less" />
-  <MODE NAME="sass" FILE="sass.xml" FILE_NAME_GLOB="*.scss" />
-  <MODE NAME="sass" FILE="creole.xml" FILE_NAME_GLOB="*.creole" />
+
+
+  <MODE NAME="creole" FILE="creole.xml" FILE_NAME_GLOB="*.creole" />
+  <MODE NAME="markdown" FILE="markdown.xml" FILE_NAME_GLOB="*.md" />
+
   <!-- disable typoscript -->
   <MODE NAME="typoscript"  FILE="typoscript.xml" FILE_NAME_GLOB="*.tsXXX"/>
+
   <MODE NAME="typescript" FILE="typescript.xml" FILE_NAME_GLOB="*.ts" />
   <MODE NAME="RPG" FILE="RPG.xml" FILE_NAME_GLOB="*.*rpgle" />
+  
+  <MODE NAME="go" FILE="go.xml" FILE_NAME_GLOB="*.go" />
+
+
+  <!--
+  meglio impostare {*.css,*.less,*.scss} nel pattern del modo CSS
+  <MODE NAME="less" FILE="less.xml" FILE_NAME_GLOB="*.less" />
+  <MODE NAME="sass" FILE="sass.xml" FILE_NAME_GLOB="*.scss" />
+  -->
 
 </MODES>
