@@ -1,71 +1,89 @@
 [global]
-b_|<b>\|</b>
+//--|//------------------------------------------------------------------------------
 <!|html_comment_
-table_|\|<table id="" border="0" cellpadding="0" cellspacing="0" class="table table-condensed">\n    <caption>Caption</caption>\n    <thead>\n        <tr>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n        </tr>\n    </thead>    \n    <tbody>\n        <tr>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n        </tr>\n    </tbody>\n</table>
-sql_insert_|INSERT INTO T2 (EMPID, EMPNAME, EMPADDR)\n     VALUES (DEFAULT, :hv_name, :hv_addr)
-mp0_|margin:0; padding:0;
-sql_select_|SELECT \nFROM       \nWHERE\nORDER BY
-icon_|<i class="fa fa-fw">\|</i>
+anchor_|<a href="\|"></a>
+anchorjs_|<a href="javascript:void(0);" onclick="myfunc();return false"></a>
 autocomplete_|html5_autocomplete_
-js_|<script type="text/javascript">\|</script>
-ul_|<ul>\|</ul>
-html_comment_|<!--\n\|\n-->
-htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
-hc_|html_comment_
-li_|<li>\|</li>
-html_progress_|<progress id="" max="100" value="90"></progress>
-sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
-html_|<!DOCTYPE html>\n<head></head>\n<body>\n\n\n\|</body>\n</html>
+b_|<b>\|</b>
+background_|background:#ffffff url('img_tree.png') no-repeat right top;
+border_|border: 1px solid #\|;
+br_|<br />
+bs_|&nbsp;
+checkbox_|<input type="checkbox" name="" value="" />
+comment_|html_comment_
+css_|<link rel="stylesheet" href="\|">
+dief_|die(__FUNCTION__."\|");
+div_|<div>\|</div>
+else_|else {\n}
+elseif_| elseif(\|) {\n}\n
+fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
+for_|for($i=0;$i<count($a);$i++){\|}
+foreach_|foreach($a as $k=>$v){\|}
+form_|<form action="" method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
 h1_|<h1>\|</h1>
+h2_|<h2>\|</h2>
 h2_|<h2>\|</h2>
 h3_|<h3>\|</h3>
 h4_|<h4>\|</h4>
 h5_|<h5>\|</h5>
-h6_|<h6>\|</h6>
-margin_|margin:4px auto\|;
-span_|<span class="">\|</span>
-php_|<?php\n
-div_|<div>\|</div>
-textarea_|<textarea rows="5" cols="80">\|</textarea>
-else_|else {\n}
-html5_autocomplete_|\n<input id="countryInput"\n       type="text"\n       data-bind="value: selectedCountry"\n       list="countryList" />\n\n<datalist id="countryList" data-bind="foreach: countries">\n    <option data-bind="value: country"></option>\n</datalist>
-p_|<p>\|</p>
-anchorjs_|<a href="javascript:void(0);" onclick="myfunc();return false"></a>
-label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
-border_|border: 1px solid #\|;
-elseif_| elseif(\|) {\n}\n
-anchor_|<a href="\|"></a>
-if_|if(!empty(\|)){}
-small_|<small></small>
-submit_|<input type="submit" value="Salva" id="">
-checkbox_|<input type="checkbox" name="" value="" />
-th_|<th>\|</th>
-new_|$1 $2 = new $1(\|);
-input_file_|<input type="file" accept=".someext,image/*">
-h2_|<h2>\|</h2>
-input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0"/>
 h5_|<h5>\|</h5>
-option_|<option value="" selected></option>
-//--|//------------------------------------------------------------------------------
-i_|<i>\|</i>
-len_|length
-dief_|die(__FUNCTION__."\|");
+h6_|<h6>\|</h6>
+hc_|html_comment_
 hr_|<hr style="" />
-css_|<link rel="stylesheet" href="\|">
-style_|<style type="text/css">\|</style>
-script_|<script language="JavaScript" >\|</script>
-for_|for($i=0;$i<count($a);$i++){\|}
-phpo_|<?=\|?>
-jq_|<script src="http://code.jquery.com/jquery-latest.min.js" ></script>
+html5_autocomplete_|\n<input id="countryInput"\n       type="text"\n       data-bind="value: selectedCountry"\n       list="countryList" />\n\n<datalist id="countryList" data-bind="foreach: countries">\n    <option data-bind="value: country"></option>\n</datalist>
+html_comment_|<!--\n\|\n-->
+html_progress_|<progress id="" max="100" value="90"></progress>
+html_|<!DOCTYPE html>\n<head></head>\n<body>\n\n\n\|</body>\n</html>
+htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
+i_|<i>\|</i>
+icon_|<i class="fa fa-fw">\|</i>
+if_|if(!empty(\|)){}
 img_|<img src="/img/\|" border="0" alt="" onerror="this.src='/img/NA.png'"/>
-form_|<form action="" method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
-foreach_|foreach($a as $k=>$v){\|}
-include_js_|jq_
 include_css_|css_ style_
-fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
-select_|<select name="">\n  <option value="">Value 1</option> \n</select>
-pre_|<pre>\|</pre>
+include_js_|jq_
+input_file_|<input type="file" accept=".someext,image/*">
+input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0"/>
+jq_|<script src="http://code.jquery.com/jquery-latest.min.js" ></script>
+jqload_|$(function(){\|});
+jqonclick_|$("a").click(function(ev) {\n    ev.preventDefault();    \n});
+js_|<script type="text/javascript">\|</script>
+label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
+legend_|<fieldset>\n    <legend>description:</legend>\n \n</fieldset>
+len_|length
+li_|<li>\|</li>
+margin_|margin:4px auto\|;
+mp0_|margin:0; padding:0;
 nb_|&nbsp;
+new_|$1 $2 = new $1(\|);
+option_|<option value="" selected></option>
+p_|<p>\|</p>
+php_|<?php\n
+phpo_|<?=\|?>
+pre_|<pre>\|</pre>
+qunit_equal_|equal( func(), true, "testname" );
+radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
+script_|<script src="\|"></script>
+select_|<select name="">\n  <option value="">Value 1</option> \n</select>
+small_|<small></small>
+span_|<span class="">\|</span>
+sql_insert_|INSERT INTO T2 (EMPID, EMPNAME, EMPADDR)\n     VALUES (DEFAULT, :hv_name, :hv_addr)
+sql_select_|SELECT \nFROM       \nWHERE\nORDER BY
+sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
+style_|<style type="text/css">\|</style>
+submit_|<input type="submit" value="Salva" id="">
+table_|\|<table id="" border="0" cellpadding="0" cellspacing="0" class="table table-condensed">\n    <caption>Caption</caption>\n    <thead>\n        <tr>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n        </tr>\n    </thead>    \n    <tbody>\n        <tr>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n        </tr>\n    </tbody>\n</table>
+td_|<td>\n\|</td>
+td_|<td>\|&nbsp;</td>
+textarea_|<textarea rows="5" cols="80">\|</textarea>
+th_|<th>\|</th>
+tr_|<tr>\n</tr>
+tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
+twb_button_|<button type="button" class="btn btn-primary btn-small">txt</button>
+twb_grid_|<div class="container-fluid">\n  <div class="row">\n    <div class="col-xs-6">  </div>\n    <div class="col-xs-6">  </div>\n  </div>\n</div>
+twb_icon_|<i class="icon-"></i> icon-download-alt
+twb_row_|    <div class="container-fluid">\n      <div class="row-fluid">\n\t<div class="span3">\n        </div>\n      </div>\n    </div>
+twb_tabs_|<ul class="nav nav-tabs">\n  <li class="active">\n    <a href="#">Home</a>\n  </li>\n  <li><a href="#">...</a></li>\n  <li><a href="#">...</a></li>\n</ul>
+ul_|<ul>\|</ul>
 [c++]
 [sqr]
 [nsis2]
@@ -78,20 +96,6 @@ h6_|###### Text {#el_id .pbb }
 b_|**bold**
 link_|[link](http://www.lampa.it)
 anchor_|link_
-twb_row_|    <div class="container-fluid">\n      <div class="row-fluid">\n\t<div class="span3">\n        </div>\n      </div>\n    </div>
-twb_tabs_|<ul class="nav nav-tabs">\n  <li class="active">\n    <a href="#">Home</a>\n  </li>\n  <li><a href="#">...</a></li>\n  <li><a href="#">...</a></li>\n</ul>
-twb_grid_|<div class="container-fluid">\n  <div class="row">\n    <div class="col-xs-6">  </div>\n    <div class="col-xs-6">  </div>\n  </div>\n</div>
-background_|background:#ffffff url('img_tree.png') no-repeat right top;
-tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
-bs_|&nbsp;
-jqload_|$(function(){\|});
-td_|<td>\|&nbsp;</td>
-br_|<br />
-jqonclick_|$("a").click(function(ev) {\n    ev.preventDefault();    \n});
-td_|<td>\n\|</td>
-equal_|equal( func(), true, "testname" );
-tr_|<tr>\n</tr>
-script_|<script src="\|"></script>
 [asp]
 [latex]
 [factor]
@@ -141,207 +145,203 @@ script_|<script src="\|"></script>
 [lotos]
 [django]
 [ada]
-radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
-twb_button_|<button type="button" class="btn btn-primary btn-small">txt</button>
-twb_icon_|<i class="icon-"></i> icon-download-alt
 [php]
-php_|<?php\n\n\|\n?>
-range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
-foreach_|foreach($a_ as $k => $v) {\n\|}
-min_|$i_min = min([0,$x]);
-collapse_|border-collapse:collapse;
-global_|$GLOBALS[''] = '';
-if_|if( empty(\|) ) {\n    // do init\n}
-legend_|<fieldset>\n    <legend>description:</legend>\n \n</fieldset>
-try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
-zf_get_|$this->getRequest()->getParam('name\|');
-zf_view_|$html = $this->view->render('alternate.phtml');
-zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
-sprintf_|sprintf('%s %d', $s, $i);
-round_|round($f, 2);
-filter_str_|filterstr_
-header_|header("Location: $url");
-zf_url_|echo $this->url($par=array('username' => 'martel'), $route_name='user');
-zf_session_|$ses = new Zend_Session_Namespace('_l10n_');\n$ses->var = '';
-input_|<input type="text" name="\|" value="" placeholder="">
-for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
-array_|$\|=array();
-unlink_|if( unlink($path) ){}
-__MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
-str_match_|str_match($str, $substr\|) //strpos_
-case_|case \|:\nbreak;
-str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
-dirname_|dirname(__FILE__).'/lib.php'
-call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
-zf_post_|$this->getRequest()->getPost('name\|');
-error_reporting_|error_reporting(E_ALL); // Report all PHP errors
-array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
-date_add_|$date = new DateTime('2010-09-17');\n$date->add(new DateInterval('P1D')); // P1D=Period of 1 day\n$str_date = $date->format('Y-m-d');
-if___|$v = $v ?: $def;
-dbg_|var_dump(\|);die();
-register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
-singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
-__destruct_|function __destruct() {\n\|\n}
-number_format_|number_format($number, 2, ',', '.');
-__END__|$html = <<<__END__\n\|__END__;\n
-namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
-assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
-mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
-contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
-substr_count_|$c = substr_count($str, $usbstr\|);
-substr_|substr($s\|,0,2);
-issetor_|$\|= isset($a['']) ? $a[''] : null;
-implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
-constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
-in_array_|in_array('',$a);
-json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
-ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
-htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
-firebug_|FB::send('test');
-strpos_|str_pos_
-func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
-defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
-static_|//\n\tprotected static function \| () { return ; }
-obj_|new stdClass()
-zf_config_|Zend_Registry::get('config')->company->email->support;
-sleep_|sleep(10);// seconds
-is_callable_|is_callable(array($obj, 'method_name'), false);
-date_|date('Y-m-d H:i:s');
-dump_|dump(\|,'');//dbg:
-zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
-nbsp_|&nbsp;
-array_key_exists_|array_key_exists($key, $a\|)
-define_|define("\|", "", false);
-strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
-extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
-assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
-opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
-qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
-filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
-file_get_contents_|file_get_contents(dirname( realpath(__FILE__) ).'/file.txt');
-<<<|$\| = <<<__END__\n__END__;
-private_|//\nprivate function \|(){ return true; }
-s_|$s_ = '';
-pluck_|__::pluck($a, $k);
-print_r_|print_r(\|,true);
-filterstr_|$v = preg_replace('/[^0-9A-Z$]/', '',  substr(trim($v), 0, 6) );
-require_|require_once dirname(__FILE__).'/\|';
-array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
-destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
-array_walk_|array_walk($data, function(&$v, $k, $param) { \n    $v = $k . $param . $v; \n}, 'myparam');
-instanceof_|if( !($var instanceof ParentClass) ){ }
-str_replace_|str_replace('','',\|);
-__call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
-file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
-tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
-protected_|protected function \|(){}
-filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
-f_|function(){}
 //--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
-switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
-intval_|$i_num = intval($s);
-preg_match_|// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
-strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
-xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
-ksort_|ksort($a);//in-place sort!
-rand_|rand(0,100);
-method_|protected function \|(hint $v){ \nreturn ; \n}
-defined_|defined('MYCONST')
-zf_cache_|zf_cache_get_
-filter_|$v = filter_var($v, FILTER_SANITIZE_EMAIL);
-ff_|( \| ) ? ( ) : ( );
+<<<|$\| = <<<__END__\n__END__;
+__END__|$html = <<<__END__\n\|__END__;\n
+__MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
+__call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
 __construct_|public function __construct(){\n    parent::__construct();\n}
-ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
-e_|<?=$\|?>
-construct_|public function __construct(){\n   parent::__construct();\n\|}
-file_|file_put_contents($path\|,$str);
-validate_|filter_var_
-array_slice_|array_slice($a, $pos, $len);
+__destruct_|function __destruct() {\n\|\n}
 __map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
-hidden_|<input name="" value="" type="hidden">
-ini_get_|$v = ini_get('display_errors');
-zf_registry_|Zend_Registry::set('acl', $acl);
-zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
-
-apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
-replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
-sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
-mkdir_|true === mkdir('/path', 0755);
-interface_|interface ICommand {\n    // \n    public function run();\n}
-zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
-glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
-assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
-trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHello();\n        echo 'World!';\n    }\n}\nclass MyHelloWorld extends Base {\n    use SayWorld;\n}
-methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.''.__FUNCTION__);
-while_|while($a=mysql_fetch_array($rs)){\|}
-tempname_|$file_path = tempnam(sys_get_temp_dir(), $prefix='X');
-set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\t// log your warning or transform in exception:\n        // throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, E_WARNING);\n\n
-phpo_|<?=\|;?>
-execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
-finally_|finally {\n\|}
-public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
-var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.' '.__FILE__.' '.__LINE__);
-once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
-filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
-array_filter_|array_filter($a, function ($s){ return !empty($s); });
-location_|header('Location: http://www.test.it/');
-goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
-zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
-zf_redirect_|$url = $this->view->url(array(),'route_name');\n$this->_redirect($url);
-apc_|apc_get_
-dir_|dirname(__FILE__).'/lib.php'
-check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
-zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
-base_convert_|base_convert($i, 10, $tobase=36 );
-file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
-explode_|explode( ',', $s\|);
-zf_dbg_|Zend_Debug::dump($, 'label:');
-array_unique_|$a_ = array_unique($a_ , SORT_STRING);
-die_|die(__FUNCTION__.\|);
-echo_|echo "\|"; // dbg
-str_pos_|strpos($str, $substr\| ) !== false
-filter_int_|$int = filter_var($int, FILTER_SANITIZE_NUMBER_INT);
-sf_get_|$request->getParameter($name);
-mail_|$mail_res = mail($to, $subject, $message);
-exec_|$res = `ls -la`;
-out_|echo htmlspecialchars($s, ENT_QUOTES);
-const_|const CONSTANT = 'str';
-typeof_|$var instanceof ParentClass
-zf_env_|'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENVIRONMENT)
-memory_limit_|ini_set("memory_limit","256M");
-date_past_|$time_ago = strtotime('-3 months');
-function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
-throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
-if__|$\| = isset($c) ? $c : null;
-coalesce_|$w = $x ?? $y ?? $z;
-str_repeat_|str_repeat('tmpl',5)
-phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends PHPUnit_Framework_TestCase {\n    public function test{$testname}(){\n        $this->assertEquals(1, 2);\n    }\n}
 a_|$\| = array();
-date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
-is_str_|ctype_graph($s) || ctype_space($s)
+apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
+apc_|apc_get_
 array_fill_|array_fill($i=0, $n=10 , $v='');
-return_|return\| true;
-preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);
-zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
-header_json_|header('Content-Type: application/json');
+array_filter_|array_filter($a, function ($s){ return !empty($s); });
+array_key_exists_|array_key_exists($key, $a\|)
+array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
+array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
 array_pluck_|pluck_
-table_a_|\n// genera tabella\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return array(\n            'Nome Campo' => $a_row['field'],\n        );\n    }, $a_rs);\n\n    $html_table = sprintf('<table class="table"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[0]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n}\n
-except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
-chmod_|chmod(/somedir/somefile', 0755);// use octal val
-trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
-zf_flash_|$this->_helper->flashMessenger->addMessage('');
-sort_|asort($a, SORT_STRING);// &$a; asort() for keys, sort() for values, returns bool
-json_decode_|$a = json_decode($json_str, $use_assoc=true);
 array_reduce_|$reduced = array_reduce($a, function($carry_v, $cur_v) {\n    $carry_v *= $cur_v;\n    return $carry_v;\n}, $initial_v='');
-else_|else {\|}
-class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function (){}\n}
+array_slice_|array_slice($a, $pos, $len);
+array_unique_|$a_ = array_unique($a_ , SORT_STRING);
+array_walk_|array_walk($data, function(&$v, $k, $param) { \n    $v = $k . $param . $v; \n}, 'myparam');
+array_|$\|=array();
+assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
+assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
+assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
+base_convert_|base_convert($i, 10, $tobase=36 );
 border_|border: 1px solid #\|;
-microtime_|$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true)- $time_start );
-move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
-set_time_limit_|set_time_limit(0);
+call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
+case_|case \|:\nbreak;
+check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
+chmod_|chmod(/somedir/somefile', 0755);// use octal val
+class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function (){}\n}
+coalesce_|$w = $x ?? $y ?? $z;
+collapse_|border-collapse:collapse;
+const_|const CONSTANT = 'str';
+constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
+construct_|public function __construct(){\n   parent::__construct();\n\|}
+contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
+ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
+date_add_|$date = new DateTime('2010-09-17');\n$date->add(new DateInterval('P1D')); // P1D=Period of 1 day\n$str_date = $date->format('Y-m-d');
+date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
+date_past_|$time_ago = strtotime('-3 months');
+date_|date('Y-m-d H:i:s');
+dbg_|var_dump(\|);die();
+define_|define("\|", "", false);
+defined_|defined('MYCONST')
+defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
+destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
+die_|die(__FUNCTION__.\|);
+dir_|dirname(__FILE__).'/lib.php'
+dirname_|dirname(__FILE__).'/lib.php'
+dump_|dump(\|,'');//dbg:
+e_|<?=$\|?>
+echo_|echo "\|"; // dbg
+else_|else {\|}
+error_reporting_|error_reporting(E_ALL); // Report all PHP errors
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
+except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
+exec_|$res = `ls -la`;
+execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
+explode_|explode( ',', $s\|);
+extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
+f_|function(){}
+ff_|( \| ) ? ( ) : ( );
+file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
+file_get_contents_|file_get_contents(dirname( realpath(__FILE__) ).'/file.txt');
+file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
+file_|file_put_contents($path\|,$str);
+filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
+filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
+filter_int_|$int = filter_var($int, FILTER_SANITIZE_NUMBER_INT);
+filter_str_|filterstr_
+filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
+filter_|$v = filter_var($v, FILTER_SANITIZE_EMAIL);
+filterstr_|$v = preg_replace('/[^0-9A-Z$]/', '',  substr(trim($v), 0, 6) );
+finally_|finally {\n\|}
+firebug_|FB::send('test');
+for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
+foreach_|foreach($a_ as $k => $v) {\n\|}
+func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
+function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
+glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
+global_|$GLOBALS[''] = '';
+goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
+header_json_|header('Content-Type: application/json');
+header_|header("Location: $url");
+hidden_|<input name="" value="" type="hidden">
+htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
+if___|$v = $v ?: $def;
+if__|$\| = isset($c) ? $c : null;
+if_|if( empty(\|) ) {\n    // do init\n}
+implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
+in_array_|in_array('',$a);
+ini_get_|$v = ini_get('display_errors');
+input_|<input type="text" name="\|" value="" placeholder="">
+instanceof_|if( !($var instanceof ParentClass) ){ }
+interface_|interface ICommand {\n    // \n    public function run();\n}
+intval_|$i_num = intval($s);
+is_callable_|is_callable(array($obj, 'method_name'), false);
+is_str_|ctype_graph($s) || ctype_space($s)
+issetor_|$\|= isset($a['']) ? $a[''] : null;
+json_decode_|$a = json_decode($json_str, $use_assoc=true);
+json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+ksort_|ksort($a);//in-place sort!
+location_|header('Location: http://www.test.it/');
+mail_|$mail_res = mail($to, $subject, $message);
+memory_limit_|ini_set("memory_limit","256M");
+method_|protected function \|(hint $v){ \nreturn ; \n}
+methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.''.__FUNCTION__);
+microtime_|$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true)- $time_start );
+min_|$i_min = min([0,$x]);
+mkdir_|true === mkdir('/path', 0755);
+mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
+move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
+namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
+nbsp_|&nbsp;
+number_format_|number_format($number, 2, ',', '.');
+ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
+obj_|new stdClass()
+once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
+opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
+out_|echo htmlspecialchars($s, ENT_QUOTES);
+php_|<?php\n\n\|\n?>
+phpo_|<?=\|;?>
+phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends PHPUnit_Framework_TestCase {\n    public function test{$testname}(){\n        $this->assertEquals(1, 2);\n    }\n}
+phpunit_assert|//todo!
+pluck_|__::pluck($a, $k);
+preg_match_|// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
+preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);
+print_r_|print_r(\|,true);
+private_|//\nprivate function \|(){ return true; }
+protected_|protected function \|(){}
+public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
+qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
+rand_|rand(0,100);
+range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
+register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
+replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
+require_|require_once dirname(__FILE__).'/\|';
+return_|return\| true;
+round_|round($f, 2);
+s_|$s_ = '';
+set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\t// log your warning or transform in exception:\n        // throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, E_WARNING);\n\n
+set_time_limit_|set_time_limit(0);
+sf_get_|$request->getParameter($name);
+singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
+sleep_|sleep(10);// seconds
+sort_|asort($a, SORT_STRING);// &$a; asort() for keys, sort() for values, returns bool
+sprintf_|sprintf('%s %d', $s, $i);
+sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
+static_|//\n\tprotected static function \| () { return ; }
+str_match_|str_match($str, $substr\|) //strpos_
+str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
+str_pos_|strpos($str, $substr\| ) !== false
+str_repeat_|str_repeat('tmpl',5)
+str_replace_|str_replace('','',\|);
+strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
+strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
+strpos_|str_pos_
+substr_count_|$c = substr_count($str, $usbstr\|);
+substr_|substr($s\|,0,2);
+switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
+table_a_|\n// genera tabella\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return array(\n            'Nome Campo' => $a_row['field'],\n        );\n    }, $a_rs);\n\n    $html_table = sprintf('<table class="table"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[0]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n}\n
+tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
+tempname_|$file_path = tempnam(sys_get_temp_dir(), $prefix='X');
+throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
+trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
+trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHello();\n        echo 'World!';\n    }\n}\nclass MyHelloWorld extends Base {\n    use SayWorld;\n}
+try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
+typeof_|$var instanceof ParentClass
+unlink_|if( unlink($path) ){}
+validate_|filter_var_
+var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.' '.__FILE__.' '.__LINE__);
+while_|while($a=mysql_fetch_array($rs)){\|}
+whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
+xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
+zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
+zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
+zf_cache_|zf_cache_get_
+zf_config_|Zend_Registry::get('config')->company->email->support;
+zf_dbg_|Zend_Debug::dump($, 'label:');
+zf_env_|'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENVIRONMENT)
+zf_flash_|$this->_helper->flashMessenger->addMessage('');
+zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
+zf_get_|$this->getRequest()->getParam('name\|');
+zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
+zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
+zf_post_|$this->getRequest()->getPost('name\|');
+zf_redirect_|$url = $this->view->url(array(),'route_name');\n$this->_redirect($url);
+zf_registry_|Zend_Registry::set('acl', $acl);
+zf_session_|$ses = new Zend_Session_Namespace('_l10n_');\n$ses->var = '';
+zf_url_|echo $this->url($par=array('username' => 'martel'), $route_name='user');
+zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
+zf_view_|$html = $this->view->render('alternate.phtml');
+zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
 [yab]
 [lua]
 [makefile]
@@ -655,11 +655,11 @@ array_merge_|var a = _.extend(a1, a2);
 interface_|interface IEventFunc extends Function {\n    (message: string): void;\n    func(): string;\n}\n\n
 isset_|typeof_
 typeof_|typeof \| !== 'undefined'
-console_|console.log(\|);
+console_|log_
 dict_|dict_js_
 substr_|str.substring(0,2);
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
-void_|if ($var === void 0) { $var = 0; }
+void_|if ( value === void 0) { value = 0; }
 throw_|throw new Error("msg");
 class_|class AClass {\n    constructor(m: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }\n}
 in_array_|_.indexOf([], val) !== -1
@@ -683,6 +683,7 @@ foreach_|[1, 2, 3].forEach((item, index, array) => { console.log(item); });
 try_|try {\n\|} catch(e) {\n    // e.message\n}
 array_|a: TypeName[];
 json_decode_|var obj:any = JSON.parse(json);
+json_encode_|var str:string = JSON.parse(obj);
 [plaintex]
 [cobol]
 [csv]
@@ -697,102 +698,101 @@ show_|display:block;
 [assembly-x86]
 [binsource-agc]
 [javascript]
-jqfind_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
-factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
-var_|console.log(\|);
-unset_|delete obj['index'];
-in_array_|var is_present = ["Banana", "Orange"].indexOf("Apple") >= 0;
-jqis_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
-jqfilter_|$(".parent").find(".bar").filter("p");
-jsfilter_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
-require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});\n// see require_ or include_
-bind_|fun.bind(this_obj , arg1, arg2 ... );
-jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
-jqmerge_|var a = $.merge( [1,2], [3,4] );
-interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
-define_|define(["my/dependency"],\n    function(dependency) {\n        // private code\n        return function() {\n            // public code\n        }\n    }\n);
-log_|console.log(\|);
-jqclick_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
-str_contains_|var is_containing_x = url.search(/xxx/) != -1;
-map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
-date_|function format_date_it(date){\n    var m = date.getMonth() + 1;\n    var str = date.getDate() + "/" + m + "/" + date.getFullYear();\n    return str;\n}\nfunction date_last_week(){\n    var es = (7*24*60*60*1000);//secondi in una settimana\n    var ts = ( (new Date()).getTime() - es );\n    return new Date(ts);\n};\nvar str = format_date_it( date_last_week() );
-jqajax_|$.ajax({\n  url: '/data/people.json',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
-typeof_|typeof \|!== 'undefined'
-for_|for( var i=0; i<a.length; i++) {\|}
-throw_|throw new Error(msg);
-json_|JSON.parse(text);\nJSON.stringify(data);
-stop_|e.stopPropagation();//bubbling\ne.preventDefault();
-regexp_|var regexp = new RegExp(s_query, 'gi');\nvar res = str.match(regexp);
 //--|\|//------------------------------------------------------------------------------
-isset_|if (typeof $var != 'undefined'){}
-template_|var html = _.template("<%=k%>").call(this, {k: "aa"});
-js_log_|console.log();
-jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
-POST_|// richede in post una pagina remota e ottiene la risposta\nfunction _getHTML($param) {\n    //sleep(1);// diamo pausa al server  \n    $url = 'http://domain/api';\n    $data = array('key' => "1" );\n    // use key 'http' even if you send the request to https\n    $options = array(\n                'http' => array(\n                    'header'  => "Content-type: application/x-www-form-urlencoded\\r\\n",\n                    'method'  => 'POST',\n                    'content' => http_build_query($data),\n                    ),\n    );\n    $context  = stream_context_create($options);\n    $html = file_get_contents($url, false, $context);\n    return $html;\n}
-join_|array.join(',');
-jqready_|$(function(){\|});
-jq_click_|$("#target").click(function(event) {\n  event.preventDefault();\n  //$( this ).slideUp();\n});
-jqhasnode_|if( $('#selector').length > 0 ) {}
-try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
-function_|function(){\n\|}
-static_|myclass.method = function() {\n};
-jqgrep_|months = $.grep(months, function(value, i) {\nreturn ( value.indexOf('J') == 0 );\n});\n
+_each_|_.each(hash, function(v, k, list){ });
 apply_|fun.apply(this_obj, array_arguments );
-jqget_|$.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n});
-while_|while( true ){\|}
-include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});
-call_|fun.call(this_obj, arg1, arg2, ... );
-jqload_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
-preg_|var str = str_result.replace(new RegExp('[a-z]', 'g'), '_');
-jqhover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
-indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
-jqdata_|$('#myId').data('myObject', {\nlabel: $('#myLabel')[0]\n});\nvar myObject = $('#myId').data('myObject');\n
-settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
-jqwrap_|$("p").slice(1,3).wrap("<i></i>");\n
-console_|console.log(\|);
-jqanimate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
-jqpost_|$.post("/url.php", { "k": "" }, function(data){\n   console.log(data);\|}, "json");
-foreach_|a.forEach(function(v,k){\n    // console.log(v);\n});\n// IE<=8 \n// for(var k in a){ if(a.hasOwnProperty(k)){ var v = a[k]; }}
-substr_|str.substr( beg=0, len=4);
-jqslide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
-jqtarget_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
-jqforeach_|$.each(a, function(i,key){\|});
-to_array_|var args = Array.prototype.slice.call(arguments);
-reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
-jqeffects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
-if_|if( $jq_selection.length && !_.isEmpty(o) ) {\|}
+bind_|fun.bind(this_obj , arg1, arg2 ... );
 byid_|var el = document.getElementById('id');
-object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
+call_|fun.call(this_obj, arg1, arg2, ... );
+class_|// funzione:\nvar Greeter = (function () {\n    // constructor\n    function Greeter(message) {\n        // public\n        this.greeting = message || 'default';\n        // privileged\n        this.publicMethod = function() {\n            alert(privateName + " get from public method!"); \n        }    \t\n    }\n    // public methods\n    Greeter.prototype.greet = function () {\n        return "Hello, " + this.greeting;\n    };\n    // private\n    var privateVar = message || "default"; \n    var privateMethod = function() {\n        return privateVar; \n    }\n    \n    return Greeter;\n})();\n// instance\n// var o = new Greeter("txt");\n
 clo_|function(){}
+console_|console.log(\|);
+date_|function format_date_it(date){\n    var m = date.getMonth() + 1;\n    var str = date.getDate() + "/" + m + "/" + date.getFullYear();\n    return str;\n}\nfunction date_last_week(){\n    var es = (7*24*60*60*1000);//secondi in una settimana\n    var ts = ( (new Date()).getTime() - es );\n    return new Date(ts);\n};\nvar str = format_date_it( date_last_week() );
+define_|define(["my/dependency"],\n    function(dependency) {\n        // private code\n        return function() {\n            // public code\n        }\n    }\n);
+except_|throw "errormsg\|";
+factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
 filter_|var _a = a.filter(function(v){\n    return v.name === "test";\n});
+for_|for( var i=0; i<a.length; i++) {\|}
+foreach_|a.forEach(function(v,k){\n    // console.log(v);\n});\n// IE<=8 \n// for(var k in a){ if(a.hasOwnProperty(k)){ var v = a[k]; }}
+function_|function(){\n\|}
+if_|if( $jq_selection.length && !_.isEmpty(o) ) {\|}
+in_array_|var is_present = ["Banana", "Orange"].indexOf("Apple") >= 0;
+include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});
+indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
+interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
+isset_|if (typeof $var != 'undefined'){}
+join_|array.join(',');
+jq_append_|$('#content ul').append(\n    $('<li>').append(\n        $('<a>').attr('href','/ctrl/actn').append(\n            $('<span>').attr('class', 'selected').append("Message txt")\n)));
+jq_click_|$("#target").click(function(event) {\n  event.preventDefault();\n  //$( this ).slideUp();\n});
+jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
+jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
+jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
+jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
+jqajax_|$.ajax({\n  url: '/data/people.json',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
+jqanimate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
+jqappend_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n
+jqcheckbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
+jqclick_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
+jqdata_|$('#myId').data('myObject', {\nlabel: $('#myLabel')[0]\n});\nvar myObject = $('#myId').data('myObject');\n
+jqdisable_|$('#sameAsShipping').change(function(){\n    if( this.checked ){\n        $('#billingInfo input:text').attr('disabled','disabled');\n    } else {\n        $('#billingInfo input:text').removeAttr('disabled');\n    }\n}).trigger('change');
 jqeach_|$('li').each(function(index) {\n    alert(index + ': ' + $(this).text());\n});
+jqeffects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
+jqextend_|var settings = $.extend({ test: 1 }, opt);\n
+jqfade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
+jqfilter_|$(".parent").find(".bar").filter("p");
+jqfind_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
+jqforeach_|$.each(a, function(i,key){\|});
+jqget_|$.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n});
+jqgrep_|months = $.grep(months, function(value, i) {\nreturn ( value.indexOf('J') == 0 );\n});\n
+jqhasnode_|if( $('#selector').length > 0 ) {}
+jqhover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
+jqis_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
+jqisnode_|if( $('#selector').length > 0 ) {}
+jqjson_|$.getJSON("test.js",\n   { name: "John", time: "2pm" },\n   function(json){\n     alert("JSON Data: " + json.users[3].name);\n   }\n );
+jqload_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
+jqmerge_|var a = $.merge( [1,2], [3,4] );
+jqpost_|$.post("/url.php", { "k": "" }, function(data){\n   console.log(data);\|}, "json");
+jqready_|$(function(){\|});
+jqslide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
+jqsubmit_|$('form').submit(function(e){\n    e.preventDefault();\n\n    var isErrorFree = true;\n\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n\n\n    if (isErrorFree){ $.post( url, data, callback, type ) }\n\n    return isErrorFree;\n});
+jqtarget_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
+jqwrap_|$("p").slice(1,3).wrap("<i></i>");\n
+js_log_|console.log();
+jsfilter_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
 json_encode_|JSON.stringify(data);
 json_parse_|JSON.parse(text);
-jqextend_|var settings = $.extend({ test: 1 }, opt);\n
-switch_|switch(\|) {\n  case : \n  break;\n  default: \n    //istruzioni \n}
-jqisnode_|if( $('#selector').length > 0 ) {}
-module_|module = function() {\n  // ... module privates and aliases\n\n  // public\n  return {\n    // ... module constants\n    init: function() {\n      return this;\n    },\n\n  };\n}().init();
-except_|throw "errormsg\|";
-sprintf_|var s = _.str.sprintf('%s', val);
-_each_|_.each(hash, function(v, k, list){ });
-yui_style_|YAHOO.util.Dom.setStyle(__display_id, 'border', "1px solid "+color );
-class_|// funzione:\nvar Greeter = (function () {\n    // constructor\n    function Greeter(message) {\n        // public\n        this.greeting = message || 'default';\n        // privileged\n        this.publicMethod = function() {\n            alert(privateName + " get from public method!"); \n        }    \t\n    }\n    // public methods\n    Greeter.prototype.greet = function () {\n        return "Hello, " + this.greeting;\n    };\n    // private\n    var privateVar = message || "default"; \n    var privateMethod = function() {\n        return privateVar; \n    }\n    \n    return Greeter;\n})();\n// instance\n// var o = new Greeter("txt");\n
-replace_|s.replace("old","new");
-jqdisable_|$('#sameAsShipping').change(function(){\n    if( this.checked ){\n        $('#billingInfo input:text').attr('disabled','disabled');\n    } else {\n        $('#billingInfo input:text').removeAttr('disabled');\n    }\n}).trigger('change');
-jqcheckbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
-jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
-jqappend_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n
-jqjson_|$.getJSON("test.js",\n   { name: "John", time: "2pm" },\n   function(json){\n     alert("JSON Data: " + json.users[3].name);\n   }\n );
+json_|JSON.parse(text);\nJSON.stringify(data);
 lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
-yui_ajax_|var t = YAHOO.util.Connect.asyncRequest('GET', url, {\n        success: function(o) {\n            // o.status\n            // o.statusText\n            // o.responseText\n            // o.argument\n        },\n        failure: function(o) { },\n        // Passing an array of arguments to both the success and failure callback\n        argument: [argument1, argument2, argument3]\n    },\n    null /* "new=1&old=2" */\n);
-jqsubmit_|$('form').submit(function(e){\n    e.preventDefault();\n\n    var isErrorFree = true;\n\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n\n\n    if (isErrorFree){ $.post( url, data, callback, type ) }\n\n    return isErrorFree;\n});
-jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
-jq_append_|$('#content ul').append(\n    $('<li>').append(\n        $('<a>').attr('href','/ctrl/actn').append(\n            $('<span>').attr('class', 'selected').append("Message txt")\n)));
-prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
+log_|console.log(\|);
+map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
 method_|    method: function() {\n    },
-timestamp_|var now = new Date().getTime().toString();
+module_|module = function() {\n  // ... module privates and aliases\n\n  // public\n  return {\n    // ... module constants\n    init: function() {\n      return this;\n    },\n\n  };\n}().init();
+object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
+preg_|var str = str_result.replace(new RegExp('[a-z]', 'g'), '_');
+prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
+reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
+regexp_|var regexp = new RegExp(s_query, 'gi');\nvar res = str.match(regexp);
+replace_|s.replace("old","new");
 require_once_|// see require_ or include_
-jqfade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
+require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});\n// see require_ or include_
+settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
+sprintf_|var s = _.str.sprintf('%s', val);
+static_|myclass.method = function() {\n};
+stop_|e.stopPropagation();//bubbling\ne.preventDefault();
+str_contains_|var is_containing_x = url.search(/xxx/) != -1;
+substr_|str.substr( beg=0, len=4);
+switch_|switch(\|) {\n  case : \n  break;\n  default: \n    //istruzioni \n}
+template_|var html = _.template("<%=k%>").call(this, {k: "aa"});
+throw_|throw new Error(msg);
+timestamp_|var now = new Date().getTime().toString();
+to_array_|var args = Array.prototype.slice.call(arguments);
+try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
+typeof_|typeof \|!== 'undefined'
+unset_|delete obj['index'];
+var_|console.log(\|);
+while_|while( true ){\|}
+yui_ajax_|var t = YAHOO.util.Connect.asyncRequest('GET', url, {\n        success: function(o) {\n            // o.status\n            // o.statusText\n            // o.responseText\n            // o.argument\n        },\n        failure: function(o) { },\n        // Passing an array of arguments to both the success and failure callback\n        argument: [argument1, argument2, argument3]\n    },\n    null /* "new=1&old=2" */\n);
+yui_style_|YAHOO.util.Dom.setStyle(__display_id, 'border', "1px solid "+color );
 [uscript]
 [gnuplot]
 [xq]
