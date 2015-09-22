@@ -1,30 +1,29 @@
-#!/usr/bin/env php
 <?php
 /*
-scopo del programma
+utilities da aggiungere a un programma CLI
 */
 
 
 function is($val, $expected_val, $description = '') {
     $pass = ($val == $expected_val);
-    TestCLI::ok($pass, $description);
+    CLITest::ok($pass, $description);
     if (!$pass) {
-        TestCLI::diag("         got: '$val'");
-        TestCLI::diag("    expected: '$expected_val'");
+        CLITest::diag("         got: '$val'");
+        CLITest::diag("    expected: '$expected_val'");
     }
     return $pass;
 }
-class TestCLI {
+class CLITest {
     static $errc = 0;
     public static function ok($test, $label, $data = null) {
         if ($test == false) {
-            echo CLI::sprintc("ERROR $label: $test\n\n",'red');
+            echo CLI::sprintc("ERROR $label: $test", 'red')."\n\n";
             if (!empty($data)) {
-                echo CLI::sprintc( var_export($data, 1),'');
+                echo  var_export($data, 1) ;
             }
-            Test::$errc++;
+            self::$errc++;
         } else {
-            echo CLI::sprintc("OK $label </p>\n\n",'green');
+            echo CLI::sprintc("OK $label", 'green')."\n\n";
         }
     }
     public static function diag($l, $data = '') {
@@ -33,113 +32,89 @@ class TestCLI {
         } else {
             echo CLI::sprintc( $l.':'.var_export($data, 1) );
         }
+        echo "\n\n";
     }
 }
 
 // cli utils
 class CLI {
+    // ForeGround colors
+    static $a_fg = [
+        'black' => '0;30',
+        'dark_gray' => '1;30',
+        'blue' => '0;34',
+        'light_blue' => '1;34',
+        'green' => '0;32',
+        'light_green' => '1;32',
+        'cyan' => '0;36',
+        'light_cyan' => '1;36',
+        'red' => '0;31',
+        'light_red' => '1;31',
+        'purple' => '0;35',
+        'light_purple' => '1;35',
+        'brown' => '0;33',
+        'yellow' => '1;33',
+        'light_gray' => '0;37',
+        'white' => '1;37',
+        // Bold
+        'bblack' => '1;30' ,
+        'bred' => '1;31'   ,
+        'bgreen' => '1;32' ,
+        'byellow' => '1;33',
+        'bblue' => '1;34'  ,
+        'bpurple' => '1;35',
+        'bcyan' => '1;36'  ,
+        'bwhite' => '1;37' ,
+    ];
 
-    // verifica che sia stato passato un valore in cli
-    // uso: echo has_flag($argv, 'production-ws') ? 'si':'no';
-    function hasFlag($flag) {
-        $argv = $_SERVER['argv'];
-        $s_argv = implode(' ', $argv ).' ';
-        $substr = " --$flag ";
-        return strpos($s_argv, $substr) !== false;
-    }
+    // background
+    static $a_bg = [
+        'black' => '40',
+        'red' => '41',
+        'green' => '42',
+        'yellow' => '43',
+        'blue' => '44',
+        'magenta' => '45',
+        'cyan' => '46',
+        'light_gray' => '47',
+    ];
 
 
-    // Returns colored string
-    public static function sprintc($str, $foreground_color = null, $background_color = null) {
-        // Set up shell colors
-        $a_fg = [
-        'black'=>'0,30',
-        'dark_gray'=>'1,30',
-        'blue'=>'0,34',
-        'light_blue'=>'1,34',
-        'green'=>'0,32',
-        'light_green'=>'1,32',
-        'cyan'=>'0,36',
-        'light_cyan'=>'1,36',
-        'red'=>'0,31',
-        'light_red'=>'1,31',
-        'purple'=>'0,35',
-        'light_purple'=>'1,35',
-        'brown'=>'0,33',
-        'yellow'=>'1,33',
-        'light_gray'=>'0,37',
-        'white'=>'1,37',
-        ];
-        // background
-        $a_bg = [
-        'black'=>'40',
-        'red'=>'41',
-        'green'=>'42',
-        'yellow'=>'43',
-        'blue'=>'44',
-        'magenta'=>'45',
-        'cyan'=>'46',
-        'light_gray'=>'47',
-        ];
+
+    // usa FG o BG
+    public static function sprintc($str, $foreground_color = '',$background_color = '') {
         $s = '';
-        // Check if given foreground color found
-        if (isset($a_fg[$foreground_color])) {
-            $s.= "\033[" . $a_fg[$foreground_color].'m';
+        // FG color
+        if (isset(self::$a_fg[$foreground_color])) {
+            $s.= "\e[" . self::$a_fg[$foreground_color].'m';
         }
-        // Check if given background color found
-        if (isset($a_bg[$background_color])) {
-            $s.= "\033[" . $a_bg[$background_color].'m';
+        // BG color
+        if (isset(self::$a_bg[$background_color])) {
+            $s.= "\033[" . self::$a_bg[$background_color].'m';
         }
-        // Add string and end coloring
         $s .= $str . "\033[0m";
         return $s;
     }
-}
-// actions
-class ProgController {
-    static $a_flags = array();
-    public static function actionUsage(){
-        $argv = $_SERVER['argv'];
-        $usage_flags = CLI::getUsageFlags(self::$a_flags);
-        return <<<__END__
-uso:
-    {$argv[0]} [action] [--go] [--test]
-uso del programma
-__END__;
-    }
-
-    // perform unit tests for this program
-    public static function actionTest() {
-        return true;
+    // stampa stringa colorata
+    public static function printc($str, $foreground_color = 'green' ) {
+        echo self::sprintc($str, $foreground_color )."\n";
     }
 }
 
-class CommandLineOption {
-    public function __construct($descr, Callable $cb) {
-        $this->descr = $descr;
-        $this->cb    = $cb   ;
-    }
+//$stdin_txt = stream_get_contents(STDIN);
+
+
+/* USE IN CLI_BAREBONES.PHP !!! */
+
+/*
+foreach(CLI::$a_bg as $bg_k => $bg_v) {
+    echo CLI::sprintc('test '.$bg_k, null, $bg_k)."\n";
+}
+foreach(CLI::$a_fg as $k => $v) {
+    echo CLI::sprintc('test '.$k, $k)."\n";
 }
 
-
-//------------------------------------------------------------------------------
-//  main
-//------------------------------------------------------------------------------
-date_default_timezone_set('Europe/Rome');
-mb_internal_encoding('UTF-8');
-
-$stdin_txt = stream_get_contents(STDIN);
-$action = isset($argv[1])?$argv[1]:'test';
-
-switch($action) {
-    case 'x':
-        die(' ... ');
-    break;
-    case 'test':
-        die(ProgController::actionTest());
-    break;
-    default:
-        die(ProgController::actionUsage());
-    break;
-}
+is(1, 1);
+is(1, 2);
+*/
 
