@@ -19,7 +19,7 @@ $application = new Zend_Application(
 
 //only load resources we need for script, in this case db and mail
 $application->getBootstrap()->bootstrap(array('db', 'mail'));
-You can then proceed to use ZF resources just as you would in an MVC application:
+// You can then proceed to use ZF resources just as you would in an MVC application:
 
 $db = $application->getBootstrap()->getResource('db');
 
@@ -31,98 +31,9 @@ $row = $db->fetchRow('SELECT * FROM something');
 // the MVC and the command line applications. This is general good practice.
 
 
-/*
-usare action
-
-Bootstrap.php
-
-protected function _initRouter()
-{
-    if( PHP_SAPI == 'cli' )
-    {
-        $this->bootstrap( 'FrontController' );
-        $front = $this->getResource( 'FrontController' );
-        $front->setParam('disableOutputBuffering', true);
-        $front->setRouter( new Application_Router_Cli() );
-        $front->setRequest( new Zend_Controller_Request_Simple() );
-    }
-}
-Init error would probably barf as written above, the error handler is probably not yet instantiated unless you've changed the default config.
-
-protected function _initError ()
-{
-    $this->bootstrap( 'FrontController' );
-    $front = $this->getResource( 'FrontController' );
-    $front->registerPlugin( new Zend_Controller_Plugin_ErrorHandler() );
-    $error = $front->getPlugin ('Zend_Controller_Plugin_ErrorHandler');
-    $error->setErrorHandlerController('index');
-
-    if (PHP_SAPI == 'cli')
-    {
-        $error->setErrorHandlerController ('error');
-        $error->setErrorHandlerAction ('cli');
-    }
-}
-
-// You probably, also, want to munge more than one parameter from the command line,
-// here's a basic example:
-
-class Application_Router_Cli extends Zend_Controller_Router_Abstract
-{
-    public function route (Zend_Controller_Request_Abstract $dispatcher)
-    {
-        $getopt     = new Zend_Console_Getopt (array ());
-        $arguments  = $getopt->getRemainingArgs();
-
-        if ($arguments)
-        {
-            $command = array_shift( $arguments );
-            $action  = array_shift( $arguments );
-            if(!preg_match ('~\W~', $command) )
-            {
-                $dispatcher->setControllerName( $command );
-                $dispatcher->setActionName( $action );
-                $dispatcher->setParams( $arguments );
-                return $dispatcher;
-            }
-
-            echo "Invalid command.\n", exit;
-
-        }
-
-        echo "No command given.\n", exit;
-    }
 
 
-    public function assemble ($userParams, $name = null, $reset = false, $encode = true)
-    {
-        echo "Not implemented\n", exit;
-    }
-}
-
-
-// Lastly, in your controller, the action that you invoke make use of the params
-// that were orphaned by the removal of the controller and action by the CLI router:
-
-public function echoAction()
-{
-    // disable rendering as required
-    $database_name     = $this->getRequest()->getParam(0);
-    $udata             = array();
-
-    if( ($udata = $this->getRequest()->getParam( 1 )) )
-        $udata         = explode( ",", $udata );
-
-    echo $database_name;
-    var_dump( $udata );
-}
-
-// You could then invoke your CLI command with:
-php index.php Controller Action
-
-*/
-
-/* metodo 2
+/* metodo 1
 // initialize the application path, library and autoloading
 defined('APPLICATION_PATH') ||
  define('APPLICATION_PATH', realpath(__DIR__ . '/../application'));
@@ -234,6 +145,47 @@ $front->setRequest($request)
 $application->bootstrap()
    ->run();
 
+*/
 
 
+/* metodo 2
+    // inizializza un l'environment Zend
+    static function envBootstrap() {
+        // Define path to application directory
+        defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+        define('LIBRARY_ROOT', realpath(dirname(__FILE__) . '/../library'));
+        define('DB_LIB', 'la_dat', false);
+        set_include_path(implode(PATH_SEPARATOR, [LIBRARY_ROOT, get_include_path()]));
+        $configSection = 'general';
+        defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : $configSection));
+        require_once 'Zend/Application.php';
+        $application = new \Zend_Application(APPLICATION_ENV, APPLICATION_PATH . '/configuration/config.ini');
+        // questo serve  aforzare env=dev
+        $_SERVER['HTTP_HOST'] = 'localhost';
+        require_once 'Zend/Loader/Autoloader.php';
+        $loader = \Zend_Loader_Autoloader::getInstance();
+        $loader->registerNamespace('DMS');
+        $loader->registerNamespace('AS400');
+        require_once APPLICATION_PATH . '/bootstrap.php';
+        $bootstrap = new \Bootstrap($configSection);
 
+        $time_limit_sec = 8 * 60 * 60; // 8h
+        set_time_limit($time_limit_sec);
+        ini_set('memory_limit', '521M');
+        date_default_timezone_set('Europe/Rome');
+        mb_internal_encoding('UTF-8');
+    }
+
+    public static function registerExceptionErrHandler() {
+        // tutti i warning vengono presentati come eccezioni
+        // le eccezioni hanno un handler custom(in prdoduzione)
+        set_error_handler(function ($errno, $errstr, $errfile, $errline, array $errcontext) {
+                // error was suppressed with the @-operator
+                if (0 === error_reporting()) {
+                    return false;
+                }
+                throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
+        }, E_WARNING);
+    }
+}
+*/

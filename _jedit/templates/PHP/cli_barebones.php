@@ -2,7 +2,7 @@
 <?php
 /*
 scopo del programma
-*/
+ */
 namespace {
     //----------------------------------------------------------------------------
     //  subroutines
@@ -19,7 +19,8 @@ namespace {
             }
         }
     }
-    function println($msg){ echo $msg."\n"; }
+
+    function println($msg) {echo $msg . "\n";}
 
     class ENV {
         static function envBootstrap() {
@@ -38,14 +39,14 @@ namespace {
     class Main {
         public function run() {
             $action = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : 'test';
-            $action = strtoupper( $action );
-            switch($action) {
+            $action = strtoupper($action);
+            switch ($action) {
             case 'X':
                 die(' ... ');
                 break;
-                //---------------------------------------------------
-                //  dev methods
-                //---------------------------------------------------
+            //---------------------------------------------------
+            //  dev methods
+            //---------------------------------------------------
             case 'TEST':
                 die($this->actionTest());
                 break;
@@ -75,8 +76,7 @@ namespace {
     //  main
     //----------------------------------------------------------------------------
 
-
-    define('DEBUG', CLI::hasFlag('debug') );
+    define('DEBUG', CLI::hasFlag('debug'));
     ENV::envBootstrap();
     try {
         $c = new Main();
@@ -86,6 +86,3 @@ namespace {
         println($msg);
     }
 }
-
-
-

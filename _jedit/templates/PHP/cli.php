@@ -1,6 +1,8 @@
 <?php
 /*
-utilities da aggiungere a un programma CLI
+
+USE IN CLI_BAREBONES.PHP !!!
+
 */
 
 
@@ -101,12 +103,10 @@ class CLI {
     }
 }
 
-//$stdin_txt = stream_get_contents(STDIN);
 
-
-/* USE IN CLI_BAREBONES.PHP !!! */
 
 /*
+//$stdin_txt = stream_get_contents(STDIN);
 foreach(CLI::$a_bg as $bg_k => $bg_v) {
     echo CLI::sprintc('test '.$bg_k, null, $bg_k)."\n";
 }
@@ -117,4 +117,10 @@ foreach(CLI::$a_fg as $k => $v) {
 is(1, 1);
 is(1, 2);
 */
+
+
+/* USE IN CLI_BAREBONES.PHP !!! */
+
+
+
 
