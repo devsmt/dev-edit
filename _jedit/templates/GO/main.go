@@ -38,6 +38,10 @@ type Inventory struct {
 var i int = 0
 var sweaters Inventory;
 
+var a_str = []string{
+   "aaaa",
+   "bbbb",
+}
 
 //-------------------------------------------------------
 // functions
