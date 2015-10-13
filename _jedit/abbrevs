@@ -481,37 +481,37 @@ var_|fmt.Printf("%v", v) //DBG
 [forth]
 [nqc]
 [RPG]
-function_|     D calc_int        PR            10I 0\n     D    parm1                       5I 0 VALUE\n      * must match the corresponding prototype\n      * (PI is optional if the SubR does not return and does not have any parameters)\n      * Other def of variables, constants and prototypes, are LOCAL definitions\n      * Calc may refer to both local and global definitions\n      * SubR must contain a RETURN operation\n     P calc_int        B\n     D calc_int        PI            10I 0\n     D    parm1                       5I 0 VALUE\n     D Result          S             10I 0\n      /free\n         Result = parm1 +1;\n         return Result;\n      /end-free\n     P                 E
-read_|read(e) File_Name;\nif %error(File_Name);\n    // TODO: error reporting\nelse;\n    dow not %eof(File_Name);\n        // TODO: process record\n        read File_Name;// read next\n    enddo;\nelse;
-dou_|dou exit;\n    if cond = 1;\n        exit = *on;\n    else;\nenddo;
-free_|/free\n/end-free
-setgt_|setgt *Hival FileName;//go to file EOF\nReadP FileName;\ndow not %eof(FileName);\n    // process record\n    ReadP FileName;\nenddo;
-sub_|begsr name;\nendsr;
-setll_|setll *loval FileName;\ndow (1=1);\n  read FileName;\n  if %eof;\n    leave;\n  endif;\n  if $oo <=0;\n    iter;\n  endif;\nenddo;
-chain_|      * tabella di base\n     F intct30L uf a e           k disk    rename(intct0:intct_30) prefix(t_)\n      * DS Key, è automaticamente qualified\n     D OrdRecKeys      ds                  likerec(intct_30:*key)\n\n      /free\n         OrdRecKeys.t_tcoage   = i_coage;\n         OrdRecKeys.t_tanord   = i_anord;//puoi usare campi multipli\n         chain(e) %kds(OrdRecKeys) intct_30;\n         if %error;\n           // TODO: report key not found\n         endif;\n         if %found();\n           // t_tdaord accessibile... elabora il record come in fixed\n         endif;\n      /end-free
+*--|*-----------------------------------------------------------------------
 atoi_|%unsh()
-replace_|\nresult_str = %replace(sustr:s1:%scan(sustr:s1):%len(sustr));
+callp_|// prototipo comando esterno\n// uso:\n//       $cmd = 'CHGJOB CCSID(*SYSVAL)';\n//       callp exec(%trim($cmd):%len(%trim($cmd)));\n     D myexec          pr                  extpgm('lib/QCMDEXC')\n     D   ex_cmd                   32702a   const\n     D   ex_cmdlen                   15p 5 const\n\n\n
+callpp_|// per usare i prototipi occorrono delle specifiche\nH dftactgrp(*no) bnddir('AW')\n  /copy *libl/srccpy,cpy_protaw\n     // prototipo di funzione, su modulo esterno\n     D aw_getc         pr             1n   EXTPROC('AW_GETC')\n     D   aw_getc_daor                 8p 0 value\n     D   aw_getc_nuor                11p 0 value\n     D   aw_getc_note                30A\n\n       // chiamata di una funzione con prototipo\n       callp aw_getc(da_ord:nu_ord:$awc_note);
+chain_|      * tabella di base\n     F intct30L uf a e           k disk    rename(intct0:intct_30) prefix(t_)\n      * DS Key, è automaticamente qualified\n     D OrdRecKeys      ds                  likerec(intct_30:*key)\n\n      /free\n         OrdRecKeys.t_tcoage   = i_coage;\n         OrdRecKeys.t_tanord   = i_anord;//puoi usare campi multipli\n         chain(e) %kds(OrdRecKeys) intct_30;\n         if %error;\n           // TODO: report key not found\n         endif;\n         if %found();\n           // t_tdaord accessibile... elabora il record come in fixed\n         endif;\n      /end-free
+char_replace_|str_dec = %xlate('$.,':' ':'$1,000.11');
+charat_|pos = %check('@':s_email);
+copy_|/COPY $lib/$file,$function\n/IF NOT DEFINED $MODNAME\n/DEFINE $MODNAME\n    // code goes here\n/ENDIF
+date_|//*ISO: \n//*USA: 12312004\nD date   S    D\ndate = %char( %date(ymd:*ISO) : *USA ); \ndate = %date('040596':*MDY0);// date='1996-04-05'
+dou_|dou exit;\n    if cond = 1;\n        exit = *on;\n    else;\nenddo;
+dow_|    dow not *in03;\n    enddo;
 for_|D $i              s              3u 0\nfor $i=1 to %elem(ArrayName);\n// for $i = %elem(ArrayName) downto 1 by 1;\n    ArrayName($i);\n    //iter; leave; \nendfor;\n
+free_|/free\n/end-free
+function_|     D calc_int        PR            10I 0\n     D    parm1                       5I 0 VALUE\n      * must match the corresponding prototype\n      * (PI is optional if the SubR does not return and does not have any parameters)\n      * Other def of variables, constants and prototypes, are LOCAL definitions\n      * Calc may refer to both local and global definitions\n      * SubR must contain a RETURN operation\n     P calc_int        B\n     D calc_int        PI            10I 0\n     D    parm1                       5I 0 VALUE\n     D Result          S             10I 0\n      /free\n         Result = parm1 +1;\n         return Result;\n      /end-free\n     P                 E
 h_|     H DECEDIT('0,') DATEDIT(*YMD/)\n     H option(*srcstmt : *nodebugio)\n     H dftactgrp(*no) bnddir('AW')
+if_|if ();\nelseif ();\nelse;\nendif;
+int_|%int() \n//usa unsh() per float, cast a positivo
+monitor_|monitor;\n    \non-error;\n    retval = 'ERROR';\nendmon;
+read_|read(e) File_Name;\nif %error(File_Name);\n    // TODO: error reporting\nelse;\n    dow not %eof(File_Name);\n        // TODO: process record\n        read File_Name;// read next\n    enddo;\nelse;
+replace_|\nresult_str = %replace(sustr:s1:%scan(sustr:s1):%len(sustr));
+setgt_|setgt *Hival FileName;//go to file EOF\nReadP FileName;\ndow not %eof(FileName);\n    // process record\n    ReadP FileName;\nenddo;
+setll_|setll *loval FileName;\ndow (1=1);\n  read FileName;\n  if %eof;\n    leave;\n  endif;\n  if $oo <=0;\n    iter;\n  endif;\nenddo;
+sql_select_many_|     D $matM2          ds                  QUALIFIED\n     D  des1                         70a\n     D  des2                         70a\n     * per estrarre tutti i campi \n     D $zntcl        E DS                  QUALIFIED OCCURS( 50 ) INZ\n     D                                     EXTNAME( zntcl00f )\n \n     exec sql select padem1, padem2 into :$MATM2 from MATM200f;\n     if SQLCOD<>0;\n        errore = '1';\n        o_errstr  = 'SQL error SQLCOD: '+%char(SQLCOD) ;\n        o_errn = SQLCOD;\n     endif;
+sql_select_one_|exec SQL  SELECT FName, LName, email INTO :fstname,:lstname,:email\n  FROM  contacts\n    WHERE cstnbr = :client\n    FETCH FIRST ROW ONLY;\nif (SqlCod<>0 or SQLSTATE >= '02000'); \n    // NOT FOUND leavesr;\nelse;  \n    // FOUND\nendif;\n\n
+str_pos_|pos = %scan('test':s_email);
+string_|%char() \n// cast a char di I e F
+strtoupper_|     D U_case          C                   CONST('ABCDEFGHIJKLMNOPQRST-\n     D                                     UVWXYZAEEIOU')\n     D L_Case          C                   CONST('abcdefghijklmnopqrst-\n     D                                     uvwxyzàèéìòù')\n     $$_des = %xlate(l_case:u_case:$$_des);
+sub_|begsr name;\nendsr;
 switch_|    select;\n        when opt = 'A';\n            exsr AddRec;\n        when opt = 'D';\n            exsr DelRec;\n        when opt = 'C';\n            exsr ChgRec;\n    endsl;
 try_|monitor;\n\non-error;\n    retval = 'ERROR';\nendmon;
-monitor_|monitor;\n    \non-error;\n    retval = 'ERROR';\nendmon;
 while_|    dow not *in03;\n    enddo;
-sql_select_many_|     D $matM2          ds                  QUALIFIED\n     D  des1                         70a\n     D  des2                         70a\n     * per estrarre tutti i campi \n     D $zntcl        E DS                  QUALIFIED OCCURS( 50 ) INZ\n     D                                     EXTNAME( zntcl00f )\n \n     exec sql select padem1, padem2 into :$MATM2 from MATM200f;\n     if SQLCOD<>0;\n        errore = '1';\n        o_errstr  = 'SQL error SQLCOD: '+%char(SQLCOD) ;\n        o_errn = SQLCOD;\n     endif;
-*--|*-----------------------------------------------------------------------
-string_|%char() \n// cast a char di I e F
-date_|//*ISO: \n//*USA: 12312004\nD date   S    D\ndate = %char( %date(ymd:*ISO) : *USA ); \ndate = %date('040596':*MDY0);// date='1996-04-05'
-callpp_|// per usare i prototipi occorrono delle specifiche\nH dftactgrp(*no) bnddir('AW')\n  /copy *libl/srccpy,cpy_protaw\n     // prototipo di funzione, su modulo esterno\n     D aw_getc         pr             1n   EXTPROC('AW_GETC')\n     D   aw_getc_daor                 8p 0 value\n     D   aw_getc_nuor                11p 0 value\n     D   aw_getc_note                30A\n\n       // chiamata di una funzione con prototipo\n       callp aw_getc(da_ord:nu_ord:$awc_note);
-copy_|/COPY $lib/$file,$function\n/IF NOT DEFINED $MODNAME\n/DEFINE $MODNAME\n    // code goes here\n/ENDIF
-str_pos_|pos = %scan('test':s_email);
-dow_|    dow not *in03;\n    enddo;
-if_|if ();\nelseif ();\nelse;\nendif;
-charat_|pos = %check('@':s_email);
-callp_|// prototipo comando esterno\n// uso:\n//       $cmd = 'CHGJOB CCSID(*SYSVAL)';\n//       callp exec(%trim($cmd):%len(%trim($cmd)));\n     D myexec          pr                  extpgm('lib/QCMDEXC')\n     D   ex_cmd                   32702a   const\n     D   ex_cmdlen                   15p 5 const\n\n\n
-sql_select_one_|exec SQL  SELECT FName, LName, email INTO :fstname,:lstname,:email\n  FROM  contacts\n    WHERE cstnbr = :client\n    FETCH FIRST ROW ONLY;\nif (SqlCod<>0 or SQLSTATE >= '02000'); \n    // NOT FOUND leavesr;\nelse;  \n    // FOUND\nendif;\n\n
-char_replace_|str_dec = %xlate('$.,':' ':'$1,000.11');
-strtoupper_|     D U_case          C                   CONST('ABCDEFGHIJKLMNOPQRST-\n     D                                     UVWXYZAEEIOU')\n     D L_Case          C                   CONST('abcdefghijklmnopqrst-\n     D                                     uvwxyzàèéìòù')\n     $$_des = %xlate(l_case:u_case:$$_des);
-int_|%int() \n//usa unsh() per float, cast a positivo
 [s#]
 [fhtml]
 [occam]
@@ -664,66 +664,67 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [hlsl]
 [n3]
 [typescript]
-_each_|_.each(hash, function(v, k, list){ });
+var_|println('__FUNCTION__()', \|);
 _filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
+preg_scan_|"dolor sit amet".match(/\\w+/g);
+reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
+date_|moment().format('YYYY-MM-DD HH:mm:ss');
+jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
+func_|function(){}
+date_now_|var t:number = (new Date()).getTime() / 1000
+date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
+dict_bb_|var a_list: _.Dictionary<string> = {};
 a_num_|var a_: Array<number> = [1, 2];
-a_str_|var a_: Array<string> = ['a','b'];
-array_merge_|var a = _.extend(a1, a2);
-array_|a: TypeName[];
-bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
-cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
-class_|class AClass {\n    constructor(m: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }\n}
-closure_|function make_counter(): () => number {\n  var i = 0;\n\n  return function() {\n    i += 1;\n    return i;\n  }\n}
-console_|log_
+hash_|dict_js_
 construct_|constructor(public x: number ) { \n  //sueper();\n}\n//public getX() { return this.x; }\n
 count_|[].length\n//var k_num:number = _.size(hash);
-date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
-date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
-date_now_|var t:number = (new Date()).getTime() / 1000
-date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
-date_|moment().format('YYYY-MM-DD HH:mm:ss');
-dict_bb_|var a_list: _.Dictionary<string> = {};
-dict_js_|var item_list: { [k: string]: Object; } = { };
-dict_|dict_js_
-each_|_.each(a_list, function(v, k, list) {\|});
-enum_|enum Color {Red, Green, Blue};\nvar c: Color = Color.Green; //  c = 1:
-for_|for( var i=0; i<a_list.length; i++ ) {\|}
-foreach_|[1, 2, 3].forEach((item, index, array) => { console.log(item); });
-func_get_args_|function test(s: string, …rest: string[]): void {\n  console.log(s);\n  if (rest.length)\n    console.log(rest[rest.length - 1]);\n}
-func_|function(){}
-function_|//\nfunction add(x: number): number {\n    return x;\n}
-get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
-hash_|dict_js_
-if_|if( typeof_ ) { }
-in_array_|_.indexOf([], val) !== -1
+cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
 interface_rec_|interface Person {\n  name: string,\n  alma_mater?: string\n}
+reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
+date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
+bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
+array_merge_|var a = _.extend(a1, a2);
 interface_|interface IEventFunc extends Function {\n    (message: string): void;\n    func(): string;\n}\n\n
 isset_|typeof_
-jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
-json_decode_|var obj:any = JSON.parse(json);
-json_encode_|var str:string = JSON.parse(obj);
-lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
-module_|module M {\n    export class C {\n    }\n}
+str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
+enum_|enum Color {Red, Green, Blue};\nvar c: Color = Color.Green; //  c = 1:
+typeof_|typeof \| !== 'undefined'
+console_|log_
+dict_|dict_js_
+substr_|str.substring(0,2);
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
+date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
+void_|if ( value === void 0) { value = 0; }
+lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
+throw_|throw new Error("msg");
+class_|class AClass {\n    constructor(m: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }\n}
+in_array_|_.indexOf([], val) !== -1
+func_get_args_|function test(s: string, …rest: string[]): void {\n  console.log(s);\n  if (rest.length)\n    console.log(rest[rest.length - 1]);\n}
+if_|if( typeof_ ) { }
+function_|//\nfunction add(x: number): number {\n    return x;\n}
+str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
+dict_js_|var item_list: { [k: string]: Object; } = { };
+json_encode_|var str:string = JSON.parse(obj);
+a_str_|var a_: Array<string> = ['a','b'];
+public_|public \|():boolean {\nreturn true;\n}
+closure_|function make_counter(): () => number {\n  var i = 0;\n\n  return function() {\n    i += 1;\n    return i;\n  }\n}
+jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
+get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
 opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
 overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
-preg_scan_|"dolor sit amet".match(/\\w+/g);
-printf_|_.str.sprintf('%s/%s', 1,2 );
-public_|public \|():boolean {\nreturn true;\n}
-reference_|/// <reference path="jquery.d.ts" />
-reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
-reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
-replace_|str=str.replace("A", "B");
-sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
+module_|module M {\n    export class C {\n    }\n}
 static_|static member(b:string):string { return ''; }
-str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
-str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
-substr_|str.substring(0,2);
-throw_|throw new Error("msg");
+each_|_.each(a_list, function(v, k, list) {\|});
+replace_|str=str.replace("A", "B");
+printf_|_.str.sprintf('%s/%s', 1,2 );
+_each_|_.each(hash, function(v, k, list){ });
+for_|for( var i=0; i<a_list.length; i++ ) {\|}
+sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
+reference_|/// <reference path="jquery.d.ts" />
+foreach_|[1, 2, 3].forEach((item, index, array) => { console.log(item); });
 try_|try {\n\|} catch(e) {\n    // e.message\n}
-typeof_|typeof \| !== 'undefined'
-var_|println('__FUNCTION__()', \|);
-void_|if ( value === void 0) { value = 0; }
+array_|a: TypeName[];
+json_decode_|var obj:any = JSON.parse(json);
 [plaintex]
 [cobol]
 [csv]
@@ -753,6 +754,7 @@ console_|console.log(\|);
 date_|function format_date_it(date){\n    var m = date.getMonth() + 1;\n    var str = date.getDate() + "/" + m + "/" + date.getFullYear();\n    return str;\n}\nfunction date_last_week(){\n    var es = (7*24*60*60*1000);//secondi in una settimana\n    var ts = ( (new Date()).getTime() - es );\n    return new Date(ts);\n};\nvar str = format_date_it( date_last_week() );
 define_|define(["my/dependency"],\n    function(dependency) {\n        // private code\n        return function() {\n            // public code\n        }\n    }\n);
 except_|throw "errormsg\|";
+extend_|jq_extend_
 f_|func_
 factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
 filter_|var _a = a.filter(function(v){\n    return v.name === "test";\n});
@@ -762,17 +764,22 @@ func_|var f = function(){\n};
 function_|function(){\n\|}
 if_|if( $jq_selection.length && !_.isEmpty(o) ) {\|}
 in_array_|var is_present = ["Banana", "Orange"].indexOf("Apple") >= 0; // jq_inarray_
-include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});\n/* function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n} */
+include_once_|// see require_ require_once_ include_ jq_require_
+include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});\n// see require_ require_once_ include_ jq_require_ js_include_
 indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
 interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
+is_array_|$.isArray(\|)
 is_empty_|jq_is_empty_
 is_function_|jq_is_function_
 is_numeric_|jq_is_numeric_
 isset_|if (typeof | != 'undefined'){}
 join_|array.join(',');
+jq_ajax_setup_|// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
 jq_ajax_|$.ajax({\n  url: '/data/people.json',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
 jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
-jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n
+jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n// jq_build_\n
+jq_attr_|$(selector).attr(k, v);
+jq_build_|$('<div/>', {\n    'id':'myDiv',\n    'class':'myClass',\n    'style':'cursor:pointer;font-weight:bold;',\n    'html':'<span>For HTML</span>',\n    'click':function(){ alert(this.id) },\n    'mouseenter':function(){ $(this).css('color', 'red'); },\n    'mouseleave':function(){ $(this).css('color', 'black'); }\n}).appendTo('body');
 jq_by_attribute_|var el = $("[attribute='value']");
 jq_by_name_|var email = $("input[name='email']").val();
 jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
@@ -780,20 +787,25 @@ jq_checked_|$(":checkbox").is(':checked')
 jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
 jq_contains_|str_contains_
 jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
-jq_disable_|$('#sameAsShipping').change(function(){\n    if( this.checked ){\n        $('#billingInfo input:text').attr('disabled','disabled');\n    } else {\n        $('#billingInfo input:text').removeAttr('disabled');\n    }\n}).trigger('change');
+jq_deferred_|jq_promise_
+jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
+jq_disable_|// su checkbox\n$('form#form_id #checkid').change(function(){\n    if( this.checked ){\n        $('form#form_id input:text').attr('disabled','disabled');\n    } else {\n        $('form#form_id input:text').removeAttr('disabled');\n    }\n}).trigger('change');\n\n// tutti i submit di una form\n$('form#form_id').map(function(){\n    var selector_btn = 'input[type=button], input[type=submit], :submit';\n    $(this).find(selector_btn).prop('disabled', true);\n});
 jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
 jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
 jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
 jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
+jq_empty_|// rm all child nodes\n$(selector).empty();
 jq_end_|$( "ul.first" )\n  .find( ".foo" )\n    .css( "background-color", "red" )\n  .end()  // returs a query object\n  .find( ".bar" )\n    .css( "background-color", "green" );
+jq_exists_|jq_hasnode_
 jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
 jq_fade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
 jq_filter_f_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
 jq_filter_|$(".parent").find(".bar").filter("p");
 jq_find_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
 jq_foreach_|$.each(a, function(i,key){\|});
+jq_get_json_|var r: JQueryXHR = $.getJSON(url: string, data?: Object, function(data: any, textStatus: string, jqXHR: JQueryXHR){\n\n});\n
 jq_get_|$.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n});
-jq_grep_|months = $.grep(months, function(value, i) {\nreturn ( value.indexOf('J') == 0 );\n});\n
+jq_grep_|var a_res_months = $.grep(a_months, function(v, i) {\n    return ( v.indexOf('J') == 0 );\n});\n
 jq_hasnode_|if( $('#selector').length > 0 ) {}
 jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
 jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
@@ -812,19 +824,30 @@ jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
 jq_merge_|var a = $.merge( [1,2], [3,4] );
 jq_mouse_over_|$('div').mouseover(function() {\n    $(this).addClass('blue-bg');\n}).mouseleave(function(){\n    $(this).find('.content').fadeOut();\n});
 jq_post_|$.post("ajax/test.html", {}, function( data ) {\n     \n}, 'json');
+jq_promise_|// per una operazione asincrona ritorna .promise(), intercetta il .done() con una callback\n$( "div" ).promise().done(function() {\n     // op Finished!\n});\n$.when( effect() ).done(function() {\n    // op Finished!\n});
+jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
 jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
 jq_ready_|$(function(){\|});
+jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
+jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
+jq_rm_|jq_remove_
+jq_scroll_|// todo!
+jq_serialize_|// URL-encoded notation\nvar url_data = $('form').serialize();\n// array [{ name: "a", value: "1" }]\nvar a_data   = $('form').serializeArray();\n
 jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
-jq_submit_|$('form').submit(function(e){\n    e.preventDefault();\n    var isErrorFree = true;\n\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n\n    if (isErrorFree){ \n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n\n    return isErrorFree;\n});\n\n
+jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
 jq_target_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
 jq_unique_|var a_unique = $.unique( a_ );
 jq_wrap_all_|$( ".inner" ).wrapAll( "<div class='my_css' />");
 jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
+js_include_|function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n}
 js_log_|console.log();
+js_require_|js_include_
+json_decode_|var o_ = $.parseJSON(json_str);
 json_encode_|JSON.stringify(data);
 json_parse_|JSON.parse(text);
 json_|JSON.parse(text);\nJSON.stringify(data);
 lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
+localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // localStorage[key]\n}\n
 log_|console.log(\|);
 map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
 merge_|jq_merge_
@@ -840,8 +863,8 @@ reg_get_|var regexp = new RegExp(s_query, 'gi');\nvar res = str.match(regexp);
 reg_replace_|var str = str_result.replace(new RegExp('[a-z]', 'g'), '_');
 reg_test_|var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;\n if ( _.isEmpty(str) || !re_email.test(str)  ) { } else { }
 replace_|s.replace("old","new");
-require_once_|// see require_ or include_
-require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});\n// see require_ or include_
+require_once_|// see require_ require_once_ include_ jq_require_
+require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});\n// see require_ require_once_ include_ jq_require_
 settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
 sprintf_|_sprintf_
 static_|myclass.method = function() {\n};
