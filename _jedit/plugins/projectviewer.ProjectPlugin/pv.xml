@@ -10,6 +10,5 @@
 <project name="ipc" file="ipc.xml" root="/var/www/ipc"  />
 <project name="jedit" file="jedit.xml" root="/home/taz/.jedit"  />
 <project name="lampa" file="lampa.xml" root="/var/www/lampa.it"  />
-<project name="logico-web" file="logico-web.xml" root="/var/www/logico-web"  />
 <project name="time-tracker" file="time-tracker.xml" root="/var/www/time_tracker"  />
 </projects>
