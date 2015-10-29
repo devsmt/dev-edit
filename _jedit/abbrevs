@@ -28,6 +28,7 @@ len_|length
 fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
 radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
 css_font_|<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">\n<style>\nbody {\n  font-weight: 100;\n  font-family: 'Lato';\n}\n</style>
+input_numeric_|<input type="text" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="13" max="130" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode))'>
 p_|<p>\|</p>
 tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 script_|<script src="\|"></script>
@@ -46,7 +47,7 @@ small_|<small></small>
 lorem_|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel libero risus. Sed pellentesque accumsan ex non feugiat. Nulla pharetra in odio non hendrerit.
 mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body. 
 foreach_|foreach($a as $k=>$v){\|}
-input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0"/>\n// HTML5: tel search url email datetime date month week time datetime-local number range color
+input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0" pattern="[0-9.]+" />\n// HTML5: tel search url email datetime date month week time datetime-local number range color
 phpo_|<?=\|?>
 htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
 b_|<b>\|</b>
@@ -54,6 +55,7 @@ sql_insert_|INSERT INTO T2 (EMPID, EMPNAME, EMPADDR)\n     VALUES (DEFAULT, :hv_
 td_|<td>\|&nbsp;</td>
 autocomplete_|html5_autocomplete_
 h5_|<h5>\|</h5>
+input_hidden_|<input type="hidden" name="" value="">
 html5_autocomplete_|\n<input id="countryInput"\n       type="text"\n       data-bind="value: selectedCountry"\n       list="countryList" />\n\n<datalist id="countryList" data-bind="foreach: countries">\n    <option data-bind="value: country"></option>\n</datalist>
 if_|if(!empty(\|)){}
 div_|<div>\|</div>
@@ -158,6 +160,7 @@ collapse_|border-collapse:collapse;
 global_|$GLOBALS[''] = '';
 zf_get_|$this->getRequest()->getParam('name\|');
 if_|if( empty(\|) ) {\n    // do init\n}
+zf_h_select_|zf_h_select_multi_
 try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
 zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, array('yes', 'no'))
 zf_alert_|$this->alert($msg, 'error');
@@ -170,7 +173,6 @@ filter_str_|filterstr_
 header_|header("Location: $url");
 zf_url_|echo $this->url($par=array('username' => 'martel'), $route_name='user');
 zf_session_|$ses = new Zend_Session_Namespace('_l10n_');\n$ses->var = '';
-input_|<input type="text" name="\|" value="" placeholder="">
 list_|list($a, $b) = ['a','b'];
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 array_|$\|=array();
@@ -182,6 +184,7 @@ sp_|sprintf_
 jq_promise_|jq_deferred_
 str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
 dirname_|dirname(__FILE__).'/lib.php'
+include_|require_
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
 zf_post_|$this->getRequest()->getPost('name\|');
 error_reporting_|error_reporting(E_ALL); // Report all PHP errors
@@ -241,6 +244,7 @@ file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.t
 phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
 <<<|$\| = <<<__END__\n__END__;
 private_|//\nprivate function \|(){ return true; }
+js_comment_|/* \| */
 s_|$s_ = '';
 pluck_|__::pluck($a, $k);
 print_r_|print_r(\|,true);
@@ -264,7 +268,6 @@ file_get_a_|// ottiene contenuto del file in array di righe da processare in suc
 switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
 intval_|$i_num = intval($s);
 preg_match_|// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
-input_number_|<input type="number" name="" min="13" max="130" step="1">
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
 xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
 ksort_|ksort($a);//in-place sort!
@@ -801,6 +804,7 @@ jq_is_numeric_|var is_num = $.isNumeric( num );
 jq_get_|jq_ajax_get_
 jq_wrap_all_|$( ".inner" ).wrapAll( "<div class='my_css' />");
 str_contains_|var is_containing_x = url.search(/xxx/) != -1;\nvar is_containing_x = /yes/i.test('xxx') ;\nvar is_containing_x = str.toLowerCase().indexOf("xxx) >= 0);
+is_object_|function is_object(v) {\n    //One of the quirks of JavaScript is that typeof null returns "object". But it’s not an object. So let’s check for that, too\n    return (v instanceof Object && v.toString() == '[object Object]');\n}
 jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
 jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
 clo_|func_
@@ -881,6 +885,7 @@ url_decode_|var v="JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";// "JavaScript_ш�
 reg_test_|var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;\n if ( _.isEmpty(str) || !re_email.test(str)  ) { } else { }
 jq_grep_|var a_res_months = $.grep(a_months, function(v, i) {\n    return ( v.indexOf('J') == 0 );\n});\n
 jq_by_name_|var email = $("input[name='email']").val();
+jq_select_|// lavorare con una select\n// al change di un selct variare le options di una select dipendente\n$('#cod_linea').change(function(){\n           var f = $('#form_item_search');\n           var select = $(this);\n           var val = select.find('option:selected').val()\n           console.log(val);\n           $.ajax({\n               url: '<?=$url_ajax_options?>',\n               type: 'POST',\n               dataType: 'json',\n               data: f.serialize(),\n               success: function( resp_o ) {\n                   console.log(resp_o);\n                   var select_col = $('#cod_collection');\n                   // select_col.empty(); // remove old options\n                   $(select_col).find('option:gt(0)').remove(); // remove all options, but not the first\n\n                   $.each(resp_o , function(i, rec) {\n                           //console.log( rec );\n                           //console.log( rec['ADESCR'] );                           \n                           var html_value =  rec['ANUCOL'];\n                           var html_label =  rec['AAACOL'];\n                           select_col.append($("<option></option>").attr("value", html_value).text(html_label));\n                   });\n               },\n               error: function( req, status, err ) {\n                   console.log( 'something went wrong', status, err );\n               }\n    });\n});\n
 jq_deferred_|jq_promise_
 settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
 interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
