@@ -28,7 +28,7 @@ len_|length
 fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
 radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
 css_font_|<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">\n<style>\nbody {\n  font-weight: 100;\n  font-family: 'Lato';\n}\n</style>
-input_numeric_|<input type="text" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="13" max="130" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode))'>
+input_numeric_|<input type="number" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="0" max="999" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode))'>
 p_|<p>\|</p>
 tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 script_|<script src="\|"></script>
@@ -61,6 +61,7 @@ if_|if(!empty(\|)){}
 div_|<div>\|</div>
 dief_|die(__FUNCTION__."\|");
 option_|<option value="" selected></option>
+input_num_|input_numeric_
 twb_tabs_|<ul class="nav nav-tabs">\n  <li class="active">\n    <a href="#">Home</a>\n  </li>\n  <li><a href="#">...</a></li>\n  <li><a href="#">...</a></li>\n</ul>
 background_|background:#ffffff url('img_tree.png') no-repeat right top;
 border_|border: 1px solid #\|;
@@ -86,6 +87,7 @@ th_|<th>\|</th>
 anchorjs_|<a href="javascript:void(0);" onclick="myfunc();return false"></a>
 html_|<!DOCTYPE html>\n<head></head>\n<body>\n\n\n\|</body>\n</html>
 php_|<?php\n
+input_number_|inut_numeric_
 twb_row_|    <div class="container-fluid">\n      <div class="row-fluid">\n\t<div class="span3">\n        </div>\n      </div>\n    </div>
 include_css_|css_ style_
 [c++]
