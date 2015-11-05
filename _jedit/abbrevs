@@ -186,6 +186,7 @@ sp_|sprintf_
 jq_promise_|jq_deferred_
 str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
 dirname_|dirname(__FILE__).'/lib.php'
+filter_char_|filterstr_
 include_|require_
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
 zf_post_|$this->getRequest()->getPost('name\|');
@@ -239,6 +240,7 @@ define_|define("\|", "", false);
 strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
 extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
 assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
+filter_alpha_|filterstr_
 opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
 qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
 filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
@@ -250,7 +252,7 @@ js_comment_|/* \| */
 s_|$s_ = '';
 pluck_|__::pluck($a, $k);
 print_r_|print_r(\|,true);
-filterstr_|$v = preg_replace('/[^0-9A-Z$]/', '',  substr(trim($v), 0, 6) );
+filterstr_|$v = preg_replace('/[^0-9A-Za-z_ ]/', '', substr(trim($v), 0, 6) );
 require_|require_once dirname(__FILE__).'/\|';
 array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
 destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
@@ -340,7 +342,7 @@ array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 die_|die(__FUNCTION__.\|);
 echo_|echo "\|"; // dbg
 str_pos_|strpos($str, $substr\| ) !== false
-filter_int_|$int = filter_var($int, FILTER_SANITIZE_NUMBER_INT);
+filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
 mail_|$mail_res = mail($to, $subject, $message);
 exec_|$res = `ls -la`;
 out_|echo htmlspecialchars($s, ENT_QUOTES);
@@ -348,6 +350,7 @@ const_|const CONSTANT = 'str';
 typeof_|$var instanceof ParentClass
 zf_env_|'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENVIRONMENT)
 memory_limit_|ini_set("memory_limit","256M");
+css_transparent_|background-color:rgba(255,0,0,0.5);
 date_past_|$time_ago = strtotime('-3 months');
 function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
 throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
@@ -371,7 +374,7 @@ header_json_|header('Content-Type: application/json');
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
 array_pluck_|pluck_
 asort_|hash_sort_
-table_a_|\n// genera tabella\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n\n    $html_table = sprintf('<table class="table"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[0]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n}\n
+table_a_|\n// genera tabella\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n}\n
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 chmod_|chmod(/somedir/somefile', 0755);// use octal val
 trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
@@ -788,6 +791,7 @@ include_once_|// see require_ require_once_ include_ jq_require_
 jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
 sprintf_|_sprintf_
 jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
+jq_style_|jq_css_
 jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
 preg_|reg_replace_
 for_|for( var i=0; i<a.length; i++) {\|}
@@ -816,11 +820,12 @@ _size_|var a_={one: 1, two: 2, three: 3};// 3\nvar c = _.size(a_);
 jq_exists_|jq_hasnode_
 substr_|str.substr( beg=0, len=4);
 max_|var n = Math.max(n1,n2);
+jq_css_|el.css({\n\tbackgroundColor: '#ffe', \n\tborderLeft: '1px solid #ccc' \n}).css('width', function( i) {\n  return i * 50;\n}).css('width', '+=200');
 in_array_|var is_present = ["Banana", "Orange"].indexOf("Apple") >= 0; // jq_inarray_
 json_encode_|var text = JSON.stringify(data);
 log_|console.log(\|);
 yui_style_|YAHOO.util.Dom.setStyle(__display_id, 'border', "1px solid "+color );
-func_|var f = function(){\n};
+func_|function(){\n\|}
 static_|myclass.method = function() {\n};
 jq_ready_|$(function(){\|});
 jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
@@ -871,7 +876,7 @@ jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').at
 jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
 lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
 unique_|jq_unique_
-jq_ajax_setup_|// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
+jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
 proxy_|jq_proxy_
 replace_|s.replace("old","new");
 jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
