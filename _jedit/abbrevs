@@ -22,13 +22,14 @@ margin_|margin:4px auto\|;
 twb_icon_|<i class="icon-"></i> icon-download-alt
 checkbox_|<input type="checkbox" name="" value="" />
 h1_|<h1>\|</h1>
+fontfamily_|font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 else_|else {\n}
 ul_|<ul>\|</ul>
 len_|length
 fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
 radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
 css_font_|<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">\n<style>\nbody {\n  font-weight: 100;\n  font-family: 'Lato';\n}\n</style>
-input_numeric_|<input type="number" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="0" max="999" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode))'>
+input_numeric_|<input type="number" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="0" max="999" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode || event.keyCode))'>
 p_|<p>\|</p>
 tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 script_|<script src="\|"></script>
@@ -77,7 +78,7 @@ span_|<span class="">\|</span>
 sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
 html_progress_|<progress id="" max="100" value="90"></progress>
 new_|$1 $2 = new $1(\|);
-form_|<form action="" method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n        <input type="reset" />\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
+form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n        <input type="reset" />\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
 br_|<br />
 label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
 h3_|<h3>\|</h3>
@@ -163,6 +164,7 @@ global_|$GLOBALS[''] = '';
 zf_get_|$this->getRequest()->getParam('name\|');
 if_|if( empty(\|) ) {\n    // do init\n}
 zf_h_select_|zf_h_select_multi_
+redirect_|location_
 try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
 zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, array('yes', 'no'))
 zf_alert_|$this->alert($msg, 'error');
@@ -171,10 +173,11 @@ twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for
 zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
 sprintf_|sprintf('%s %d', $s, $i);
 round_|round($f, 2);
+k_|'\|' => '',
 filter_str_|filterstr_
 header_|header("Location: $url");
-zf_url_|echo $this->url($par=array('username' => 'martel'), $route_name='user');
-zf_session_|$ses = new Zend_Session_Namespace('_l10n_');\n$ses->var = '';
+zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
+zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
 list_|list($a, $b) = ['a','b'];
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 array_|$\|=array();
@@ -190,6 +193,7 @@ filter_char_|filterstr_
 include_|require_
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
 zf_post_|$this->getRequest()->getPost('name\|');
+zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
 error_reporting_|error_reporting(E_ALL); // Report all PHP errors
 array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
 date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');
@@ -325,7 +329,7 @@ location_|header('Location: http://www.test.it/');
 goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
 zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
 zf_h_partial_|echo $this->partial('_partial.phtml', $data=array(\n    'from' => 'Team Framework',\n    'subject' => 'view partials') );
-zf_redirect_|$url = $this->view->url(array(),'route_name');\n$this->_redirect($url);
+zf_redirect_|$url = $this->view->url(array('controller'=>'items','action'=>''), $r_name='default');\nreturn $this->_redirect($url);\n
 apc_|apc_get_
 dir_|dirname(__FILE__).'/lib.php'
 phpunit_assert_true_|$this->assertTrue($val);
@@ -342,6 +346,8 @@ array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 die_|die(__FUNCTION__.\|);
 echo_|echo "\|"; // dbg
 str_pos_|strpos($str, $substr\| ) !== false
+array_pad_|$a = array_pad($a_input, 20, '0' );
+zf_render_view_|// Render 'foo' instead of current action script\n        $this->_helper->viewRenderer('index');
 filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
 mail_|$mail_res = mail($to, $subject, $message);
 exec_|$res = `ls -la`;
