@@ -35,6 +35,7 @@ tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 script_|<script src="\|"></script>
 twb_alert_|<div class="alert alert-success" role="alert">\n\n</div>
 elseif_| elseif(\|) {\n}\n
+css_input_type_text_|input[type="text"] 
 anchor_|<a href="\|"></a>
 submit_|<input type="submit" value="Salva" id="">
 pre_|<pre>\|</pre>
@@ -157,6 +158,7 @@ image_|![screenshot](img/mappa_applicativa.png)
 [php]
 range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
 foreach_|foreach($a_ as $k => $v) {\n\|}
+nl_|PHP_EOL
 php_|<?php\n\n\|\n?>
 min_|$i_min = min([0,$x]);
 collapse_|border-collapse:collapse;
@@ -181,6 +183,7 @@ zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Ses
 list_|list($a, $b) = ['a','b'];
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 array_|$\|=array();
+css_input_type_|input[type="text"] 
 unlink_|if( unlink($path) ){}
 __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
 str_match_|str_match($str, $substr\|) //strpos_
@@ -193,18 +196,21 @@ filter_char_|filterstr_
 include_|require_
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
 zf_post_|$this->getRequest()->getPost('name\|');
+zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
 zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
 error_reporting_|error_reporting(E_ALL); // Report all PHP errors
 array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
 date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');
 zf_h_escape_|$this->escape($this->str)
 if___|$v = $v ?: $def;
+dir_exists_|if( file_exists($path_) ) {\n}
 dbg_|var_dump(\|);die();
 register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
 sf_get_|$request->getParameter($name);
 str_contains_|str_pos_
 singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
 __destruct_|function __destruct() {\n\|\n}
+apc_store_|apc_store( $key,  $var, $ttl=0 );//0=>persist forever, else specify secs
 number_format_|number_format($number, 2, ',', '.');
 __END__|$html = <<<__END__\n\|__END__;\n
 namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
@@ -244,8 +250,8 @@ define_|define("\|", "", false);
 strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
 extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
 assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
-filter_alpha_|filterstr_
 opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
+filter_alpha_|filterstr_
 qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
 filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
 file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
@@ -253,11 +259,13 @@ phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
 <<<|$\| = <<<__END__\n__END__;
 private_|//\nprivate function \|(){ return true; }
 js_comment_|/* \| */
+url_exists_|$file_headers = @get_headers($url = 'http://www.domain.com/somefile.jpg' );\nif( $file_headers[0] == 'HTTP/1.1 404 Not Found' ) {\n    return false;\n}
 s_|$s_ = '';
 pluck_|__::pluck($a, $k);
 print_r_|print_r(\|,true);
 filterstr_|$v = preg_replace('/[^0-9A-Za-z_ ]/', '', substr(trim($v), 0, 6) );
 require_|require_once dirname(__FILE__).'/\|';
+jq_main_|$(function(){\n});
 array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
 destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
 array_walk_|array_walk($data, function(&$v, $k, $param) { \n    $v = $k . $param . $v; \n}, 'myparam');
@@ -265,12 +273,13 @@ instanceof_|if( !($var instanceof ParentClass) ){ }
 pf_|sprintf_
 str_replace_|str_replace('','',\|);
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
+isset_|if( isset(\|)){\n}
 file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
 tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
 protected_|protected function \|(){}
+ol_|<ol class="">\n\|</ol>
 filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
 f_|function(){}
-ol_|<ol class="">\n\|</ol>
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
 //--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
 switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
@@ -301,6 +310,7 @@ hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $n
 hidden_|<input name="" value="" type="hidden">
 ini_get_|$v = ini_get('display_errors');
 zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
+session_|session_start();  \n$_SESSION['count'] = 0;  
 zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
 apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
 replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
@@ -334,6 +344,7 @@ apc_|apc_get_
 dir_|dirname(__FILE__).'/lib.php'
 phpunit_assert_true_|$this->assertTrue($val);
 date_diff_|date_add_
+limit_|set_time_limit_\nmemory_limit_
 check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
 zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
 base_convert_|base_convert($i, 10, $tobase=36 );
@@ -569,6 +580,7 @@ int_|%int() \n//usa unsh() per float, cast a positivo
 [text]
 code_|<code bash>\n\|\n</code>
 class_|// funzione:\nclass \|// extends implements\n{\n\n}
+limit_|set_time_limit_\nmemory_limit_
 call_|PWD=`pwd`\n# or PWD=$(pwd)
 printf_|System.out.printf("%s,%.2f", s, f);
 glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\n}
@@ -937,7 +949,7 @@ map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\
 jq_rm_|jq_remove_
 jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
 jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
-localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // localStorage[key]\n}\n
+localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // eliminare dati:\n    // localStorage[key] = null;\n    // localStorage.removeItem(key);\n}\n
 _each_|_.each(hash, function(v, k, list){ });
 except_|throw "errormsg\|";
 timeout_|setTimeout(function(){ alert("Hello"); }, 300);
