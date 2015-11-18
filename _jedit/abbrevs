@@ -79,7 +79,7 @@ span_|<span class="">\|</span>
 sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
 html_progress_|<progress id="" max="100" value="90"></progress>
 new_|$1 $2 = new $1(\|);
-form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n        <input type="reset" />\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
+form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n        <input type="reset" />\n\n\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
 br_|<br />
 label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
 h3_|<h3>\|</h3>
@@ -189,11 +189,13 @@ __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basena
 str_match_|str_match($str, $substr\|) //strpos_
 case_|case \|:\nbreak;
 sp_|sprintf_
+array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    return $k == 'b' || $v == 4;\n}, ARRAY_FILTER_USE_BOTH);
 jq_promise_|jq_deferred_
 str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
 dirname_|dirname(__FILE__).'/lib.php'
 filter_char_|filterstr_
 include_|require_
+curl_get_|$c = curl_init('http://www.example.com/directory');\ncurl_setopt($c, CURLOPT_RETURNTRANSFER, 1);\ncurl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);\n// alternative per processare il file\n// curl_setopt($c, CURLOPT_WRITEFUNCTION, function($c,$page) {\n//    $info = curl_getinfo($c);\n//});\n// curl_setopt($c,CURLOPT_FILE);\n//curl_setopt($c, CURLOPT_HTTPHEADER, array('X-Factor: 12', 'My-Header: Bob'));\n//curl_setopt($c, CURLOPT_VERBOSE, 1);\n//curl_setopt($c, CURLOPT_REFERER, 'http://www.example.com/form.php');\n//curl_setopt($c, CURLOPT_USERAGENT, 'CURL via PHP');\n$page = curl_exec($c);\ncurl_close($c);
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
 zf_post_|$this->getRequest()->getPost('name\|');
 zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
@@ -214,9 +216,11 @@ apc_store_|apc_store( $key,  $var, $ttl=0 );//0=>persist forever, else specify s
 number_format_|number_format($number, 2, ',', '.');
 __END__|$html = <<<__END__\n\|__END__;\n
 namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
+login_|// simplistic login to protect a web page\n<form method="post" action="login.php">\nUsername: <input type="text" name="username"> <br>\nPassword: <input type="password" name="password"> <br>\n<input type="submit" value="Log In">\n</form>\n\n \nif (pc_validate($_REQUEST['username'],$_REQUEST['password'])) {\n    $_SESSION['login'] = \n        $_REQUEST['username'].','.md5($_REQUEST['username'].$secret_word));\n    error_log('Session id '.session_id().' log in as '.$_REQUEST['username']);\n}\n// verification\nunset($username);\nif ($_SESSION['login']) {\n    list($c_username,$cookie_hash) = explode(',',$_SESSION['login']);\n    if (md5($c_username.$secret_word) == $cookie_hash) {\n        $username = $c_username;\n    } else {\n        print "You have tampered with your session.";\n    }\n}
 assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
 mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
 contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
+http_auth_|// HTTP basic AUTH\nunction pc_validate($user,$pass) {\n    /* replace with appropriate username and password checking from DB */\n    $users = array('david' => 'fadj&32',\n                   'adam'  => '8HEj838');\n    if (isset($users[$user]) && ($users[$user] == $pass)) {\n        return true;\n    } else {\n        return false;\n    }\n}\nif (! pc_validate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {\n    header('WWW-Authenticate: Basic realm="My Website"');\n    header('HTTP/1.0 401 Unauthorized');\n    echo "You need to enter a valid username and password.";\n    exit;\n}
 substr_count_|$c = substr_count($str, $usbstr\|);
 zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(\n        'user/:username',\n        array(\n            'controller' => 'user',\n            'action'     => 'info',\n        )\n    )\n);
 substr_|substr($s\|,0,2);
@@ -241,6 +245,7 @@ zf_config_|Zend_Registry::get('config')->company->email->support;
 sleep_|sleep(10);// seconds
 is_callable_|is_callable(array($obj, 'method_name'), false);
 date_|date('Y-m-d H:i:s');
+fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
 dump_|dump(\|,'');//dbg:
 zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
 jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .submit() called." );\n  event.preventDefault();\n});
@@ -273,7 +278,7 @@ instanceof_|if( !($var instanceof ParentClass) ){ }
 pf_|sprintf_
 str_replace_|str_replace('','',\|);
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
-isset_|if( isset(\|)){\n}
+isset_|if( !isset(\|)){\n}
 file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
 tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
 protected_|protected function \|(){}
@@ -327,6 +332,7 @@ while_|while($a=mysql_fetch_array($rs)){\|}
 tempname_|$file_path = tempnam(sys_get_temp_dir(), $prefix='X');
 set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\t// log your warning or transform in exception:\n        // throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, E_WARNING);\n\n
 phpo_|<?=\|;?>
+output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n    return preg_replace('/([^@\\s]+)@([-a-z0-9]+\\.)+[a-z]{2,}/is', '<$1@...>', $s);\n}\n// esegue la funzione di pulizzia sull buffer\nob_start('mangle_email');\n// equivalente al settaggio php.ini\n// output_buffering = On\n// output_handler=mangle_email
 execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
 finally_|finally {\n\|}
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
@@ -334,7 +340,7 @@ var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.' '.__FILE__
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
 filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
 assert_s_|assert_char_
-array_filter_|array_filter($a, function ($s){ return !empty($s); });
+array_filter_|$a_data = array_filter($a_data, function ($v){ \n    return !empty($v); \n});
 location_|header('Location: http://www.test.it/');
 goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
 zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
