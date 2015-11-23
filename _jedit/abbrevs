@@ -35,7 +35,7 @@ tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 script_|<script src="\|"></script>
 twb_alert_|<div class="alert alert-success" role="alert">\n\n</div>
 elseif_| elseif(\|) {\n}\n
-css_input_type_text_|input[type="text"] 
+css_input_type_text_|input[type="text"]
 anchor_|<a href="\|"></a>
 submit_|<input type="submit" value="Salva" id="">
 pre_|<pre>\|</pre>
@@ -47,7 +47,7 @@ legend_|<fieldset>\n    <legend>description:</legend>\n \n</fieldset>
 js_|<script type="text/javascript">\|</script>
 small_|<small></small>
 lorem_|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel libero risus. Sed pellentesque accumsan ex non feugiat. Nulla pharetra in odio non hendrerit.
-mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body. 
+mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body.
 foreach_|foreach($a as $k=>$v){\|}
 input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0" pattern="[0-9.]+" />\n// HTML5: tel search url email datetime date month week time datetime-local number range color
 phpo_|<?=\|?>
@@ -183,7 +183,7 @@ zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Ses
 list_|list($a, $b) = ['a','b'];
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 array_|$\|=array();
-css_input_type_|input[type="text"] 
+css_input_type_|input[type="text"]
 unlink_|if( unlink($path) ){}
 __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
 str_match_|str_match($str, $substr\|) //strpos_
@@ -223,7 +223,7 @@ contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
 http_auth_|// HTTP basic AUTH\nunction pc_validate($user,$pass) {\n    /* replace with appropriate username and password checking from DB */\n    $users = array('david' => 'fadj&32',\n                   'adam'  => '8HEj838');\n    if (isset($users[$user]) && ($users[$user] == $pass)) {\n        return true;\n    } else {\n        return false;\n    }\n}\nif (! pc_validate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {\n    header('WWW-Authenticate: Basic realm="My Website"');\n    header('HTTP/1.0 401 Unauthorized');\n    echo "You need to enter a valid username and password.";\n    exit;\n}
 substr_count_|$c = substr_count($str, $usbstr\|);
 zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(\n        'user/:username',\n        array(\n            'controller' => 'user',\n            'action'     => 'info',\n        )\n    )\n);
-substr_|substr($s\|,0,2);
+substr_|substr($s\|,0,2);\n\n// str = grp.0001-0002-0004\n$strip_str = substr($str, $i_pos=1+strpos($str, ".") );\n// rturn 0001-0002-0004\n\n
 issetor_|$\|= isset($a['']) ? $a[''] : null;
 implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
 constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
@@ -236,6 +236,7 @@ staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
 htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
 firebug_|FB::send('test');
 strpos_|str_pos_
+command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = array( new Command_1(), new Command_2() );\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
 defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
 static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
@@ -315,7 +316,7 @@ hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $n
 hidden_|<input name="" value="" type="hidden">
 ini_get_|$v = ini_get('display_errors');
 zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
-session_|session_start();  \n$_SESSION['count'] = 0;  
+session_|session_start();  \n$_SESSION['count'] = 0;
 zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
 apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
 replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
@@ -347,7 +348,6 @@ zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->
 zf_h_partial_|echo $this->partial('_partial.phtml', $data=array(\n    'from' => 'Team Framework',\n    'subject' => 'view partials') );
 zf_redirect_|$url = $this->view->url(array('controller'=>'items','action'=>''), $r_name='default');\nreturn $this->_redirect($url);\n
 apc_|apc_get_
-dir_|dirname(__FILE__).'/lib.php'
 phpunit_assert_true_|$this->assertTrue($val);
 date_diff_|date_add_
 limit_|set_time_limit_\nmemory_limit_
@@ -362,6 +362,7 @@ zf_h_partial_loop_|$model = array(\n    array('key' => 'Mammal', 'value' => 'Cam
 array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 die_|die(__FUNCTION__.\|);
 echo_|echo "\|"; // dbg
+dir_path_|$path_=dirname(__FILE__).'/lib.php'
 str_pos_|strpos($str, $substr\| ) !== false
 array_pad_|$a = array_pad($a_input, 20, '0' );
 zf_render_view_|// Render 'foo' instead of current action script\n        $this->_helper->viewRenderer('index');
