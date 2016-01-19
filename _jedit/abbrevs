@@ -59,6 +59,7 @@ td_|<td>\|&nbsp;</td>
 autocomplete_|html5_autocomplete_
 h5_|<h5>\|</h5>
 input_hidden_|<input type="hidden" name="" value="">
+caret_|&#9660;
 html5_autocomplete_|\n<input id="countryInput"\n       type="text"\n       data-bind="value: selectedCountry"\n       list="countryList" />\n\n<datalist id="countryList" data-bind="foreach: countries">\n    <option data-bind="value: country"></option>\n</datalist>
 css_attribute_like_|img[attribute~="value"] { }
 if_|if(!empty(\|)){}
@@ -84,7 +85,7 @@ sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     
 html_progress_|<progress id="" max="100" value="90"></progress>
 getById_|document.getElementById('username').value
 new_|$1 $2 = new $1(\|);
-form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form1">\|\t<input type="submit" value="Salva" id="">\n        <input type="reset" />\n\n\n</form>\n<script>\n$(function(){\n$('#form1').submit(function(event) {\n  alert('valid form');\n  event.preventDefault();\n  return true;\n});\n});\n</script>
+form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form_1">\|\t<input type="submit" value="Salva" id="">\n        <input type="button" value="Reset" id="form_reset"/>\n</form>\n<script>\n$(function(){\n    $('#form_1').submit(function(event) {\n      alert('valid form');\n      event.preventDefault();\n      return true;\n    });\n    $('#form_1 #form_reset').click(function(){\n        var f = $(this).parents('form');\n        f.find('input:text, input:password, input:file, select, textarea').val('');\n        f.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');\n    });\n});\n</script>
 br_|<br />
 label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
 h3_|<h3>\|</h3>
@@ -167,6 +168,7 @@ nl_|PHP_EOL
 php_|<?php\n\n\|\n?>
 min_|$i_min = min([0,$x]);
 collapse_|border-collapse:collapse;
+zf_partial_|echo $this->partial('_partial.phtml', [\n    // injiect vars\n    'from' => 'Team Framework',\n] ); \n
 global_|$GLOBALS[''] = '';
 zf_get_|$name = $this->getRequest()->getParam('name\|', '');
 if_|if( empty(\|) ) {\n    // do init\n}
@@ -185,6 +187,7 @@ filter_str_|filterstr_
 header_|header("Location: $url");
 zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
 zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
+argv_|$_SERVER['argv'][1];
 list_|list($a, $b) = ['a','b'];
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 array_|$\|=array();
@@ -328,6 +331,7 @@ hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $n
 hidden_|<input name="" value="" type="hidden">
 ini_get_|$v = ini_get('display_errors');
 zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
+ex_|throw_
 session_|session_start();  \n$_SESSION['count'] = 0;
 set_exception_handler_|if( ENV::isPROD() ) {\n    // log and email the error + session user info + request page info\n    set_exception_handler( array('Bootstrap', '_ExcpLoggerMail') );\n}
 zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
@@ -373,6 +377,7 @@ zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',
 file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
 explode_|explode( ',', $s\|);
 zf_h_partial_loop_|$model = array(\n    array('key' => 'Mammal', 'value' => 'Camel'),\n    array('key' => 'Bird', 'value' => 'Penguin')\n);\necho $this->partialLoop('partialLoop.phtml', $model);
+parse_int_|intval($i)
 array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 die_|die(__FUNCTION__.\|);
 echo_|echo "\|"; // dbg
@@ -412,6 +417,7 @@ map_|array_map_
 header_json_|header('Content-Type: application/json');
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
 array_pluck_|pluck_
+m_|public function \|() {\n    return 0;\n}
 asort_|hash_sort_
 table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n}\n
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
@@ -907,7 +913,7 @@ f_|func_
 //--|\|//------------------------------------------------------------------------------
 switch_|switch(\|) {\n  case : \n  break;\n  default: \n    //istruzioni \n}
 ceil_|var n = Math.ceil(7.004); // 8
-rand_|var n = Math.random();// between 0 (inclusive) and 1 (exclusive)\n
+rand_|// Returns a random integer between min (included) and max (included)\n// Using Math.round() will give you a non-uniform distribution!\nfunction getRandomIntInclusive(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nvar n = Math.random();// between 0 (inclusive) and 1 (exclusive)\n
 require_once_|// see require_ require_once_ include_ jq_require_
 jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
 method_|    method: function() {\n    },

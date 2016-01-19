@@ -2,7 +2,7 @@
 <?php
 /*
 scopo del programma
- */
+*/
 namespace {
     //----------------------------------------------------------------------------
     //  subroutines
@@ -20,7 +20,7 @@ namespace {
         }
     }
 
-    function println($msg) {echo $msg . "\n";}
+    function println($msg) { echo $msg . "\n"; }
 
     class ENV {
         static function envBootstrap() {
@@ -32,14 +32,45 @@ namespace {
         }
     }
 
+    // informazioni dipendenti dal server su cui gira il programma
+    class Config {
+        public static $config = [
+            'DEV' => [
+            ],
+            'PROD' => [
+            ]
+        ];
+        public static function get($key, $env=null) {
+            return self::$config[ENV][$key];
+        }
+    }
+
     //----------------------------------------------------------------------------
     //  controller
     //----------------------------------------------------------------------------
     //main controller
     class Main {
+
         public function run() {
+            // init params
             $action = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : 'test';
             $action = strtoupper($action);
+
+            define('DEBUG', CLI::hasFlag('debug'));
+
+            // i percorsi e le configurazioni dipendenti dal server su cui gira il programma
+            if(
+                !isset($_SERVER['argv'][1])
+                || empty($_SERVER['argv'][1])
+                || !in_array(strtoupper($_SERVER['argv'][1]), ['DEV','PROD'] )
+            ) {
+                die("specificare un ENV[DEV|PROD] come secondo argomento \n");
+            } else {
+                define('ENV', strtoupper($_SERVER['argv'][1]), false);
+            }
+
+
+
             switch ($action) {
             case 'X':
                 die(' ... ');
@@ -63,7 +94,7 @@ namespace {
         function actionUsage() {
             return "
             uso:
-            {$_SERVER['argv'][0]} [action] [--go] [--test]
+            {$_SERVER['argv'][0]} [action] [--debug]
             uso del programma
             \n\n";
         }
@@ -76,7 +107,6 @@ namespace {
     //  main
     //----------------------------------------------------------------------------
 
-    define('DEBUG', CLI::hasFlag('debug'));
     ENV::envBootstrap();
     try {
         $c = new Main();
