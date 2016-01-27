@@ -53,9 +53,6 @@ namespace {
 
         public function run() {
             // init params
-            $action = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : 'test';
-            $action = strtoupper($action);
-
             define('DEBUG', CLI::hasFlag('debug'));
 
             // i percorsi e le configurazioni dipendenti dal server su cui gira il programma
@@ -69,7 +66,8 @@ namespace {
                 define('ENV', strtoupper($_SERVER['argv'][1]), false);
             }
 
-
+            $action = isset($_SERVER['argv'][2]) ? $_SERVER['argv'][2] : 'test';
+            $action = strtoupper($action);
 
             switch ($action) {
             case 'X':

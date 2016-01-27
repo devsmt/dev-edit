@@ -179,9 +179,11 @@ zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, array('yes', 'no'))
 zf_alert_|$this->alert($msg, 'error');
 zf_view_|$html = $this->view->render('alternate.phtml');
 twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>
+PDO_|class DbAuto_Connection {\n    protected static $db = null;\n    protected static function getConnection() {\n        $registry = Zend_Registry::getInstance();\n        $C = $registry->config->dbauto;\n        try {\n            if (self::$db == null) {\n                self::$db = new PDO(\n                    sprintf('mysql:host=%s;dbname=%', $C->host, $C->dbname ),\n                    $C->username,\n                    $C->password\n                );\n                self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n            }\n        } catch (PDOException $e) {\n            echo "DB2 PDO error '".$e->getMessage()."'";\n        }\n    }\n    // permette di lanciare una query diretta sul db, ritorna array records\n    //   SQL: WHERE calories < :calories AND colour = :colour\n    //   $params = [':calories' => $calories, ':colour' => $colour ]\n    public static function query($sql, $params=[] ) {\n        $data = [];\n        self::getConnection();\n        if (self::$db) {\n            $stmt = self::$db->prepare($sql);\n            $res = $stmt->execute( $params );\n            if ($res) {\n                while ($oRow = $stmt->fetch(PDO::FETCH_ASSOC)) {\n                    $data[] = $oRow;\n                }\n            }\n            $stmt->closeCursor();\n        } else {\n            die(__FUNCTION__.' errore connessione mysql');\n        }\n        return $data;\n    }\n}
 zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
-sprintf_|sprintf('%s %d', $s, $i);
+sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
 round_|round($f, 2);
+zf_route_regex_|$router->addRoute('fornitori_genlabel', new Zend_Controller_Router_Route_Regex(\n        'fornitori/genlabel/Etichette_federe_(\\d+)_(\\d+)\\.pdf',\n        [\n            'controller' => 'Fornitori',\n            'action' => 'genlabel'\n        ],\n        $mappings=[\n            1 => 'ord_num'  ,\n            2 => 'ord_date' ,\n        ],\n        'fornitori/genlabel/Etichette_federe_%d_%d.pdf'\n));
 k_|'\|' => '',
 filter_str_|filterstr_
 header_|header("Location: $url");
@@ -237,13 +239,14 @@ zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(
 substr_|substr($s\|,0,2);\n\n// str = grp.0001-0002-0004\n$strip_str = substr($str, $i_pos=1+strpos($str, ".") );\n// rturn 0001-0002-0004\n\n
 issetor_|$\|= isset($a['']) ? $a[''] : null;
 implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
+banchmark_|profile_
 constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
 in_array_|in_array( $str, $a_ )
 json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 str_reg_|if ( preg_match('/1999/', $s) ) {\n    // ok\n}
 whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
 ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
-profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\nfunction __profile( $label, \\Closure $op){\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n}\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = __profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );
+profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );
 staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
 htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
 firebug_|FB::send('test');
@@ -292,6 +295,7 @@ instanceof_|if( !($var instanceof ParentClass) ){ }
 pf_|sprintf_
 str_replace_|str_replace('','',\|);
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
+scan_|$n = sscanf($auth, "%d\\t%s %s", $id, $first, $last);
 isset_|if( !isset(\|)){\n}
 file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
 image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
@@ -333,12 +337,14 @@ ini_get_|$v = ini_get('display_errors');
 zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
 ex_|throw_
 session_|session_start();  \n$_SESSION['count'] = 0;
+unique_|$a = array_unique($a);
 set_exception_handler_|if( ENV::isPROD() ) {\n    // log and email the error + session user info + request page info\n    set_exception_handler( array('Bootstrap', '_ExcpLoggerMail') );\n}
 zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
 apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
 replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
 sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
 mkdir_|true === mkdir('/path', 0755);
+strpad_|str_pad_
 interface_|interface ICommand {\n    // \n    public function run();\n}
 zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
 glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
@@ -392,7 +398,7 @@ exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls
 out_|echo htmlspecialchars($s, ENT_QUOTES);
 const_|const CONSTANT = 'str';
 typeof_|$var instanceof ParentClass
-zf_env_|'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENVIRONMENT)
+zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev() 
 memory_limit_|ini_set("memory_limit","256M");
 css_transparent_|background-color:rgba(255,0,0,0.5);
 date_past_|$time_ago = strtotime('-3 months');
@@ -419,7 +425,7 @@ array_merge_|$a = array_merge( $a_1, $a_2 ...);
 array_pluck_|pluck_
 m_|public function \|() {\n    return 0;\n}
 asort_|hash_sort_
-table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n}\n
+table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table table-condensed table-bordered table-striped"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 chmod_|chmod(/somedir/somefile', 0755);// use octal val
 trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
