@@ -189,15 +189,15 @@ filter_str_|filterstr_
 header_|header("Location: $url");
 zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
 zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
-argv_|$_SERVER['argv'][1];
 list_|list($a, $b) = ['a','b'];
+argv_|$_SERVER['argv'][1];
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 array_|$\|=array();
 css_input_type_|input[type="text"]
 unlink_|if( unlink($path) ){}
 __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
 call_|call_user_func_array_
-str_match_|str_match($str, $substr\|) //strpos_
+str_match_|str_match($str, $substr)\|// strpos_ preg_match_\n// $str = "The quick brown fox jumps over the lazy dog";\n$contais = 1 === preg_match('/fox/', $str); // returns 1\n
 case_|case \|:\nbreak;
 php_cli_|#!/usr/bin/env php\n<?php\n
 sp_|sprintf_
@@ -219,6 +219,7 @@ date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n
 zf_h_escape_|$this->escape($this->str)
 if___|$v = $v ?: $def;
 dir_exists_|if( file_exists($path_) ) {\n}
+captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
 dbg_|var_dump(\|);die();
 register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
 sf_get_|$request->getParameter($name);
@@ -245,6 +246,7 @@ in_array_|in_array( $str, $a_ )
 json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 str_reg_|if ( preg_match('/1999/', $s) ) {\n    // ok\n}
 whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
+sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
 ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
 profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );
 staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
@@ -308,7 +310,7 @@ file_get_a_|// ottiene contenuto del file in array di righe da processare in suc
 //--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
 switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
 intval_|$i_num = intval($s);
-preg_match_|// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
+preg_match_|// basic match\n$str = "The quick brown fox jumps over the lazy dog";\n$is = 1 === preg_match('/fox/', $str) ; // returns 1\n$is = 1 === preg_match('/^fox/', $strg) ; // returns 0\n$is = 1 === preg_match('/^The/', $str) ; // returns 1\n$is = 1 === preg_match('/^the/', $str) ; // returns 0\n$is = 1 === preg_match('/dog$/', $str; // returns 1\n$is = 1 === preg_match('/f.x/', $str) ; // returns 1\n\n// adv match\n// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
 xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
 ksort_|ksort($a);//in-place sort!
@@ -323,7 +325,7 @@ twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-war
 ff_|( \| ) ? ( ) : ( );
 __construct_|public function __construct(){\n    parent::__construct();\n}
 ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
-e_|<?=$\|?>
+e_|<?= escape_\|?>
 construct_|public function __construct(){\n   parent::__construct();\n\|}
 file_|file_put_contents($path\|,$str);
 validate_|filter_var_
@@ -393,7 +395,9 @@ sort_records_|// Sort the multidimensional array\nusort($results, function ($a, 
 array_pad_|$a = array_pad($a_input, 20, '0' );
 zf_render_view_|// Render 'foo' instead of current action script\n        $this->_helper->viewRenderer('index');
 filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
+chart_bar_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_bar.php");\ninclude ("../../jpgraph/jpgraph_line.php");\n// We need some data\n$datay=array(31,44,49,40,24,47,12);\n// Set up the graph\n$graph = new Graph(600,300,"auto");\n$graph->img->SetMargin(60,30,30,40);\n$graph->SetScale("textlin");\n$graph->SetMarginColor("teal");\n$graph->SetShadow();\n// Create the bar pot\n$bplot = new BarPlot($datay);\n$bplot->SetWidth(0.6);\n// Set up color for gradient fill style\n$tcol=array(100,100,255);\n$fcol=array(255,100,100);\n$bplot->SetFillGradient($fcol,$tcol,GRAD_VERT);\n$bplot->SetFillColor("orange");\n$graph->Add($bplot);\n// Set up the title for the graph\n$graph->title->Set("Sample Bargraph");\n$graph->title->SetColor("yellow");\n$graph->title->SetFont(FF_VERDANA,FS_BOLD,12);\n// Set up color for axis and labels\n$graph->xaxis->SetColor("black","white");\n$graph->yaxis->SetColor("black","white");\n// Set up font for axis\n$graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->title->Set("Value Range");\n$graph->yaxis->title->SetColor("white");\n$graph->yaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Set up X-axis title (color & font)\n$graph->xaxis->title->Set("item Count");\n$graph->xaxis->title->SetColor("white");\n$graph->xaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Finally send the graph to the browser\n$graph->Stroke();
 mail_|$mail_res = mail($to, $subject, $message);
+chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_pie.php");\n$data = array(12, 15, 23, 18, 5);\n// Create the Pie Graph.\n$piechart = new PieGraph(300,350);\n// Set a title for the plot\n$piechart->title->Set("Sample Pie Chart");\n$piechart->title->SetFont(FF_VERDANA,FS_BOLD,12);\n$piechart->title->SetColor("darkblue");\n$piechart->legend->Pos(0.1,0.2);\n// Create pie plot\n$pPlot = new PiePlot($data);\n$pPlot->SetCenter(0.5,0.55);\n$pPlot->SetSize(0.3);\n// Setup the labels\n$pPlot->SetLabelType(PIE_VALUE_PER);\n$pPlot->value->Show();\n$pPlot->value->SetFont(FF_ARIAL,FS_NORMAL,9);\n$pPlot->value->SetFormat('%2.1f%%');\n// Add and stroke\n$piechart->Add($pPlot);
 exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
 out_|echo htmlspecialchars($s, ENT_QUOTES);
 const_|const CONSTANT = 'str';
