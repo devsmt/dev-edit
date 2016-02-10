@@ -362,7 +362,7 @@ output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n 
 execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
 finally_|finally {\n\|}
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
-var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__ ); //echo '<pre>',debug_print_backtrace(),'</pre>';
+var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); //echo '<pre>',debug_print_backtrace(),'</pre>';
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
 filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
 assert_s_|assert_char_
@@ -631,10 +631,17 @@ glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . files
 code_|<code php>\|</code>
 html5_progressbar_|<progress max="100" value="80"></progress>\n<style type="text/css">\n    progress[value] {\n      /* Reset the default appearance */\n      -webkit-appearance: none;\n         -moz-appearance: none;\n              appearance: none;\n\n      /* Get rid of default border in Firefox. */\n      border: none;\n\n      width: 250px;\n      height: 20px;\n\n      background-color: blue;\n      /* For IE10 */\n      color: blue;\n    }\n</style>
 image_|{{image.png}}
+quote_|<quote wikipedia>\n</quote>
 [yaml]
 [assembly-ags]
 [shellscript]
+func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
 dirname_|DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+let_|VARNAME=string\necho ${VARNAME}
+include_|source _common.sh    # include is in $PATH
+date_|NOW=`date +"%m-%d-%Y"`
+if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nfi
+for_|for i in $( ls ); do\n    echo item: $i\ndone
 [gettext]
 [jcl]
 [jflex]
@@ -751,70 +758,78 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [hlsl]
 [n3]
 [typescript]
-var_|println('__FUNCTION__()', \|);
-_filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
-preg_scan_|"dolor sit amet".match(/\\w+/g);
-reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
-date_|moment().format('YYYY-MM-DD HH:mm:ss');
-jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
-func_|function(){}
-date_now_|var t:number = (new Date()).getTime() / 1000
-date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
-dict_bb_|var a_list: _.Dictionary<string> = {};
-a_num_|var a_: Array<number> = [1, 2];
-hash_|dict_js_
-construct_|constructor(public x: number ) { \n  //sueper();\n}\n//public getX() { return this.x; }\n
-sp_|sprintf_
-count_|[].length\n//var k_num:number = _.size(hash);
-interface_rec_|interface Person {\n  name: string,\n  alma_mater?: string\n}
-cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
-reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
 date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
-bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
-array_merge_|var a = _.extend(a1, a2);
-interface_|interface IEventFunc extends Function {\n    (message: string): void;\n    func(): string;\n}\n\n
-empty_|_empty_
-isset_|typeof_
-str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
-enum_|enum Color {Red, Green, Blue};\nvar c: Color = Color.Green; //  c = 1:
-typeof_|typeof \| !== 'undefined'
-console_|log_
-dict_|dict_js_
-substr_|str.substring(0,2);
-now_|moment().format('YYYY-MM-DD hh:mm:ss')
-date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
-void_|if ( value === void 0) { value = 0; }
-lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
-throw_|throw new Error("msg");
-class_|class AClass {\n    constructor(m: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }\n}
-in_array_|_.indexOf([], val) !== -1
-func_get_args_|function test(s: string, …rest: string[]): void {\n  console.log(s);\n  if (rest.length)\n    console.log(rest[rest.length - 1]);\n}
-if_|if( typeof_ ) { }
-function_|//\nfunction add(x: number): number {\n    return x;\n}
-str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
-_empty_|_.isEmpty()
-dict_js_|var item_list: { [k: string]: Object; } = { };
-json_encode_|var str:string = JSON.parse(obj);
-a_str_|var a_: Array<string> = ['a','b'];
-public_|public \|():boolean {\nreturn true;\n}
-closure_|function make_counter(): () => number {\n  var i = 0;\n\n  return function() {\n    i += 1;\n    return i;\n  }\n}
-jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
-get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
-opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
-overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
-module_|module M {\n    export class C {\n    }\n}
-static_|static member(b:string):string { return ''; }
 each_|_.each(a_list, function(v, k, list) {\|});
-replace_|str=str.replace("A", "B");
+date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
+var_|println('__FUNCTION__()', \|);
+in_array_|_.indexOf([], val) !== -1
+_filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
+opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
+require_|import_
+date_|moment().format('YYYY-MM-DD HH:mm:ss');
+closure_|function make_counter(): () => number {\n  var i = 0;\n\n  return function() {\n    i += 1;\n    return i;\n  }\n}
+typeof_|typeof \| !== 'undefined'
+for_|for( var i=0; i<a_list.length; i++ ) {\|\tvar v = a_list[i];\n}
+throw_|throw new Error("msg");
+get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
+import_|import * as Calculations from './Scripts/Calculations';
+isset_|\|!== void 0
 printf_|_.str.sprintf('%s/%s', 1,2 );
-_each_|_.each(hash, function(v, k, list){ });
-for_|for( var i=0; i<a_list.length; i++ ) {\|}
-sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
-reference_|/// <reference path="jquery.d.ts" />
-foreach_|[1, 2, 3].forEach((item, index, array) => { console.log(item); });
+a_t_|//typed array\nvar type_list = new Array<TheType>();
+a_num_|var a_: Array<number> = [1, 2];
+interface_|interface ICallBackFunc extends Function {\n    (message: string): void; // def firma di una callback \n    func(): string;\n}\n\n
+jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
+array_merge_|var a = _.extend(a1, a2);
 try_|try {\n\|} catch(e) {\n    // e.message\n}
-array_|a: TypeName[];
+interface_rec_|interface Person {\n  name: string,\n  alma_mater?: string\n}
+function_|//\nfunction add(x: number): number {\n    return x;\n}
+empty_|_empty_
+static_|static member(b:string):string { return ''; }
+_empty_|_.isEmpty()
+array_|var a_: string[] = ['hello', 'world'];
 json_decode_|var obj:any = JSON.parse(json);
+const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
+dict_|dict_js_
+construct_|constructor(public x: number ) { \n  //sueper();\n}\n//public getX() { return this.x; }\n
+console_|log_
+lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
+foreach_|//[1, 2, 3].forEach((item, index, array) => { console.log(item); });\n//for (var key in hash) { if(hash.hasOwnProperty(key) ) { console.log(v); } }\n_each_
+dict_js_|var item_list: { [k: string]: Object; } = { };
+reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
+dict_bb_|var a_list: _.Dictionary<string> = {};
+substr_|str.substring(0,2);
+a_str_|var a_: Array<string> = ['a','b'];
+now_|moment().format('YYYY-MM-DD hh:mm:ss')
+bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
+cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
+void_|if ( value === void 0) { value = 0; }
+overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
+if_|if( typeof_ ) { }
+str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
+date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
+sp_|sprintf_
+json_encode_|var str:string = JSON.stringify(obj);
+declare_|declare function sprintf(fmt: string, ...args: any[]): string;
+preg_scan_|"dolor sit amet".match(/\\w+/g);
+public_|public \|():boolean {\nreturn true;\n}
+count_|[].length\n//var k_num:number = _.size(hash);
+module_|module M {\n    export class C {\n    }\n}
+func_|function(){}
+sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
+_each_|_.each(hash, function(v, k, list){ });
+func_get_args_|function test(s: string, …rest: string[]): void {\n  console.log(s);\n  if (rest.length)\n    console.log(rest[rest.length - 1]);\n}
+class_|class AClass {\n    constructor(m: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }\n}
+reference_|/// <reference path="jquery.d.ts" />
+replace_|str=str.replace("A", "B");
+f__|() => {\n}
+type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };\n/*\ntype MyHandler = (myArgument: string) => void;\ntype StringOrNumber = string | number;\ntype Text_ = string | { text: string };\n//type NameLookup = Dictionary<string, any>;\ntype ObjectStatics = typeof Object;\ntype Callback<T> = (data: T) => void;\ntype Pair<T> = [T, T];\ntype Coordinates_ = Pair<number>;\ntype Tree<T> = T | { left: Tree<T>, right: Tree<T> };\n*/
+date_now_|var t:number = (new Date()).getTime() / 1000
+str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
+f_|function \|():void { return; }
+hash_|dict_js_
+jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
+enum_|enum Color {Red, Green, Blue};\nvar c: Color = Color.Green; //  c = 1:
+reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
 [plaintex]
 [cobol]
 [csv]
@@ -965,7 +980,7 @@ byid_|var el = document.getElementById('id');
 reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
 _count_|_size_
 is_array_|$.isArray(\|)
-jq_merge_|var a = $.merge( [1,2], [3,4] );
+jq_merge_|var a = $.merge( [1,2], [3,4] ); // jq_extend_
 jq_empty_|// rm all child nodes\n$(selector).empty();
 jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
 is_function_|jq_is_function_
