@@ -162,292 +162,298 @@ image_|![screenshot](img/mappa_applicativa.png)
 [django]
 [ada]
 [php]
-range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
-foreach_|foreach($a_ as $k => $v) {\n\|}
-nl_|PHP_EOL
-php_|<?php\n\n\|\n?>
-min_|$i_min = min([0,$x]);
-collapse_|border-collapse:collapse;
-zf_partial_|echo $this->partial('_partial.phtml', [\n    // injiect vars\n    'from' => 'Team Framework',\n] ); \n
-global_|$GLOBALS[''] = '';
-zf_get_|$name = $this->getRequest()->getParam('name\|', '');
-if_|if( empty(\|) ) {\n    // do init\n}
-zf_h_select_|zf_h_select_multi_
-redirect_|location_
-try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
-zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, array('yes', 'no'))
-zf_alert_|$this->alert($msg, 'error');
-zf_view_|$html = $this->view->render('alternate.phtml');
-twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>
-PDO_|class DbAuto_Connection {\n    protected static $db = null;\n    protected static function getConnection() {\n        $registry = Zend_Registry::getInstance();\n        $C = $registry->config->dbauto;\n        try {\n            if (self::$db == null) {\n                self::$db = new PDO(\n                    sprintf('mysql:host=%s;dbname=%', $C->host, $C->dbname ),\n                    $C->username,\n                    $C->password\n                );\n                self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n            }\n        } catch (PDOException $e) {\n            echo "DB2 PDO error '".$e->getMessage()."'";\n        }\n    }\n    // permette di lanciare una query diretta sul db, ritorna array records\n    //   SQL: WHERE calories < :calories AND colour = :colour\n    //   $params = [':calories' => $calories, ':colour' => $colour ]\n    public static function query($sql, $params=[] ) {\n        $data = [];\n        self::getConnection();\n        if (self::$db) {\n            $stmt = self::$db->prepare($sql);\n            $res = $stmt->execute( $params );\n            if ($res) {\n                while ($oRow = $stmt->fetch(PDO::FETCH_ASSOC)) {\n                    $data[] = $oRow;\n                }\n            }\n            $stmt->closeCursor();\n        } else {\n            die(__FUNCTION__.' errore connessione mysql');\n        }\n        return $data;\n    }\n}
-zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
-sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
-round_|round($f, 2);
-zf_route_regex_|$router->addRoute('fornitori_genlabel', new Zend_Controller_Router_Route_Regex(\n        'fornitori/genlabel/Etichette_federe_(\\d+)_(\\d+)\\.pdf',\n        [\n            'controller' => 'Fornitori',\n            'action' => 'genlabel'\n        ],\n        $mappings=[\n            1 => 'ord_num'  ,\n            2 => 'ord_date' ,\n        ],\n        'fornitori/genlabel/Etichette_federe_%d_%d.pdf'\n));
-k_|'\|' => '',
-filter_str_|filterstr_
-header_|header("Location: $url");
-zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
-zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
-list_|list($a, $b) = ['a','b'];
-argv_|$_SERVER['argv'][1];
-for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
-array_|$\|=array();
-css_input_type_|input[type="text"]
-unlink_|if( unlink($path) ){}
-__MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
-call_|call_user_func_array_
-str_match_|str_match($str, $substr)\|// strpos_ preg_match_\n// $str = "The quick brown fox jumps over the lazy dog";\n$contais = 1 === preg_match('/fox/', $str); // returns 1\n
-case_|case \|:\nbreak;
-php_cli_|#!/usr/bin/env php\n<?php\n
-sp_|sprintf_
-array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    return $k == 'b' || $v == 4;\n}, ARRAY_FILTER_USE_BOTH);
-jq_promise_|jq_deferred_
-str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
-dirname_|dirname(__FILE__).'/lib.php'
-filter_char_|filterstr_
-include_|require_
-curl_get_|$c = curl_init('http://www.example.com/directory');\ncurl_setopt($c, CURLOPT_RETURNTRANSFER, 1);\ncurl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);\n// alternative per processare il file\n// curl_setopt($c, CURLOPT_WRITEFUNCTION, function($c,$page) {\n//    $info = curl_getinfo($c);\n//});\n// curl_setopt($c,CURLOPT_FILE);\n//curl_setopt($c, CURLOPT_HTTPHEADER, array('X-Factor: 12', 'My-Header: Bob'));\n//curl_setopt($c, CURLOPT_VERBOSE, 1);\n//curl_setopt($c, CURLOPT_REFERER, 'http://www.example.com/form.php');\n//curl_setopt($c, CURLOPT_USERAGENT, 'CURL via PHP');\n$page = curl_exec($c);\ncurl_close($c);
-call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
-zf_post_|$this->getRequest()->getPost('name\|');
-select_a_|$select_val  = 'M1';\n$select_name = 'i_cdlis';\n$a_options = array('M1' => 'M1', 'S0' => 'S0');\n$_build_select = function($a_options, $select_val, $select_name ){\n    $a_options = array_map(function($k, $v) use($select_val) {\n        return sprintf('<option value="%s" %s>%s</option>', $v, ($select_val == $v ? 'selected':''), $k);\n    } , array_keys($a_options), array_values($a_options) );\n    $html_options = implode("\\n", $a_options );\n    $html_select = sprintf('<select name="%s" style="width:50px;">%s</select>', $select_name, $html_options);\n    return $html_select;\n};\necho $_build_select($a_options, $select_val, $select_name );
-zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
-zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
-error_reporting_|error_reporting(E_ALL); // Report all PHP errors \nini_set('display_errors', '1');
-array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
-date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');
-zf_h_escape_|$this->escape($this->str)
-if___|$v = $v ?: $def;
-dir_exists_|if( file_exists($path_) ) {\n}
-captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
-dbg_|var_dump(\|);die();
-register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
-sf_get_|$request->getParameter($name);
-str_contains_|str_pos_
-singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
-__destruct_|function __destruct() {\n\|\n}
-apc_store_|apc_store( $key,  $var, $ttl=0 );//0=>persist forever, else specify secs
-number_format_|number_format($number, 2, ',', '.');
-__END__|$html = <<<__END__\n\|__END__;\n
-namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
-login_|// simplistic login to protect a web page\n<form method="post" action="login.php">\nUsername: <input type="text" name="username"> <br>\nPassword: <input type="password" name="password"> <br>\n<input type="submit" value="Log In">\n</form>\n\n \nif (pc_validate($_REQUEST['username'],$_REQUEST['password'])) {\n    $_SESSION['login'] = \n        $_REQUEST['username'].','.md5($_REQUEST['username'].$secret_word));\n    error_log('Session id '.session_id().' log in as '.$_REQUEST['username']);\n}\n// verification\nunset($username);\nif ($_SESSION['login']) {\n    list($c_username,$cookie_hash) = explode(',',$_SESSION['login']);\n    if (md5($c_username.$secret_word) == $cookie_hash) {\n        $username = $c_username;\n    } else {\n        print "You have tampered with your session.";\n    }\n}
-assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
-mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
-contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
-http_auth_|// HTTP basic AUTH\nunction pc_validate($user,$pass) {\n    /* replace with appropriate username and password checking from DB */\n    $users = array('david' => 'fadj&32',\n                   'adam'  => '8HEj838');\n    if (isset($users[$user]) && ($users[$user] == $pass)) {\n        return true;\n    } else {\n        return false;\n    }\n}\nif (! pc_validate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {\n    header('WWW-Authenticate: Basic realm="My Website"');\n    header('HTTP/1.0 401 Unauthorized');\n    echo "You need to enter a valid username and password.";\n    exit;\n}
-substr_count_|$c = substr_count($str, $usbstr\|);
-zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(\n        'user/:username',\n        array(\n            'controller' => 'user',\n            'action'     => 'info',\n        )\n    )\n);
-substr_|substr($s\|,0,2);\n\n// str = grp.0001-0002-0004\n$strip_str = substr($str, $i_pos=1+strpos($str, ".") );\n// rturn 0001-0002-0004\n\n
-issetor_|$\|= isset($a['']) ? $a[''] : null;
-implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
-banchmark_|profile_
-constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
-in_array_|in_array( $str, $a_ )
-json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-str_reg_|if ( preg_match('/1999/', $s) ) {\n    // ok\n}
-whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
-sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
-ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
-profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );
-staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
-htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
-firebug_|FB::send('test');
-strpos_|str_pos_
-command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = array( new Command_1(), new Command_2() );\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
-func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
-defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
-static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
-jq_ready_|$(function(){\n    // DOM ready\n\|\n});
-obj_|new stdClass()
-zf_config_|Zend_Registry::get('config')->company->email->support;
-sleep_|sleep(10);// seconds
-is_callable_|is_callable(array($obj, 'method_name'), false);
-date_|date('Y-m-d H:i:s');
-fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
-dump_|dump(\|,'');//dbg:
-zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
-jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .submit() called." );\n  event.preventDefault();\n});
-nbsp_|&nbsp;
-array_key_exists_|array_key_exists($key, $a\|)
-http_build_query_|$url_data = http_build_query([]);
-define_|define("\|", "", false);
-strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
-extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
-assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
-opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
-filter_alpha_|filterstr_
-qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
-filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
-file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
-phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
-<<<|$\| = <<<__END__\n__END__;
-private_|//\nprivate function \|(){ return true; }
-js_comment_|/* \| */
-url_exists_|$file_headers = @get_headers($url = 'http://www.domain.com/somefile.jpg' );\nif( $file_headers[0] == 'HTTP/1.1 404 Not Found' ) {\n    return false;\n}
-s_|$s_ = '';
-pluck_|__::pluck($a, $k);
-print_r_|print_r(\|,true);
-filterstr_|$v = preg_replace('/[^0-9A-Za-z_ ]/', '', substr(trim($v), 0, 6) );
-require_|require_once dirname(__FILE__).'/\|';
-jq_main_|$(function(){\n});
-array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
-destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
-array_walk_|array_walk($data, function(&$v, $k, $param) { \n    $v = $k . $param . $v; \n}, 'myparam');
-instanceof_|if( !($var instanceof ParentClass) ){ }
-pf_|sprintf_
-str_replace_|str_replace('','',\|);
-__call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
-scan_|$n = sscanf($auth, "%d\\t%s %s", $id, $first, $last);
-isset_|if( !isset(\|)){\n}
-file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
-image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
-tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
-protected_|protected function \|(){}
-ol_|<ol class="">\n\|</ol>
-filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
-f_|function(){}
-file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
-//--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
-switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
-intval_|$i_num = intval($s);
-preg_match_|// basic match\n$str = "The quick brown fox jumps over the lazy dog";\n$is = 1 === preg_match('/fox/', $str) ; // returns 1\n$is = 1 === preg_match('/^fox/', $strg) ; // returns 0\n$is = 1 === preg_match('/^The/', $str) ; // returns 1\n$is = 1 === preg_match('/^the/', $str) ; // returns 0\n$is = 1 === preg_match('/dog$/', $str; // returns 1\n$is = 1 === preg_match('/f.x/', $str) ; // returns 1\n\n// adv match\n// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
-strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
-xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
-ksort_|ksort($a);//in-place sort!
-zf_h_e_|zf_h_escape_
-rand_|rand(0,100);
-method_|protected function \|(hint $v){ \nreturn ; \n}
-defined_|defined('MYCONST')
-printf_|pf_
-zf_cache_|zf_cache_get_
-filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING
-twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
-ff_|( \| ) ? ( ) : ( );
-__construct_|public function __construct(){\n    parent::__construct();\n}
-ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
-e_|<?= escape_\|?>
-construct_|public function __construct(){\n   parent::__construct();\n\|}
-file_|file_put_contents($path\|,$str);
-validate_|filter_var_
-array_slice_|array_slice($a, $pos, $len);
-error_|set_error_handler_\nerror_reporting_\nset_exception_handler_
-date_sub_|date_add_
-__map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
-hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $next_rec) {\n        $k = 'column_key';  \n\treturn $rec[$k] > $next_rec[$k];\n});\n     \n
-hidden_|<input name="" value="" type="hidden">
-ini_get_|$v = ini_get('display_errors');
-zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
-ex_|throw_
-session_|session_start();  \n$_SESSION['count'] = 0;
-unique_|$a = array_unique($a);
-set_exception_handler_|if( ENV::isPROD() ) {\n    // log and email the error + session user info + request page info\n    set_exception_handler( array('Bootstrap', '_ExcpLoggerMail') );\n}
-zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
-apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
-replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
-sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
-mkdir_|true === mkdir('/path', 0755);
-strpad_|str_pad_
-interface_|interface ICommand {\n    // \n    public function run();\n}
-zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
-glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
-assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
-button_|<button onclick="myFunction()">Click me</button>
-trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHello();\n        echo 'World!';\n    }\n}\nclass MyHelloWorld extends Base {\n    use SayWorld;\n}
-methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.' '.__FUNCTION__);
-while_|while($a=mysql_fetch_array($rs)){\|}
 tempname_|$file_path = tempnam(sys_get_temp_dir(), $prefix='X');
-set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\n    /* switch ($errno) {\n        case E_NOTICE:\n        case E_USER_NOTICE:\n            $errors = "Notice";\n            break;\n        case E_WARNING:\n        case E_USER_WARNING:\n            // log your warning or transform in exception:\n            $errors = "Warning";\n            break;\n        case E_ERROR:\n        case E_USER_ERROR:\n            $errors = "Fatal Error";\n            break;\n        default:\n            $errors = "Unknown Error";\n            break;\n    } */\n\t// log your warning or transform in exception:\n        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, \n  // on which error report level the user-defined error will be shown. Default is "E_ALL"\n  $on_err_level = self::isEnvProd() ? E_WARNING : E_ALL\n);\n\n
-phpo_|<?=\|;?>
-output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n    return preg_replace('/([^@\\s]+)@([-a-z0-9]+\\.)+[a-z]{2,}/is', '<$1@...>', $s);\n}\n// esegue la funzione di pulizzia sull buffer\nob_start('mangle_email');\n// equivalente al settaggio php.ini\n// output_buffering = On\n// output_handler=mangle_email
-execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
-finally_|finally {\n\|}
-public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
-var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); //echo '<pre>',debug_print_backtrace(),'</pre>';
-once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
-filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
-assert_s_|assert_char_
-array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});
-location_|header('Location: http://www.test.it/');
-goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
-zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
-zf_h_partial_|echo $this->partial('_partial.phtml', $data=array(\n    'from' => 'Team Framework',\n    'subject' => 'view partials') );
-zf_redirect_|$url = $this->view->url(array('controller'=>'items','action'=>''), $r_name='default');\nreturn $this->_redirect($url);\n
-apc_|apc_get_
-dir_|glob_
-phpunit_assert_true_|$this->assertTrue($val);
-date_diff_|date_add_
-limit_|set_time_limit_\nmemory_limit_
-check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
-zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
-base_convert_|base_convert($i, 10, $tobase=36 );
-reset_|<input type="reset" />
-zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',\n            $val=2,\n            $opt=array(\n              'class' => 'baz',\n            ),\n            $a_options=[ 1 => 'One',\n              2 => 'Two',\n              3 => 'Three' ]\n);
-file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
-explode_|explode( ',', $s\|);
-zf_h_partial_loop_|$model = array(\n    array('key' => 'Mammal', 'value' => 'Camel'),\n    array('key' => 'Bird', 'value' => 'Penguin')\n);\necho $this->partialLoop('partialLoop.phtml', $model);
-parse_int_|intval($i)
-array_unique_|$a_ = array_unique($a_ , SORT_STRING);
-die_|die(__FUNCTION__.\|);
-echo_|echo "\|"; // dbg
-dir_path_|$path_=dirname(__FILE__).'/lib.php'
+substr_|substr($s\|,0,2);\n\n// str = grp.0001-0002-0004\n$strip_str = substr($str, $i_pos=1+strpos($str, ".") );\n// rturn 0001-0002-0004\n\n
 str_pos_|strpos($str, $substr\| ) !== false
-sort_records_|// Sort the multidimensional array\nusort($results, function ($a, $b) {\n    // Define the custom sort function\n    return $a['some_sub_var'] > $b['some_sub_var'];\n});\n     \n
-array_pad_|$a = array_pad($a_input, 20, '0' );
-zf_render_view_|// Render 'foo' instead of current action script\n        $this->_helper->viewRenderer('index');
-filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
-chart_bar_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_bar.php");\ninclude ("../../jpgraph/jpgraph_line.php");\n// We need some data\n$datay=array(31,44,49,40,24,47,12);\n// Set up the graph\n$graph = new Graph(600,300,"auto");\n$graph->img->SetMargin(60,30,30,40);\n$graph->SetScale("textlin");\n$graph->SetMarginColor("teal");\n$graph->SetShadow();\n// Create the bar pot\n$bplot = new BarPlot($datay);\n$bplot->SetWidth(0.6);\n// Set up color for gradient fill style\n$tcol=array(100,100,255);\n$fcol=array(255,100,100);\n$bplot->SetFillGradient($fcol,$tcol,GRAD_VERT);\n$bplot->SetFillColor("orange");\n$graph->Add($bplot);\n// Set up the title for the graph\n$graph->title->Set("Sample Bargraph");\n$graph->title->SetColor("yellow");\n$graph->title->SetFont(FF_VERDANA,FS_BOLD,12);\n// Set up color for axis and labels\n$graph->xaxis->SetColor("black","white");\n$graph->yaxis->SetColor("black","white");\n// Set up font for axis\n$graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->title->Set("Value Range");\n$graph->yaxis->title->SetColor("white");\n$graph->yaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Set up X-axis title (color & font)\n$graph->xaxis->title->Set("item Count");\n$graph->xaxis->title->SetColor("white");\n$graph->xaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Finally send the graph to the browser\n$graph->Stroke();
-mail_|$mail_res = mail($to, $subject, $message);
-chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_pie.php");\n$data = array(12, 15, 23, 18, 5);\n// Create the Pie Graph.\n$piechart = new PieGraph(300,350);\n// Set a title for the plot\n$piechart->title->Set("Sample Pie Chart");\n$piechart->title->SetFont(FF_VERDANA,FS_BOLD,12);\n$piechart->title->SetColor("darkblue");\n$piechart->legend->Pos(0.1,0.2);\n// Create pie plot\n$pPlot = new PiePlot($data);\n$pPlot->SetCenter(0.5,0.55);\n$pPlot->SetSize(0.3);\n// Setup the labels\n$pPlot->SetLabelType(PIE_VALUE_PER);\n$pPlot->value->Show();\n$pPlot->value->SetFont(FF_ARIAL,FS_NORMAL,9);\n$pPlot->value->SetFormat('%2.1f%%');\n// Add and stroke\n$piechart->Add($pPlot);
-exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
-out_|echo htmlspecialchars($s, ENT_QUOTES);
-const_|const CONSTANT = 'str';
-typeof_|$var instanceof ParentClass
-zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev() 
-memory_limit_|ini_set("memory_limit","256M");
-css_transparent_|background-color:rgba(255,0,0,0.5);
-date_past_|$time_ago = strtotime('-3 months');
-function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
-throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
-if__|$\| = isset($c) ? $c : null;
-date_default_timezone_set_|date_default_timezone_set('Europe/Rome');
-coalesce_|$w = $x ?? $y ?? $z;
-str_repeat_|str_repeat('tmpl',5)
-phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends PHPUnit_Framework_TestCase {\n    public function test{$testname}(){\n        $this->assertEquals(1, 2);\n    }\n}
-a_|$\| = array();
-date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
+array_walk_|array_walk($data, function(&$v, $k, $param) { \n    $v = $k . $param . $v; \n}, 'myparam');
+validate_|filter_var_
+staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
+assert_s_|assert_char_
+xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
+mkdir_|true === mkdir('/path', 0755);
+select_a_|$select_val  = 'M1';\n$select_name = 'i_cdlis';\n$a_options = array('M1' => 'M1', 'S0' => 'S0');\n$_build_select = function($a_options, $select_val, $select_name ){\n    $a_options = array_map(function($k, $v) use($select_val) {\n        return sprintf('<option value="%s" %s>%s</option>', $v, ($select_val == $v ? 'selected':''), $k);\n    } , array_keys($a_options), array_values($a_options) );\n    $html_options = implode("\\n", $a_options );\n    $html_select = sprintf('<select name="%s" style="width:50px;">%s</select>', $select_name, $html_options);\n    return $html_select;\n};\necho $_build_select($a_options, $select_val, $select_name );
+filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
+pluck_|__::pluck($a, $k);
 is_str_|ctype_graph($s) || ctype_space($s)
-zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(array('rel' => 'icon',\n                                  'href' => '/img/favicon.ico'),\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     array('id' => 'my_stylesheet'));\n  \n// rendering the links in layout\necho $this->headLink() ?>
-array_fill_|array_fill($i=0, $n=10 , $v='');
-return_|return\| true;
-redis_cache_|// usa composer per gestire le dipendenze\n//require "predis/autoload.php";\n//Predis\\Autoloader::register();\ntry {\n    $R = new Predis\\Client(array(\n        //'scheme' => 'tcp',\n        //'host' => 'localhost',\n        //'port' => port,\n        //'password' => 'password',\n        'persistent' => '1'  // persistent!\n    ));\n} catch (Exception $e) {\n    $fmt = 'Exception Redis Connect: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    die($msg);\n}\n$k = 'foo';\nif( $R->exists($k) ){\n    $value = $R->get($k);\n    var_dump($value);\n} else {\n    // $R->set($k, "bar");\n    // $v = json_encode($v);\n    $R->setex($k, 60*60*24, "value" );\n}
-var_dump_|var_
-preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);
-zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
-map_|array_map_
-header_json_|header('Content-Type: application/json');
-array_merge_|$a = array_merge( $a_1, $a_2 ...);
-array_pluck_|pluck_
-m_|public function \|() {\n    return 0;\n}
-asort_|hash_sort_
-table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table table-condensed table-bordered table-striped"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n
-except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
-chmod_|chmod(/somedir/somefile', 0755);// use octal val
-trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
-sf_|sprintf_
-zf_flash_|$this->_helper->flashMessenger->addMessage('');
+__MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
+round_|round($f, 2);
+filterstr_|$v = preg_replace('/[^0-9A-Za-z_ ]/', '', substr(trim($v), 0, 6) );
+reset_|<input type="reset" />
 sort_|sort($a);//  for keys!\nasort($a, SORT_STRING);// &$a;  sort values! returns bool\n// uasort  Sort an array with a user-defined comparison function and maintain index association\nuasort( &$a, function($a, $b) {\n    if ($a == $b) {\n        return 0;\n    }\n    return ($a < $b) ? -1 : 1;\n});
+table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table table-condensed table-bordered table-striped"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n
+htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
+date_diff_|date_add_
+chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_pie.php");\n$data = array(12, 15, 23, 18, 5);\n// Create the Pie Graph.\n$piechart = new PieGraph(300,350);\n// Set a title for the plot\n$piechart->title->Set("Sample Pie Chart");\n$piechart->title->SetFont(FF_VERDANA,FS_BOLD,12);\n$piechart->title->SetColor("darkblue");\n$piechart->legend->Pos(0.1,0.2);\n// Create pie plot\n$pPlot = new PiePlot($data);\n$pPlot->SetCenter(0.5,0.55);\n$pPlot->SetSize(0.3);\n// Setup the labels\n$pPlot->SetLabelType(PIE_VALUE_PER);\n$pPlot->value->Show();\n$pPlot->value->SetFont(FF_ARIAL,FS_NORMAL,9);\n$pPlot->value->SetFormat('%2.1f%%');\n// Add and stroke\n$piechart->Add($pPlot);
+except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
+js_comment_|/* \| */
+str_repeat_|str_repeat('tmpl',5)
+zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
+global_|$GLOBALS[''] = '';
+destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
+zf_alert_|$this->alert($msg, 'error');
+hidden_|<input name="" value="" type="hidden">
+switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
+date_past_|$time_ago = strtotime('-3 months');
+contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
+zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(\n        'user/:username',\n        array(\n            'controller' => 'user',\n            'action'     => 'info',\n        )\n    )\n);
+trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
+var_dump_|var_
+qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
+methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.' '.__FUNCTION__);
+__destruct_|function __destruct() {\n\|\n}
+button_|<button onclick="myFunction()">Click me</button>
+file_|file_put_contents($path\|,$str);
+return_|return\| true;
+array_slice_|array_slice($a, $pos, $len);
+array_pad_|$a = array_pad($a_input, 20, '0' );
 json_decode_|$a = json_decode($json_str, $use_assoc=true);
-array_reduce_|$reduced = array_reduce($a, function($carry_v, $cur_v) {\n    $carry_v *= $cur_v;\n    return $carry_v;\n}, $initial_v='');
-else_|else {\|}
-__reject_|$a_ = __::reject($a_=[1,2,3], function($n) {\n  return $n % 2 === 0; \n});\n
+zf_redirect_|$url = $this->view->url(array('controller'=>'items','action'=>''), $r_name='default');\nreturn $this->_redirect($url);\n
+die_|die(__FUNCTION__.\|);
+chmod_|chmod(/somedir/somefile', 0755);// use octal val
+array_key_exists_|array_key_exists($key, $a\|)
+test_|function ok($res,$expected,$label){\n    if( $res === $expected ) {\n        echo "ok $label\\n";\n    } else {\n        echo "ERROR($label)    $res==$expected \\n";\n    }\n}
+map_|array_map_
+ksort_|ksort($a);//in-place sort!
+protected_|protected function \|(){}
+const_|const CONSTANT = 'str';
+ini_get_|$v = ini_get('display_errors');
+is_callable_|is_callable(array($obj, 'method_name'), false);
+str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
+zf_h_select_|zf_h_select_multi_
+array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
+apc_store_|apc_store( $key,  $var, $ttl=0 );//0=>persist forever, else specify secs
+array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    return $k == 'b' || $v == 4;\n}, ARRAY_FILTER_USE_BOTH);
+twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>
+zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
+instanceof_|if( !($var instanceof ParentClass) ){ }
+set_exception_handler_|if( ENV::isPROD() ) {\n    // log and email the error + session user info + request page info\n    set_exception_handler( array('Bootstrap', '_ExcpLoggerMail') );\n}
+zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, array('yes', 'no'))
+if_|if( empty(\|) ) {\n    // do init\n}
+zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
+execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
+coalesce_|$w = $x ?? $y ?? $z;
+assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
+date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');
+include_|require_
+zf_h_e_|zf_h_escape_
+PDO_|class DbAuto_Connection {\n    protected static $db = null;\n    protected static function getConnection() {\n        $registry = Zend_Registry::getInstance();\n        $C = $registry->config->dbauto;\n        try {\n            if (self::$db == null) {\n                self::$db = new PDO(\n                    sprintf('mysql:host=%s;dbname=%', $C->host, $C->dbname ),\n                    $C->username,\n                    $C->password\n                );\n                self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n            }\n        } catch (PDOException $e) {\n            echo "DB2 PDO error '".$e->getMessage()."'";\n        }\n    }\n    // permette di lanciare una query diretta sul db, ritorna array records\n    //   SQL: WHERE calories < :calories AND colour = :colour\n    //   $params = [':calories' => $calories, ':colour' => $colour ]\n    public static function query($sql, $params=[] ) {\n        $data = [];\n        self::getConnection();\n        if (self::$db) {\n            $stmt = self::$db->prepare($sql);\n            $res = $stmt->execute( $params );\n            if ($res) {\n                while ($oRow = $stmt->fetch(PDO::FETCH_ASSOC)) {\n                    $data[] = $oRow;\n                }\n            }\n            $stmt->closeCursor();\n        } else {\n            die(__FUNCTION__.' errore connessione mysql');\n        }\n        return $data;\n    }\n}
+min_|$i_min = min([0,$x]);
+zf_config_|Zend_Registry::get('config')->company->email->support;
+constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
+array_pluck_|pluck_
+array_|$\|=array();
+filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
+s_|$s_ = '';
+require_|require_once __DIR__.'/\|';
+file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
+zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev() 
+nbsp_|&nbsp;
+out_|echo htmlspecialchars($s, ENT_QUOTES);
+sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
+printf_|pf_
+zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
+sp_|sprintf_
+filter_char_|filterstr_
+case_|case \|:\nbreak;
+foreach_|foreach($a_ as $k => $v) {\n\|}
+assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
+use_|use My\\Full\\Classname as Another;\n// this is the same as use My\\Full\\NSname as NSname\nuse My\\Full\\NSname;\n// importing a global class\nuse ArrayObject;
+location_|header('Location: http://www.test.it/');
+<<<|$\| = <<<__END__\n__END__;
+fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
+filter_alpha_|filterstr_
+zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
+jq_main_|$(function(){\n});
+list_|list($a, $b) = ['a','b'];
 class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function (){}\n}
-zf_dbg_|Zend_Debug::dump($, 'label:');
-microtime_|$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true)- $time_start );
-border_|border: 1px solid #\|;
-move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
+chart_bar_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_bar.php");\ninclude ("../../jpgraph/jpgraph_line.php");\n// We need some data\n$datay=array(31,44,49,40,24,47,12);\n// Set up the graph\n$graph = new Graph(600,300,"auto");\n$graph->img->SetMargin(60,30,30,40);\n$graph->SetScale("textlin");\n$graph->SetMarginColor("teal");\n$graph->SetShadow();\n// Create the bar pot\n$bplot = new BarPlot($datay);\n$bplot->SetWidth(0.6);\n// Set up color for gradient fill style\n$tcol=array(100,100,255);\n$fcol=array(255,100,100);\n$bplot->SetFillGradient($fcol,$tcol,GRAD_VERT);\n$bplot->SetFillColor("orange");\n$graph->Add($bplot);\n// Set up the title for the graph\n$graph->title->Set("Sample Bargraph");\n$graph->title->SetColor("yellow");\n$graph->title->SetFont(FF_VERDANA,FS_BOLD,12);\n// Set up color for axis and labels\n$graph->xaxis->SetColor("black","white");\n$graph->yaxis->SetColor("black","white");\n// Set up font for axis\n$graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->title->Set("Value Range");\n$graph->yaxis->title->SetColor("white");\n$graph->yaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Set up X-axis title (color & font)\n$graph->xaxis->title->Set("item Count");\n$graph->xaxis->title->SetColor("white");\n$graph->xaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Finally send the graph to the browser\n$graph->Stroke();
+private_|//\nprivate function \|(){ return true; }
+str_reg_|if ( preg_match('/1999/', $s) ) {\n    // ok\n}
+zf_render_view_|// Render 'foo' instead of current action script\n        $this->_helper->viewRenderer('index');
+namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
+__reject_|$a_ = __::reject($a_=[1,2,3], function($n) {\n  return $n % 2 === 0; \n});\n
+sleep_|sleep(10);// seconds
+isset_|if( !isset(\|)){\n}
+hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $next_rec) {\n        $k = 'column_key';  \n\treturn $rec[$k] > $next_rec[$k];\n});\n     \n
+in_array_|in_array( $str, $a_ )
+strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
+while_|while($a=mysql_fetch_array($rs)){\|}
+zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
+dirname_|dirname(__FILE__).'/lib.php'
+__map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
+zf_cache_|zf_cache_get_
+str_contains_|str_pos_
+error_|set_error_handler_\nerror_reporting_\nset_exception_handler_
+preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);
+explode_|explode( ',', $s\|);
+zf_route_regex_|$router->addRoute('fornitori_genlabel', new Zend_Controller_Router_Route_Regex(\n        'fornitori/genlabel/Etichette_federe_(\\d+)_(\\d+)\\.pdf',\n        [\n            'controller' => 'Fornitori',\n            'action' => 'genlabel'\n        ],\n        $mappings=[\n            1 => 'ord_num'  ,\n            2 => 'ord_date' ,\n        ],\n        'fornitori/genlabel/Etichette_federe_%d_%d.pdf'\n));
+construct_|public function __construct(){\n   parent::__construct();\n\|}
+for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
+mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
+pf_|sprintf_
+array_fill_|array_fill($i=0, $n=10 , $v='');
+zf_post_|$this->getRequest()->getPost('name\|');
+define_|define("\|", "", false);
+ol_|<ol class="">\n\|</ol>
+exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
+filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING
+dir_exists_|if( file_exists($path_) ) {\n}
+json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+array_reduce_|$reduced = array_reduce($a, function($carry_v, $cur_v) {\n    $carry_v *= $cur_v;\n    return $carry_v;\n}, $initial_v='');
+obj_|new stdClass()
+banchmark_|profile_
+assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
+filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
+register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
+finally_|finally {\n\|}
+m_|public function \|() {\n    return 0;\n}
+css_input_type_|input[type="text"]
+ok_|ok($res,$expected,$label); // test_
+zf_view_|$html = $this->view->render('alternate.phtml');
+ex_|throw_
+dump_|dump(\|,'');//dbg:
+firebug_|FB::send('test');
+argv_|$_SERVER['argv'][1];
+memory_limit_|ini_set("memory_limit","256M");
+http_auth_|// HTTP basic AUTH\nunction pc_validate($user,$pass) {\n    /* replace with appropriate username and password checking from DB */\n    $users = array('david' => 'fadj&32',\n                   'adam'  => '8HEj838');\n    if (isset($users[$user]) && ($users[$user] == $pass)) {\n        return true;\n    } else {\n        return false;\n    }\n}\nif (! pc_validate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {\n    header('WWW-Authenticate: Basic realm="My Website"');\n    header('HTTP/1.0 401 Unauthorized');\n    echo "You need to enter a valid username and password.";\n    exit;\n}
+array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});
+implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
+zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',\n            $val=2,\n            $opt=array(\n              'class' => 'baz',\n            ),\n            $a_options=[ 1 => 'One',\n              2 => 'Two',\n              3 => 'Three' ]\n);
+var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); //echo '<pre>',debug_print_backtrace(),'</pre>';
+http_build_query_|$url_data = http_build_query([]);
+zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(array('rel' => 'icon',\n                                  'href' => '/img/favicon.ico'),\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     array('id' => 'my_stylesheet'));\n  \n// rendering the links in layout\necho $this->headLink() ?>
+opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
+phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends PHPUnit_Framework_TestCase {\n    public function test{$testname}(){\n        $this->assertEquals(1, 2);\n    }\n}
+replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
+issetor_|$\|= isset($a['']) ? $a[''] : null;
+login_|// simplistic login to protect a web page\n<form method="post" action="login.php">\nUsername: <input type="text" name="username"> <br>\nPassword: <input type="password" name="password"> <br>\n<input type="submit" value="Log In">\n</form>\n\n \nif (pc_validate($_REQUEST['username'],$_REQUEST['password'])) {\n    $_SESSION['login'] = \n        $_REQUEST['username'].','.md5($_REQUEST['username'].$secret_word));\n    error_log('Session id '.session_id().' log in as '.$_REQUEST['username']);\n}\n// verification\nunset($username);\nif ($_SESSION['login']) {\n    list($c_username,$cookie_hash) = explode(',',$_SESSION['login']);\n    if (md5($c_username.$secret_word) == $cookie_hash) {\n        $username = $c_username;\n    } else {\n        print "You have tampered with your session.";\n    }\n}
+zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
+zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
+base_convert_|base_convert($i, 10, $tobase=36 );
+k_|'\|' => '',
+__END__|$html = <<<__END__\n\|__END__;\n
+rand_|rand(0,100);
+config_|$a_config = include 'config/application.config.php';\n<?php\n// config/application.config.php\nreturn [];
+file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
+asort_|hash_sort_
+once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
+substr_count_|$c = substr_count($str, $usbstr\|);
+defined_|defined('MYCONST')
+sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
+goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
+error_reporting_|error_reporting(E_ALL); // Report all PHP errors \nini_set('display_errors', '1');\nini_set('html_errors', '1');\n// log app errors\nini_set('log_errors', '1');\nini_set('error_log', __DIR__.'/data/log/PHP_'.date('y_m').'.php' );
+typeof_|$var instanceof ParentClass
+try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
+sort_records_|// Sort the multidimensional array\nusort($results, function ($a, $b) {\n    // Define the custom sort function\n    return $a['some_sub_var'] > $b['some_sub_var'];\n});\n     \n
+func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
+controller_|// funzione: controller con nomenclatura simile a ZF\nclass BaseController {\n    public function run($uri) {\n        $action = self::resolveAction($uri);\n        if (method_exists($this, $action)) {\n            return $this->$action();\n        } else {\n            return "unimplemented action:$action \\n";\n        }\n    }\n    // logica di composizioe della action\n    public static function resolveAction($uri) {\n        if (empty($uri)) {\n            return '';\n        }\n        $action = str_replace(['/mobile/','/'], '', $uri);\n        $action .= 'Action'; \n        return $action;\n    }\n}\n// esempio uso e azione\nclass AppController extends BaseController {    \n    function loginAction(){}\n}\nok('/mobile/login', 'loginAction');//test resolver\n$controller = new AppController();\ndie( $controller->run($uri = $_SERVER['REQUEST_URI']) );
+dir_|glob_
+check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
+range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
+autoload_|        spl_autoload_register(function ($pClassName) {\n            $path = str_replace('\\\\', DIRECTORY_SEPARATOR, $pClassName);\n            require_once (__DIR__ . DIRECTORY_SEPARATOR . $path . ".php");\n            return true;\n        });
+array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
+tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
+zf_h_escape_|$this->escape($this->str)
+method_|protected function \|(hint $v){ \nreturn ; \n}
 set_time_limit_|set_time_limit(0);
-twb_table_|<div class="table-responsive">\n  <table class="table table-striped  table-bordered table-hover table-condensed">\n    ...\n  </table>\n</div>
+sf_|sprintf_
+limit_|set_time_limit_\nmemory_limit_
+unique_|$a = array_unique($a);
+interface_|interface ICommand {\n    // \n    public function run();\n}
+captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
+str_replace_|str_replace('','',\|);
+zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
+nl_|PHP_EOL
+curl_get_|$c = curl_init('http://www.example.com/directory');\ncurl_setopt($c, CURLOPT_RETURNTRANSFER, 1);\ncurl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);\n// alternative per processare il file\n// curl_setopt($c, CURLOPT_WRITEFUNCTION, function($c,$page) {\n//    $info = curl_getinfo($c);\n//});\n// curl_setopt($c,CURLOPT_FILE);\n//curl_setopt($c, CURLOPT_HTTPHEADER, array('X-Factor: 12', 'My-Header: Bob'));\n//curl_setopt($c, CURLOPT_VERBOSE, 1);\n//curl_setopt($c, CURLOPT_REFERER, 'http://www.example.com/form.php');\n//curl_setopt($c, CURLOPT_USERAGENT, 'CURL via PHP');\n$page = curl_exec($c);\ncurl_close($c);
+whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
+header_json_|header('Content-Type: application/json');
+scan_|$n = sscanf($auth, "%d\\t%s %s", $id, $first, $last);
+call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array(array($foo, "bar"), array("three", "four"));
+collapse_|border-collapse:collapse;
+move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
+print_r_|print_r(\|,true);
+//--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
+header_|header("Location: $url");
+zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
+unlink_|if( unlink($path) ){}
+microtime_|$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true)- $time_start );
+zf_partial_|echo $this->partial('_partial.phtml', [\n    // injiect vars\n    'from' => 'Team Framework',\n] ); \n
+zf_dbg_|Zend_Debug::dump($, 'label:');
+array_unique_|$a_ = array_unique($a_ , SORT_STRING);
+file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
+f_|function(){}
+throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
+strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
+command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = array( new Command_1(), new Command_2() );\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
+static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
+date_default_timezone_set_|date_default_timezone_set('Europe/Rome');
+dir_path_|$path_=dirname(__FILE__).'/lib.php'
+url_exists_|$file_headers = @get_headers($url = 'http://www.domain.com/somefile.jpg' );\nif( $file_headers[0] == 'HTTP/1.1 404 Not Found' ) {\n    return false;\n}
+call_|call_user_func_array_
+filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
+phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
+e_|<?= escape_\|?>
+singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
+strpos_|str_pos_
+zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
+phpunit_assert_true_|$this->assertTrue($val);
+zf_h_partial_loop_|$model = array(\n    array('key' => 'Mammal', 'value' => 'Camel'),\n    array('key' => 'Bird', 'value' => 'Penguin')\n);\necho $this->partialLoop('partialLoop.phtml', $model);
+twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
+sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
+function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
+intval_|$i_num = intval($s);
+dbg_|var_dump(\|);die();
+jq_promise_|jq_deferred_
+ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
+extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
+date_sub_|date_add_
+session_|session_start();  \n$_SESSION['count'] = 0;
+mail_|$mail_res = mail($to, $subject, $message);
+echo_|echo "\|"; // dbg
+twb_table_|<div class="table-responsive">\n  <table class="table table-striped  table-bordered table-hover table-condensed">\n    ...\n  </table>\n</div>
+sf_get_|$request->getParameter($name);
+php_|<?php\n\n\|\n?>
+__call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
+phpo_|<?=\|;?>
+jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .submit() called." );\n  event.preventDefault();\n});
+__construct_|public function __construct(){\n    parent::__construct();\n}
+zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
+redirect_|location_
+parse_int_|intval($i)
+array_merge_|$a = array_merge( $a_1, $a_2 ...);
+profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );
+public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
+glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
+else_|else {\|}
+set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\n    /* switch ($errno) {\n        case E_NOTICE:\n        case E_USER_NOTICE:\n            $errors = "Notice";\n            break;\n        case E_WARNING:\n        case E_USER_WARNING:\n            // log your warning or transform in exception:\n            $errors = "Warning";\n            break;\n        case E_ERROR:\n        case E_USER_ERROR:\n            $errors = "Fatal Error";\n            break;\n        default:\n            $errors = "Unknown Error";\n            break;\n    } */\n\t// log your warning or transform in exception:\n        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, \n  // on which error report level the user-defined error will be shown. Default is "E_ALL"\n  $on_err_level = self::isEnvProd() ? E_WARNING : E_ALL\n);\n\n
+jq_ready_|$(function(){\n    // DOM ready\n\|\n});
+file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
+apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
+zf_get_|$name = $this->getRequest()->getParam('name\|', '');
+zf_h_partial_|echo $this->partial('_partial.phtml', $data=array(\n    'from' => 'Team Framework',\n    'subject' => 'view partials') );
+image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
+str_match_|str_match($str, $substr)\|// strpos_ preg_match_\n// $str = "The quick brown fox jumps over the lazy dog";\n$contais = 1 === preg_match('/fox/', $str); // returns 1\n
+ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
+if__|$\| = isset($c) ? $c : null;
+filter_str_|filterstr_
+border_|border: 1px solid #\|;
+strpad_|str_pad_
+css_transparent_|background-color:rgba(255,0,0,0.5);
+ff_|( \| ) ? ( ) : ( );
+a_|$\| = array();
+output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n    return preg_replace('/([^@\\s]+)@([-a-z0-9]+\\.)+[a-z]{2,}/is', '<$1@...>', $s);\n}\n// esegue la funzione di pulizzia sull buffer\nob_start('mangle_email');\n// equivalente al settaggio php.ini\n// output_buffering = On\n// output_handler=mangle_email
+date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
+php_cli_|#!/usr/bin/env php\n<?php\n
+date_|date('Y-m-d H:i:s');
+apc_|apc_get_
+if___|$v = $v ?: $def;
+defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
+redis_cache_|// usa composer per gestire le dipendenze\n//require "predis/autoload.php";\n//Predis\\Autoloader::register();\ntry {\n    $R = new Predis\\Client(array(\n        //'scheme' => 'tcp',\n        //'host' => 'localhost',\n        //'port' => port,\n        //'password' => 'password',\n        'persistent' => '1'  // persistent!\n    ));\n} catch (Exception $e) {\n    $fmt = 'Exception Redis Connect: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    die($msg);\n}\n$k = 'foo';\nif( $R->exists($k) ){\n    $value = $R->get($k);\n    var_dump($value);\n} else {\n    // $R->set($k, "bar");\n    // $v = json_encode($v);\n    $R->setex($k, 60*60*24, "value" );\n}
+zf_flash_|$this->_helper->flashMessenger->addMessage('');
+number_format_|number_format($number, 2, ',', '.');
+preg_match_|// basic match\n$str = "The quick brown fox jumps over the lazy dog";\n$is = 1 === preg_match('/fox/', $str) ; // returns 1\n$is = 1 === preg_match('/^fox/', $strg) ; // returns 0\n$is = 1 === preg_match('/^The/', $str) ; // returns 1\n$is = 1 === preg_match('/^the/', $str) ; // returns 0\n$is = 1 === preg_match('/dog$/', $str; // returns 1\n$is = 1 === preg_match('/f.x/', $str) ; // returns 1\n\n// adv match\n// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
+trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHello();\n        echo 'World!';\n    }\n}\nclass MyHelloWorld extends Base {\n    use SayWorld;\n}
 [yab]
 [lua]
 [makefile]
@@ -635,13 +641,16 @@ quote_|<quote wikipedia>\n</quote>
 [yaml]
 [assembly-ags]
 [shellscript]
-func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
-dirname_|DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+argv_|# accede al primo argomento passato in input\nif [ -z "$1" ]; then\n    echo usage: $0 directory\n    exit\nfi\nSRCD=$1\necho ${SRCD}
+if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nfi
+while_|COUNTER=0\nwhile [  $COUNTER -lt 10 ]; do\n    echo The counter is $COUNTER\n    let COUNTER=COUNTER+1\ndone
 let_|VARNAME=string\necho ${VARNAME}
+dirname_|DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+for_|for i in $( ls ); do\n    echo item: $i\ndone
 include_|source _common.sh    # include is in $PATH
 date_|NOW=`date +"%m-%d-%Y"`
-if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nfi
-for_|for i in $( ls ); do\n    echo item: $i\ndone
+func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
+concat_|A="X Y"\nA+="Z"\nA="${B}${C}"\necho "$A"
 [gettext]
 [jcl]
 [jflex]
@@ -777,11 +786,11 @@ isset_|\|!== void 0
 printf_|_.str.sprintf('%s/%s', 1,2 );
 a_t_|//typed array\nvar type_list = new Array<TheType>();
 a_num_|var a_: Array<number> = [1, 2];
-interface_|interface ICallBackFunc extends Function {\n    (message: string): void; // def firma di una callback \n    func(): string;\n}\n\n
+interface_|interface_rec_\ninterface_func_\n\n
 jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
 array_merge_|var a = _.extend(a1, a2);
 try_|try {\n\|} catch(e) {\n    // e.message\n}
-interface_rec_|interface Person {\n  name: string,\n  alma_mater?: string\n}
+interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
 function_|//\nfunction add(x: number): number {\n    return x;\n}
 empty_|_empty_
 static_|static member(b:string):string { return ''; }
@@ -790,6 +799,7 @@ array_|var a_: string[] = ['hello', 'world'];
 json_decode_|var obj:any = JSON.parse(json);
 const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
 dict_|dict_js_
+interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
 construct_|constructor(public x: number ) { \n  //sueper();\n}\n//public getX() { return this.x; }\n
 console_|log_
 lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
@@ -818,7 +828,7 @@ func_|function(){}
 sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
 _each_|_.each(hash, function(v, k, list){ });
 func_get_args_|function test(s: string, …rest: string[]): void {\n  console.log(s);\n  if (rest.length)\n    console.log(rest[rest.length - 1]);\n}
-class_|class AClass {\n    constructor(m: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }\n}
+class_|class AClass {\n    constructor(public msg: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 reference_|/// <reference path="jquery.d.ts" />
 replace_|str=str.replace("A", "B");
 f__|() => {\n}
@@ -828,7 +838,7 @@ str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
 f_|function \|():void { return; }
 hash_|dict_js_
 jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
-enum_|enum Color {Red, Green, Blue};\nvar c: Color = Color.Green; //  c = 1:
+enum_|enum Color {Red=0, Green=1, Blue=2};\nvar c: Color = Color.Green; //  c = 1:\nvar n:number = Color.Red;
 reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
 [plaintex]
 [cobol]

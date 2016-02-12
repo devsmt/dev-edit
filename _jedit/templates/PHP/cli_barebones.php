@@ -55,7 +55,7 @@ namespace {
             // init params
             define('DEBUG', CLI::hasFlag('debug'));
 
-            // i percorsi e le configurazioni dipendenti dal server su cui gira il programma
+            // validazioni percorsi e le configurazioni dipendenti dal server su cui gira il programma
             if(
                 !isset($_SERVER['argv'][1])
                 || empty($_SERVER['argv'][1])
@@ -84,8 +84,24 @@ namespace {
                 die($this->actionUsage());
                 break;
             }
+            // TODO: sostituire switch con resolver
+            // $action = self::resolveAction($action);
+            // if (method_exists($this, $action)) {
+            //     return $this->$action();
+            // } else {
+            //     return "unimplemented action:$action \n";
+            // }
         }
-
+        // TODO:
+        // // logica di risoluzione della action, simile a ZF
+        // public static function resolveAction($action) {
+        //     if (empty($action)) {
+        //         return '';
+        //     }
+        //     $action = str_replace(['/mobile/','/'], '', $uri);
+        //     $action .= 'Action';
+        //     return $action;
+        // }
         //----------------------------------------------------------------------------
         //  actions
         //----------------------------------------------------------------------------
@@ -97,6 +113,7 @@ namespace {
             \n\n";
         }
         function actionTest() {
+            ok(self::resolveAction('login'), 'loginAction');//test resolver
             echo "run tests";
         }
     }
@@ -114,3 +131,7 @@ namespace {
         println($msg);
     }
 }
+
+
+
+
