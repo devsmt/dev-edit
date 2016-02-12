@@ -359,6 +359,7 @@ set_time_limit_|set_time_limit(0);
 sf_|sprintf_
 limit_|set_time_limit_\nmemory_limit_
 unique_|$a = array_unique($a);
+is_|test_
 interface_|interface ICommand {\n    // \n    public function run();\n}
 captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
 str_replace_|str_replace('','',\|);
@@ -796,7 +797,7 @@ empty_|_empty_
 static_|static member(b:string):string { return ''; }
 _empty_|_.isEmpty()
 array_|var a_: string[] = ['hello', 'world'];
-json_decode_|var obj:any = JSON.parse(json);
+json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
 const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
 dict_|dict_js_
 interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
@@ -819,6 +820,7 @@ str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
 date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
 sp_|sprintf_
 json_encode_|var str:string = JSON.stringify(obj);
+json_parse_|json_decode_
 declare_|declare function sprintf(fmt: string, ...args: any[]): string;
 preg_scan_|"dolor sit amet".match(/\\w+/g);
 public_|public \|():boolean {\nreturn true;\n}
@@ -1022,7 +1024,7 @@ except_|throw "errormsg\|";
 timeout_|setTimeout(function(){ alert("Hello"); }, 300);
 jq_selector_list_|/*\n    All                         *   \n                                :animated \n    Attribute Contains Prefix   [name|=  value  ]\n    Attribute Contains          [name*=  value  ]\n    Attribute Contains Word     [name~=  value  ]\n    Attribute Ends With         [name$=  value  ]\n    Attribute Equals            [name=  value  ]\n    Attribute Not Equal         [name!=  value  ]\n    Attribute Starts With       [name^=  value  ]\n                                :button\n                                :checkbox \n                                :checked \n    Child                       parent > child   \n    Class                       .class   \n                                :contains   \n                                :disabled \n                                :empty \n                                :enabled \n                                :eq   \n                                :even \n                                :file \n                                :first-child \n                                :first-of-type \n                                :first \n                                :focus \n                                :gt   \n    Has Attribute               [name]\n                                :has   \n                                :header \n                                :hidden \n    ID                          #id   \n                                :image \n                                :input \n                                :lang   \n                                :last-child \n                                :last-of-type \n                                :last \n                                :lt   \n    Multiple Attribute          [name=value][name2=value2″]\n    Multiple                    selector1, 2, N   \n    Next Adjacent               prev + next   \n    Next Siblings               prev ~ siblings   \n                                :not   \n                                :nth-child   \n                                :nth-last-child   \n                                :nth-last-of-type   \n                                :nth-of-type   \n                                :odd \n                                :only-child \n                                :only-of-type \n                                :parent \n                                :password \n                                :radio \n                                :reset \n                                :root \n                                :selected \n                                :submit \n                                :target \n                                :text \n                                :visible \n*/\n
 sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
-json_decode_|var o_ = $.parseJSON(json_str);
+json_decode_|try {  \n    var o_ = $.parseJSON(json_str);\n} catch(e) { \n    console.log(e.message); \n}
 json_parse_|JSON.parse(text);
 url_encode_|var s = encodeURIComponent(v);
 class_|// funzione:\nvar Greeter = (function () {\n    // constructor\n    function Greeter(message) {\n        // public\n        this.greeting = message || 'default';\n        // privileged\n        this.publicMethod = function() {\n            alert(privateName + " get from public method!"); \n        }    \t\n    }\n    // public methods\n    Greeter.prototype.greet = function () {\n        return "Hello, " + this.greeting;\n    };\n    // private\n    var privateVar = message || "default"; \n    var privateMethod = function() {\n        return privateVar; \n    }\n    \n    return Greeter;\n})();\n// instance\n// var o = new Greeter("txt");\n
