@@ -226,7 +226,7 @@ array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    retu
 twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>
 zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
 instanceof_|if( !($var instanceof ParentClass) ){ }
-set_exception_handler_|if( ENV::isPROD() ) {\n    // log and email the error + session user info + request page info\n    set_exception_handler( array('Bootstrap', '_ExcpLoggerMail') );\n}
+set_exception_handler_|if( ENV::isPROD() ) {\n    \n    $prev_handler = set_exception_handler( array('Bootstrap', '_ExcpLoggerMail') );\n    // es. err handler\n    function exp_hndl_test(Exception $e){  }\n}
 zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, array('yes', 'no'))
 if_|if( empty(\|) ) {\n    // do init\n}
 zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
@@ -343,7 +343,7 @@ sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
 goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
 error_reporting_|error_reporting(E_ALL); // Report all PHP errors \nini_set('display_errors', '1');\nini_set('html_errors', '1');\n// log app errors\nini_set('log_errors', '1');\nini_set('error_log', __DIR__.'/data/log/PHP_'.date('y_m').'.php' );
 typeof_|$var instanceof ParentClass
-try_|try {\n\n\|} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    $logger = Zend_Registry::get('logger');\n    $logger->err(strip_tags($msg));\n//} finally {\n}\n\n
+try_|try {\n\n\|//} catch ( Zend_Controller_Dispatcher_Exception $e) {\n} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    ); \n    Zend_Registry::get('logger')->err(strip_tags($msg));\n    // your UI notify routine\n    die($msg);\n//} finally {\n}\n\n
 sort_records_|// Sort the multidimensional array\nusort($results, function ($a, $b) {\n    // Define the custom sort function\n    return $a['some_sub_var'] > $b['some_sub_var'];\n});\n     \n
 func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
 controller_|// funzione: controller con nomenclatura simile a ZF\nclass BaseController {\n    public function run($uri) {\n        $action = self::resolveAction($uri);\n        if (method_exists($this, $action)) {\n            return $this->$action();\n        } else {\n            return "unimplemented action:$action \\n";\n        }\n    }\n    // logica di composizioe della action\n    public static function resolveAction($uri) {\n        if (empty($uri)) {\n            return '';\n        }\n        $action = str_replace(['/mobile/','/'], '', $uri);\n        $action .= 'Action'; \n        return $action;\n    }\n}\n// esempio uso e azione\nclass AppController extends BaseController {    \n    function loginAction(){}\n}\nok('/mobile/login', 'loginAction');//test resolver\n$controller = new AppController();\ndie( $controller->run($uri = $_SERVER['REQUEST_URI']) );
@@ -771,11 +771,13 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
 each_|_.each(a_list, function(v, k, list) {\|});
 date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
+twb_popover_|<span  \n  data-toggle="popover" \n  title="Popover title" \n  onclick="$(this).popover({html:true});"  \n  data-content="And here`s some amazing content.</br> <a href=#>It`s very engaging.</a> </br> Right? " \n> %s </span> 
 var_|println('__FUNCTION__()', \|);
 in_array_|_.indexOf([], val) !== -1
 _filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
 opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
 require_|import_
+log_|console.log( promo );
 date_|moment().format('YYYY-MM-DD HH:mm:ss');
 closure_|function make_counter(): () => number {\n  var i = 0;\n\n  return function() {\n    i += 1;\n    return i;\n  }\n}
 typeof_|typeof \| !== 'undefined'
@@ -829,7 +831,7 @@ module_|module M {\n    export class C {\n    }\n}
 func_|function(){}
 sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
 _each_|_.each(hash, function(v, k, list){ });
-func_get_args_|function test(s: string, …rest: string[]): void {\n  console.log(s);\n  if (rest.length)\n    console.log(rest[rest.length - 1]);\n}
+func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
 class_|class AClass {\n    constructor(public msg: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 reference_|/// <reference path="jquery.d.ts" />
 replace_|str=str.replace("A", "B");
@@ -965,7 +967,7 @@ lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
 unique_|jq_unique_
 jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
 proxy_|jq_proxy_
-replace_|s.replace("old","new");
+replace_|s = s.replace("old","new");
 jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
 apply_|fun.apply(this_obj, array_arguments );
 jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
@@ -992,6 +994,7 @@ byid_|var el = document.getElementById('id');
 reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
 _count_|_size_
 is_array_|$.isArray(\|)
+is_string_|_.isString(myVar)\n// typeof myVar === 'string' || myVar instanceof String
 jq_merge_|var a = $.merge( [1,2], [3,4] ); // jq_extend_
 jq_empty_|// rm all child nodes\n$(selector).empty();
 jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
