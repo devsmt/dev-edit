@@ -242,7 +242,7 @@ zf_config_|Zend_Registry::get('config')->company->email->support;
 constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
 array_pluck_|pluck_
 array_|$\|=array();
-filter_var_|if (filter_var($str_email, FILTER_VALIDATE_EMAIL)) {\n    echo "This ($str_email) email address is considered valid.";\n}
+filter_var_|filter_
 s_|$s_ = '';
 require_|require_once __DIR__.'/\|';
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
@@ -255,10 +255,11 @@ zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->
 sp_|sprintf_
 filter_char_|filterstr_
 case_|case \|:\nbreak;
+request_is_ajax_|$is_ajax_request = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
 foreach_|foreach($a_ as $k => $v) {\n\|}
 assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
 use_|use My\\Full\\Classname as Another;\n// this is the same as use My\\Full\\NSname as NSname\nuse My\\Full\\NSname;\n// importing a global class\nuse ArrayObject;
-location_|header('Location: http://www.test.it/');
+location_|header('Location: http://www.test.it/');\n// $logger->info('reason');\ndie('redirect');
 <<<|$\| = <<<__END__\n__END__;
 fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
 filter_alpha_|filterstr_
@@ -296,7 +297,7 @@ zf_post_|$this->getRequest()->getPost('name\|');
 define_|define("\|", "", false);
 ol_|<ol class="">\n\|</ol>
 exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
-filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING
+filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $v ){\n\techo "validation error param:v";\n}
 dir_exists_|if( file_exists($path_) ) {\n}
 json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 array_reduce_|$reduced = array_reduce($a, function($carry_v, $cur_v) {\n    $carry_v *= $cur_v;\n    return $carry_v;\n}, $initial_v='');
@@ -327,7 +328,7 @@ phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends P
 replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
 issetor_|$\|= isset($a['']) ? $a[''] : null;
 login_|// simplistic login to protect a web page\n<form method="post" action="login.php">\nUsername: <input type="text" name="username"> <br>\nPassword: <input type="password" name="password"> <br>\n<input type="submit" value="Log In">\n</form>\n\n \nif (pc_validate($_REQUEST['username'],$_REQUEST['password'])) {\n    $_SESSION['login'] = \n        $_REQUEST['username'].','.md5($_REQUEST['username'].$secret_word));\n    error_log('Session id '.session_id().' log in as '.$_REQUEST['username']);\n}\n// verification\nunset($username);\nif ($_SESSION['login']) {\n    list($c_username,$cookie_hash) = explode(',',$_SESSION['login']);\n    if (md5($c_username.$secret_word) == $cookie_hash) {\n        $username = $c_username;\n    } else {\n        print "You have tampered with your session.";\n    }\n}
-zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    // ... do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n    echo '<pre>',var_dump( $c_result ),'</pre>'; // DEBUG\n    die(__FUNCTION__.__FILE__);\n}
+zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    $c_result = ; // do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n}\nreturn $c_result;
 zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
 base_convert_|base_convert($i, 10, $tobase=36 );
 k_|'\|' => '',
@@ -355,6 +356,7 @@ array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n
 tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
 zf_h_escape_|$this->escape($this->str)
 method_|protected function \|(hint $v){ \nreturn ; \n}
+ajax_|request_is_ajax_
 set_time_limit_|set_time_limit(0);
 sf_|sprintf_
 limit_|set_time_limit_\nmemory_limit_
@@ -780,7 +782,7 @@ require_|import_
 log_|console.log( promo );
 date_|moment().format('YYYY-MM-DD HH:mm:ss');
 closure_|function make_counter(): () => number {\n  var i = 0;\n\n  return function() {\n    i += 1;\n    return i;\n  }\n}
-typeof_|typeof \| !== 'undefined'
+typeof_|typeof \| !== void 0 
 for_|for( var i=0; i<a_list.length; i++ ) {\|\tvar v = a_list[i];\n}
 throw_|throw new Error("msg");
 get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
@@ -796,6 +798,7 @@ try_|try {\n\|} catch(e) {\n    // e.message\n}
 interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
 function_|//\nfunction add(x: number): number {\n    return x;\n}
 empty_|_empty_
+bb_find_|this.$('scoped selector');
 static_|static member(b:string):string { return ''; }
 _empty_|_.isEmpty()
 array_|var a_: string[] = ['hello', 'world'];
@@ -803,7 +806,7 @@ json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    con
 const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
 dict_|dict_js_
 interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
-construct_|constructor(public x: number ) { \n  //sueper();\n}\n//public getX() { return this.x; }\n
+construct_|constructor(public x: number ) { \n  //super();\n}\n//public getX() { return this.x; }\n
 console_|log_
 lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
 foreach_|//[1, 2, 3].forEach((item, index, array) => { console.log(item); });\n//for (var key in hash) { if(hash.hasOwnProperty(key) ) { console.log(v); } }\n_each_
@@ -811,6 +814,7 @@ dict_js_|var item_list: { [k: string]: Object; } = { };
 reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
 dict_bb_|var a_list: _.Dictionary<string> = {};
 substr_|str.substring(0,2);
+implode_|a_s.join(", ")
 a_str_|var a_: Array<string> = ['a','b'];
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
 bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
@@ -832,13 +836,14 @@ func_|function(){}
 sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
 _each_|_.each(hash, function(v, k, list){ });
 func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
-class_|class AClass {\n    constructor(public msg: string) {\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
+class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 reference_|/// <reference path="jquery.d.ts" />
 replace_|str=str.replace("A", "B");
 f__|() => {\n}
 type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };\n/*\ntype MyHandler = (myArgument: string) => void;\ntype StringOrNumber = string | number;\ntype Text_ = string | { text: string };\n//type NameLookup = Dictionary<string, any>;\ntype ObjectStatics = typeof Object;\ntype Callback<T> = (data: T) => void;\ntype Pair<T> = [T, T];\ntype Coordinates_ = Pair<number>;\ntype Tree<T> = T | { left: Tree<T>, right: Tree<T> };\n*/
 date_now_|var t:number = (new Date()).getTime() / 1000
 str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
+method_|protected method():void {\n\n}
 f_|function \|():void { return; }
 hash_|dict_js_
 jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
