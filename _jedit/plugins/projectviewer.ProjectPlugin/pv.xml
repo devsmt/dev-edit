@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <projects name="All Projects" >
-<project name="DMS_Caleffi" file="DMS_Caleffi.xml" root="/var/www/dms_caleffi/trunk"  />
-<project name="DMS_cantini" file="DMS_cantini.xml" root="/var/www/dms_cantini/trunk"  />
 <project name="amams" file="amams.xml" root="/var/www/amams"  />
-<project name="autocenter" file="autocenter.xml" root="/var/www/autocenter"  />
 <project name="axa" file="axa.xml" root="/var/www/axa"  />
 <project name="axatest" file="axatest.xml" root="/var/www/axatest"  />
+<project name="evidenceweb" file="evidenceweb.xml" root="/home/taz/Dropbox/mywebsite/evidenceweb"  />
 <project name="ipc" file="ipc.xml" root="/var/www/ipc"  />
 <project name="jedit" file="jedit.xml" root="/home/taz/.jedit"  />
-<project name="lampa" file="lampa.xml" root="/var/www/lampa.it"  />
-<project name="logico-web" file="logico-web.xml" root="/var/www/logico-web"  />
 <project name="time-tracker" file="time-tracker.xml" root="/var/www/time_tracker"  />
 </projects>
