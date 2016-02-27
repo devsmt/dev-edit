@@ -1,0 +1,6 @@
+javascript.bb_model_=JS/BB/Model.js
+javascript.bb_view_=JS/BB/View.js
+javascript.bb_router_=JS/BB/Router.js
+javascript.bb_template_=JS/BB/Template.js
+php.cli_app_=PHP/cli.php
+php.cli_=PHP/cli_barebones.php

@@ -2,7 +2,7 @@
 <?php
 /*
 scopo del programma
- */
+*/
 namespace {
     //----------------------------------------------------------------------------
     //  subroutines
@@ -20,7 +20,7 @@ namespace {
         }
     }
 
-    function println($msg) {echo $msg . "\n";}
+    function println($msg) { echo $msg . "\n"; }
 
     class ENV {
         static function envBootstrap() {
@@ -32,14 +32,43 @@ namespace {
         }
     }
 
+    // informazioni dipendenti dal server su cui gira il programma
+    class Config {
+        public static $config = [
+            'DEV' => [
+            ],
+            'PROD' => [
+            ]
+        ];
+        public static function get($key, $env=null) {
+            return self::$config[ENV][$key];
+        }
+    }
+
     //----------------------------------------------------------------------------
     //  controller
     //----------------------------------------------------------------------------
     //main controller
     class Main {
+
         public function run() {
-            $action = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : 'test';
+            // init params
+            define('DEBUG', CLI::hasFlag('debug'));
+
+            // validazioni percorsi e le configurazioni dipendenti dal server su cui gira il programma
+            if(
+                !isset($_SERVER['argv'][1])
+                || empty($_SERVER['argv'][1])
+                || !in_array(strtoupper($_SERVER['argv'][1]), ['DEV','PROD'] )
+            ) {
+                die("specificare un ENV[DEV|PROD] come secondo argomento \n");
+            } else {
+                define('ENV', strtoupper($_SERVER['argv'][1]), false);
+            }
+
+            $action = isset($_SERVER['argv'][2]) ? $_SERVER['argv'][2] : 'test';
             $action = strtoupper($action);
+
             switch ($action) {
             case 'X':
                 die(' ... ');
@@ -55,19 +84,36 @@ namespace {
                 die($this->actionUsage());
                 break;
             }
+            // TODO: sostituire switch con resolver
+            // $action = self::resolveAction($action);
+            // if (method_exists($this, $action)) {
+            //     return $this->$action();
+            // } else {
+            //     return "unimplemented action:$action \n";
+            // }
         }
-
+        // TODO:
+        // // logica di risoluzione della action, simile a ZF
+        // public static function resolveAction($action) {
+        //     if (empty($action)) {
+        //         return '';
+        //     }
+        //     $action = str_replace(['/mobile/','/'], '', $uri);
+        //     $action .= 'Action';
+        //     return $action;
+        // }
         //----------------------------------------------------------------------------
         //  actions
         //----------------------------------------------------------------------------
         function actionUsage() {
             return "
             uso:
-            {$_SERVER['argv'][0]} [action] [--go] [--test]
+            {$_SERVER['argv'][0]} [action] [--debug]
             uso del programma
             \n\n";
         }
         function actionTest() {
+            ok(self::resolveAction('login'), 'loginAction');//test resolver
             echo "run tests";
         }
     }
@@ -76,7 +122,6 @@ namespace {
     //  main
     //----------------------------------------------------------------------------
 
-    define('DEBUG', CLI::hasFlag('debug'));
     ENV::envBootstrap();
     try {
         $c = new Main();
@@ -86,3 +131,7 @@ namespace {
         println($msg);
     }
 }
+
+
+
+
