@@ -98,6 +98,7 @@ php_|<?php\n
 input_number_|inut_numeric_
 twb_row_|    <div class="container-fluid">\n      <div class="row-fluid">\n\t<div class="span3">\n        </div>\n      </div>\n    </div>
 include_css_|css_ style_
+html5_progressbar_|<progress max="100" value="80"></progress>\n<style >\n    progress[value] {\n      -webkit-appearance: none;\n         -moz-appearance: none;\n              appearance: none;\n      border: none;\n\n      width: 250px;\n      height: 20px;\n\n      background-color: blue; color: blue;\n    }\n</style>
 [c++]
 [sqr]
 [nsis2]
@@ -651,7 +652,6 @@ glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . files
 [erlang]
 [creole]
 code_|<code php>\|</code>
-html5_progressbar_|<progress max="100" value="80"></progress>\n<style type="text/css">\n    progress[value] {\n      /* Reset the default appearance */\n      -webkit-appearance: none;\n         -moz-appearance: none;\n              appearance: none;\n\n      /* Get rid of default border in Firefox. */\n      border: none;\n\n      width: 250px;\n      height: 20px;\n\n      background-color: blue;\n      /* For IE10 */\n      color: blue;\n    }\n</style>
 image_|{{image.png}}
 quote_|<quote wikipedia>\n</quote>
 [yaml]
@@ -790,6 +790,8 @@ twb_popover_|<span  \n  data-toggle="popover" \n  title="Popover title" \n  oncl
 var_|println('__FUNCTION__()', \|);
 in_array_|_.indexOf([], val) !== -1
 _filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
+reg_scan_|"dolor sit amet".match(/\\w+/g);
+reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
 opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
 require_|import_
 log_|console.log( promo );
@@ -806,6 +808,19 @@ a_t_|//typed array\nvar type_list = new Array<TheType>();
 a_num_|var a_: Array<number> = [1, 2];
 interface_|interface_rec_\ninterface_func_\n\n
 jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
+func_|function(){}
+date_now_|var t:number = (new Date()).getTime() / 1000
+date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
+dict_bb_|var a_list: _.Dictionary<string> = {};
+a_num_|var a_: Array<number> = [1, 2];
+hash_|dict_js_
+construct_|constructor(public x: number ) { \n  //sueper();\n}\n//public getX() { return this.x; }\n
+count_|[].length\n//var k_num:number = _.size(hash);
+cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
+interface_rec_|interface Person {\n  name: string,\n  alma_mater?: string\n}
+reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
+date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
+bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
 array_merge_|var a = _.extend(a1, a2);
 try_|try {\n\|} catch(e) {\n    // e.message\n}
 interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
@@ -852,7 +867,7 @@ func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.
 class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 reference_|/// <reference path="jquery.d.ts" />
 replace_|str=str.replace("A", "B");
-f__|() => {\n}
+f__|() => {\n} 
 type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };\n/*\ntype MyHandler = (myArgument: string) => void;\ntype StringOrNumber = string | number;\ntype Text_ = string | { text: string };\n//type NameLookup = Dictionary<string, any>;\ntype ObjectStatics = typeof Object;\ntype Callback<T> = (data: T) => void;\ntype Pair<T> = [T, T];\ntype Coordinates_ = Pair<number>;\ntype Tree<T> = T | { left: Tree<T>, right: Tree<T> };\n*/
 date_now_|var t:number = (new Date()).getTime() / 1000
 str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
