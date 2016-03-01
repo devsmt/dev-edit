@@ -184,9 +184,11 @@ table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_
 htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
 date_diff_|date_add_
 chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_pie.php");\n$data = array(12, 15, 23, 18, 5);\n// Create the Pie Graph.\n$piechart = new PieGraph(300,350);\n// Set a title for the plot\n$piechart->title->Set("Sample Pie Chart");\n$piechart->title->SetFont(FF_VERDANA,FS_BOLD,12);\n$piechart->title->SetColor("darkblue");\n$piechart->legend->Pos(0.1,0.2);\n// Create pie plot\n$pPlot = new PiePlot($data);\n$pPlot->SetCenter(0.5,0.55);\n$pPlot->SetSize(0.3);\n// Setup the labels\n$pPlot->SetLabelType(PIE_VALUE_PER);\n$pPlot->value->Show();\n$pPlot->value->SetFont(FF_ARIAL,FS_NORMAL,9);\n$pPlot->value->SetFormat('%2.1f%%');\n// Add and stroke\n$piechart->Add($pPlot);
+dba_|$id = dba_open("/tmp/test.db", "n", "db2");\nif (!$id) {\n    die( "dba_open failed\\n" );\n}\ndba_replace("key", "This is an example!", $id);\nif (dba_exists("key", $id)) {\n    echo dba_fetch("key", $id);\n    dba_delete("key", $id);\n}\n// read all the keys to read all the db\n$key = dba_firstkey($id);\nwhile ($key != false) {\n    $a_keys[] = $key;\n    $key = dba_nextkey($id);\n}\ndba_close($id);
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 js_comment_|/* \| */
 str_repeat_|str_repeat('tmpl',5)
+bc_|bcscale(4);// setta il default scale, va settato prima delle chiamate\n$a = '1.234';\n$b = '5';\necho bcadd($a, $b);     // 6\necho bcadd($a, $b, 4);  // 6.2340\necho bcsub($a, $b);     // -3\necho bcsub($a, $b, 4);  // -3.7660\necho bcmul('1.34747474747', '35', 3); // 47.161\necho bcmul('2', '4'); // 8\necho bcdiv('105', '6.55957', 3);  // 16.007\n// compare ==\n// Returns 0 if the two operands are equal, 1 if the left_operand is larger than the right_operand, -1 otherwise.\necho bccomp('1', '2') . "\\n";   // -1\necho bccomp('1.00001', '1', 3); // 0, EQUAL\necho bccomp('1.00001', '1', 5); // 1, first operand is bigger\n\n// bcmod bcpow bcsqrt\n\n\n\n
 zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
 global_|$GLOBALS[''] = '';
 destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
@@ -213,6 +215,7 @@ chmod_|chmod(/somedir/somefile', 0755);// use octal val
 array_key_exists_|array_key_exists($key, $a\|)
 test_|function ok($res,$expected,$label){\n    if( $res === $expected ) {\n        echo "ok $label\\n";\n    } else {\n        echo "ERROR($label)    $res==$expected \\n";\n    }\n}
 map_|array_map_
+exception_|spl_
 ksort_|ksort($a);//in-place sort!
 protected_|protected function \|(){}
 const_|const CONSTANT = 'str';
@@ -244,6 +247,7 @@ array_pluck_|pluck_
 array_|$\|=array();
 filter_var_|filter_
 s_|$s_ = '';
+math_|bc_
 require_|require_once __DIR__.'/\|';
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
 zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev() 
@@ -261,6 +265,7 @@ assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exceptio
 use_|use My\\Full\\Classname as Another;\n// this is the same as use My\\Full\\NSname as NSname\nuse My\\Full\\NSname;\n// importing a global class\nuse ArrayObject;
 location_|header('Location: http://www.test.it/');\n// $logger->info('reason');\ndie('redirect');
 <<<|$\| = <<<__END__\n__END__;
+pthreads_|http://nl1.php.net/manual/en/class.thread.php
 fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
 filter_alpha_|filterstr_
 zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
@@ -292,12 +297,12 @@ construct_|public function __construct(){\n   parent::__construct();\n\|}
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
 pf_|sprintf_
-array_fill_|array_fill($i=0, $n=10 , $v='');
 zf_post_|$this->getRequest()->getPost('name\|');
+array_fill_|array_fill($i=0, $n=10 , $v='');
 define_|define("\|", "", false);
 ol_|<ol class="">\n\|</ol>
 exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
-filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $v ){\n\techo "validation error param:v";\n}
+filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $v ){\n\techo "validation error param:v";\n}\nctype_
 dir_exists_|if( file_exists($path_) ) {\n}
 json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 array_reduce_|$reduced = array_reduce($a, function($carry_v, $cur_v) {\n    $carry_v *= $cur_v;\n    return $carry_v;\n}, $initial_v='');
@@ -309,6 +314,7 @@ register_shutdown_function_|register_shutdown_function(function (){ \n    echo "
 finally_|finally {\n\|}
 m_|public function \|() {\n    return 0;\n}
 css_input_type_|input[type="text"]
+spl_|Interfaces\n    Countable\n    OuterIterator\n    RecursiveIterator\n    SeekableIterator\n    SplObserver\n    SplSubject\nClasses\n    AppendIterator\n    ArrayIterator\n    ArrayObject\n    CachingIterator\n    CallbackFilterIterator\n    DirectoryIterator\n    EmptyIterator\n    FilesystemIterator\n    FilterIterator\n    GlobIterator\n    InfiniteIterator\n    IteratorIterator\n    LimitIterator\n    MultipleIterator\n    NoRewindIterator\n    ParentIterator\n    RecursiveArrayIterator\n    RecursiveCachingIterator\n    RecursiveCallbackFilterIterator\n    RecursiveDirectoryIterator\n    RecursiveFilterIterator\n    RecursiveIteratorIterator\n    RecursiveRegexIterator\n    RecursiveTreeIterator\n    RegexIterator\n    SplDoublyLinkedList\n    SplFileInfo\n    SplFileObject\n    SplFixedArray\n    SplHeap\n    SplMinHeap\n    SplMaxHeap\n    SplObjectStorage\n    SplPriorityQueue\n    SplQueue\n    SplStack\n    SplTempFileObject\nException\n    LengthException\n    InvalidArgumentException\n    LogicException\n    BadFunctionCallException\n    BadMethodCallException\n    DomainException\n    RangeException\n    RuntimeException\n    UnderflowException\n    UnexpectedValueException\n    BadFunctionCallException\n    BadMethodCallException\n    OutOfBoundsException\n    OutOfRangeException\n    OverflowException
 ok_|ok($res,$expected,$label); // test_
 zf_view_|$html = $this->view->render('alternate.phtml');
 ex_|throw_
@@ -317,6 +323,7 @@ firebug_|FB::send('test');
 argv_|$_SERVER['argv'][1];
 memory_limit_|ini_set("memory_limit","256M");
 http_auth_|// HTTP basic AUTH\nunction pc_validate($user,$pass) {\n    /* replace with appropriate username and password checking from DB */\n    $users = array('david' => 'fadj&32',\n                   'adam'  => '8HEj838');\n    if (isset($users[$user]) && ($users[$user] == $pass)) {\n        return true;\n    } else {\n        return false;\n    }\n}\nif (! pc_validate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {\n    header('WWW-Authenticate: Basic realm="My Website"');\n    header('HTTP/1.0 401 Unauthorized');\n    echo "You need to enter a valid username and password.";\n    exit;\n}
+thread_|pthreads_
 array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});
 implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
 zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',\n            $val=2,\n            $opt=array(\n              'class' => 'baz',\n            ),\n            $a_options=[ 1 => 'One',\n              2 => 'Two',\n              3 => 'Three' ]\n);
@@ -325,6 +332,7 @@ http_build_query_|$url_data = http_build_query([]);
 zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(array('rel' => 'icon',\n                                  'href' => '/img/favicon.ico'),\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     array('id' => 'my_stylesheet'));\n  \n// rendering the links in layout\necho $this->headLink() ?>
 opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
 phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends PHPUnit_Framework_TestCase {\n    public function test{$testname}(){\n        $this->assertEquals(1, 2);\n    }\n}
+gz_extract_|// open file for reading\n$zp = gzopen($filename, "r");\n// read 3 char\necho gzread($zp, 3);\n// output until end of the file and close it.\ngzpassthru($zp);\n// open file and print content (the 2nd time).\nif (readgzfile($filename) != strlen($s)) {\n    echo "Error with zlib functions!";\n}\ngzclose($zp);
 replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
 issetor_|$\|= isset($a['']) ? $a[''] : null;
 login_|// simplistic login to protect a web page\n<form method="post" action="login.php">\nUsername: <input type="text" name="username"> <br>\nPassword: <input type="password" name="password"> <br>\n<input type="submit" value="Log In">\n</form>\n\n \nif (pc_validate($_REQUEST['username'],$_REQUEST['password'])) {\n    $_SESSION['login'] = \n        $_REQUEST['username'].','.md5($_REQUEST['username'].$secret_word));\n    error_log('Session id '.session_id().' log in as '.$_REQUEST['username']);\n}\n// verification\nunset($username);\nif ($_SESSION['login']) {\n    list($c_username,$cookie_hash) = explode(',',$_SESSION['login']);\n    if (md5($c_username.$secret_word) == $cookie_hash) {\n        $username = $c_username;\n    } else {\n        print "You have tampered with your session.";\n    }\n}
@@ -364,6 +372,7 @@ unique_|$a = array_unique($a);
 is_|test_
 interface_|interface ICommand {\n    // \n    public function run();\n}
 captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
+mysql_|mysqli_
 str_replace_|str_replace('','',\|);
 zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
 nl_|PHP_EOL
@@ -389,6 +398,7 @@ throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
 command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = array( new Command_1(), new Command_2() );\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
+main_|__MAIN__
 static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
 date_default_timezone_set_|date_default_timezone_set('Europe/Rome');
 dir_path_|$path_=dirname(__FILE__).'/lib.php'
@@ -404,6 +414,7 @@ phpunit_assert_true_|$this->assertTrue($val);
 zf_h_partial_loop_|$model = array(\n    array('key' => 'Mammal', 'value' => 'Camel'),\n    array('key' => 'Bird', 'value' => 'Penguin')\n);\necho $this->partialLoop('partialLoop.phtml', $model);
 twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
 sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
+gz_compress_|$filename = tempnam('/tmp', 'zlibtest') . '.gz';\n$s = "Only a test, test, test, test, test, test, test, test!\\n";\n$zp = gzopen($filename, "w9");// open file for writing with maximum compression\ngzwrite($zp, $s);// write string to file\ngzclose($zp);// close file
 function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
 intval_|$i_num = intval($s);
 dbg_|var_dump(\|);die();
@@ -419,12 +430,14 @@ sf_get_|$request->getParameter($name);
 php_|<?php\n\n\|\n?>
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
 phpo_|<?=\|;?>
+mysqli_|$mysqli = new mysqli("127.0.0.1", $user, $password, $database, 3306 );\nif ($mysqli->connect_errno) {\n    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;\n}\necho $mysqli->host_info . "\\n";\n\n// Create table doesn't return a resultset  \nif ($mysqli->query("CREATE TEMPORARY TABLE myCity LIKE City") === TRUE) {\n    printf("Table myCity successfully created.\\n");\n}\n\n// Select queries return a resultset  \nif ($result = $mysqli->query("SELECT Name FROM City LIMIT 10")) {\n    printf("Select returned %d rows.\\n", $result->num_rows);\n\n    // free result set \n    $result->close();\n}\n\n// If we have to retrieve large amount of data we use MYSQLI_USE_RESULT \nif ($result = $mysqli->query("SELECT * FROM City", MYSQLI_USE_RESULT)) {\n\n}\n\n$mysqli->close();\n \n \n 
 jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .submit() called." );\n  event.preventDefault();\n});
-__construct_|public function __construct(){\n    parent::__construct();\n}
 zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
+__construct_|public function __construct(){\n    parent::__construct();\n}
 redirect_|location_
 parse_int_|intval($i)
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
+gz_|gz_compress_\ngz_extract_
 profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
 glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
