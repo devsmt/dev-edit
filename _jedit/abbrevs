@@ -79,6 +79,7 @@ bs_|&nbsp;
 h4_|<h4>\|</h4>
 twb_grid_|<div class="container-fluid">\n  twb_row_\n</div>
 css_|<link rel="stylesheet" href="\|">
+solid_|Single responsibility: class should have one, and only one, function.\nOpen–closed: should be possible to extend the behavior of a class without modifying it.\nLiskov substitution: subclasses should be substitutable for their superclasses\nInterface segregation: many small, client-specific interfaces are better than one general-purpose interface.\nDependency inversion: depends on abstractions not concretions
 jq_|<script src="http://code.jquery.com/jquery-latest.min.js" ></script>
 window_open_|var w_opt = "top=10, left=10, width=250, height=200, status=no, menubar=no, toolbar=no scrollbars=no";\nvar url = '';\nvar w_ = window.open(url, '', w_opt);\n// w_.document.write("<html>\\n");\n// w_.document.write("<div align=center> Popup </div>\\n");\n// w_.document.write("</html>");
 span_|<span class="">\|</span>
@@ -171,6 +172,7 @@ validate_|filter_var_
 staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
 assert_s_|assert_char_
 xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
+trim_|$str=trim($str, $charlist='.,');
 mkdir_|true === mkdir('/path', 0755);
 select_a_|$select_val  = 'M1';\n$select_name = 'i_cdlis';\n$a_options = array('M1' => 'M1', 'S0' => 'S0');\n$_build_select = function($a_options, $select_val, $select_name ){\n    $a_options = array_map(function($k, $v) use($select_val) {\n        return sprintf('<option value="%s" %s>%s</option>', $v, ($select_val == $v ? 'selected':''), $k);\n    } , array_keys($a_options), array_values($a_options) );\n    $html_options = implode("\\n", $a_options );\n    $html_select = sprintf('<select name="%s" style="width:50px;">%s</select>', $select_name, $html_options);\n    return $html_select;\n};\necho $_build_select($a_options, $select_val, $select_name );
 filter_html_|$html = filter_var($html, FILTER_SANITIZE_SPECIAL_CHARS);//escape, not removes, bad html
@@ -180,11 +182,12 @@ __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basena
 round_|round($f, 2);
 filterstr_|$v = preg_replace('/[^0-9A-Za-z_ ]/', '', substr(trim($v), 0, 6) );
 reset_|<input type="reset" />
-sort_|sort($a);//  for keys!\nasort($a, SORT_STRING);// &$a;  sort values! returns bool\n// uasort  Sort an array with a user-defined comparison function and maintain index association\nuasort( &$a, function($a, $b) {\n    if ($a == $b) {\n        return 0;\n    }\n    return ($a < $b) ? -1 : 1;\n});
+sort_|ksort($a);//  for keys!\nasort($a, SORT_STRING);// &$a;  sort values! returns bool\n// uasort  Sort an array with a user-defined comparison function and maintain index association\nuasort( &$a, function($a, $b) {\n    if ($a == $b) {\n        return 0;\n    }\n    return ($a < $b) ? -1 : 1;\n});
 table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table table-condensed table-bordered table-striped"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n
 htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
 date_diff_|date_add_
 chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_pie.php");\n$data = array(12, 15, 23, 18, 5);\n// Create the Pie Graph.\n$piechart = new PieGraph(300,350);\n// Set a title for the plot\n$piechart->title->Set("Sample Pie Chart");\n$piechart->title->SetFont(FF_VERDANA,FS_BOLD,12);\n$piechart->title->SetColor("darkblue");\n$piechart->legend->Pos(0.1,0.2);\n// Create pie plot\n$pPlot = new PiePlot($data);\n$pPlot->SetCenter(0.5,0.55);\n$pPlot->SetSize(0.3);\n// Setup the labels\n$pPlot->SetLabelType(PIE_VALUE_PER);\n$pPlot->value->Show();\n$pPlot->value->SetFont(FF_ARIAL,FS_NORMAL,9);\n$pPlot->value->SetFormat('%2.1f%%');\n// Add and stroke\n$piechart->Add($pPlot);
+preg_quote_|$reg = preg_quote($reg, '/');
 dba_|$id = dba_open("/tmp/test.db", "n", "db2");\nif (!$id) {\n    die( "dba_open failed\\n" );\n}\ndba_replace("key", "This is an example!", $id);\nif (dba_exists("key", $id)) {\n    echo dba_fetch("key", $id);\n    dba_delete("key", $id);\n}\n// read all the keys to read all the db\n$key = dba_firstkey($id);\nwhile ($key != false) {\n    $a_keys[] = $key;\n    $key = dba_nextkey($id);\n}\ndba_close($id);
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 js_comment_|/* \| */
@@ -225,7 +228,7 @@ is_callable_|is_callable(array($obj, 'method_name'), false);
 str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
 zf_h_select_|zf_h_select_multi_
 array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
-apc_store_|apc_store( $key,  $var, $ttl=0 );//0=>persist forever, else specify secs
+apc_store_|cache_
 array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    return $k == 'b' || $v == 4;\n}, ARRAY_FILTER_USE_BOTH);
 twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>
 zf_url_|$url_ = $this->url($par=array('username' => 'aa'), $r_name='default');
@@ -242,6 +245,7 @@ include_|require_
 zf_h_e_|zf_h_escape_
 PDO_|class DbAuto_Connection {\n    protected static $db = null;\n    protected static function getConnection() {\n        $registry = Zend_Registry::getInstance();\n        $C = $registry->config->dbauto;\n        try {\n            if (self::$db == null) {\n                self::$db = new PDO(\n                    sprintf('mysql:host=%s;dbname=%', $C->host, $C->dbname ),\n                    $C->username,\n                    $C->password\n                );\n                self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n            }\n        } catch (PDOException $e) {\n            echo "DB2 PDO error '".$e->getMessage()."'";\n        }\n    }\n    // permette di lanciare una query diretta sul db, ritorna array records\n    //   SQL: WHERE calories < :calories AND colour = :colour\n    //   $params = [':calories' => $calories, ':colour' => $colour ]\n    public static function query($sql, $params=[] ) {\n        $data = [];\n        self::getConnection();\n        if (self::$db) {\n            $stmt = self::$db->prepare($sql);\n            $res = $stmt->execute( $params );\n            if ($res) {\n                while ($oRow = $stmt->fetch(PDO::FETCH_ASSOC)) {\n                    $data[] = $oRow;\n                }\n            }\n            $stmt->closeCursor();\n        } else {\n            die(__FUNCTION__.' errore connessione mysql');\n        }\n        return $data;\n    }\n}
 min_|$i_min = min([0,$x]);
+Object_|stdClass
 zf_config_|Zend_Registry::get('config')->company->email->support;
 constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
 array_pluck_|pluck_
@@ -257,6 +261,7 @@ out_|echo htmlspecialchars($s, ENT_QUOTES);
 sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
 printf_|pf_
 zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
+__get_|public function __call($name, $arguments) {\n    // Note: value of $name is case sensitive.\n    echo "Calling object method '$name' " . print_r( $arguments, 1). "\\n";\n}
 sp_|sprintf_
 filter_char_|filterstr_
 case_|case \|:\nbreak;
@@ -272,7 +277,7 @@ filter_alpha_|filterstr_
 zf_user_|$user = Zend_Auth::getInstance()->getIdentity();
 jq_main_|$(function(){\n});
 list_|list($a, $b) = ['a','b'];
-class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function (){}\n}
+class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function method(){}\n    public function __toString(){ return __CLASS__; }\n}
 chart_bar_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_bar.php");\ninclude ("../../jpgraph/jpgraph_line.php");\n// We need some data\n$datay=array(31,44,49,40,24,47,12);\n// Set up the graph\n$graph = new Graph(600,300,"auto");\n$graph->img->SetMargin(60,30,30,40);\n$graph->SetScale("textlin");\n$graph->SetMarginColor("teal");\n$graph->SetShadow();\n// Create the bar pot\n$bplot = new BarPlot($datay);\n$bplot->SetWidth(0.6);\n// Set up color for gradient fill style\n$tcol=array(100,100,255);\n$fcol=array(255,100,100);\n$bplot->SetFillGradient($fcol,$tcol,GRAD_VERT);\n$bplot->SetFillColor("orange");\n$graph->Add($bplot);\n// Set up the title for the graph\n$graph->title->Set("Sample Bargraph");\n$graph->title->SetColor("yellow");\n$graph->title->SetFont(FF_VERDANA,FS_BOLD,12);\n// Set up color for axis and labels\n$graph->xaxis->SetColor("black","white");\n$graph->yaxis->SetColor("black","white");\n// Set up font for axis\n$graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->title->Set("Value Range");\n$graph->yaxis->title->SetColor("white");\n$graph->yaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Set up X-axis title (color & font)\n$graph->xaxis->title->Set("item Count");\n$graph->xaxis->title->SetColor("white");\n$graph->xaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Finally send the graph to the browser\n$graph->Stroke();
 private_|//\nprivate function \|(){ return true; }
 str_reg_|if ( preg_match('/1999/', $s) ) {\n    // ok\n}
@@ -331,7 +336,7 @@ zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',
 var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); //echo '<pre>',debug_print_backtrace(),'</pre>';
 http_build_query_|$url_data = http_build_query([]);
 zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(array('rel' => 'icon',\n                                  'href' => '/img/favicon.ico'),\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     array('id' => 'my_stylesheet'));\n  \n// rendering the links in layout\necho $this->headLink() ?>
-opt_|\t$option = array_merge( array(\n\t), $opt );\n\textract($option);
+opt_|$option = array_merge([\n], $opt );\nextract($option);
 phpunit_test_|// salva in {$classname}Test.php\nclass {$classname}Test extends PHPUnit_Framework_TestCase {\n    public function test{$testname}(){\n        $this->assertEquals(1, 2);\n    }\n}
 gz_extract_|// open file for reading\n$zp = gzopen($filename, "r");\n// read 3 char\necho gzread($zp, 3);\n// output until end of the file and close it.\ngzpassthru($zp);\n// open file and print content (the 2nd time).\nif (readgzfile($filename) != strlen($s)) {\n    echo "Error with zlib functions!";\n}\ngzclose($zp);
 replace_|preg_replace('/\\s+?(\\S+)?$/', '',$s);
@@ -344,6 +349,7 @@ k_|'\|' => '',
 __END__|$html = <<<__END__\n\|__END__;\n
 rand_|rand(0,100);
 config_|$a_config = include 'config/application.config.php';\n<?php\n// config/application.config.php\nreturn [];
+file_is_older_|$file_mtime = filemtime($this->xml_file);\nif (time()-$file_mtime > 2 * 3600) {\n    // file older than 2 hours\n} else {\n    // file younger than 2 hours\n}
 file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
 asort_|hash_sort_
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
@@ -397,8 +403,10 @@ file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.t
 f_|function(){}
 throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
+reflection_|$reflect = new ReflectionClass($this);\n$props   = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);\nforeach ($props as $prop) {\n    print $prop->getName() . "\\n";\n}
 command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = array( new Command_1(), new Command_2() );\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
+cache_|// ttl in secs, 0=forever, 8 * 60 * 60 = 28800\nfunction cache($cache_key, \\Closure $generator, $ttl_secs = 28800 ) {\n    $val = apc_fetch($cache_key);\n    if (false === $val) {\n        $val = $generator();\n        apc_store($cache_key, $val, $ttl_secs );//secs, 0=forever\n    } else {\n        // from cache\n    }\n    return $val;\n}\n$cache_key = '';//__METHOD__.'_'.json_encode(func_get_args());\n$data = cache($cache_key, function() {\n\treturn [];\n});\nreturn $data;
 main_|__MAIN__
 static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
 date_default_timezone_set_|date_default_timezone_set('Europe/Rome');
@@ -446,7 +454,7 @@ else_|else {\|}
 set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\n    /* switch ($errno) {\n        case E_NOTICE:\n        case E_USER_NOTICE:\n            $errors = "Notice";\n            break;\n        case E_WARNING:\n        case E_USER_WARNING:\n            // log your warning or transform in exception:\n            $errors = "Warning";\n            break;\n        case E_ERROR:\n        case E_USER_ERROR:\n            $errors = "Fatal Error";\n            break;\n        default:\n            $errors = "Unknown Error";\n            break;\n    } */\n\t// log your warning or transform in exception:\n        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, \n  // on which error report level the user-defined error will be shown. Default is "E_ALL"\n  $on_err_level = self::isEnvProd() ? E_WARNING : E_ALL\n);\n\n
 jq_ready_|$(function(){\n    // DOM ready\n\|\n});
 file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
-apc_get_|$cache_key = ''; //__METHOD__.':'.json_encode(func_get_args());\n$val = apc_fetch($cache_key);\nif(false === $val) {\n    // no cache\n    $val = ''; //todo: calc val\n    apc_store($cache_key, $val, $ttl_secs=0 ); //ttl=0 cached forever\n} else {\n    // from cache\n}\nreturn $val;\n
+apc_get_|cache_
 zf_get_|$name = $this->getRequest()->getParam('name\|', '');
 zf_h_partial_|echo $this->partial('_partial.phtml', $data=array(\n    'from' => 'Team Framework',\n    'subject' => 'view partials') );
 image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
@@ -463,7 +471,7 @@ output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n 
 date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
 php_cli_|#!/usr/bin/env php\n<?php\n
 date_|date('Y-m-d H:i:s');
-apc_|apc_get_
+apc_|cache_
 if___|$v = $v ?: $def;
 defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
 redis_cache_|// usa composer per gestire le dipendenze\n//require "predis/autoload.php";\n//Predis\\Autoloader::register();\ntry {\n    $R = new Predis\\Client(array(\n        //'scheme' => 'tcp',\n        //'host' => 'localhost',\n        //'port' => port,\n        //'password' => 'password',\n        'persistent' => '1'  // persistent!\n    ));\n} catch (Exception $e) {\n    $fmt = 'Exception Redis Connect: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    die($msg);\n}\n$k = 'foo';\nif( $R->exists($k) ){\n    $value = $R->get($k);\n    var_dump($value);\n} else {\n    // $R->set($k, "bar");\n    // $v = json_encode($v);\n    $R->setex($k, 60*60*24, "value" );\n}
@@ -787,7 +795,7 @@ date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 100
 each_|_.each(a_list, function(v, k, list) {\|});
 date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
 twb_popover_|<span  \n  data-toggle="popover" \n  title="Popover title" \n  onclick="$(this).popover({html:true});"  \n  data-content="And here`s some amazing content.</br> <a href=#>It`s very engaging.</a> </br> Right? " \n> %s </span> 
-var_|println('__FUNCTION__()', \|);
+var_|log_
 in_array_|_.indexOf([], val) !== -1
 _filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
 opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
@@ -800,16 +808,19 @@ for_|for( var i=0; i<a_list.length; i++ ) {\|\tvar v = a_list[i];\n}
 throw_|throw new Error("msg");
 get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
 import_|import * as Calculations from './Scripts/Calculations';
-isset_|\|!== void 0
-printf_|_.str.sprintf('%s/%s', 1,2 );
+isset_|typeof  != 'undefined'\n// !== void 0\n
+printf_|sprintf_
 a_t_|//typed array\nvar type_list = new Array<TheType>();
 a_num_|var a_: Array<number> = [1, 2];
+bb_model_|app.models.Promotion = Backbone.Model.extend({\n    initialize: function() {\n        // Data.local.promotions.getItemPromotion(BCOART);\n    },\n    defaults: {\n    },\n    validate: function(attrs, options) {\n    }\n});\napp.models.PromotionCollection = Backbone.Collection.extend({\n    model: app.models.Promotion\n});
 interface_|interface_rec_\ninterface_func_\n\n
 jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
 array_merge_|var a = _.extend(a1, a2);
 try_|try {\n\|} catch(e) {\n    // e.message\n}
 interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
 function_|//\nfunction add(x: number): number {\n    return x;\n}
+generic_|// Generic functions example\nfunction reverse<T>(list: T[]) : T[] {\n  var reversedList: T[] = [];\n  for (var i = (list.length - 1); i >=0; i--) {\n    reversedList.push(list[i]);\n  }\n  return reversedList;\n}\nvar letters = ['a', 'b', 'c', 'd'];\nvar reversedLetters = reverse<string>(letters); // d, c, b, a\nvar numbers = [1, 2, 3, 4];\nvar reversedNumbers = reverse<number>(numbers); // 4, 3, 2, 1\n\n
+main_|(function main() {\n\n}());
 empty_|_empty_
 bb_find_|this.$('scoped selector');
 static_|static member(b:string):string { return ''; }
@@ -846,19 +857,21 @@ preg_scan_|"dolor sit amet".match(/\\w+/g);
 public_|public \|():boolean {\nreturn true;\n}
 count_|[].length\n//var k_num:number = _.size(hash);
 module_|module M {\n    export class C {\n    }\n}
+namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
 func_|function(){}
-sprintf_|var s = _.str.sprintf('%s (%s)', a['x'], a['y']);
+sprintf_|sprintf('%s/%s', aa, bb ) 
 _each_|_.each(hash, function(v, k, list){ });
 func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
-class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n}\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
+class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 reference_|/// <reference path="jquery.d.ts" />
+__END__|var t = `\nmultiline string  ${var}\n`; 
 replace_|str=str.replace("A", "B");
-f__|() => {\n} 
+f__|function \|():void { return; }
 type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };\n/*\ntype MyHandler = (myArgument: string) => void;\ntype StringOrNumber = string | number;\ntype Text_ = string | { text: string };\n//type NameLookup = Dictionary<string, any>;\ntype ObjectStatics = typeof Object;\ntype Callback<T> = (data: T) => void;\ntype Pair<T> = [T, T];\ntype Coordinates_ = Pair<number>;\ntype Tree<T> = T | { left: Tree<T>, right: Tree<T> };\n*/
 date_now_|var t:number = (new Date()).getTime() / 1000
 str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
 method_|protected method():void {\n\n}
-f_|function \|():void { return; }
+f_|() => {\n    \|\n}
 hash_|dict_js_
 jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
 enum_|enum Color {Red=0, Green=1, Blue=2};\nvar c: Color = Color.Green; //  c = 1:\nvar n:number = Color.Red;
@@ -965,7 +978,7 @@ trim_|var s = $.trim(str);
 jq_end_|$( "ul.first" )\n  .find( ".foo" )\n    .css( "background-color", "red" )\n  .end()  // returs a query object\n  .find( ".bar" )\n    .css( "background-color", "green" );
 str_replace_|var str = 'John Smith'.replace(/(\\w+)\\s(\\w+)/, '$2, $1');
 jq_unique_|var a_unique = $.unique( a_ );
-isset_|\| !== void 0
+isset_|typeof != 'undefined'\n//  !== void 0
 jq_filter_|$(".parent").find(".bar").filter("p");
 f_|func_
 //--|\|//------------------------------------------------------------------------------

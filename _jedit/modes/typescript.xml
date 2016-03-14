@@ -48,6 +48,11 @@
             <END>'</END>
         </SPAN>
 
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+            <BEGIN>`</BEGIN>
+            <END>`</END>
+        </SPAN>
+
         <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
         <SEQ TYPE="OPERATOR">)</SEQ>
 
@@ -118,9 +123,12 @@
             <KEYWORD3>char</KEYWORD3>
             <KEYWORD1>class</KEYWORD1>
             <KEYWORD1>module</KEYWORD1>
+            <KEYWORD1>namespace</KEYWORD1>
             <KEYWORD1>const</KEYWORD1>
             <KEYWORD1>debugger</KEYWORD1>
             <KEYWORD1>default</KEYWORD1>
+            <KEYWORD1>type</KEYWORD1>
+            <KEYWORD1>declare</KEYWORD1>
 
             <KEYWORD1>do</KEYWORD1>
             <KEYWORD3>double</KEYWORD3>
