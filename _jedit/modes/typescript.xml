@@ -92,6 +92,8 @@
 
         <KEYWORDS>
             <!-- ECMAScript keywords -->
+            <KEYWORD1>any</KEYWORD1>
+
             <KEYWORD1>break</KEYWORD1>
             <KEYWORD1>continue</KEYWORD1>
             <KEYWORD1>delete</KEYWORD1>
@@ -105,6 +107,7 @@
             <LITERAL2>this</LITERAL2>
             <KEYWORD1>typeof</KEYWORD1>
             <KEYWORD1>var</KEYWORD1>
+            <KEYWORD1>let</KEYWORD1>
             <KEYWORD3>void</KEYWORD3>
             <KEYWORD1>while</KEYWORD1>
             <KEYWORD1>with</KEYWORD1>
