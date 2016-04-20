@@ -48,6 +48,7 @@ h6_|<h6>\|</h6>
 legend_|<fieldset>\n    <legend>description:</legend>\n \n</fieldset>
 js_|<script type="text/javascript">\|</script>
 small_|<small></small>
+patterns_|// Creazionali\n//     pattern_abstract_factory_ //espone al client una interfaccia che genera istanze, evita la necessità di specificare i nomi delle classi concrete\n//     pattern_builder_  //crea un oggetto, occupandosi di ricostruire uno stato complesso e valido e/o dipendenze di istanze numerose\n//     pattern_factory_  //crea istanze configurate appropriatamente per il contesto\n//     pattern_prototype_//clona oggetto esistente anzichè crearlo da vuoto\n//     pattern_singleton_//permette una sola istanza di oggetto\n// Strutturali\n//     pattern_adapter_  //sistemi differenti permettono le stesse operazioni(interfaccia)\n//     pattern_bridge_   //wrappa sistemi differenti esponendo una interfaccia nota\n//     pattern_composite_ //permette operazioni su un gruppo di oggetti come se si trattasse di un singolo ogggetto(espongono interfaccia condivisa)\n//     pattern_decorator_ //wrappa e aumenta le funzionalità di funzione o metodo o oggetto\n//     pattern_facade_    //espone una api semplificata su metodi di base altrimenti complessi/verbosi\n//     pattern_flyweight_ //risparmio memoria mettendo dati comuni (intrinsicState) a un gruppo di oggetti, in un singolo oggetto separato\n//     pattern_proxy_  // lazy loading, permette di memorizzare e riutilizzare il risultato di computazioni o IO\n// Comportamentali\n//     pattern_chain_ pattern_chain_of_responsibility_ //si costruisce una catena di oggetti che gestiscono una richiesta, si passa la richiesta alla catena, la catena si interrompe se un oggetto consuma la richeiesta\n//     pattern_command_  //isolare la porzione di codice che effettua un'azione complessa(Command) dalla classe che ne richiede l'esecuzione\n//     pattern_interpreter_ //\n//     pattern_iterator_ //permette di usare un oggetto come una lista\n//     pattern_mediator_ //le entità coinvolte una iterazione di oggetti, devono fare riferimento solamente al mediatore\n//     pattern_memento_ //l'operazione di estrarre lo stato interno di un oggetto, per poterlo poi ripristinare in un secondo momento\n//     pattern_observer_ // SplObserver_ un Subject notifica gli Observer se il suo stato cambia\n//     pattern_state_ // separa comportamento (a run-time) in funzione dello stato in cui si trova l'oggetto che implementa lo stato e il cambiamento di stato\n//     pattern_strategy_ //isola in un oggetto(intercambiabile) un algoritmo\n//     pattern_template_method_ //definire la struttura di un algoritmo lasciando alle sottoclassi il compito di implementarne alcuni passi\n//     pattern_visitor_ //delega un oggetto che processerà una lista di oggetti
 lorem_|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel libero risus. Sed pellentesque accumsan ex non feugiat. Nulla pharetra in odio non hendrerit.
 mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body.
 foreach_|foreach($a as $k=>$v){\|}
@@ -83,10 +84,12 @@ solid_|Single responsibility: class should have one, and only one, function.\nOp
 jq_|<script src="http://code.jquery.com/jquery-latest.min.js" ></script>
 window_open_|var w_opt = "top=10, left=10, width=250, height=200, status=no, menubar=no, toolbar=no scrollbars=no";\nvar url = '';\nvar w_ = window.open(url, '', w_opt);\n// w_.document.write("<html>\\n");\n// w_.document.write("<div align=center> Popup </div>\\n");\n// w_.document.write("</html>");
 span_|<span class="">\|</span>
+pattern_chain_of_responsibility_|pattern_chain_
 sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
 html_progress_|<progress id="" max="100" value="90"></progress>
 getById_|document.getElementById('username').value
 new_|$1 $2 = new $1(\|);
+pattern_|patterns_
 form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form_1">\|\t<input type="submit" value="Salva" id="">\n        <input type="button" value="Reset" id="form_reset"/>\n</form>\n<script>\n$(function(){\n    $('#form_1').submit(function(event) {\n      alert('valid form');\n      event.preventDefault();\n      return true;\n    });\n    $('#form_1 #form_reset').click(function(){\n        var f = $(this).parents('form');\n        f.find('input:text, input:password, input:file, select, textarea').val('');\n        f.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');\n    });\n});\n</script>
 br_|<br />
 label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
@@ -220,7 +223,7 @@ zf_redirect_|$url = $this->view->url(['controller'=>'items','action'=>''], $r_na
 die_|die(__FUNCTION__.\|);
 chmod_|chmod(/somedir/somefile', 0755);// use octal val
 array_key_exists_|array_key_exists($key, $a\|)
-test_|function ok($res,$expected,$label){\n    if( $res === $expected ) {\n        echo "ok $label \\n";\n    } else {\n        echo sprintf("ERROR(%s)    %s==%s \\n",\n            $label, json_encode($res), json_encode($expected)\n        );\n    }\n}
+test_|function ok($res, $expected, $label ) {\n    if( $res === $expected ) {\n        echo printc( "OK $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo printc( "OK (but type differ) $label \\n", 'green' );\n    } else {\n        echo printc( sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n",\n            $label, json_encode($res), json_encode($expected)\n        ) , 'red' );\n    }\n}\nfunction printc($str, $foreground_color = 'green' ) {\n    static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n    return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n}
 map_|array_map_
 exception_|spl_
 ksort_|ksort($a);//in-place sort!
@@ -313,7 +316,7 @@ array_fill_|array_fill($i=0, $n=10 , $v='');
 define_|define("\|", "", false);
 ol_|<ol class="">\n\|</ol>
 exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
-filter_|$v = filter_var($v, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $v ){\n\techo "validation error param:v";\n}\nctype_
+filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ){\n\techo "validation error param: vvv ";\n}\nctype_
 dir_exists_|if( file_exists($path_) ) {\n}
 apc_clear_cache_|apc_clear_cache($cache_type='user');
 json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
@@ -327,7 +330,7 @@ finally_|finally {\n\|}
 m_|public function \|() {\n    return 0;\n}
 css_input_type_|input[type="text"]
 spl_|Interfaces\n    Countable\n    OuterIterator\n    RecursiveIterator\n    SeekableIterator\n    SplObserver\n    SplSubject\nClasses\n    AppendIterator\n    ArrayIterator\n    ArrayObject\n    CachingIterator\n    CallbackFilterIterator\n    DirectoryIterator\n    EmptyIterator\n    FilesystemIterator\n    FilterIterator\n    GlobIterator\n    InfiniteIterator\n    IteratorIterator\n    LimitIterator\n    MultipleIterator\n    NoRewindIterator\n    ParentIterator\n    RecursiveArrayIterator\n    RecursiveCachingIterator\n    RecursiveCallbackFilterIterator\n    RecursiveDirectoryIterator\n    RecursiveFilterIterator\n    RecursiveIteratorIterator\n    RecursiveRegexIterator\n    RecursiveTreeIterator\n    RegexIterator\n    SplDoublyLinkedList\n    SplFileInfo\n    SplFileObject\n    SplFixedArray\n    SplHeap\n    SplMinHeap\n    SplMaxHeap\n    SplObjectStorage\n    SplPriorityQueue\n    SplQueue\n    SplStack\n    SplTempFileObject\nException\n    LengthException\n    InvalidArgumentException\n    LogicException\n    BadFunctionCallException\n    BadMethodCallException\n    DomainException\n    RangeException\n    RuntimeException\n    UnderflowException\n    UnexpectedValueException\n    BadFunctionCallException\n    BadMethodCallException\n    OutOfBoundsException\n    OutOfRangeException\n    OverflowException
-ok_|ok($res,$expected,$label); // test_
+ok_|ok($result, $expected, $label); // test_
 zf_view_|$html = $this->view->render('alternate.phtml');
 ex_|throw_
 dump_|var_
@@ -408,6 +411,7 @@ zf_dbg_|Zend_Debug::dump($, 'label:');
 array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
 f_|function(){}
+hack_|#!/usr/bin/hhvm -vEval.Jit=1\n<?hh
 throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
 reflection_|$reflect = new ReflectionClass($this);\n$props   = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);\nforeach ($props as $prop) {\n    print $prop->getName() . "\\n";\n}
@@ -689,11 +693,13 @@ while_|COUNTER=0\nwhile [  $COUNTER -lt 10 ]; do\n    echo The counter is $COUNT
 let_|VARNAME=string\necho ${VARNAME}
 dirname_|DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 for_|for i in $( ls ); do\n    echo item: $i\ndone
+require_|include_
 include_|source _common.sh    # include is in $PATH
 now_|NOW=`date +"%m-%d-%Y-%T"`\nmv test_app test_app_${NOW}
 date_|NOW=`date +"%m-%d-%Y"`
 func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
 concat_|A="X Y"\nA+="Z"\nA="${B}${C}"\necho "$A"
+cli_|#!/usr/bin/php\n<?php\n
 [gettext]
 [jcl]
 [jflex]
