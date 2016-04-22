@@ -223,7 +223,7 @@ zf_redirect_|$url = $this->view->url(['controller'=>'items','action'=>''], $r_na
 die_|die(__FUNCTION__.\|);
 chmod_|chmod(/somedir/somefile', 0755);// use octal val
 array_key_exists_|array_key_exists($key, $a\|)
-test_|function ok($res, $expected, $label ) {\n    if( $res === $expected ) {\n        echo printc( "OK $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo printc( "OK (but type differ) $label \\n", 'green' );\n    } else {\n        echo printc( sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n",\n            $label, json_encode($res), json_encode($expected)\n        ) , 'red' );\n    }\n}\nfunction printc($str, $foreground_color = 'green' ) {\n    static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n    return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n}
+test_|function ok($res, $expected, $label ) {\n    $GLOBALS['test_count']++;\n    if( $res === $expected ) {\n        echo colored( "ok $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo printc( "ok (but type differ) $label \\n", 'green' );\n    } else {\n        echo colored( sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n",\n            $label, json_encode($res), json_encode($expected)\n        ) , 'red' );\n    }\n}\nfunction is($res, $label ) {\n    return ok($res, $expected=true, $label );\n}\nfunction colored($str, $foreground_color = 'green' ) {\n    static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n    return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n}
 map_|array_map_
 exception_|spl_
 ksort_|ksort($a);//in-place sort!
@@ -272,7 +272,9 @@ __get_|public function __call($name, $arguments) {\n    // Note: value of $name 
 filesize_|file_size_
 sp_|sprintf_
 filter_char_|filterstr_
+var_export_|$str = var_export($data, true);
 case_|case \|:\nbreak;
+readfile_|$file_path = APP_PATH.'/web/images/image.jpg';\n$type = 'image/jpeg';\nheader('Content-Type:'.$type);\nheader('Content-Length: '.filesize($file_path) );\nreadfile($file_path);\nexit();\n
 request_is_ajax_|$is_ajax_request = isset($_SERVER['HTTP_X_REQUESTED_WITH']);
 foreach_|foreach($a_ as $k => $v) {\n\|}
 assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exception("VARNAME deve essere in formato stringa, '$s' ricevuto ");\n}
@@ -303,6 +305,7 @@ dirname_|dirname(__FILE__).'/lib.php'
 zf_cache_|zf_cache_get_
 __map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
 str_contains_|str_pos_
+enum_|class Month extends SplEnum {\n    const __default = self::January;\n    \n    const January = 1;\n    const February = 2;\n    const March = 3;\n    const April = 4;\n    const May = 5;\n    const June = 6;\n    const July = 7;\n    const August = 8;\n    const September = 9;\n    const October = 10;\n    const November = 11;\n    const December = 12;\n}\n\necho new Month(Month::June) . PHP_EOL;\n\ntry {\n    new Month(13);\n} catch (UnexpectedValueException $uve) {\n    echo $uve->getMessage() . PHP_EOL;\n}
 error_|set_error_handler_\nerror_reporting_\nset_exception_handler_
 preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);
 explode_|explode( ',', $s\|);
@@ -327,7 +330,7 @@ assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere 
 filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
 register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
 finally_|finally {\n\|}
-m_|public function \|() {\n    return 0;\n}
+m_|method_
 css_input_type_|input[type="text"]
 spl_|Interfaces\n    Countable\n    OuterIterator\n    RecursiveIterator\n    SeekableIterator\n    SplObserver\n    SplSubject\nClasses\n    AppendIterator\n    ArrayIterator\n    ArrayObject\n    CachingIterator\n    CallbackFilterIterator\n    DirectoryIterator\n    EmptyIterator\n    FilesystemIterator\n    FilterIterator\n    GlobIterator\n    InfiniteIterator\n    IteratorIterator\n    LimitIterator\n    MultipleIterator\n    NoRewindIterator\n    ParentIterator\n    RecursiveArrayIterator\n    RecursiveCachingIterator\n    RecursiveCallbackFilterIterator\n    RecursiveDirectoryIterator\n    RecursiveFilterIterator\n    RecursiveIteratorIterator\n    RecursiveRegexIterator\n    RecursiveTreeIterator\n    RegexIterator\n    SplDoublyLinkedList\n    SplFileInfo\n    SplFileObject\n    SplFixedArray\n    SplHeap\n    SplMinHeap\n    SplMaxHeap\n    SplObjectStorage\n    SplPriorityQueue\n    SplQueue\n    SplStack\n    SplTempFileObject\nException\n    LengthException\n    InvalidArgumentException\n    LogicException\n    BadFunctionCallException\n    BadMethodCallException\n    DomainException\n    RangeException\n    RuntimeException\n    UnderflowException\n    UnexpectedValueException\n    BadFunctionCallException\n    BadMethodCallException\n    OutOfBoundsException\n    OutOfRangeException\n    OverflowException
 ok_|ok($result, $expected, $label); // test_
@@ -358,8 +361,9 @@ k_|'\|' => '',
 __END__|$html = <<<__END__\n\|__END__;\n
 rand_|rand(0,100);
 config_|$a_config = include 'config/application.config.php';\n<?php\n// config/application.config.php\nreturn [];
+header_download_|// inizia output\nfunction binary_download($file_path){\n  header('Content-Description: File Transfer');\n  header('Content-Type: application/octet-stream');\n  header('Content-Transfer-Encoding: binary');\n  header('Content-Disposition: attachment; filename=' . basename($file_path));\n  header('Expires: 0');\n  header('Cache-Control: must-revalidate');\n  header('Pragma: public');\n  header('Content-Length: ' . filesize($file_path));\n  readfile($file_path);\n}\nbinary_download($file_path);\nexit;
 file_is_older_|$file_mtime = filemtime($this->xml_file);\nif (time()-$file_mtime > 2 * 3600) {\n    // file older than 2 hours\n} else {\n    // file younger than 2 hours\n}
-file_put_contents_|file_put_contents(dirname(__FILE__).'', $str, (FILE_APPEND | LOCK_EX));
+file_put_contents_|protected function logRequest($isOK, $message, array $errors){\n    $log_msg =  sprintf('%s %s action:%s msg:"%s" errors:%s params:%s %s'.PHP_EOL,\n        date('Y-m-d H:i:s'),\n        $isOK ? 'OK' : 'KO',\n        $action=$this->getRequest()->getActionName(),\n        $message,\n        json_encode($errors),\n        $request = substr(json_encode(array_merge($_GET,$_POST)),0,2000),\n        substr($_SERVER['REQUEST_METHOD'],0,1)\n    );\n    $log_path = APPLICATION_PATH.'/../var/logs/api_requests_'.date('my').'.log';\n    file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX));\n}\n
 asort_|hash_sort_
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
 substr_count_|$c = substr_count($str, $usbstr\|);
@@ -431,6 +435,7 @@ singleton_|    public static function getInstance() {\n        static $__instanc
 strpos_|str_pos_
 zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
 phpunit_assert_true_|$this->assertTrue($val);
+log_|file_put_contents_
 zf_h_partial_loop_|$model = [\n    ['key' => 'Mammal', 'value' => 'Camel'],\n    ['key' => 'Bird', 'value' => 'Penguin']\n];\necho $this->partialLoop('partialLoop.phtml', $model);
 twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
 sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
