@@ -1,13 +1,16 @@
 [global]
+twb_table_|<div class="table-responsive">\n  <table class="table table-striped  table-bordered table-hover table-condensed">\n    ...\n  </table>\n</div>
+twb_popover_|<span  \n  data-toggle="popover" \n  title="Popover title" \n  onclick="$(this).popover({html:true});"  \n  data-content="And here`s some amazing content.</br> <a href=#>It`s very engaging.</a> </br> Right? " \n> %s </span>
 input_file_|<input type="file" accept=".someext,image/*">
 li_|<li>\|</li>
 include_js_|js_
 <!|html_comment_
 javascript_|js_
+twb_btn_dropdowns_|<!-- v2.2.2 -->\n<div class="input-append">\n  <input class="span2" id="appendedDropdownButton" type="text">\n  <div class="btn-group">\n    <button class="btn dropdown-toggle" data-toggle="dropdown">\n      Action\n      <span class="caret"></span>\n    </button>\n    <ul class="dropdown-menu">\n      ...\n    </ul>\n  </div>\n</div>
 table_|\|<table id="" border="0" cellpadding="0" cellspacing="0" class="table table-condensed">\n    <caption>Caption</caption>\n    <thead>\n        <tr>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n        </tr>\n    </thead>    \n    <tbody>\n        <tr>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n        </tr>\n    </tbody>\n</table>
 img_|<img src="/img/\|" border="0" alt="" onerror="this.src='/img/NA.png'"/>
 h2_|<h2>\|</h2>
-twb_button_|<button type="button" class="btn btn-primary btn-small">txt</button>
+twb_button_|<!--\nbtn-large   btn-small   btn-mini\n\nbtn-primary  \nbtn-info   \t\nbtn-success \nbtn-warning\t \nbtn-danger\t \nbtn-inverse\t \nbtn-link\t\n\nbtn-block   disabled \n-->\n<button type="button" class="btn btn-primary btn-small">txt</button>
 select_|<select name="">\n  <option value="">Value 1</option> \n</select>
 nb_|&nbsp;
 html_comment_|htmlcomment_
@@ -19,7 +22,7 @@ sql_select_|SELECT \nFROM       \nWHERE\nORDER BY
 //--|//------------------------------------------------------------------------------
 jq_onclick_|$("a").click(function(ev) {\n    ev.preventDefault();    \n});
 margin_|margin:4px auto\|;
-twb_icon_|<i class="icon-"></i> icon-download-alt
+twb_icon_|<i class="icon-print"></i>
 checkbox_|<input type="checkbox" name="" value="" />
 h1_|<h1>\|</h1>
 fontfamily_|font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -39,6 +42,7 @@ elseif_| elseif(\|) {\n}\n
 css_input_type_text_|input[type="text"]
 anchor_|<a href="\|"></a>
 submit_|<input type="submit" value="Salva" id="">
+twb_form_actions_|<!-- v2.2.2 -->\n<div class="form-actions">\n  <button type="submit" class="btn btn-primary">Save changes</button>\n  <button type="button" class="btn">Cancel</button>\n</div>
 html5_progressbar_|<progress max="100" value="80"></progress>\n<style >\n    progress[value] {\n      -webkit-appearance: none;\n         -moz-appearance: none;\n              appearance: none;\n      border: none;\n\n      width: 250px;\n      height: 20px;\n\n      background-color: blue; color: blue;\n    }\n</style>
 pre_|<pre>\|</pre>
 i_|<i>\|</i>
@@ -52,6 +56,7 @@ patterns_|// Creazionali\n//     pattern_abstract_factory_ //espone al client un
 lorem_|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel libero risus. Sed pellentesque accumsan ex non feugiat. Nulla pharetra in odio non hendrerit.
 mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body.
 foreach_|foreach($a as $k=>$v){\|}
+twb_form_horizontal_|<!-- v2.2.2 -->\n<form class="form-horizontal">\n  <div class="control-group">\n    <label class="control-label" for="inputEmail">Email</label>\n    <div class="controls">\n      <input type="text" id="inputEmail" placeholder="Email">\n    </div>\n  </div>\n  <div class="control-group">\n    <label class="control-label" for="inputPassword">Password</label>\n    <div class="controls">\n      <input type="password" id="inputPassword" placeholder="Password">\n    </div>\n  </div>\n  <div class="control-group">\n    <div class="controls">\n      <label class="checkbox">\n        <input type="checkbox"> Remember me\n      </label>\n      <button type="submit" class="btn">Sign in</button>\n    </div>\n  </div>\n</form>
 input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0" pattern="[0-9.]+" />\n// HTML5: tel search url email datetime date month week time datetime-local number range color
 phpo_|<?=\|?>
 htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
@@ -71,12 +76,14 @@ option_|<option value="" selected></option>
 input_num_|input_numeric_
 sql_truncate_|truncate table $table_name
 twb_tabs_|<ul class="nav nav-tabs">\n  <li class="active">\n    <a href="#">Home</a>\n  </li>\n  <li><a href="#">...</a></li>\n  <li><a href="#">...</a></li>\n</ul>
+twb_form_leftaligned_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>\n\n<!-- twb v2.2.2 -->\n<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>\n\n
 background_|background:#ffffff url('img_tree.png') no-repeat right top;
 border_|border: 1px solid #\|;
 hr_|<hr style="" />
 comment_|html_comment_
 css_mp0_|margin:0; padding:0;
 bs_|&nbsp;
+twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
 h4_|<h4>\|</h4>
 twb_grid_|<div class="container-fluid">\n  twb_row_\n</div>
 css_|<link rel="stylesheet" href="\|">
@@ -87,6 +94,7 @@ span_|<span class="">\|</span>
 pattern_chain_of_responsibility_|pattern_chain_
 sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
 html_progress_|<progress id="" max="100" value="90"></progress>
+twb_form_inline_|<!-- v2.2.2 -->\n<form class="form-inline">\n  <input type="text" class="input-small" placeholder="Email">\n  <input type="password" class="input-small" placeholder="Password">\n  <label class="checkbox">\n    <input type="checkbox"> Remember me\n  </label>\n  <button type="submit" class="btn">Sign in</button>\n</form>
 getById_|document.getElementById('username').value
 new_|$1 $2 = new $1(\|);
 pattern_|patterns_
@@ -237,7 +245,6 @@ zf_h_select_|zf_h_select_multi_
 array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
 apc_store_|cache_
 array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    return $k == 'b' || $v == 4;\n}, ARRAY_FILTER_USE_BOTH);
-twb_form_|<form class="form-inline">\n  <div class="form-group">\n    <label for="exampleInputName2">Name</label>\n    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">\n  </div>\n  <div class="form-group">\n    <label for="exampleInputEmail2">Email</label>\n    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">\n  </div>\n  <button type="submit" class="btn btn-default">Send invitation</button>\n</form>
 zf_url_|$url_ = $this->url($par=['username' => 'aa'], $r_name='default');
 instanceof_|if( !($var instanceof ParentClass) ){ }
 set_exception_handler_|if( ENV::isPROD() ) {\n    \n    $prev_handler = set_exception_handler(['Bootstrap', '_ExcpLoggerMail']);\n    // es. err handler\n    function exp_hndl_test(Exception $e){  }\n}
@@ -440,7 +447,6 @@ zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Ses
 phpunit_assert_true_|$this->assertTrue($val);
 log_|file_put_contents_
 zf_h_partial_loop_|$model = [\n    ['key' => 'Mammal', 'value' => 'Camel'],\n    ['key' => 'Bird', 'value' => 'Penguin']\n];\necho $this->partialLoop('partialLoop.phtml', $model);
-twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
 sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
 hash_|if (function_exists("hash_algos") && in_array("sha512", hash_algos())) {\n    $token = hash("sha512", mt_rand(0, mt_getrandmax()));\n}
 gz_compress_|$filename = tempnam('/tmp', 'zlibtest') . '.gz';\n$s = "Only a test, test, test, test, test, test, test, test!\\n";\n$zp = gzopen($filename, "w9");// open file for writing with maximum compression\ngzwrite($zp, $s);// write string to file\ngzclose($zp);// close file
@@ -454,7 +460,6 @@ date_sub_|date_add_
 session_|session_start();  \n$_SESSION['count'] = 0;
 mail_|$mail_res = mail($to, $subject, $message);
 echo_|echo "\|"; // dbg
-twb_table_|<div class="table-responsive">\n  <table class="table table-striped  table-bordered table-hover table-condensed">\n    ...\n  </table>\n</div>
 sf_get_|$request->getParameter($name);
 php_|<?php\n\n\|\n?>
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
@@ -585,6 +590,7 @@ dir_walk_|// import "os", "path/filepath"\n      dirname := "." + string(filepat
 [cvs-commit]
 [lilypond]
 [jsp]
+[protobuf]
 [foxpro]
 [rfc]
 [tex]
@@ -828,7 +834,6 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
 each_|_.each(a_list, function(v, k, list) {\|});
 date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
-twb_popover_|<span  \n  data-toggle="popover" \n  title="Popover title" \n  onclick="$(this).popover({html:true});"  \n  data-content="And here`s some amazing content.</br> <a href=#>It`s very engaging.</a> </br> Right? " \n> %s </span>
 var_|log_
 in_array_|_.indexOf([], val) !== -1
 _filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
@@ -837,18 +842,19 @@ require_|import_\nreference_
 log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
 date_|moment().format('YYYY-MM-DD HH:mm:ss');
 closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
-typeof_|typeof \| !== void 0
+typeof_|typeof \| !== 'undefined'
 for_|for( var i=0; i<a_list.length; i++ ) {\|    var v = a_list[i];\n    (function(local_i, local_v) {\n        // una callback che si riferisca ad $i punterà su i=a_list.length,\n        // usa una closure per riferire il valore corrente\n        // @see foreach_ closure_\n    })(i, v);\n}
 throw_|throw new Error("msg");
 get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
-import_|import * as Calculations from './Scripts/Calculations';
+import_|import * as Calculations from './Scripts/Calculations';\nreference_
 array_values_|_.values(aaa)
 isset_|typeof  != 'undefined'\n// !== void 0\n
+template_|mustache_
 printf_|sprintf_
 a_t_|//typed array\nvar type_list = new Array<TheType>();
 a_num_|var a_: Array<number> = [1, 2];
 bb_model_|app.models.Promotion = Backbone.Model.extend({\n    initialize: function() {\n        // Data.local.promotions.getItemPromotion(BCOART);\n    },\n    defaults: {\n    },\n    validate: function(attrs, options) {\n    }\n});\napp.models.PromotionCollection = Backbone.Collection.extend({\n    model: app.models.Promotion\n});
-interface_|interface_rec_\ninterface_func_\n\n
+interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
 jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
 array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
 try_|try {\n\|} catch(e) {\n    // e.message\n}
@@ -860,6 +866,7 @@ main_|(function main() {\n\n}());
 empty_|_empty_
 case_|case 'nnn':\nbreak;
 is_array_|_.isArray(aaa)
+mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2 + 4;\n  }\n};\nvar html = Mustache.render("{{title}} spends {{calc}}", data_obj );
 bb_find_|this.$('scoped selector');
 static_|static member(b:string):string { return ''; }
 fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
@@ -885,7 +892,7 @@ reg_scan_|"dolor sit amet".match(/\\w+/g);
 implode_|a_s.join(", ")
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
 a_str_|var a_: Array<string> = ['a','b'];
-bb_view_|// var instance = new __app__.Views.__viewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n__app__.Views.__viewName__ = Backbone.View.extend({\n    initialize: function (opt) {\n        this.listenTo(this.model, 'change', this.render);\n    },\n    events: {\n        "click .toggle":  "onToggleClick",\n    },\n    render: function () {\n        var data = this.model.attributes;\n        var html = template_func(data);\n        this.$el.html(html);\n        // subviews: preferibile configurarle per renderle manualmente\n        // this.collection.each(function(m){\n        //     var tmpView = new subView({ model: m });\n        //     this.$el.append(tmpView.render().el);\n        // }, this);\n        return this;\n    },\n    //onToggleClick: function(event){\n    //    this.model.set({name:$("#name").val()});\n    //}\n});
+bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:any) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
 cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
 microtime_|profile_
 void_|if ( value === void 0) { value = 0; }
@@ -902,7 +909,7 @@ json_encode_|var str:string = JSON.stringify(obj);
 json_parse_|json_decode_
 switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    default:\n        teststr();\n}
 preg_scan_|"dolor sit amet".match(/\\w+/g);
-declare_|declare function sprintf(fmt: string, ...args: any[]): string;
+declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
 public_|public \|():boolean {\nreturn true;\n}
 array_slice_|array.slice(pos, page_len)
 count_|[].length\n//var k_num:number = _.size(hash);
@@ -923,11 +930,12 @@ date_now_|var t:number = (new Date()).getTime() / 1000
 unique_|aaa = _.uniq(aaa);\n
 str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
 method_|protected method():void {\n\n}
-cast_|p_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}
+cast_|p_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
 f_|() => {\n    \|\n}
 hash_|dict_js_
 jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
-enum_|enum Color {Red=0, Green=1, Blue=2};\nvar c: Color = Color.Green; //  c = 1:\nvar n:number = Color.Red;
+enum_|const enum Comparison {\n    LessThan = -1,\n    EqualTo = 0,\n    GreaterThan = 1\n}\nvar x:number = Comparison.EqualTo; // Ok, replaced with 0 in emitted code\nvar y:string = Comparison[Comparison.EqualTo];\n
+singleton_|// instance = SingletonClass.getInstance();\nclass SingletonClass {\n    private static _instance:SingletonClass = new SingletonClass();\n    public static getInstance():SingletonClass {\n        return SingletonClass._instance;\n    }\n    constructor() {\n\t// enforce singleton\n        if(SingletonClass._instance) {\n            throw new Error("Error: Instantiation failed: Use SingletonClass.getInstance() instead of new.");\n        }\n        SingletonClass._instance = this;\n    }\n}
 reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
 [plaintex]
 [cobol]
@@ -1052,6 +1060,7 @@ jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').at
 jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
 lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
 unique_|jq_unique_
+jq_ajax_multiple_|$.when(\n    getTweets('austintexasgov'),\n    getTweets('greenling_com'),\n    getTweets('themomandpops')\n).done(function(atxArgs, greenlingArgs, momandpopsArgs) {\n    var allTweets = [].concat(atxArgs[0]).concat(greenlingArgs[0]).concat(momandpopsArgs[0]);    \n    alert(sortedTweets);\n});\nvar getTweets = function(user) {\n    var url = 'http://twitter.com/status/user_timeline/' + user + '.json';\n    return $.get(url, { count: 5 }, null, 'jsonp');\n}\n
 jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
 proxy_|jq_proxy_
 replace_|s = s.replace("old","new");
