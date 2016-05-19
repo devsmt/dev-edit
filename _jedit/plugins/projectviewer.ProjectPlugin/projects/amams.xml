@@ -2,6 +2,7 @@
 
 <project path="/var/www/amams" url="http://localhost/amams/">
 <property name="projectviewer.folder_tree_state" value="" />
+<property name="projectviewer.version_control_service" value="Git" />
 <property name="projectviewer.import.filterid" value="projectviewer.importer.GlobFilter" />
 <property name="console.compile" value="php bin/compile.php" />
 <directory path="/var/www/amams/admin">
