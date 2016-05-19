@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <projects name="All Projects" >
-<project name="amams" file="amams.xml" root="/var/www/amams"  />
+<group name="DMS" >
+<project name="lampa_shop" file="lampa.xml" root="/var/www/lampa.it"  />
+</group>
+<group name="EV" >
 <project name="axa" file="axa.xml" root="/var/www/axa"  />
 <project name="axatest" file="axatest.xml" root="/var/www/axatest"  />
 <project name="evidenceweb" file="evidenceweb.xml" root="/home/taz/Dropbox/mywebsite/evidenceweb"  />
 <project name="ipc" file="ipc.xml" root="/var/www/ipc"  />
 <project name="jedit" file="jedit.xml" root="/home/taz/.jedit"  />
-<project name="lampa" file="lampa.xml" root="/var/www/lampa.it"  />
 <project name="time-tracker" file="time-tracker.xml" root="/var/www/time_tracker"  />
+<project name="zz_amams" file="amams.xml" root="/var/www/amams"  />
+</group>
+<group name="FOSS" >
+</group>
 </projects>

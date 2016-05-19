@@ -11,13 +11,6 @@
 <property name="projectviewer.auto_reimport.enabled" value="true" />
 <property name="projectviewer.import.globfilter.directories" value="" />
 <property name="projectviewer.auto_reimport.currentOnly" value="false" />
-<open-file path="/var/www/lampa.it/library/DMS/DAORepository.php" />
-<open-file path="/var/www/lampa.it/library/DMS/ImplDAO/DB2/DB2ItemDAO.php" />
-<open-file path="/var/www/lampa.it/library/DMS/AS400/DB2LegacyInterface.php" />
-<open-file path="/var/www/lampa.it/library/DMS/ImplDAO/DB2/DB2OrderLogDAO.php" />
-<open-file path="/var/www/lampa.it/library/DMS/ImplDAO/DB2/DB2OrderRowDAO.php" />
-<open-file path="/var/www/lampa.it/library/DMS/AS400/LegacyInterfaceFactory.php" />
-<open-file path="/var/www/lampa.it/library/DMS/DAO/OrderLogDAO.php" />
 <directory path="/var/www/lampa.it/application">
 <directory path="/var/www/lampa.it/application/configs">
 <file path="/var/www/lampa.it/application/configs/classmap.php" />
