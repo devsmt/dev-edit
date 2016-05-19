@@ -14,15 +14,12 @@
 
   <!-- disable typoscript -->
   <MODE NAME="typoscript"  FILE="typoscript.xml" FILE_NAME_GLOB="*.tsXXX"/>
-
   <MODE NAME="typescript" FILE="typescript.xml" FILE_NAME_GLOB="*.ts" />
+  
   <MODE NAME="RPG" FILE="RPG.xml" FILE_NAME_GLOB="*.*rpgle" />
 
   <MODE NAME="go" FILE="go.xml" FILE_NAME_GLOB="*.go" />
 
-  <!-- see shellscript
-  <MODE NAME="bash" FILE="bash.xml" FILE_NAME_GLOB="*.sh" />
-  -->
 
   <!--
   meglio impostare {*.css,*.less,*.scss} nel pattern del modo CSS

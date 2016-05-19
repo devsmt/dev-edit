@@ -20,6 +20,7 @@ center_|text-align:center; vertical-align: middle;
 qunit_equal_|equal( func(), true, "testname" );
 sql_select_|SELECT \nFROM       \nWHERE\nORDER BY
 //--|//------------------------------------------------------------------------------
+docstr_|docstring_
 jq_onclick_|$("a").click(function(ev) {\n    ev.preventDefault();    \n});
 margin_|margin:4px auto\|;
 twb_icon_|<i class="icon-print"></i>
@@ -33,6 +34,7 @@ fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
 radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
 css_font_|<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">\n<style>\nbody {\n  font-weight: 100;\n  font-family: 'Lato';\n}\n</style>
 input_numeric_|<input type="number" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="0" max="999" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode || event.keyCode))'>
+docstring_|\n/**\n * funzione:\n *\n */\n
 p_|<p>\|</p>
 tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 twb_col_|<div class="col-lg-6 col-md-6 col-xs-12"> aaa </div>
@@ -235,6 +237,7 @@ array_key_exists_|array_key_exists($key, $a\|)
 test_|function ok($res, $expected, $label ) {\n    $GLOBALS['test_count']++;\n    if( $res === $expected ) {\n        echo colored( "ok $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo printc( "ok (but type differ) $label \\n", 'green' );\n    } else {\n        echo colored( sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n",\n            $label, json_encode($res), json_encode($expected)\n        ) , 'red' );\n    }\n}\nfunction is($res, $label ) {\n    return ok($res, $expected=true, $label );\n}\nfunction colored($str, $foreground_color = 'green' ) {\n    static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n    return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n}
 map_|array_map_
 exception_|spl_
+_empty_|_.isEmpty(obj)
 ksort_|ksort($a);//in-place sort!
 protected_|protected function \|(){}
 const_|const CONSTANT = 'str';
@@ -353,7 +356,7 @@ thread_|pthreads_
 array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});
 implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
 zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',\n            $val=2,\n            $opt=[\n              'class' => 'baz',\n            ],\n            $a_options=[ 1 => 'One',\n              2 => 'Two',\n              3 => 'Three' ]\n);
-var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); //echo '<pre>',debug_print_backtrace(),'</pre>';
+var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\n//echo '<pre>',debug_print_backtrace(),'</pre>';\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); \n
 http_build_query_|$url_data = http_build_query([]);
 zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(['rel' => 'icon',\n                                  'href' => '/img/favicon.ico'],\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     ['id' => 'my_stylesheet']);\n  \n// rendering the links in layout\necho $this->headLink() ?>
 opt_|$option = array_merge([\n], $opt );\nextract($option);
@@ -468,6 +471,7 @@ mysqli_|$mysqli = new mysqli("127.0.0.1", $user, $password, $database, 3306 );\n
 jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .submit() called." );\n  event.preventDefault();\n});
 zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
 __construct_|public function __construct(){\n    parent::__construct();\n}
+empty_|_empty_
 redirect_|location_
 parse_int_|intval($i)
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
@@ -839,27 +843,36 @@ in_array_|_.indexOf([], val) !== -1
 _filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
 opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
 require_|import_\nreference_
+jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    var deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    var data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nvar promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
+define_|const KEYCODE_ENTER = 13;
 log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
+deferred_|jq_promise_
+_size_|_.size(hash)
 date_|moment().format('YYYY-MM-DD HH:mm:ss');
 closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
 typeof_|typeof \| !== 'undefined'
-for_|for( var i=0; i<a_list.length; i++ ) {\|    var v = a_list[i];\n    (function(local_i, local_v) {\n        // una callback che si riferisca ad $i punterà su i=a_list.length,\n        // usa una closure per riferire il valore corrente\n        // @see foreach_ closure_\n    })(i, v);\n}
+for_|for( let i=0; i<a_list.length; i++ ) {\|    var v = a_list[i];\n}\n    (function(local_i, local_v) {\n        // block scope: una callback che si riferisca ad $i punterà su i=a_list.length,\n        // usa una closure per riferire il valore corrente\n        // @see foreach_ closure_ let_\n    })(i, v);\n
 throw_|throw new Error("msg");
 get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
 import_|import * as Calculations from './Scripts/Calculations';\nreference_
 array_values_|_.values(aaa)
 isset_|typeof  != 'undefined'\n// !== void 0\n
+docstr_|doctring_
 template_|mustache_
+staticp_|public static func(){\n}
 printf_|sprintf_
 a_t_|//typed array\nvar type_list = new Array<TheType>();
 a_num_|var a_: Array<number> = [1, 2];
-bb_model_|app.models.Promotion = Backbone.Model.extend({\n    initialize: function() {\n        // Data.local.promotions.getItemPromotion(BCOART);\n    },\n    defaults: {\n    },\n    validate: function(attrs, options) {\n    }\n});\napp.models.PromotionCollection = Backbone.Collection.extend({\n    model: app.models.Promotion\n});
+bb_model_|\nexport class Order extends Backbone.Model {\n    // Data.local.promotions.getItemPromotion(BCOART);\n    initialize(attributes?: any): void {}\n    defaults(){ return {} }\n    validate(attrs, options) { }\n}\nexport class OrderCollection extends Backbone.Collection {\n    constructor(models?: any, options?: any){ \n        super(models, options); \n    }\n    initialize() { \n        this.model = Models.Order;\n    }\n}\n\n
+str_lower_|str.toLowerCase()
 interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
 jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
 array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
+str_toupper_|str.toUpperCase()
 try_|try {\n\|} catch(e) {\n    // e.message\n}
 interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
 function_|//\nfunction add(x: number): number {\n    return x;\n}
+let_|let foo = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual\n}\nconsole.log(foo); => 123 */
 generic_|// Generic functions example\nfunction reverse<T>(list: T[]) : T[] {\n  var reversedList: T[] = [];\n  for (var i = (list.length - 1); i >=0; i--) {\n    reversedList.push(list[i]);\n  }\n  return reversedList;\n}\nvar letters = ['a', 'b', 'c', 'd'];\nvar reversedLetters = reverse<string>(letters); // d, c, b, a\nvar numbers = [1, 2, 3, 4];\nvar reversedNumbers = reverse<number>(numbers); // 4, 3, 2, 1\n\n
 callback_|cb_
 main_|(function main() {\n\n}());
@@ -870,9 +883,10 @@ mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2
 bb_find_|this.$('scoped selector');
 static_|static member(b:string):string { return ''; }
 fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
-_empty_|_.isEmpty()
+_empty_|_.isEmpty(obj)
 array_|var a_: string[] = ['hello', 'world'];
 json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
+include_|require_
 const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
 call_|func.call(thisArg|null, arg1, arg2 );
 dict_|dict_js_
@@ -881,8 +895,9 @@ construct_|constructor(public x: number ) { \n  //super();\n}\n//public getX() {
 profile_|var t_start:number = Date.now();\nvar timeElapsed:number = (Date.now()-t_start);\n"time: "+timeElapsed+" msec"
 cb_|successCallback?: (arg1: number)=>void
 console_|log_
+funzione_|docstring_
 lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
-foreach_|//[1, 2, 3].forEach((item, index, array) => { console.log(item); });\n//for (var key in hash) { if(hash.hasOwnProperty(key) ) { console.log(v); } }\n_each_
+foreach_|_each_\n//[2,3].forEach(function(v,i){ console.log(v,i) })\n//for (var k in hash) { if(hash.hasOwnProperty(k) ) { console.log(v); } }\n//for (var k in {a:2,b:3}) { console.log(k) }\n//for (var v of [2,3,4]) { console.log(item) }\n
 dict_js_|var item_list: { [k: string]: Object; } = { };
 reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
 time_|var t_start:number = Date.now();
@@ -892,7 +907,7 @@ reg_scan_|"dolor sit amet".match(/\\w+/g);
 implode_|a_s.join(", ")
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
 a_str_|var a_: Array<string> = ['a','b'];
-bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:any) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
+bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        finalize() {\n            this.stopListening(model, 'change');\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:any) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
 cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
 microtime_|profile_
 void_|if ( value === void 0) { value = 0; }
@@ -908,6 +923,7 @@ sp_|sprintf_
 json_encode_|var str:string = JSON.stringify(obj);
 json_parse_|json_decode_
 switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    default:\n        teststr();\n}
+when_|jq_when_
 preg_scan_|"dolor sit amet".match(/\\w+/g);
 declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
 public_|public \|():boolean {\nreturn true;\n}
@@ -918,19 +934,22 @@ module_|module M {\n    export class C {\n    }\n}
 fifo_|fifo_lifo_
 func_|function(){}
 sprintf_|sprintf('%s/%s', aa, bb )
-_each_|_.each(hash, (v, k, list) => { \n\|});
+_each_|_.each(hash, (v:any, k:string) => { \n    \|});
 func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
 class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 reference_|/// <reference path="jquery.d.ts" />
+jq_when_|// da utilizzare per sincronizzare una coda di operazioni\nvar d1 = $.ajax( "/page1.php" ); // $.Deferred(); d1.resolve();\nvar d2 = $.ajax( "/page2.php" ); // $.Deferred(); d2.resolve( "abc" );\n\n$.when( d1, d2 ).done(function ( v1, v2  ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n  \n});\n \n\n\n\n
+block_|// blocca l'esecuzione fino a trovare un risltato e ritorna\nfunction somethingSync(args){\n    var ret; //the result-holding variable\n    //doing something async here...\n    somethingAsync(args,function(result){\n        ret = result;\n    });\n    //wait for the result until it's available, cause the blocking\n    while(ret === undefined){} \n    return ret;\n}
 __END__|var t = `\nmultiline string  ${var}\n`;
 replace_|str=str.replace("A", "B");
 f__|function \|():void { return; }
-type_|type THash = { [k: string]: any; };\ntype TDictionary<T> = { [k: string]: T; };//uso: var d_1:Dictionary<number> = { 'a': 1 };\n/*\n// optionals\ntype TStringOrNumber = string | number;\ntype TText_ = string | { text: string };\n// alias\ntype TObjectStatics = typeof Object;\n// tuple\nexport type TSQLExecTuple = [ string, any[] ];\n// parametricas\ntype TPair<T> = [T, T];\ntype TCoordinates_ = TPair<number>;\ntype TTree<T> = T | { left: Tree<T>, right: Tree<T> };\ntype TNameLookup = Dictionary<string, any>;\n// callbacks\ntype TMyHandler = (myArgument: string) => void;\ntype TCallback<T> = (data: T) => void;\n*/
+type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };// C#like: var aaa:Dictionary<number> = { 'a': 1 };\ntype Map<K,T> = { [key: K]: T; };// javalike: aaa:Map<Integer,String> \ntype List<T> = Array<T>;\n/*\n// shortcuts\ntype HashStr = Dictionary<string>;\ntype HashNum = Dictionary<number>;\n\n// optionals\ntype TStringOrNumber = string | number;\ntype TText_ = string | { text: string };\n// alias\ntype TObjectStatics = typeof Object;\n// tuple\nexport type TSQLExecTuple = [ string, any[] ];\n// parametricas\ntype TPair<T> = [T, T];\ntype TCoordinates_ = TPair<number>;\ntype TTree<T> = T | { left: Tree<T>, right: Tree<T> };\ntype TNameLookup = Dictionary<string, any>;\n// callbacks\ntype TMyHandler = (myArgument: string) => void;\ntype TCallback<T> = (data: T) => void;\n*/\n\n\n\ntype TCallbackFunc = () => void;\ntype TCallbackData = TCallback<any>;\ntype TCallback<T> = (data: T) => void;\ntype TCallback2<T,Y> = (a: T, b:Y) => void;\ntype TCallback3<T,Y,U> = (a: T, b:Y, c:U) => void;\n\n// String Literal Type:\ntype TCardinalDirection = "North" | "East" | "South" | "West";\nfunction move(direction: TCardinalDirection) {}\nmove("Nurth"); // Error!\n
 date_now_|var t:number = (new Date()).getTime() / 1000
 unique_|aaa = _.uniq(aaa);\n
 str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
 method_|protected method():void {\n\n}
-cast_|p_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
+cast_|// var foo: any; var foo = {} as IFooInterface;\np_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
+promise_|jq_promise_
 f_|() => {\n    \|\n}
 hash_|dict_js_
 jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
@@ -942,7 +961,10 @@ reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
 [csv]
 [css]
 hide_|visibility:hidden;\n/*occupa posto nel layout*/
+sass_call_|@include func-name($varname);
 foreach_|// less 2.1\n@list: "banana", "tomato", "potato", "peach";\n@n: length(@list);\n.loop(@i) when (@i >= 0) {\n    .loop( (@i - 1) );  // recursivem next iteration\n    @value: extract(@list, @i);\n    // code for each iteration\n    body { color:@value; }\n}\n.loop(@n);
+sass_func_|// \n@mixin func-name($lato_len_px) {\n    // definizioni da ripetere...\n    .hide-txt when ($lato_len_px > 50) {\n        font-size: $font-size-small;\n    }\n}\n@include func-name($lato_len_px);
+if_|sass_if_\nless_if_
 shadow_|/* oriz vert blur_radius spread radius */\n                -webkit-box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.5);
 dbg_|border: 1px solid #\|;/*dbg*/
 gradient_|// use less or sass mixin
@@ -950,7 +972,9 @@ show_|display:block;
 media_|mediaquery_
 remove_|display: none;
 mediaquery_|/* 480 768 */\n@media only screen and (max-width : 1024px) {\n}
+sass_if_|@if ($lato_len_px > 50) {\n\n} @else if($lato_len_px <= 50) {\n\n}
 alpha_|opacity:0.85;\nfilter:alpha(opacity=85);
+less_func_|// func def...\n.btn-square-parametric(@lato_len_px) {\n    .hide-txt when (@lato_len_px > 50) {\n        font-size: @font-size-small;\n    }\n}\n// func call \n.btn-square-parameter(@lato_len_px);
 css_mediaquery_|// if( $device_width >= $x )\n@media only screen and (min-width: 640px  ) { }\n@media only screen and (min-width: 667px  ) { }\n@media only screen and (min-width: 732px  ) { }\n@media only screen and (min-width: 960px  ) { }\n@media only screen and (min-width: 1024px ) { }\n@media only screen and (min-width: 1280px ) { }\n\n// if( $device_width <= $x )\n@media only screen and (max-width: 1280px) { }\n\n
 [assembly-x86]
 [binsource-agc]
