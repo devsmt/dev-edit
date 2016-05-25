@@ -18,6 +18,13 @@ _jedit/plugins/ise.plugin.bmp.BufferLocalPlugin/.bufferlocalplugin.cfg
 _jedit/plugins/gatchan.highlight.HighlightPlugin/
 _jedit/DockableWindowManager/
 _jedit/plugins/updater.UpdaterPlugin/
+_jedit/plugins/sessions.SessionsPlugin/
+_jedit/plugins/ftp.FtpPlugin/cache/*.tmp
+_jedit/plugins/tasklist.TaskListPlugin/binary.props
+_jedit/plugins/xml.XmlPlugin/cache/*.tmp
+_jedit/plugins/xml.XmlPlugin/cache/password-cache
+_jedit/plugins/projectviewer.ProjectPlugin/projects/*
 # gestione delle sessioni, non vengono pubblicate in github
 _jedit/__sessions/*.xml
-_jedit/plugins/sessions.SessionsPlugin/
+
+/_jedit/plugins/ftp.FtpPlugin/password-cache

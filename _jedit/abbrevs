@@ -283,6 +283,7 @@ __get_|public function __call($name, $arguments) {\n    // Note: value of $name 
 filesize_|file_size_
 sp_|sprintf_
 filter_char_|filterstr_
+parseInt_|intval($v)
 var_export_|$str = var_export($data, true);
 case_|case \|:\nbreak;
 readfile_|$file_path = APP_PATH.'/web/images/image.jpg';\n$type = 'image/jpeg';\nheader('Content-Type:'.$type);\nheader('Content-Length: '.filesize($file_path) );\nreadfile($file_path);\nexit();\n
@@ -330,7 +331,7 @@ array_fill_|array_fill($i=0, $n=10 , $v='');
 define_|define("\|", "", false);
 ol_|<ol class="">\n\|</ol>
 exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
-filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ){\n\techo "validation error param: vvv ";\n}\nctype_
+filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ){\n\techo "validation error param: vvv ";\n}\nctype_\npreg_replace_
 dir_exists_|if( file_exists($path_) ) {\n}
 apc_clear_cache_|apc_clear_cache($cache_type='user');
 json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
@@ -835,127 +836,151 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [hlsl]
 [n3]
 [typescript]
-date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
-each_|_.each(a_list, function(v, k, list) {\|});
-date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
-var_|log_
-in_array_|_.indexOf([], val) !== -1
-_filter_|var a_even = _.filter([1, 2, 3, 4], function(num){ return num % 2 == 0; });
-opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
-require_|import_\nreference_
-jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    var deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    var data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nvar promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
-define_|const KEYCODE_ENTER = 13;
-log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
-deferred_|jq_promise_
-_size_|_.size(hash)
-date_|moment().format('YYYY-MM-DD HH:mm:ss');
-closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
-typeof_|typeof \| !== 'undefined'
-for_|for( let i=0; i<a_list.length; i++ ) {\|    var v = a_list[i];\n}\n    (function(local_i, local_v) {\n        // block scope: una callback che si riferisca ad $i punterà su i=a_list.length,\n        // usa una closure per riferire il valore corrente\n        // @see foreach_ closure_ let_\n    })(i, v);\n
-throw_|throw new Error("msg");
-get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
-import_|import * as Calculations from './Scripts/Calculations';\nreference_
-array_values_|_.values(aaa)
-isset_|typeof  != 'undefined'\n// !== void 0\n
-docstr_|doctring_
-template_|mustache_
-staticp_|public static func(){\n}
-printf_|sprintf_
-a_t_|//typed array\nvar type_list = new Array<TheType>();
-a_num_|var a_: Array<number> = [1, 2];
-bb_model_|\nexport class Order extends Backbone.Model {\n    // Data.local.promotions.getItemPromotion(BCOART);\n    initialize(attributes?: any): void {}\n    defaults(){ return {} }\n    validate(attrs, options) { }\n}\nexport class OrderCollection extends Backbone.Collection {\n    constructor(models?: any, options?: any){ \n        super(models, options); \n    }\n    initialize() { \n        this.model = Models.Order;\n    }\n}\n\n
-str_lower_|str.toLowerCase()
-interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
-jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
-array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
-str_toupper_|str.toUpperCase()
-try_|try {\n\|} catch(e) {\n    // e.message\n}
-interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
-function_|//\nfunction add(x: number): number {\n    return x;\n}
-let_|let foo = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual\n}\nconsole.log(foo); => 123 */
-generic_|// Generic functions example\nfunction reverse<T>(list: T[]) : T[] {\n  var reversedList: T[] = [];\n  for (var i = (list.length - 1); i >=0; i--) {\n    reversedList.push(list[i]);\n  }\n  return reversedList;\n}\nvar letters = ['a', 'b', 'c', 'd'];\nvar reversedLetters = reverse<string>(letters); // d, c, b, a\nvar numbers = [1, 2, 3, 4];\nvar reversedNumbers = reverse<number>(numbers); // 4, 3, 2, 1\n\n
-callback_|cb_
-main_|(function main() {\n\n}());
-empty_|_empty_
-case_|case 'nnn':\nbreak;
-is_array_|_.isArray(aaa)
-mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2 + 4;\n  }\n};\nvar html = Mustache.render("{{title}} spends {{calc}}", data_obj );
-bb_find_|this.$('scoped selector');
-static_|static member(b:string):string { return ''; }
-fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
-_empty_|_.isEmpty(obj)
-array_|var a_: string[] = ['hello', 'world'];
-json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
-include_|require_
-const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
-call_|func.call(thisArg|null, arg1, arg2 );
-dict_|dict_js_
-interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
-construct_|constructor(public x: number ) { \n  //super();\n}\n//public getX() { return this.x; }\n
-profile_|var t_start:number = Date.now();\nvar timeElapsed:number = (Date.now()-t_start);\n"time: "+timeElapsed+" msec"
-cb_|successCallback?: (arg1: number)=>void
-console_|log_
-funzione_|docstring_
-lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
+_reject_|var a_list = [1, 2, 3, 4, 5, 6];\nvar odds = _.reject<number>(a_list, (num:number):number => { return num % 2 == 0; });\n// => [1, 3, 5]
 foreach_|_each_\n//[2,3].forEach(function(v,i){ console.log(v,i) })\n//for (var k in hash) { if(hash.hasOwnProperty(k) ) { console.log(v); } }\n//for (var k in {a:2,b:3}) { console.log(k) }\n//for (var v of [2,3,4]) { console.log(item) }\n
-dict_js_|var item_list: { [k: string]: Object; } = { };
-reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
-time_|var t_start:number = Date.now();
-dict_bb_|var a_list: _.Dictionary<string> = {};
-substr_|str.substring(0,2);
-reg_scan_|"dolor sit amet".match(/\\w+/g);
-implode_|a_s.join(", ")
-now_|moment().format('YYYY-MM-DD hh:mm:ss')
-a_str_|var a_: Array<string> = ['a','b'];
-bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        finalize() {\n            this.stopListening(model, 'change');\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:any) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
-cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
-microtime_|profile_
-void_|if ( value === void 0) { value = 0; }
-overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
-stack_|fifo_lifo_
-if_|if( typeof_ ) { }
+date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
+a_t_|//typed array\nvar type_list = new Array<TheType>();
+_keys_|_.keys({one: 1, two: 2, three: 3});\n//=> ["one", "two", "three"]
 queue_|fifo_lifo_
-ceil_|Math.ceil(number)
-str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
-lifo_|fifo_lifo_
-date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
-sp_|sprintf_
-json_encode_|var str:string = JSON.stringify(obj);
-json_parse_|json_decode_
-switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    default:\n        teststr();\n}
-when_|jq_when_
-preg_scan_|"dolor sit amet".match(/\\w+/g);
-declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
-public_|public \|():boolean {\nreturn true;\n}
-array_slice_|array.slice(pos, page_len)
-count_|[].length\n//var k_num:number = _.size(hash);
-namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
-module_|module M {\n    export class C {\n    }\n}
-fifo_|fifo_lifo_
-func_|function(){}
-sprintf_|sprintf('%s/%s', aa, bb )
-_each_|_.each(hash, (v:any, k:string) => { \n    \|});
-func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
-class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
-reference_|/// <reference path="jquery.d.ts" />
-jq_when_|// da utilizzare per sincronizzare una coda di operazioni\nvar d1 = $.ajax( "/page1.php" ); // $.Deferred(); d1.resolve();\nvar d2 = $.ajax( "/page2.php" ); // $.Deferred(); d2.resolve( "abc" );\n\n$.when( d1, d2 ).done(function ( v1, v2  ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n  \n});\n \n\n\n\n
-block_|// blocca l'esecuzione fino a trovare un risltato e ritorna\nfunction somethingSync(args){\n    var ret; //the result-holding variable\n    //doing something async here...\n    somethingAsync(args,function(result){\n        ret = result;\n    });\n    //wait for the result until it's available, cause the blocking\n    while(ret === undefined){} \n    return ret;\n}
-__END__|var t = `\nmultiline string  ${var}\n`;
-replace_|str=str.replace("A", "B");
-f__|function \|():void { return; }
+if_|if( typeof_ ) { }
+reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
+try_|try {\n\|} catch(e) {\n    // e.message\n}
 type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };// C#like: var aaa:Dictionary<number> = { 'a': 1 };\ntype Map<K,T> = { [key: K]: T; };// javalike: aaa:Map<Integer,String> \ntype List<T> = Array<T>;\n/*\n// shortcuts\ntype HashStr = Dictionary<string>;\ntype HashNum = Dictionary<number>;\n\n// optionals\ntype TStringOrNumber = string | number;\ntype TText_ = string | { text: string };\n// alias\ntype TObjectStatics = typeof Object;\n// tuple\nexport type TSQLExecTuple = [ string, any[] ];\n// parametricas\ntype TPair<T> = [T, T];\ntype TCoordinates_ = TPair<number>;\ntype TTree<T> = T | { left: Tree<T>, right: Tree<T> };\ntype TNameLookup = Dictionary<string, any>;\n// callbacks\ntype TMyHandler = (myArgument: string) => void;\ntype TCallback<T> = (data: T) => void;\n*/\n\n\n\ntype TCallbackFunc = () => void;\ntype TCallbackData = TCallback<any>;\ntype TCallback<T> = (data: T) => void;\ntype TCallback2<T,Y> = (a: T, b:Y) => void;\ntype TCallback3<T,Y,U> = (a: T, b:Y, c:U) => void;\n\n// String Literal Type:\ntype TCardinalDirection = "North" | "East" | "South" | "West";\nfunction move(direction: TCardinalDirection) {}\nmove("Nurth"); // Error!\n
-date_now_|var t:number = (new Date()).getTime() / 1000
-unique_|aaa = _.uniq(aaa);\n
-str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
-method_|protected method():void {\n\n}
-cast_|// var foo: any; var foo = {} as IFooInterface;\np_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
-promise_|jq_promise_
-f_|() => {\n    \|\n}
-hash_|dict_js_
-jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
-enum_|const enum Comparison {\n    LessThan = -1,\n    EqualTo = 0,\n    GreaterThan = 1\n}\nvar x:number = Comparison.EqualTo; // Ok, replaced with 0 in emitted code\nvar y:string = Comparison[Comparison.EqualTo];\n
+dict_bb_|var a_list: _.Dictionary<string> = {};
+_template_|var compiled = _.template("hello: <%= name %>");\nvar html = compiled({name: 'moe'});\n// => "hello: moe"
+sprintf_|sprintf('%s/%s', aa, bb )
+lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
+fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
+for_|for( let i=0; i<a_list.length; i++ ) {\|    var v = a_list[i];\n}\n    (function(local_i, local_v) {\n        // block scope: una callback che si riferisca ad $i punterà su i=a_list.length,\n        // usa una closure per riferire il valore corrente\n        // @see foreach_ closure_ let_\n    })(i, v);\n
+_find_|var a_list = [1, 2, 3, 4, 5, 6];\nvar even = _.find<number>(a_list, function(num){ \n    return num % 2 == 0; \n});\n//=> 2 returning the first one
+array_|var a_: string[] = ['hello', 'world'];
+time_|var t_start:number = Date.now();\n_time_
+call_|func.call(thisArg|null, arg1, arg2 );
+f__|function \|():void { return; }
+str_match_|var m = /\\d{4}/.exec(s);\nif (m) {\n  var match:string = m[0];\n}
+case_|case 'nnn':\nbreak;
+_map_|var a_list = [1, 2, 3];\n_.map<string,number>(a_list, (val:number, key:string):number => { \n    return val * 3;\n} );\n// => [3, 6, 9]
+sp_|sprintf_
+lifo_|fifo_lifo_
+jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    var deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    var data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nvar promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
+_filter_|var a_list = [1, 2, 3, 4, 5, 6];\nvar _a = _.filter<number>(a_list, (num:number):boolean => { \n    return n % 2 == 0; \n});\n// => [2, 4, 6]
+include_|require_
+jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
+str_toupper_|str.toUpperCase()
+_some_|//Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.\n_.some([null, 0, 'yes', false]);\n//=> true
+__FUNCTION__|arguments.callee.name;\narguments.callee.caller.toString()
+date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
+jq_when_|// da utilizzare per sincronizzare una coda di operazioni\nvar d1 = $.ajax( "/page1.php" ); // $.Deferred(); d1.resolve();\nvar d2 = $.ajax( "/page2.php" ); // $.Deferred(); d2.resolve( "abc" );\n\n$.when( d1, d2 ).done(function ( v1, v2  ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n  \n});\n \n\n\n\n
 singleton_|// instance = SingletonClass.getInstance();\nclass SingletonClass {\n    private static _instance:SingletonClass = new SingletonClass();\n    public static getInstance():SingletonClass {\n        return SingletonClass._instance;\n    }\n    constructor() {\n\t// enforce singleton\n        if(SingletonClass._instance) {\n            throw new Error("Error: Instantiation failed: Use SingletonClass.getInstance() instead of new.");\n        }\n        SingletonClass._instance = this;\n    }\n}
+reg_scan_|"dolor sit amet".match(/\\w+/g);
+_min_|var numbers = [10, 5, 100, 2, 1000];\n_.min(numbers);\n//=> 2
+cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
+__END__|var t = `\nmultiline string  ${var}\n`;
+interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
+namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
+_size_|_.size(hash)
+get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
+substr_|str.substring(0,2);
+implode_|a_s.join(", ")
+in_array_|_.indexOf([], val) !== -1\n// _contains_
+json_encode_|var str:string = JSON.stringify(obj);
+_contains_|//Returns true if the value is present in the list. Uses indexOf internally\n_.contains([1, 2, 3], 3);\n// => true
+preg_scan_|"dolor sit amet".match(/\\w+/g);
+log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
+profile_|var t_start:number = Date.now();\nvar timeElapsed:number = (Date.now()-t_start);\n"time: "+timeElapsed+" msec"
+staticp_|public static func(){\n}
+func_|function(){}
+_pick_|_.pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');\n=> {name: 'moe', age: 50}\n_.pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {\n  return _.isNumber(value);\n});\n//=> {age: 50}
+static_|static member(b:string):string { return ''; }
+_pluck_|// extracting a list of property values.\nvar a_customer = [\n{name: 'moe', age: 40}, \n{name: 'larry', age: 50}, \n{name: 'curly', age: 60}\n];\n_.pluck(a_customer, 'name');\n//=> ["moe", "larry", "curly"]
+_empty_|_.isEmpty(obj)
+bb_model_|\nexport class Order extends Backbone.Model {\n    // Data.local.promotions.getItemPromotion(BCOART);\n    initialize(attributes?: any): void {}\n    defaults(){ return {} }\n    validate(attrs, options) { }\n}\nexport class OrderCollection extends Backbone.Collection {\n    constructor(models?: any, options?: any){ \n        super(models, options); \n    }\n    initialize() { \n        this.model = Models.Order;\n    }\n}\n\n
+date_|moment().format('YYYY-MM-DD HH:mm:ss');
+let_|let foo = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual\n}\nconsole.log(foo); => 123 */
+array_key_exists_|_has_
+define_|const KEYCODE_ENTER = 13;
+jq_promise_when_|var d1 = $.Deferred();\nvar d2 = $.Deferred();\nvar d3 = $.Deferred();\n \n$.when( d1, d2, d3 ).done(function ( v1, v2, v3 ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n    console.log( v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]\n});\n \nd1.resolve();\nd2.resolve( "abc" );\nd3.resolve( 1, 2, 3, 4, 5 );
+_reduce_|var a_list:Array<number> = [1, 2, 3];\nvar sum:number = _.reduce< number, number>(a_list, function(memo, num) { \n    return memo + num; \n}, 0);\n// 6
+funzione_|docstring_
+bb_find_|this.$('scoped selector');
+func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
+opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
+a_num_|var a_: Array<number> = [1, 2];
+declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
+when_|jq_when_
+closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
+cb_|successCallback?: (arg1: number)=>void
+jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
+_every_|// Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found.\n_.every([2, 4, 5], function(num) { return num % 2 == 0; });\n// => false
+jq_promise_multiple_|jq_promise_when_
+now_|moment().format('YYYY-MM-DD hh:mm:ss')
+empty_|_empty_
+jq_main_|$(ducument).ready(function(){\n\n});
+require_|import_\nreference_
+each_|_.each(a_list, function(v, k, list) {\|});
+deferred_|jq_promise_
+str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
+array_values_|_.values(aaa)
+hash_|dict_js_
+_max_|var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];\n_.max(stooges, function(stooge){ return stooge.age; });\n//=> {name: 'curly', age: 60};
+isset_|typeof  != 'undefined'\n// !== void 0\n
+f_|() => {\n    \|\n}
+switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    default:\n        teststr();\n}
+dict_|dict_js_
+ceil_|Math.ceil(number)
+rand_|_rand_
+block_|// blocca l'esecuzione fino a trovare un risltato e ritorna\nfunction somethingSync(args){\n    var ret; //the result-holding variable\n    //doing something async here...\n    somethingAsync(args,function(result){\n        ret = result;\n    });\n    //wait for the result until it's available, cause the blocking\n    while(ret === undefined){} \n    return ret;\n}
+method_|protected method():void {\n\n}
+reference_|/// <reference path="jquery.d.ts" />
+printf_|sprintf_
+import_|import * as Calculations from './Scripts/Calculations';\nreference_
+construct_|constructor(public x: number ) { \n  //super();\n}\n//public getX() { return this.x; }\n
+a_str_|var a_: Array<string> = ['a','b'];
+parent_|super.methodName()
+array_slice_|array.slice(pos, page_len)
+generic_|// Generic functions example\nfunction reverse<T>(list: T[]) : T[] {\n  var reversedList: T[] = [];\n  for (var i = (list.length - 1); i >=0; i--) {\n    reversedList.push(list[i]);\n  }\n  return reversedList;\n}\nvar numbers = [1, 2, 3, 4];\nvar reversedNumbers = reverse<number>(numbers); // 4, 3, 2, 1\n\nfunction map<T, U>(a: T[], f: (x: T) => U): U[] {\n  var result: U[] = [];\n  for (var i = 0; i < a.length; i++) result.push(f(a[i]));\n  return result;\n}\nvar names = ["Peter", "Paul", "Mary"];\nvar lengths = map<string, number>(names, s => s.length);\n\n\n\n\n
+_time_|_.now();\n//=> 1392066795351
+dict_js_|var item_list: { [k: string]: Object; } = { };
+unique_|aaa = _.uniq(aaa);\n
+stack_|fifo_lifo_
+replace_|str=str.replace("A", "B");
+overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
+interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
+main_|(function main() {\n\n}());
+template_|mustache_
+public_|public \|():boolean {\nreturn true;\n}
+var_|log_
+enum_|const enum Comparison {\n    LessThan = -1,\n    EqualTo = 0,\n    GreaterThan = 1\n}\nvar x:number = Comparison.EqualTo; // Ok, replaced with 0 in emitted code\nvar y:string = Comparison[Comparison.EqualTo];\n
+mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2 + 4;\n  }\n};\nvar html = Mustache.render("{{title}} spends {{calc}}", data_obj );
+str_lower_|str.toLowerCase()
+promise_|jq_promise_
+is_array_|_.isArray(aaa)
+_has_|_.has({a: 1, b: 2, c: 3}, "b");\n//=> true
+_values_|_.values({one: 1, two: 2, three: 3});\n//=> [1, 2, 3]
+fifo_|fifo_lifo_
+interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
+docstr_|doctring_
+const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
+typeof_|typeof \| !== 'undefined'
+date_now_|var t:number = (new Date()).getTime() / 1000
+console_|log_
 reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
+function_|//\nfunction add(x: number): number {\n    return x;\n}
+throw_|throw new Error("msg");
+module_|module M {\n    export class C {\n    }\n}
+callback_|cb_
+cast_|// var foo: any; var foo = {} as IFooInterface;\np_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
+count_|[].length\n//var k_num:number = _.size(hash);
+bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        finalize() {\n            this.stopListening(model, 'change');\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:JQueryEventObject) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
+array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
+_each_|_.each<string>(hash, (v:string, k:string) => { \n    \|});
+json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
+json_parse_|json_decode_
+class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
+void_|if ( value === void 0) { value = 0; }
+microtime_|profile_
+date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
+_rand_|_.random(0, 100)
 [plaintex]
 [cobol]
 [csv]
