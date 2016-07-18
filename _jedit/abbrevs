@@ -172,6 +172,7 @@ anchor_|link_
 [powerdynamo]
 [vhdl]
 [logs]
+[java module-info]
 [maple]
 [lotos]
 [PowerCenter Parameter File]
@@ -185,6 +186,7 @@ array_walk_|array_walk($data, function(&$v, $k, $param) { \n    $v = $k . $param
 validate_|filter_var_
 staticp_|//\npublic static function \|() {\t\t\n    return ; \n}
 assert_s_|assert_char_
+_any_|// true if any values in the collection pass the truth test (iterator).\n$is_any =__::any( [1, 2, 3, 4], function($num) { return $num === 5; }); // false
 xml_|$dom = new \\DOMDocument();\n$dom->preserveWhiteSpace = false;\n$dom->load($this->xml_file);\n$xpath = new \\DOMXpath($dom);\n$node_list = $xpath->query('//NodeType[@attr=val]');
 trim_|$str=trim($str, $charlist='.,');
 mkdir_|true === mkdir('/path', 0755);
@@ -196,8 +198,9 @@ __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basena
 round_|round($f, 2);
 filterstr_|$v = preg_replace('/[^0-9A-Za-z_ ]/', '', substr(trim($v), 0, 6) );
 reset_|<input type="reset" />
+_all_|// true if all values test()\n__::all([1, 2, 3, 4], function($num) { return $num < 5; }); // true
+table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n\n    $tmpl = '<table class="table table-condensed table-bordered table-striped" id="table_1">\n                <thead>%s</thead>\n                <tbody>%s</tbody>\n            </table>';\n    $html_table = sprintf($tmpl,\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n    $html_table .= <<<__END__\n            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">\n            <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>\n            <script >\n            $(document).ready(function(){\n                $('#table_1').DataTable({\n                    "paging":     true,\n                    "ordering":   false,\n                    "info":       false,\n                    "scrollY":    500,\n                    "scrollX":    false,\n                    "pagingType": "full_numbers",\n                    "lengthMenu": [10,20,50,100],\n                    "pageLength": 50\n                });\n            });\n            </script>\n__END__;\n\n\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n
 sort_|ksort($a);//  for keys!\nasort($a, SORT_STRING);// &$a;  sort values! returns bool\n// uasort  Sort an array with a user-defined comparison function and maintain index association\nuasort( &$a, function($a, $b) {\n    if ($a == $b) {\n        return 0;\n    }\n    return ($a < $b) ? -1 : 1;\n});
-table_a_|\n// genera tabella\n$a_rs = __RS__;\n$html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n    $html_table = sprintf('<table class="table table-condensed table-bordered table-striped"> %s %s </table>',\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n
 cli_|php_cli_
 htmlentities_|//ENT_COMPAT     Converte gli apici doppi e lascia inalterati gli apici singoli.\n//ENT_QUOTES     Converte sia gli apici doppi sia gli apici singoli.\n//ENT_NOQUOTES   Lascia entrambi i tipi di apici inalterati.\n$html = htmlentities($v, ENT_QUOTES, 'UTF-8');
 date_diff_|date_add_
@@ -212,6 +215,7 @@ bc_|bcscale(4);// setta il default scale, va settato prima delle chiamate\n$a = 
 zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
 global_|$GLOBALS[''] = '';
 zf_alert_|$this->alert($msg, 'error');
+pattern_factory_|class ObjFactory {\n    public static function create($p1, $p2) {\n        return new Obj($p1, $p2);\n    }\n}\n
 destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
 hidden_|<input name="" value="" type="hidden">
 switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
@@ -271,6 +275,7 @@ array_|$\|=[];
 filter_var_|filter_
 s_|$s_ = '';
 math_|bc_
+_memoize_|$fibonacci = function($n) use (&$fibonacci) {\n  return $n < 2 ? $n : $fibonacci($n - 1) + $fibonacci($n - 2);\n};\n$fastFibonacci = __::memoize($fibonacci);
 require_|require_once __DIR__.'/\|';
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
 zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev()
@@ -282,6 +287,8 @@ zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->
 __get_|public function __call($name, $arguments) {\n    // Note: value of $name is case sensitive.\n    echo "Calling object method '$name' " . print_r( $arguments, 1). "\\n";\n}
 filesize_|file_size_
 sp_|sprintf_
+spl_autoload_register_|        //\n        // @see PSR-4 autoload reference implementation\n        //\n        // new \\Foo\\Bar\\Baz\\Qux;\n        // \\Foo\\Bar\\Baz\\Qux class => /path/to/project/src/Baz/Qux.php:\n        //\n        spl_autoload_register(function ($pClassName) {\n            // project-specific namespace prefix\n            $prefix = '';//'Mobile';// Foo\\\\Bar\\\\\n            // base directory for the namespace prefix\n            $base_dir = __DIR__.'/'; // . '/src/';\n            // does the class use the namespace prefix?\n            $len = strlen($prefix);\n            if (strncmp($prefix, $pClassName, $len) !== 0) {\n                // DBG echo " autoloading NS prefix: $pClassName \\n";\n                // no, move to the next registered autoloader\n                return;\n            }\n            // get the relative class name\n            $relative_class = substr($pClassName, $len);\n            // replace the namespace prefix with the base directory, replace namespace\n            // separators with directory separators in the relative class name, append\n            // with .php\n            $file = $base_dir . str_replace('\\\\', '/', $relative_class) . '.php';\n            if (file_exists($file)) {\n                // echo "LOADING: $file\\n"; // DBG\n                require $file;\n            } else {\n                // DBG\n                die( " autoloading KO: $file\\n" );\n            }\n        });
+_max_|$a_recs =array(  array( 'age'=>60 )  );\n$max = __::max($a_recs, function($rec) { return $rec['age']; });
 filter_char_|filterstr_
 parseInt_|intval($v)
 var_export_|$str = var_export($data, true);
@@ -293,6 +300,7 @@ assert_char_|if( !ctype_alnum($s) || 8 >= strlen($s) ) {\n    throw new Exceptio
 use_|use My\\Full\\Classname as Another;\n// this is the same as use My\\Full\\NSname as NSname\nuse My\\Full\\NSname;\n// importing a global class\nuse ArrayObject;
 location_|header('Location: http://www.test.it/');\n// $logger->info('reason');\ndie('redirect');
 <<<|$\| = <<<__END__\n__END__;
+_pluck_|$a_names = __::pluck($a_recs, $k='name');
 pthreads_|http://nl1.php.net/manual/en/class.thread.php
 fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
 filter_alpha_|filterstr_
@@ -307,6 +315,7 @@ zf_render_view_|// Render 'foo' instead of current action script\n        $this-
 namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
 __reject_|$a_ = __::reject($a_=[1,2,3], function($n) {\n  return $n % 2 === 0; \n});\n
 sleep_|sleep(10);// seconds
+sscanf_|$iso_date = '2000-07-30';\nlist($year, $month, $day) = sscanf($iso_date, '%d-%d-%d');\n
 isset_|if( !isset(\|)){\n}
 hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $next_rec) {\n        $k = 'column_key';  \n\treturn $rec[$k] > $next_rec[$k];\n});\n     \n
 in_array_|in_array( $str, $a_ )
@@ -326,6 +335,7 @@ construct_|public function __construct(){\n   parent::__construct();\n\|}
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
 pf_|sprintf_
+_filter_|__::filter([1, 2, 3, 4], function($num) { return $num % 2 === 0; }); // [2, 4]
 zf_post_|$this->getRequest()->getPost('name\|');
 array_fill_|array_fill($i=0, $n=10 , $v='');
 define_|define("\|", "", false);
@@ -390,9 +400,11 @@ func_|function golang_like_func($str){\n    return [false, "String is invalid"];
 controller_|// funzione: controller con nomenclatura simile a ZF\nclass BaseController {\n    public function run($uri) {\n        $action = self::resolveAction($uri);\n        if (method_exists($this, $action)) {\n            return $this->$action();\n        } else {\n            return "unimplemented action:$action \\n";\n        }\n    }\n    // logica di composizioe della action\n    public static function resolveAction($uri) {\n        if (empty($uri)) {\n            return '';\n        }\n        $action = str_replace(['/mobile/','/'], '', $uri);\n        $action .= 'Action'; \n        return $action;\n    }\n}\n// esempio uso e azione\nclass AppController extends BaseController {    \n    function loginAction(){}\n}\nok('/mobile/login', 'loginAction');//test resolver\n$controller = new AppController();\ndie( $controller->run($uri = $_SERVER['REQUEST_URI']) );
 dir_|glob_
 check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
+pattern_signleton_|class Singleton {\n    // Returns the *Singleton* instance of this class.\n    public static function getInstance() {\n        static $instance = null;\n        if (null === $instance) {\n            $instance = new static();\n        }\n        return $instance;\n    }\n    // Protected constructor to prevent creating a new instance via the `new` operator from outside of this class \n    protected function __construct() { }\n    private function __clone() { }\n    private function __wakeup() { }\n}\n\nclass SingletonChild extends Singleton { }\n\n
 range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
 autoload_|        spl_autoload_register(function ($pClassName) {\n            $path = str_replace('\\\\', DIRECTORY_SEPARATOR, $pClassName);\n            require_once (__DIR__ . DIRECTORY_SEPARATOR . $path . ".php");\n            return true;\n        });
 array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
+_min_|$a_recs =array(  array( 'age'=>60 )  );\n$min = __::min($a_recs, function($rec) { return $rec['age']; });
 zf_h_escape_|$this->escape($this->str)
 tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
 method_|protected function \|(hint $v){ \nreturn ; \n}
@@ -423,13 +435,14 @@ header_|header("Location: $url");
 zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
 unlink_|if( unlink($path) ){}
 microtime_|$time_from_begin = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 4);\n$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true) - $time_start );\nprofile_
+preg_replace_callback_|$line = preg_replace_callback( '|<p>\\s*\\w|', function ($matches) {\n    return strtolower($matches[0]);\n}, $line );
 zf_partial_|echo $this->partial('_partial.phtml', [\n    // injiect vars\n    'from' => 'Team Framework',\n] ); \n
 zf_dbg_|Zend_Debug::dump($, 'label:');
 array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
 f_|function(){}
 hack_|#!/usr/bin/hhvm -vEval.Jit=1\n<?hh
-throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new Exception($msg);
+throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new \\Exception($msg);
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
 reflection_|$reflect = new ReflectionClass($this);\n$props   = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);\nforeach ($props as $prop) {\n    print $prop->getName() . "\\n";\n}
 command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = [ new Command_1(), new Command_2() ];\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
@@ -451,6 +464,7 @@ zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Ses
 phpunit_assert_true_|$this->assertTrue($val);
 log_|file_put_contents_
 zf_h_partial_loop_|$model = [\n    ['key' => 'Mammal', 'value' => 'Camel'],\n    ['key' => 'Bird', 'value' => 'Penguin']\n];\necho $this->partialLoop('partialLoop.phtml', $model);
+_reject_|__::reject(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // array(1, 3)
 sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
 hash_|if (function_exists("hash_algos") && in_array("sha512", hash_algos())) {\n    $token = hash("sha512", mt_rand(0, mt_getrandmax()));\n}
 gz_compress_|$filename = tempnam('/tmp', 'zlibtest') . '.gz';\n$s = "Only a test, test, test, test, test, test, test, test!\\n";\n$zp = gzopen($filename, "w9");// open file for writing with maximum compression\ngzwrite($zp, $s);// write string to file\ngzclose($zp);// close file
@@ -476,6 +490,7 @@ empty_|_empty_
 redirect_|location_
 parse_int_|intval($i)
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
+is_cli_|php_sapi_name_
 gz_|gz_compress_\ngz_extract_
 profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );\nmicrotime_
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
@@ -490,18 +505,20 @@ zf_get_|$name = $this->getRequest()->getParam('name\|', '');
 timing_|profile_
 zf_h_partial_|echo $this->partial('_partial.phtml', $data=[\n    'from' => 'Team Framework',\n    'subject' => 'view partials'] );
 image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
+str_toupper_|strtoupper($str)
 str_match_|str_match($str, $substr)\|// strpos_ preg_match_\n// $str = "The quick brown fox jumps over the lazy dog";\n$contais = 1 === preg_match('/fox/', $str); // returns 1\n
 ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
 if__|$\| = isset($c) ? $c : null;
 filter_str_|filterstr_
-border_|border: 1px solid #\|;
 strpad_|str_pad_
+border_|border: 1px solid #\|;
 css_transparent_|background-color:rgba(255,0,0,0.5);
 ff_|( \| ) ? ( ) : ( );
 a_|$\| = [];
 output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n    return preg_replace('/([^@\\s]+)@([-a-z0-9]+\\.)+[a-z]{2,}/is', '<$1@...>', $s);\n}\n// esegue la funzione di pulizzia sull buffer\nob_start('mangle_email');\n// equivalente al settaggio php.ini\n// output_buffering = On\n// output_handler=mangle_email
 date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
-php_cli_|#!/usr/bin/env php\n<?php\n
+pattern_strategy_|// Incapsulando gli algoritmi permetti agli sviluppatori di aggiungere altri tipi di output senza che questo influisca sul chiamante\n// implementando un’interfaccia comune potrai sfruttare il Type Hinting nel chiamante\ninterface OutputInterface {\n    public function load();\n}\nclass SerializedArrayOutput implements OutputInterface {\n    public function load() {\n        return serialize($arrayOfData);\n    }\n}\nclass JsonStringOutput implements OutputInterface {\n    public function load() {\n        return json_encode($arrayOfData);\n    }\n}\nclass ArrayOutput implements OutputInterface {\n    public function load() {\n        return $arrayOfData;\n    }\n}\n// ... il chiamante sceglie l'algoritmo più opportuno\n
+php_cli_|#!/usr/bin/env php\n<?php\n// php_sapi_name_
 date_|date('Y-m-d H:i:s');
 apc_|cache_
 if___|$v = $v ?: $def;
@@ -528,6 +545,7 @@ quote_|<quote "">\|</quote>
 [perl]
 [tsp]
 [transact-sql]
+[swift]
 [lisp]
 [smi-mib]
 [actionscript]
@@ -706,20 +724,32 @@ code_|<code bash>\|</code>
 [yaml]
 [assembly-ags]
 [shellscript]
-argv_|# accede al primo argomento passato in input\nif [ -z "$1" ]; then\n    echo usage: $0 directory\n    exit\nfi\nSRCD=$1\necho ${SRCD}
-OS_|if [[ `uname` == 'Linux' ]]; then\n   OS=android\nelif [[ `uname` == 'Darwin' ]]; then\n   OS=ios\nfi
-if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nfi
-while_|COUNTER=0\nwhile [  $COUNTER -lt 10 ]; do\n    echo The counter is $COUNTER\n    let COUNTER=COUNTER+1\ndone
-let_|VARNAME=string\necho ${VARNAME}
-dirname_|DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-for_|for i in $( ls ); do\n    echo item: $i\ndone
-require_|include_
-include_|source _common.sh    # include is in $PATH
-now_|NOW=`date +"%m-%d-%Y-%T"`\nmv test_app test_app_${NOW}
-date_|NOW=`date +"%m-%d-%Y"`
-func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
-concat_|A="X Y"\nA+="Z"\nA="${B}${C}"\necho "$A"
+var_|local HELLO="hello "
+include_|#source _common.sh    # include is in $PATH\nsource $(dirname $0)/_vars.sh 
 cli_|#!/usr/bin/php\n<?php\n
+now_|NOW=`date +"%m-%d-%Y-%T"`\nmv test_app test_app_${NOW}
+echo_|echo "$foo World"
+for_|for i in $( ls ); do\n    echo item: $i\ndone
+let_|VARNAME=string\necho ${VARNAME}
+str_cat_|echo "The current time is `date`"\necho "$foo World"\necho "${bla}!  ${laber}!" \necho $a$b\nA="X Y"\nA+="Z"\necho "$A"\nvar=${var}.sh\nsprintf_
+concat_|A="X Y"\nA+="Z"\nA="${B}${C}"\necho "$A"
+__DIR__|BASE_DIR=$(cd $(dirname "$0"); pwd)\nCONFIG_DIR=$BASE_DIR/config
+enum_|public enum Day {\n\tSUNDAY(1),\n\tMONDAY(2),\n\tTUESDAY(3),\n\tWEDNESDAY(4),\n\tTHURSDAY(5),\n\tFRIDAY(6),\n\tSATURDAY(7)\n}\n//Printing all constants of an enum.\nfor(Day day: Day.values())\n\tSystem.out.println(day.name());
+case_|case "$1" in\n    black  | bk) color="aaabbb";;\nesac
+while_|COUNTER=0\nwhile [  $COUNTER -lt 10 ]; do\n    echo The counter is $COUNTER\n    let COUNTER=COUNTER+1\ndone
+require_|include_
+dirname_|DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+empty_|if [ -z "$1" ]; then\n    echo usage: $0 directory\n    exit\nfi
+system_|exec_
+date_|NOW=`date +"%m-%d-%Y"`\nNOW_STR=home-$(date +%Y%m%d).tgz
+f_|function hello() {\n    local HELLO="hello "\n    echo $HELLO\n    echo $1\n    echo $@\n}\nhello "World"
+sprintf_|foo=$(printf "%s World" "$foo")
+exec_|DBS=`mysql -uroot  -e"show databases"`
+if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nfi
+printf_|printf -v a "%s" "my_var"\nprintf "${color}${text}${nc}"
+func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
+OS_|if [[ `uname` == 'Linux' ]]; then\n   OS=android\nelif [[ `uname` == 'Darwin' ]]; then\n   OS=ios\nfi
+argv_|# accede al primo argomento passato in input\nif [ -z "$1" ]; then\n    echo usage: $0 directory\n    exit\nfi\nSRCD=$1\necho ${SRCD}
 [gettext]
 [jcl]
 [jflex]
@@ -736,65 +766,107 @@ cli_|#!/usr/bin/php\n<?php\n
 [slax]
 [assembly-agc]
 [java]
-ne|nextElement()
-Il|SwingUtilities.invokeLater(new Runnable()\n{\n\tpublic void run()\n\t{\n\t\t\|\n\t}\n});
-date_|import java.util.Date;\nimport java.util.Formatter;\n\nString name = "";\nDate today = new Date();\nFormatter formatter = new Formatter();    \nformatter.format(" sono le %tT", today);\nSystem.out.println(formatter);
-W|while($1)\n{\n\t\|\n}
-V|Vector
-Fd|for(int $1 = $2 - 1; $1 >= 0; $1--)\n{\n\t\|\n}
-serr|System.err.println(\|);
-print_|System.out.println(s);
-Fc|for(int $1 = 0; $1 < $2.size(); $1++)\n{\n\t$3 \| = ($3)$2.get($1);\n}
-Ie|if($1)\n{\n\t|\n}\nelse\n{\n\t\n}\n
-VDE|VFS.DirectoryEntry
-S|String
-JE|JEditTextArea
-Fa|for(int $1 = 0; $1 < $2.length; $1++)\n{\n\t$3 \| = $2[$1];\n}
-P|public
-O|Object
-N|$1 $2 = new $1(\|);
-gta|getTextArea()
-gp|jEdit.getProperty(\|)
-I|if($1)\n{\n\t\|\n}
-H|Hashtable
-F|for(int $1 = 0; $1 < $2; $1++)\n{\n\t\|\n}
-Br|BufferedReader $1 = new BufferedReader(\|);
-E|Exception
-D|do\n{\n\t\|\n}\nwhile($1);
-sp|jEdit.setProperty(\|);
-Mal|MalformedURLException
-C|$1 $2 = ($1)\|
-B|Buffer
-ogs|import org.gjt.sp.
-hme|hasMoreElements()
-El|else\n{\n\t\|\n}
-IO|IOException
-gb|getBuffer()
-IN|$1 $2 = ($1)$3.next();
-Ei|else if($1)\n{\n\t\|\n}
-chs|Box.createHorizontalStrut(\|)
-Cget|($1)$2.get($3)
-class_|/**\n * funzione\n */\npublic class __class__ {\n    private double amount;\n    public __class__(String owner) {\n        this.owner = owner;\n    }\n}
-sbp|jEdit.setBooleanProperty(\|);
-cg|Box.createGlue()
-logw|Log.log(Log.WARNING,this,\|);
-CtoArray|($1[])$2.toArray(new $1[$2.size()])
+c_hash_t_|// @deprecated synchronized, use c_map_\nHashtable companies = new Hashtable();\ncompanies.put("Google", "United States");\nstr = companies.get("Google");\ncompanies.containsKey("Google");\ncompanies.containsValue("Japan");\n\nEnumeration enumeration = companies.elements();\nwhile (enumeration.hasMoreElements()) {\n    System.out.println("hashtable values: " + enumeration.nextElement() );\n}\ncompanies.size()\nSet hashtableKeys = companies.keySet();\nCollection hashtableValues = companies.values();
+file_put_contents_|import static java.nio.file.StandardOpenOption.*;\nimport java.nio.file.*;\nimport java.io.*;\n\npublic static void log(String s) {\n    String s = "Hello World! ";\n    byte data[] = s.getBytes();\n    Path p = Paths.get("./logfile.txt");\n\n    try (\n        OutputStream out = new BufferedOutputStream(\n          Files.newOutputStream(p, CREATE, APPEND)\n        )\n    ) {\n        out.write(data, 0, data.length);\n    } catch (IOException x) {\n        System.err.println(x);\n    }\n}\n\n 
+file_separator_|path_separator_
+c_set_|Set<Integer> set = new HashSet<Integer>();//unique\nset.add( int );\n\n 
 logn|Log.log(Log.NOTICE,this,\|);
 logm|Log.log(Log.MESSAGE,this,\|);
-DMTN|DefaultMutableTreeNode
-printf_|System.out.printf(" %s,  %.2f ", s, f );
+c_hash_|c_map_
 loge|Log.log(Log.ERROR,this,\|);
-cvs|Box.createVerticalStrut(\|)
 logd|Log.log(Log.DEBUG,this,\|);
+properties_|import java.util.Properties;\nProperties env = new Properties();\nprop.put(key, "");\nEnumeration<Object> en = env.keys();\nwhile (en.hasMoreElements()) {\n    String key = (String) en.nextElement();\n    str = env.getProperty(key);\n}\n
+log_|private static org.apache.log4j.Logger logger = Logger.getLogger( this.getClass().getName() );\nlogger.error("error:");
+str_substr_|str.substring(0,1)
+str_contains_|line.indexOf('$') >= 0
+date_|import java.util.Date;\nimport java.util.Formatter;\n\nString name = "";\nDate today = new Date();\nFormatter formatter = new Formatter();    \nformatter.format(" sono le %tT", today);\nSystem.out.println(formatter);\n\nSimpleDateFormat format = new SimpleDateFormat("ddMMyyyyHHmmss");\nString strd = format.format(today);\n\n\n\n
+do_while_|do\n{\n\t\|\n}\nwhile($1);
+str_trim_|str.trim()
+for_|for (int i=0; i < a_chars.length; i++) {\n    System.out.println( a_chars[i] );\n}
+throw_|throw new IllegalArgumentException("Invalid day of the week: "+value);
+printf_|System.out.printf(" %s,  %.2f ", s, f );
+El|else\n{\n\t\|\n}
+str_lower_|str.toLowerCase()
+iterator_next_|$1 $2 = ($1)$3.next();
+array_merge_|public static String[] arrayMerge(String[] array1, String[] array2) {\n    List<String> list = new ArrayList<String>(Arrays.asList(array1));\n    List<String> list2 = Arrays.asList(array2);\n    list.addAll(list2);\n    return list.toArray(new String[0]);\n}\npublic static <T> T[] arrayMerge(T[] a, T[] b) {\n    int aLen = a.length;\n    int bLen = b.length;\n\n    @SuppressWarnings("unchecked")\n    T[] c = (T[]) Array.newInstance(a.getClass().getComponentType(), aLen+bLen);\n    System.arraycopy(a, 0, c, 0, aLen);\n    System.arraycopy(b, 0, c, aLen, bLen);\n\n    return c;\n}\npublic static <T>\n    Map<String, T> mapsMerge(Map<String, T> map1, Map<String, T> map2) {\n        Map<String, T> map3 = new HashMap<>();\n        map3.putAll(map1);\n        map3.putAll(map2);\n        return map3;\n    }
+str_upper_|str.toUpperCase()
+try_|try {\n\n} catch (IOException e) {\n    System.err.format("IOException: %s%n", e);\n} catch (Exception e) {\n    this.logger.error(e);\n    e.printStackTrace();\n} finally {\n    // resource.close()\n}\n
+DMTN|DefaultMutableTreeNode
+iterator_|Iterator<Object> it = obj_list.iterator();\nwhile ( it.hasNext() ) {\n    Object objKey = it.next();\n}\n
+collection_|c_
+c_map_sorted_|// extends Map, ensures entries are maintained in ascending key order\nSortedMap\nc_map_
+for_v_|for(int $1 = 0; $1 < $2; $1++)\n{\n\t\|\n}
+main_|// mkdir -p it/ev/prj\n// javac MyApp.java\n// java it.ev.prj.MyApp\n//\npackage it.ev.prj;\n\nimport java.io.BufferedReader;\nimport java.io.File;\nimport java.io.FileNotFoundException;\nimport java.io.FileReader;\nimport java.io.IOException;\nimport java.util.Enumeration;\nimport java.util.HashMap;\nimport java.util.Iterator;\nimport java.util.Properties;\n\npublic class Main {\n  public static void main(String[] args) {\n    Main m = new Main();\n    m.run();\n\|  }\n  // constructor\n  public Main(){ }\n}\n
+empty_|if (str.isEmpty()) {}
+c_vector_|// @deprecated Vector synchronizes on each individual operation. \nVector<String> myVector=new Vector<String>(20,10);//initial cap+cap increment  \nmyVector.add("test str"); \nString str = myVector.get(0);\nmyVector.remove(0);\nmyVector.size();\t\n\nfor( int i=0; i<myVector.size(); i++ ) {\t\t\n    System.out.print( myVector.get(k)  );\n}\n\n
+elseif_|else if($1)\n{\n\t\|\n}
+STDIN_|import java.util.Scanner;   \nScanner scan = new Scanner(System.in);
+for_c_|for(int $1 = 0; $1 < $2.size(); $1++)\n{\n\t$3 \| = ($3)$2.get($1);\n}
+str_split_|if ( string.contains(".") ) {\nString[] parts = string.split(Pattern.quote(".")); // split takes a regex eg. "[.]" "\\\\."\n}
+array_|array_str_\narray_int_\ncollection_\n\n
+c_|import java.util.*;\n\nc_map_  //k-v pairs, unique k\n  c_map_sorted_\n// collection interface:\n  c_list_ //ordered\n  c_set_  //unique\n\tc_set_sorted_ //unique+sorted\n  c_queue_\n\n
+while_|while($1) {\n\t\|\n}
+json_decode_|import org.json.simple.JSONArray;\nimport org.json.simple.JSONObject;\nimport org.json.simple.JSONValue;\n\nJSONObject obj = (JSONObject) JSONValue.parse(json_str);\n\nprotected Properties jsonDecode(String json_content) {\n    Properties prop = new Properties();\n    \n    JSONObject obj = (JSONObject) JSONValue.parse(json_content);\n    JSONObject sectionVars = (JSONObject) obj.get("section_name");\n \n    Iterator<?> it = sectionVars.keySet().iterator();\n    while (it.hasNext()) {\n        Object objKey = it.next();\n        if (objKey instanceof String) {\n            String key = (String) objKey;\n            Object ObjectValue = sectionVars.get(key);\n            // legge solo valori stringa\n            if (ObjectValue instanceof String) {\n                prop.put(key, ObjectValue);\n            }\n            // TODO: leggere valori composti\n        }\n    }\n    return prop;\n}
+const_|protected final static String DEFAULT_HOST = "127.0.0.1";
+str_builder_|public static String multilineString(String... lines){\n   // String[] lines = {"Line 1", "Line 2" /*, ... */};\n   // StringBuilder è più veloce di StringBuffer e molto più veloce della concatenazione con + operator\n   StringBuilder sb = new StringBuilder();\n   String EOL = System.getProperty("line.separator");// '\\n'\n   for(String s : lines){\n     sb.append(s);\n     sb.append(EOL);\n   }\n   return sb.toStirng();\n}\n
+iterator_while_|while( $1.hasNext() ) {\n\t\|}
+for_downto_|for(int $1 = $2 - 1; $1 >= 0; $1--)\n{\n\t\|\n}
+str_eq_|logLevel.equals("WARN")
+file_get_contents_|// this.readConfiguration(conf, this.env) \nprotected String readFile( String path ) {\n    File envFile = new File(path);\n    if (envFile.exists()) {\n    BufferedReader br = null;\n    StringBuffer bf = new StringBuffer();\n    try {\n        br = new BufferedReader(new FileReader(envFile));\n        String line = null;\n        while ((line = br.readLine()) != null) {\n            bf.append(line);\n        }\n    } catch (FileNotFoundException e) {\n            this.logger.error(e);\n    } catch (IOException e) {\n            this.logger.error(e);\n    } catch (Exception e) {\n            this.logger.error(e);\n    } finally {\n        if (br != null) {\n            try { br.close(); } catch (IOException e) { }\n        }\n    }\n    return bf.toString();\n    }\n}
+array_int_|int[] a_num = {34, 22,10,60,30,22};
+c_list_toarray_|// Converting ArrayList to Array\nString[] simpleArray = list.toArray(new String[list.size()]);\nSystem.out.println( Arrays.toString(simpleArray) );
+foreach_|for (String k : list ) {\n\n}
+reg_scan_|import java.util.regex.Pattern;\nimport java.util.regex.Matcher;\n\n    public static void checkString(String s) {\n        Pattern twopart = Pattern.compile("(\\\\d+)-(\\\\d+)");\n        Matcher m = twopart.matcher(s);\n        if (m.matches()) {\n            System.out.println(s + " matches; first part is " + m.group(0) +\n                               ", second part is " + m.group(1) + ".");\n        } else {\n            System.out.println(s + " does not match.");\n        }\n    }\n
+path_separator_|System.getProperty("file.separator")
+c_list_|List<String> names = new ArrayList<String>();// ordered\nlist.add("SomeString");\nfor (String name : names){\n    System.out.println(name);\n}\n// c_array_list_\n\n\n
+Il|SwingUtilities.invokeLater(new Runnable()\n{\n\tpublic void run()\n\t{\n\t\t\|\n\t}\n});
+c_get|($1)$2.get($3)
+class_by_name_|Worker worker = null;\ntry {\n    Class c = Class.forName(bean.getClassName());\n    worker = (Worker) c.newInstance();\n    // worker.dosomething()\n} catch (InstantiationException e) {\n    e.printStackTrace();\n} catch (IllegalAccessException e) {\n    e.printStackTrace();\n} catch (ClassNotFoundException e) {\n    e.printStackTrace();\n} catch (Exception e) {\n    e.printStackTrace();\n}\n
+c_set_sorted_|TreeSet<integer> sortedSet = new TreeSet<Integer>(set);//unique+sorted\n
+ne|nextElement()
+microtime_|long start=System.currentTimeMillis();\n//... computation here\nlong end=System.currentTimeMillis();\nSystem.out.println(String.format("Tempo di esecuzione X() %d  millis ", (end-start));
+hostname_|import java.net.InetAddress;        \nString hostname = "localhost";\ntry {\n    hostname = InetAddress.getLocalHost().getHostName();\n} catch ( Exception ex) {\n    System.out.println("Hostname can not be resolved"); \n}
+c_unique_|c_set_\nc_set_sorted_
+c_hash_table_|// @deprecated use HashMap map_ \n//Hashtable<String, Integer> numbers = new Hashtable<String, Integer>();\n//   numbers.put("one", 1);\n//   Integer n = numbers.get("two");
+class_inner_|class Enclosing  {\n    \n    // ...\n     \n    class Inner {\n        // accesso diretto ai field e metodi dell’ospite\n    }\n    \n    static class InnerStatic {\n        // visibilità dei metodi dell'ospite come fosse una classe normale\n        // non può definire membri statici\n    } \n \n    interface InnerInterface {\n        //interfaccia interna a una classe\n    }\n     \n    public void metod() {         \n        // local: definita all'interno di un metodo, non visibile all'esterno\n        class LocalClass { }\n\t// accesso alle clessi inner:\n\tEnclising.Inner\n\tEncolsing.InnerInterface\n\tEnclosing.InnerStatic\n    }\n} \n\n// da classe esterna:\nEnclosing enclosing = new Enclosing( );\nEnclosing.Inner  v = enclosing.new Inner( );\n
+if_|if($1)\n{\n\t\|\n}
+ceil_|int c = (int) Math.ceil(a / (double) b);
+c_map_|Map<Integer, String> hash = new HashMap<>();\nhash.put(2, "");\n// iteration\nfor (String key : map.keySet()) {}\nfor (Object value : map.values()) {}\nfor ( Map.Entry<String, Object> entry : map.entrySet() ) {\n    String key = entry.getKey();\n    Object value = entry.getValue();\n}\n
+c_array_list_|// ordered, initial capacity\nArrayList<String> list = new ArrayList<String>(20);\n// \nlist.add("Item1");\nlist.add(2, "Item3"); // add to position\nlist.remove(0);\nlist.remove("Item3");// remove the first occurrence\n// \nint pos = list.indexOf("Item2");\nboolean element = list.contains("Item5");\nboolean check = list.isEmpty();\n\n// preferred \nfor (String str: list) {    System.out.println("Item is: " + str ); }\n\n// not always present .get(), linkedlist are slow index access\nfor (int i = 0; i < list.size(); i++) {\n    System.out.println("Index: " + i + " - Item: " + list.get(i) );\n}\n// iterator, old-style\nIterator<String> it=list.iterator();\nwhile(it.hasNext()){ String tmp = it.next(); }\n\n\n\n\n\n
+mail_|import org.apache.commons.mail.SimpleEmail;        \n\n// send a diagnostic mail\n// uso: Main.sendDiagMail( String.format("Exception:%s\\n Trace:%s", e.getMessage(), e.getStackTrace() ) );\npublic static void sendDiagMail(String msg) {\n        \n    // questa operazione se fallisse non deve bloccare il programma\n    String hostname = "localhost";\n    try {    \n            hostname = InetAddress.getLocalHost().getHostName();\n    } catch ( Exception ex) {\n            ex.printStackTrace();\n            System.out.println("Hostname can not be resolved");\n    }\n        \n    try {\n            SimpleEmail email = new SimpleEmail();\n            email.setHostName("localhost");\n            email.addTo("devsmt@gmail.com", "taz");\n            email.setFrom("worker@"+hostname, "java worker "+hostname);\n            email.setSubject("Test message from "+hostname );\n            email.setMsg(msg);\n            String em_res = email.send();\n            out.println("email sent:" + em_res);\n    } catch (Exception ex) {\n            out.println("email error:" + ex.getMessage());\n            ex.printStackTrace();\n    }\n}
+Br|BufferedReader $1 = new BufferedReader(\|);
+json_encode_|import org.json.simple.JSONArray;\nimport org.json.simple.JSONObject;\nimport org.json.simple.JSONValue;\n\nMap<String, Object> data = new HashMap<String, Object>();\n    data.put( "name", "Mars" );\n    data.put( "age", 32 );\n    data.put( "city", "NY" );\n    JSONObject json = new JSONObject();\n    json.putAll( data );\n    System.out.printf( "JSON: %s", json.toString(2) );
+c_toArray_|($1[])$2.toArray(new $1[$2.size()])
+serr|System.err.println(\|);
+json_parse_|json_decode_
+for_a_|for(int $1 = 0; $1 < $2.length; $1++)\n{\n\t$3 \| = $2[$1];\n}
+switch_|switch (args[0]) {  \n    case "aa":\n        System.out.println("much better");\n        break;  \n    default: \n        break;\n}
+echo_|import static java.lang.System.out;\nout.println("str");\n//System.out.println("str");
+load_|String fullClassName = "com.ibm.as400.access.AS400JDBCDriver";\nClass.forName(fullClassName);\nworker = (Worker) c.newInstance();\n
+m_|public void test() {\n}
 sprintf_|String s = String.format("result:%4d", i );\n
-WI|while($1.hasNext())\n{\n\t\|\n}
-ogsu|import org.gjt.sp.util.
-array_list_|Collection<String> l = new ArrayList<String>();\nl.add("");\n\nIterator<String> it=l.iterator();\nwhile(it.hasNext()){ String tmp = it.next(); }
-gbp|jEdit.getBooleanProperty(\|)
-main_|// mkdir -p it/ev/prj\n// javac MyApp.java\n// java it.ev.prj.MyApp\npackage it.ev.prj;\npublic class MyApp {\npublic static void main(String[] args) {\|}\n}
+str_join_|    public static String strJoin (String[] a_s, String glue) {\n        int len = a_s.length;\n        if ( 0 == len ) {\n            return null;\n        }\n        StringBuilder out = new StringBuilder();\n        out.append( a_s[0] );\n        for ( int j=1; j < len; j++ ) {\n            out.append(glue).append(a_s[j]);\n        }\n        return out.toString();\n    }\n    public static String strJoin(String[] a_s, String glue) {\n        int len = a_s.length;\n        if ( 0 == len ) {\n            return null;\n        }\n        StringBuilder out = new StringBuilder();\n        out.append( a_s[0] );\n        for ( int j=1; j < len; j++ ) {\n            out.append(glue).append(a_s[j]);\n        }\n        return out.toString();\n    }\n    public static String strJoin(Collection a_s, String glue) {\n        StringOut out = new StringOut();\n        Iterator iter = a_s.iterator();\n        while (iter.hasNext()) {\n            out.append(iter.next());\n            if (iter.hasNext()) {\n                out.append(glue);\n            }\n        }\n        return out.toString();\n    }\n    public static String strJoin(String glue, String... a_s) {\n        return strJoin(a_s, glue);\n    }\n
+str_explode_|str_split_
+class_|/**\n * funzione\n */\npublic class __class__ {\n    private double amount;\n    public __class__(String owner) {\n        this.owner = owner;\n    }\n}
+__END__|str_builder_
+c_queue_|Queue<MyObject> queue = new LinkedList<MyObject>();\nMyObject myObject = queue.remove();\nfor(MyObject anObject : queue){ }
+file_get_contents_net_|import java.net.*;\nimport java.io.*;\n \n    public static String getText(String url) throws Exception {\n        URL u = new URL(url);\n        URLConnection con = u.openConnection();\n        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));\n        StringBuilder response = new StringBuilder();\n        String line="";\n        while ((line = in.readLine()) != null) {\n            response.append(line);\n\t}\n        in.close();\n        return response.toString();\n    }\nprivate static void printURL() throws Exception {\n  URL url = new URL(url);\n  \n  Scanner scan=new Scanner(url.openConnection().getInputStream());\n  scan.useDelimiter("\\Z");\n\n  while(scan.hasNext()){\n    String tmp = scan.next();\n    System.out.println(tmp);\n  }\n}
+type_|byte \nshort \nlong \nfloat \ndouble \nboolean \nchar \nString[]  
+new_|$1 $2 = new $1(\|);
+ENV_|System.getProperty("line.separator");\nSystem.setProperty("as400.libreria", this.schema);\n\nMap<String, String> env = System.getenv();\nfor (String envName : env.keySet()) {\n    System.out.format("%s=%s%n", envName, env.get(envName));\n}\n// è possibile impostare una var via java cli flag -Dvar_name=value\n
+instanceof_|str instanceof String
+bool_|boolean
 sout|System.out.println(\|);
-map_|Map<Integer, String> hash = new HashMap<Integer, String>();\nhash.put(2, "");
-ogsj|import org.gjt.sp.jedit.
+memory_|    public void printMemory() {\n        int mb = 1024 * 1024;\n        //Getting the runtime reference from system\n        Runtime runtime = Runtime.getRuntime();\n        this.logger.debug("##### Heap utilization statistics [MB] #####");\n        //Print used memory\n        this.logger.debug("Used Memory:" + (runtime.totalMemory() - runtime.freeMemory()) / mb);\n        //Print free memory\n        this.logger.debug("Free Memory:" + runtime.freeMemory() / mb);\n        //Print total available memory\n        this.logger.debug("Total Memory:" + runtime.totalMemory() / mb);\n        //Print Maximum available memory\n        this.logger.debug("Max Memory:" + runtime.maxMemory() / mb);\n    }
+cast_|String key = (String) objKey;\n// safe cast\nif (obj != null && obj instanceof JSONObject) {\n    JSONObject jsonObj = (JSONObject) obj;\n}\n\nInteger.toString( obj.getQuantity() );\n\n@SuppressWarnings("unchecked") 
+array_str_|a_char = new String[20];// init for 20 elements\nString[] a_char = {"a", "b", "c"};// litterals\na_char[0] = "Cheese";//assign
+print_|System.out.println(s);
+floor_|int c = Math.floor(d);
+enum_|// @deprecated use collections instead\npublic enum Days {\n\tSUNDAY(1),\n\tMONDAY(2),\n\tTUESDAY(3),\n\tWEDNESDAY(4),\n\tTHURSDAY(5),\n\tFRIDAY(6),\n\tSATURDAY(7)\n}\n//Printing all constants of an enum.\nfor(Day day: Days.values())\n\tSystem.out.println(day.name());\n\nString current = "SUNDAY";\nDays currentDay = Days.valueOf(current.toUpperCase());\n\nswitch (currentDay) {\n    case MONDAY:\n    case TUESDAY:\n    case WEDNESDAY:\n        System.out.println("boring");\n        break;\n    case THURSDAY:\n        System.out.println("getting better");\n    case FRIDAY:\n    case SATURDAY:\n    case SUNDAY:\n        System.out.println("much better");\n        break;\n}\n\n
+singleton_|protected static $type instance = null;\npublic static $type getInstance() {\n    if (instance == null) {\n        instance = new $type();\n        instance.init();\n    }\n    return instance;\n}\n\n
+_ENV_|// settata con: java -Dsystem.env=$ENV \nString currentEnv = System.getProperty("system.env");
+reg_replace_|String replaceLinks(String html){\n    Pattern p = Pattern.compile("href=(?:\\"|\\')?Topic((?:\\\\d){1,3})\\\\.cjp(?:\\"|\\')?");\n    Matcher m = p.matcher(html);\n    return m.replaceAll("href=#$1");\n}\n\n \n 
+logw|Log.log(Log.WARNING,this,\|);
 [assembly-parrot]
 [xml]
 [dot]
@@ -836,285 +908,277 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [hlsl]
 [n3]
 [typescript]
-//--|\|//------------------------------------------------------------------------------
-__END__|var t = `\nmultiline string  ${var}\n`;
-__FUNCTION__|arguments.callee.name;\narguments.callee.caller.toString()
-_contains_|//Returns true if the value is present in the list. Uses indexOf internally\n_.contains([1, 2, 3], 3);\n// => true
-_count_|_size_
-_each_|_.each<string>(hash, (v:string, k:string) => { \n    \|});
-_empty_|_.isEmpty(obj)
-_every_|// Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found.\n_.every([2, 4, 5], function(num) { return num % 2 == 0; });\n// => false
-_filter_|var a_list = [1, 2, 3, 4, 5, 6];\nvar _a = _.filter<number>(a_list, (num:number):boolean => { \n    return n % 2 == 0; \n});\n// => [2, 4, 6]
-_find_|var a_list = [1, 2, 3, 4, 5, 6];\nvar even = _.find<number>(a_list, function(num){ \n    return num % 2 == 0; \n});\n//=> 2 returning the first one
-_has_|_.has({a: 1, b: 2, c: 3}, "b");\n//=> true
-_keys_|_.keys({one: 1, two: 2, three: 3});\n//=> ["one", "two", "three"]
-_map_|var a_=_.map([1, 2, 3], function(num){ return num * 3; }); // [3, 6, 9]\nvar a_=_.map({one: 1, two: 2, three: 3}, function(num, key){ return num * 3; }); // [3, 6, 9]
-_max_|var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];\n_.max(stooges, function(stooge){ return stooge.age; });\n//=> {name: 'curly', age: 60};
-_min_|var numbers = [10, 5, 100, 2, 1000];\n_.min(numbers);\n//=> 2
-_pick_|_.pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');\n=> {name: 'moe', age: 50}\n_.pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {\n  return _.isNumber(value);\n});\n//=> {age: 50}
-_pluck_|// extracting a list of property values.\nvar a_customer = [\n{name: 'moe', age: 40}, \n{name: 'larry', age: 50}, \n{name: 'curly', age: 60}\n];\n_.pluck(a_customer, 'name');\n//=> ["moe", "larry", "curly"]
-_rand_|_.random(0, 100)
-_reduce_|var a_list:Array<number> = [1, 2, 3];\nvar sum:number = _.reduce< number, number>(a_list, function(memo, num) { \n    return memo + num; \n}, 0);\n// 6
 _reject_|var a_list = [1, 2, 3, 4, 5, 6];\nvar odds = _.reject<number>(a_list, (num:number):number => { return num % 2 == 0; });\n// => [1, 3, 5]
-_size_|_.size(hash)
-_some_|//Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.\n_.some([null, 0, 'yes', false]);\n//=> true
-_sprintf_|var s = _.str.sprintf('%s', val);
-_template_|var html = _.template("<%=k%>").call(this, {k: "aa"});
-_time_|_.now();\n//=> 1392066795351
-_values_|_.values({one: 1, two: 2, three: 3});\n//=> [1, 2, 3]
-a_num_|var a_: Array<number> = [1, 2];
-a_str_|var a_: Array<string> = ['a','b'];
-a_t_|//typed array\nvar type_list = new Array<TheType>();
-apply_|fun.apply(this_obj, array_arguments );
-array_key_exists_|_has_
-array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
-array_slice_|array.slice(pos, page_len)
-array_values_|_.values(aaa)
-array_|var a_: string[] = ['hello', 'world'];
-bb_find_|this.$('scoped selector');
-bb_model_|\nexport class Order extends Backbone.Model {\n    // Data.local.promotions.getItemPromotion(BCOART);\n    initialize(attributes?: any): void {}\n    defaults(){ return {} }\n    validate(attrs, options) { }\n}\nexport class OrderCollection extends Backbone.Collection {\n    constructor(models?: any, options?: any){ \n        super(models, options); \n    }\n    initialize() { \n        this.model = Models.Order;\n    }\n}\n\n
-bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        finalize() {\n            this.stopListening(model, 'change');\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:JQueryEventObject) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
-bind_|fun.bind(this_obj , arg1, arg2 ... );
-block_|// blocca l'esecuzione fino a trovare un risltato e ritorna\nfunction somethingSync(args){\n    var ret; //the result-holding variable\n    //doing something async here...\n    somethingAsync(args,function(result){\n        ret = result;\n    });\n    //wait for the result until it's available, cause the blocking\n    while(ret === undefined){} \n    return ret;\n}
-byid_|var el = document.getElementById('id');
-cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
-call_|func.call(thisArg|null, arg1, arg2 );
-callback_|cb_
-case_|case 'nnn':\nbreak;
-cast_|// var foo: any; var foo = {} as IFooInterface;\np_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
-cb_|successCallback?: (arg1: number)=>void
-ceil_|Math.ceil(number)
-ceil_|var n = Math.ceil(7.004); // 8
-class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
-closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
-console_|console.log(\|);
-console_|log_
-const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
-construct_|constructor(public x: number ) { \n  //super();\n}\n//public getX() { return this.x; }\n
-count_|[].length
-count_|[].length\n//var k_num:number = _.size(hash);
-date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
+foreach_|_each_\n//for ( let k in _hash_ ) { if( _hash_.hasOwnProperty(k) ) { \n//    let v:any = <any>_a_[k];\n//}}\n
+js_require_|js_include_
 date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
-date_now_|var t:number = (new Date()).getTime() / 1000
-date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
-date_|moment().format('YYYY-MM-DD HH:mm:ss');
-declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
-deferred_|jq_promise_
-define_|const KEYCODE_ENTER = 13;
-dict_bb_|var a_list: _.Dictionary<string> = {};
-dict_js_|var item_list: { [k: string]: Object; } = { };
-dict_|dict_js_
-docstr_|doctring_
-each_|_each_
-empty_|_empty_
-enum_|const enum Comparison {\n    LessThan = -1,\n    EqualTo = 0,\n    GreaterThan = 1\n}\nvar x:number = Comparison.EqualTo; // Ok, replaced with 0 in emitted code\nvar y:string = Comparison[Comparison.EqualTo];\n
-except_|throw "errormsg\|";
-extend_|jq_extend_
-f__|function \|():void { return; }
-f_|() => {\n    \|\n}
-factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
-fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
-fifo_|fifo_lifo_
-filter_|var _a = a.filter(function(v){\n    return v.name === "test";\n});
-floor_|var n = Math.floor( 45.95 ); //  45
-for_|for( var i=0; i<a.length; i++) {\|}
-foreach_|_each_\n//[2,3].forEach(function(v,i){ console.log(v,i) })\n//for (var k in hash) { if(hash.hasOwnProperty(k) ) { console.log(v); } }\n//for (var k in {a:2,b:3}) { console.log(k) }\n//for (var v of [2,3,4]) { console.log(item) }\n
-func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
-func_|function(){\n\|}
-function_|//\nfunction add(x: number): number {\n    return x;\n}
-funzione_|docstring_
-generic_|// Generic functions example\nfunction reverse<T>(list: T[]) : T[] {\n  var reversedList: T[] = [];\n  for (var i = (list.length - 1); i >=0; i--) {\n    reversedList.push(list[i]);\n  }\n  return reversedList;\n}\nvar numbers = [1, 2, 3, 4];\nvar reversedNumbers = reverse<number>(numbers); // 4, 3, 2, 1\n\nfunction map<T, U>(a: T[], f: (x: T) => U): U[] {\n  var result: U[] = [];\n  for (var i = 0; i < a.length; i++) result.push(f(a[i]));\n  return result;\n}\nvar names = ["Peter", "Paul", "Mary"];\nvar lengths = map<string, number>(names, s => s.length);\n\n\n\n\n
-get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
-hash_|dict_js_
+min_|var n = Math.min(n1,n2);
+a_t_|//typed array\nvar type_list = new Array<TheType>();
+jq_is_|$( "ul" ).click(function( event ) {\n  var target = $( event.target );\n  if ( target.is( "li" ) ) {\n    target.css( "background-color", "red" );\n  }\n});
+_keys_|_.keys({one: 1, two: 2, three: 3});\n//=> ["one", "two", "three"]
+queue_|fifo_lifo_
 if_|if( typeof_  $jq_selection.length && !_.isEmpty(o) ) {\|}
-implode_|a_s.join(", ")
-import_|import * as Calculations from './Scripts/Calculations';\nreference_
-in_array_|_.indexOf([], val) !== -1\n// _contains_
-include_once_|// see require_ require_once_ include_ jq_require_
-include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});\n// see require_ require_once_ include_ jq_require_ js_include_
-include_|require_
-indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
-interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
-interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
-interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
-interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
-is_array_|_.isArray(aaa)
-is_empty_|jq_is_empty_
-is_function_|jq_is_function_
-is_numeric_|jq_is_numeric_
-is_object_|function is_object(v) {\n    //One of the quirks of JavaScript is that typeof null returns "object". But it’s not an object. So let’s check for that, too\n    return (v instanceof Object && v.toString() == '[object Object]');\n}
-is_string_|_.isString(myVar)\n// typeof myVar === 'string' || myVar instanceof String
-isset_|typeof  != 'undefined'\n// !== void 0\n
-join_|array.join(',');
-jq_ajax_get_|var jqxhr = $.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n}).done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
-jq_ajax_json_|var jqxhr = $.getJSON("/controller/action", { k: v },\n   function(json){\n     console.log("JSON Data: " + json.name);\n}).fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n});
-jq_ajax_multiple_|$.when(\n    getTweets('austintexasgov'),\n    getTweets('greenling_com'),\n    getTweets('themomandpops')\n).done(function(atxArgs, greenlingArgs, momandpopsArgs) {\n    var allTweets = [].concat(atxArgs[0]).concat(greenlingArgs[0]).concat(momandpopsArgs[0]);    \n    alert(sortedTweets);\n});\nvar getTweets = function(user) {\n    var url = 'http://twitter.com/status/user_timeline/' + user + '.json';\n    return $.get(url, { count: 5 }, null, 'jsonp');\n}\n
-jq_ajax_post_|var jqxhr = $.post("ajax/test.html", {k:v}, function( data ) {\n  \tconsole.log( data );   \n}, 'json') \n  .done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
-jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
-jq_ajax_|$.ajax({\n  url: '/data/people.json',\n  type: 'POST',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
-jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
-jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n// jq_build_\n
+_sprintf_|var s = _.str.sprintf('%s', val);
 jq_attr_|$(selector).attr(k, v);
 jq_build_|$('<div/>', {\n    'id':'myDiv',\n    'class':'myClass',\n    'style':'cursor:pointer;font-weight:bold;',\n    'html':'<span>For HTML</span>',\n    'click':function(){ alert(this.id) },\n    'mouseenter':function(){ $(this).css('color', 'red'); },\n    'mouseleave':function(){ $(this).css('color', 'black'); }\n}).appendTo('body');
-jq_by_attribute_|var el = $("[attribute='value']");
-jq_by_name_|var email = $("input[name='email']").val();
-jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
-jq_checked_|$(":checkbox").is(':checked')
-jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
-jq_contains_|str_contains_
-jq_css_|el.css({\n\tbackgroundColor: '#ffe', \n\tborderLeft: '1px solid #ccc' \n}).css('width', function( i) {\n  return i * 50;\n}).css('width', '+=200');
-jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
-jq_deferred_|jq_promise_
-jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
+reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
+redirect_|window.location = "http://www.name.com/";
+try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
+jq_ajax_|$.ajax({\n  url: '/data/people.json',\n  type: 'POST',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
+type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };// C#like: var aaa:Dictionary<number> = { 'a': 1 };\ntype Map<K,T> = { [key: K]: T; };// javalike: aaa:Map<Integer,String> \ntype List<T> = Array<T>;\n/*\n// shortcuts\ntype HashStr = Dictionary<string>;\ntype HashNum = Dictionary<number>;\n\n// optionals\ntype TStringOrNumber = string | number;\ntype TText_ = string | { text: string };\n// alias\ntype TObjectStatics = typeof Object;\n// tuple\nexport type TSQLExecTuple = [ string, any[] ];\n// parametricas\ntype TPair<T> = [T, T];\ntype TCoordinates_ = TPair<number>;\ntype TTree<T> = T | { left: Tree<T>, right: Tree<T> };\ntype TNameLookup = Dictionary<string, any>;\n// callbacks\ntype TMyHandler = (myArgument: string) => void;\ntype TCallback<T> = (data: T) => void;\n*/\n\n\n\ntype TCallbackFunc = () => void;\ntype TCallbackData = TCallback<any>;\ntype TCallback<T> = (data: T) => void;\ntype TCallback2<T,Y> = (a: T, b:Y) => void;\ntype TCallback3<T,Y,U> = (a: T, b:Y, c:U) => void;\n\n// String Literal Type:\ntype TCardinalDirection = "North" | "East" | "South" | "West";\nfunction move(direction: TCardinalDirection) {}\nmove("Nurth"); // Error!\n
+dict_bb_|var a_list: _.Dictionary<string> = {};
+_template_|var html = _.template("<%=k%>").call(this, {k: "aa"});
+jq_post_|jq_ajax_post_
+include_once_|// see require_ require_once_ include_ jq_require_
+jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
+sprintf_|sprintf('%s/%s', aa, bb )
+lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
+jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
+jq_style_|jq_css_
+jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
+preg_|reg_replace_
+fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
+for_|for (let _value_ of _a_ ) {  }  \n//for( let i:number=0; i<_a_.length; i++) { _value_[i] }
+_find_|var a_list = [1, 2, 3, 4, 5, 6];\nvar even = _.find<number>(a_list, function(num){ \n    return num % 2 == 0; \n});\n//=> 2 returning the first one
+array_|var a_: string[] = ['hello', 'world'];
+time_|var t_start:number = Date.now();\n_time_
+call_|func.call(thisArg|null, arg1, arg2 );
+str_match_|var is_found = 'For more information, see Chapter 3.4.5.1'.match( /(chapter \\d+(\\.\\d)*)/i );\nvar is_numeric = s_num.match(/^[0-9]+$/) !== null;\nconsole.log(is_found, is_numeric);
+f__|function \|():void { return; }
+case_|case 'nnn':\nbreak;
+to_array_|var args = Array.prototype.slice.call(arguments);
+is_empty_|jq_is_empty_
+_map_|var a_=_.map([1, 2, 3], function(num){ return num * 3; }); // [3, 6, 9]\nvar a_=_.map({one: 1, two: 2, three: 3}, function(num, key){ return num * 3; }); // [3, 6, 9]
+sp_|sprintf_
+lifo_|fifo_lifo_
+jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    var deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    var data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nvar promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
+_filter_|var a_list = [1, 2, 3, 4, 5, 6];\nvar _a = _.filter<number>(a_list, (num:number):boolean => { \n    return n % 2 == 0; \n});\n// => [2, 4, 6]
+include_|require_
+jq_json_|jq_ajax_json_
 jq_disable_|// su checkbox\n$('form#form_id #checkid').change(function(){\n    if( this.checked ){\n        $('form#form_id input:text').attr('disabled','disabled');\n    } else {\n        $('form#form_id input:text').removeAttr('disabled');\n    }\n}).trigger('change');\n\n// tutti i submit di una form\n$('form#form_id').map(function(){\n    var selector_btn = 'input[type=button], input[type=submit], :submit';\n    $(this).find(selector_btn).prop('disabled', true);\n});
 jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
-jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
-jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
-jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
-jq_empty_|// rm all child nodes\n$(selector).empty();
-jq_end_|$( "ul.first" )\n  .find( ".foo" )\n    .css( "background-color", "red" )\n  .end()  // returs a query object\n  .find( ".bar" )\n    .css( "background-color", "green" );
-jq_exists_|jq_hasnode_
-jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
-jq_fade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
-jq_filter_f_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
-jq_filter_|$(".parent").find(".bar").filter("p");
-jq_find_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
-jq_foreach_|$.each(a, function(i,key){\|});
-jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
-jq_get_json_|var r: JQueryXHR = $.getJSON(url: string, data?: Object, function(data: any, textStatus: string, jqXHR: JQueryXHR){\n\n});\n
-jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
-jq_get_|jq_ajax_get_
-jq_grep_|var a_res_months = $.grep(a_months, function(v, i) {\n    return ( v.indexOf('J') == 0 );\n});\n
-jq_hasnode_|if( $('#selector').length > 0 ) {}
-jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
-jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
-jq_inarray_|var a_ = [ "8", "9", "10", 10 + "" ];\nvar is_ = $.inArray( 10, a_ );
-jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
-jq_is_empty_|jQuery.isEmptyObject({}); // true\njQuery.isEmptyObject({ foo: "bar" }); // false
-jq_is_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
-jq_is_numeric_|var is_num = $.isNumeric( num );
-jq_is_|$( "ul" ).click(function( event ) {\n  var target = $( event.target );\n  if ( target.is( "li" ) ) {\n    target.css( "background-color", "red" );\n  }\n});
-jq_isnode_|if( $('#selector').length > 0 ) {}
-jq_json_|$.getJSON( "ajax/test.json", function( data ) {\n  var items = [];\n  $.each( data, function( key, val ) {\n    items.push( "<li id='" + key + "'>" + val + "</li>" );\n  });\n \n  $( "<ul/>", {\n    "class": "my-new-list",\n    html: items.join( "" )\n  }).appendTo( "body" );\n});
-jq_json_|jq_ajax_json_
-jq_key_press_|<input type="text"><span id="test_out">0</span> \n<script type="text/javascript">\nvar i = 0;\n$(function(){\n    $("input").keypress(function(){\n        $("#test_out").text(i += 1);\n    });\n});\n</script>\n
-jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
-jq_main_|$(ducument).ready(function(){\n\n});
-jq_make_array_|// Returns a NodeList\nvar elems = document.getElementsByTagName( "div" );\n// Convert the NodeList to an Array\nvar arr = jQuery.makeArray( elems );\n// Use an Array method on list of dom elements\narr.reverse();\n$( arr ).appendTo( document.body );
-jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
-jq_merge_|var a = $.merge( [1,2], [3,4] ); // jq_extend_
-jq_mouse_over_|$('div').mouseover(function() {\n    $(this).addClass('blue-bg');\n}).mouseleave(function(){\n    $(this).find('.content').fadeOut();\n});
-jq_post_|jq_ajax_post_
-jq_promise_multiple_|jq_promise_when_
-jq_promise_when_|var d1 = $.Deferred();\nvar d2 = $.Deferred();\nvar d3 = $.Deferred();\n \n$.when( d1, d2, d3 ).done(function ( v1, v2, v3 ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n    console.log( v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]\n});\n \nd1.resolve();\nd2.resolve( "abc" );\nd3.resolve( 1, 2, 3, 4, 5 );
-jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    var deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    var data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nvar promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
-jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
-jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
-jq_ready_|$(function(){\|});
-jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
-jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
-jq_rm_|jq_remove_
-jq_scroll_|// todo!
-jq_select_|// lavorare con una select\n// al change di un selct variare le options di una select dipendente\n$('#cod_linea').change(function(){\n           var f = $('#form_item_search');\n           var select = $(this);\n           var val = select.find('option:selected').val()\n           console.log(val);\n           $.ajax({\n               url: '<?=$url_ajax_options?>',\n               type: 'POST',\n               dataType: 'json',\n               data: f.serialize(),\n               success: function( resp_o ) {\n                   console.log(resp_o);\n                   var select_col = $('#cod_collection');\n                   // select_col.empty(); // remove old options\n                   $(select_col).find('option:gt(0)').remove(); // remove all options, but not the first\n\n                   $.each(resp_o , function(i, rec) {\n                           //console.log( rec );\n                           //console.log( rec['ADESCR'] );                           \n                           var html_value =  rec['ANUCOL'];\n                           var html_label =  rec['AAACOL'];\n                           select_col.append($("<option></option>").attr("value", html_value).text(html_label));\n                   });\n               },\n               error: function( req, status, err ) {\n                   console.log( 'something went wrong', status, err );\n               }\n    });\n});\n
-jq_selector_list_|/*\n    All                         *   \n                                :animated \n    Attribute Contains Prefix   [name|=  value  ]\n    Attribute Contains          [name*=  value  ]\n    Attribute Contains Word     [name~=  value  ]\n    Attribute Ends With         [name$=  value  ]\n    Attribute Equals            [name=  value  ]\n    Attribute Not Equal         [name!=  value  ]\n    Attribute Starts With       [name^=  value  ]\n                                :button\n                                :checkbox \n                                :checked \n    Child                       parent > child   \n    Class                       .class   \n                                :contains   \n                                :disabled \n                                :empty \n                                :enabled \n                                :eq   \n                                :even \n                                :file \n                                :first-child \n                                :first-of-type \n                                :first \n                                :focus \n                                :gt   \n    Has Attribute               [name]\n                                :has   \n                                :header \n                                :hidden \n    ID                          #id   \n                                :image \n                                :input \n                                :lang   \n                                :last-child \n                                :last-of-type \n                                :last \n                                :lt   \n    Multiple Attribute          [name=value][name2=value2″]\n    Multiple                    selector1, 2, N   \n    Next Adjacent               prev + next   \n    Next Siblings               prev ~ siblings   \n                                :not   \n                                :nth-child   \n                                :nth-last-child   \n                                :nth-last-of-type   \n                                :nth-of-type   \n                                :odd \n                                :only-child \n                                :only-of-type \n                                :parent \n                                :password \n                                :radio \n                                :reset \n                                :root \n                                :selected \n                                :submit \n                                :target \n                                :text \n                                :visible \n*/\n
-jq_selector_|jq_selector_list_
-jq_serialize_|// URL-encoded notation\nvar url_data = $('form').serialize();\n// array [{ name: "a", value: "1" }]\nvar a_data   = $('form').serializeArray();\n
-jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
-jq_style_|jq_css_
-jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
-jq_target_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
-jq_unique_|var a_unique = $.unique( a_ );
-jq_when_|// da utilizzare per sincronizzare una coda di operazioni\nvar d1 = $.ajax( "/page1.php" ); // $.Deferred(); d1.resolve();\nvar d2 = $.ajax( "/page2.php" ); // $.Deferred(); d2.resolve( "abc" );\n\n$.when( d1, d2 ).done(function ( v1, v2  ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n  \n});\n \n\n\n\n
-jq_wrap_all_|$( ".inner" ).wrapAll( "<div class='my_css' />");
-jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
-js_include_|function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n}
-js_log_|console.log();
-js_require_|js_include_
-json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
-json_encode_|var str:string = JSON.stringify(obj);
-json_parse_|json_decode_
-json_|var data = JSON.parse(text);\nvar text = JSON.stringify(data);
-lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
-lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
-let_|let foo = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual\n}\nconsole.log(foo); => 123 */
-lifo_|fifo_lifo_
-localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // eliminare dati:\n    // localStorage[key] = null;\n    // localStorage.removeItem(key);\n}\n
-log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
-main_|(function main() {\n\n}());
-map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
-max_|var n = Math.max(n1,n2);
-merge_|jq_merge_
-method_|protected method():void {\n\n}
-microtime_|profile_
-min_|var n = Math.min(n1,n2);
-module_|module M {\n    export class C {\n    }\n}
-mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2 + 4;\n  }\n};\nvar html = Mustache.render("{{title}} spends {{calc}}", data_obj );
-namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
-now_|moment().format('YYYY-MM-DD hh:mm:ss')
-object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
-opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
-overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
-parent_|super.methodName()
-preg_scan_|"dolor sit amet".match(/\\w+/g);
-preg_|reg_replace_
-printf_|sprintf_
-profile_|var t_start:number = Date.now();\nvar timeElapsed:number = (Date.now()-t_start);\n"time: "+timeElapsed+" msec"
-promise_|jq_promise_
-prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
-proxy_|jq_proxy_
-public_|public \|():boolean {\nreturn true;\n}
-queue_|fifo_lifo_
-rand_|_rand_
-redirect_|window.location = "http://www.name.com/";
-reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
-reference_|/// <reference path="jquery.d.ts" />
-reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
-reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
-reg_scan_|"dolor sit amet".match(/\\w+/g);
-reg_test_|var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;\n if ( _.isEmpty(str) || !re_email.test(str)  ) { } else { }
-regexp_|var re = /\\w+/;\nvar re_m = regex.exec(text);\nconsole.log(re_m[1]); \n// str_match_ str_replace_
-replace_|s = s.replace("old","new");
-require_once_|// see require_ require_once_ include_ jq_require_
-require_|import_\nreference_
-settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
-singleton_|// instance = SingletonClass.getInstance();\nclass SingletonClass {\n    private static _instance:SingletonClass = new SingletonClass();\n    public static getInstance():SingletonClass {\n        return SingletonClass._instance;\n    }\n    constructor() {\n\t// enforce singleton\n        if(SingletonClass._instance) {\n            throw new Error("Error: Instantiation failed: Use SingletonClass.getInstance() instead of new.");\n        }\n        SingletonClass._instance = this;\n    }\n}
-sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
-sp_|sprintf_
-sprintf_|sprintf('%s/%s', aa, bb )
-stack_|fifo_lifo_
-static_|myclass.method = function() {\n};
-static_|static member(b:string):string { return ''; }
-staticp_|public static func(){\n}
-stop_|e.stopPropagation();//bubbling\ne.preventDefault();
-str_contains_|var is_containing_x = url.search(/xxx/) != -1;\nvar is_containing_x = /yes/i.test('xxx') ;\nvar is_containing_x = str.toLowerCase().indexOf("xxx") >= 0);
-str_lower_|str.toLowerCase()
-str_match_|var is_found = 'For more information, see Chapter 3.4.5.1'.match( /(chapter \\d+(\\.\\d)*)/i );\nconsole.log(is_found);
-str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
+jq_contains_|str_contains_
 str_toupper_|str.toUpperCase()
+jq_is_numeric_|var is_num = $.isNumeric( num );
+_some_|//Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.\n_.some([null, 0, 'yes', false]);\n//=> true
+__FUNCTION__|arguments.callee.name;\narguments.callee.caller.toString()
+date_add_|// use moment()\nvar t1 = new Date();\nvar delta = (10 * 60 + 3) * 1000;\nvar t2 = new Date(t1.getTime() + delta);
+jq_get_|jq_ajax_get_
+jq_when_|// da utilizzare per sincronizzare una coda di operazioni\nvar d1:JQueryPromise<any> = $.ajax('/page1.php'); // $.Deferred(); d1.resolve();\nvar d2:JQueryPromise<any> = $.ajax('/page2.php'); // $.Deferred(); d2.resolve('abc');\n\n$.when( d1, d2 ).done( ( v1:any, v2:any ) => {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n});\n \n\n\n\n
+jq_wrap_all_|$( ".inner" ).wrapAll( "<div class='my_css' />");
+str_contains_|var is_containing_x = url.search(/xxx/) != -1;\nvar is_containing_x = /yes/i.test('xxx') ;\nvar is_containing_x = str.toLowerCase().indexOf("xxx") >= 0);\nvar is_numeric = s_num.match(/^[0-9]+$/) !== null;
+singleton_|// instance = SingletonClass.getInstance();\nclass SingletonClass {\n    private static _instance:SingletonClass = new SingletonClass();\n    public static getInstance():SingletonClass {\n        return SingletonClass._instance;\n    }\n    constructor() {\n\t// enforce singleton\n        if(SingletonClass._instance) {\n            throw new Error("Error: Instantiation failed: Use SingletonClass.getInstance() instead of new.");\n        }\n        SingletonClass._instance = this;\n    }\n}
+reg_scan_|"dolor sit amet".match(/\\w+/g);
+is_object_|function is_object(v) {\n    //One of the quirks of JavaScript is that typeof null returns "object". But it’s not an object. So let’s check for that, too\n    return (v instanceof Object && v.toString() == '[object Object]');\n}
+jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
+_min_|var numbers = [10, 5, 100, 2, 1000];\n_.min(numbers);\n//=> 2
+cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
+jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
+__END__|var t = `\nmultiline string  ${var}\n`;
+interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
+namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
+factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
+jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
+_size_|_.size(hash)
+get_|    private _name: string;\n    get name(): string {\n        return this._name;\n    }\t\n    set name(s: string) {\n        this._name = s; \n    }
+jq_exists_|jq_hasnode_
 substr_|str.substring(0,2);
-switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    default:\n        teststr();\n}
-template_|_template_
-template_|mustache_
-throw_|throw new Error("msg");
-time_|var t_start:number = Date.now();\n_time_
-timeout_|setTimeout(function(){ alert("Hello"); }, 300);
+max_|var n = Math.max(n1,n2);
+jq_css_|el.css({\n\tbackgroundColor: '#ffe', \n\tborderLeft: '1px solid #ccc' \n}).css('width', function( i) {\n  return i * 50;\n}).css('width', '+=200');
+implode_|a_s.join(", ")
+in_array_|_.indexOf([], val) !== -1\n// _contains_
+json_encode_|var str:string = JSON.stringify(obj);
+_contains_|//Returns true if the value is present in the list. Uses indexOf internally\n_.contains([1, 2, 3], 3);\n// => true
+preg_scan_|"dolor sit amet".match(/\\w+/g);
+log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
+profile_|var t_start:number = Date.now();\nvar timeElapsed:number = (Date.now()-t_start);\n"time: "+timeElapsed+" msec"
+staticp_|public static func(){\n}
+func_|function(){\n\|}
+static_|static member(b:string):string { return ''; }
+jq_ready_|$(function(){\|});
+_pick_|_.pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');\n=> {name: 'moe', age: 50}\n_.pick({name: 'moe', age: 50, userid: 'moe1'}, function(value, key, object) {\n  return _.isNumber(value);\n});\n//=> {age: 50}
+jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
+_pluck_|// extracting a list of property values.\nvar a_customer = [\n{name: 'moe', age: 40}, \n{name: 'larry', age: 50}, \n{name: 'curly', age: 60}\n];\n_.pluck(a_customer, 'name');\n//=> ["moe", "larry", "curly"]
+_empty_|_.isEmpty(obj)
+bb_model_|\nexport class Order extends Backbone.Model {\n    // Data.local.promotions.getItemPromotion(BCOART);\n    initialize(attributes?: any): void {}\n    defaults(){ return {} }\n    validate(attrs, options) { }\n}\nexport class OrderCollection extends Backbone.Collection {\n    constructor(models?: any, options?: any){ \n        super(models, options); \n    }\n    initialize() { \n        this.model = Models.Order;\n    }\n}\n\n
+date_|moment().format('YYYY-MM-DD HH:mm:ss');
+let_|let foo = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual\n}\nconsole.log(foo); => 123 */
+indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
+jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
+jq_checked_|$(":checkbox").is(':checked')
+array_key_exists_|_has_
+define_|const KEYCODE_ENTER = 13;
+jq_promise_when_|var d1 = $.Deferred();\nvar d2 = $.Deferred();\nvar d3 = $.Deferred();\n \n$.when( d1, d2, d3 ).done(function ( v1, v2, v3 ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n    console.log( v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]\n});\n \nd1.resolve();\nd2.resolve( "abc" );\nd3.resolve( 1, 2, 3, 4, 5 );
+json_|var data = JSON.parse(text);\nvar text = JSON.stringify(data);
+jq_foreach_|$.each(a, function(i,key){\|});
+_reduce_|var a_list:Array<number> = [1, 2, 3];\nvar sum:number = _.reduce< number, number>(a_list, function(memo, num) { \n    return memo + num; \n}, 0);\n// 6
+funzione_|docstring_
+jq_is_empty_|jQuery.isEmptyObject({}); // true\njQuery.isEmptyObject({ foo: "bar" }); // false
+bb_find_|this.$('scoped selector');
+func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
 timestamp_|var now = new Date().getTime().toString();
-to_array_|var args = Array.prototype.slice.call(arguments);
-trim_|var s = $.trim(str);
-try_|try {\n\|} catch(e) {\n    // e.message\n}
-try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
-type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };// C#like: var aaa:Dictionary<number> = { 'a': 1 };\ntype Map<K,T> = { [key: K]: T; };// javalike: aaa:Map<Integer,String> \ntype List<T> = Array<T>;\n/*\n// shortcuts\ntype HashStr = Dictionary<string>;\ntype HashNum = Dictionary<number>;\n\n// optionals\ntype TStringOrNumber = string | number;\ntype TText_ = string | { text: string };\n// alias\ntype TObjectStatics = typeof Object;\n// tuple\nexport type TSQLExecTuple = [ string, any[] ];\n// parametricas\ntype TPair<T> = [T, T];\ntype TCoordinates_ = TPair<number>;\ntype TTree<T> = T | { left: Tree<T>, right: Tree<T> };\ntype TNameLookup = Dictionary<string, any>;\n// callbacks\ntype TMyHandler = (myArgument: string) => void;\ntype TCallback<T> = (data: T) => void;\n*/\n\n\n\ntype TCallbackFunc = () => void;\ntype TCallbackData = TCallback<any>;\ntype TCallback<T> = (data: T) => void;\ntype TCallback2<T,Y> = (a: T, b:Y) => void;\ntype TCallback3<T,Y,U> = (a: T, b:Y, c:U) => void;\n\n// String Literal Type:\ntype TCardinalDirection = "North" | "East" | "South" | "West";\nfunction move(direction: TCardinalDirection) {}\nmove("Nurth"); // Error!\n
-typeof_|isset_
-unique_|aaa = _.uniq(aaa);\n
-unique_|jq_unique_
-unset_|delete obj['index'];
-url_decode_|var v="JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";// "JavaScript_шеллы"\nvar v = decodeURIComponent(v);
-url_encode_|var s = encodeURIComponent(v);
-var_|console.log(\|);
-var_|log_
-void_|if ( value === void 0) { value = 0; }
+opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
+parseInt_|parseInt("221100", 10);
+a_num_|var a_: Array<number> = [1, 2];
+declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
+jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
+jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
 when_|jq_when_
+closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
+cb_|successCallback?: (arg1: number)=>void
+jq_target_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
+jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
+_every_|// Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found.\n_.every([2, 4, 5], function(num) { return num % 2 == 0; });\n// => false
+jq_find_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
+jq_promise_multiple_|jq_promise_when_
+jq_by_attribute_|var el = $("[attribute='value']");
+now_|moment().format('YYYY-MM-DD hh:mm:ss')
+merge_|jq_merge_
+jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
+jq_serialize_|// URL-encoded notation\nvar url_data = $('form').serialize();\n// array [{ name: "a", value: "1" }]\nvar a_data   = $('form').serializeArray();\n
+jq_mouse_over_|$('div').mouseover(function() {\n    $(this).addClass('blue-bg');\n}).mouseleave(function(){\n    $(this).find('.content').fadeOut();\n});
+empty_|_empty_
+require_|import_\nreference_
+jq_main_|$(() => {\n// $.ready\n});
+extend_|jq_extend_
+trim_|var s = $.trim(str);
+jq_end_|$( "ul.first" )\n  .find( ".foo" )\n    .css( "background-color", "red" )\n  .end()  // returs a query object\n  .find( ".bar" )\n    .css( "background-color", "green" );
+each_|_each_
+deferred_|jq_promise_
+str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
+array_values_|_.values(aaa)
+hash_|dict_js_
+jq_unique_|var a_unique = $.unique( a_ );
+_max_|var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];\n_.max(stooges, function(stooge){ return stooge.age; });\n//=> {name: 'curly', age: 60};
+isset_|typeof  != 'undefined'\n// !== void 0\n
+jq_filter_|$(".parent").find(".bar").filter("p");
+f_|() => {\n    \|\n}
+//--|\|//------------------------------------------------------------------------------
+switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    default:\n        teststr();\n}
+dict_|dict_js_
+ceil_|var n = Math.ceil(7.004); // 8
+rand_|_rand_
+require_once_|// see require_ require_once_ include_ jq_require_
+jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
+block_|// blocca l'esecuzione fino a trovare un risltato e ritorna\nfunction somethingSync(args){\n    var ret; //the result-holding variable\n    //doing something async here...\n    somethingAsync(args,function(result){\n        ret = result;\n    });\n    //wait for the result until it's available, cause the blocking\n    while(ret === undefined){} \n    return ret;\n}
+method_|protected method():void {\n\n}
+prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
+reference_|/// <reference path="jquery.d.ts" />
+printf_|sprintf_
+import_|import * as Calculations from './Scripts/Calculations';\nreference_
+filter_|var _a = a.filter(function(v){\n    return v.name === "test";\n});
+is_numeric_|jq_is_numeric_
+join_|array.join(',');
+jq_inarray_|var a_ = [ "8", "9", "10", 10 + "" ];\nvar is_ = $.inArray( 10, a_ );
+construct_|constructor(public x: number ) { \n  //super();\n}\n//public getX() { return this.x; }\n
+jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n// jq_build_\n
+parent_|super.methodName()
+a_str_|var a_: Array<string> = ['a','b'];
+array_slice_|array.slice(pos, page_len)
+generic_|// Generic functions example\nfunction reverse<T>(list: T[]) : T[] {\n  var reversedList: T[] = [];\n  for (var i = (list.length - 1); i >=0; i--) {\n    reversedList.push(list[i]);\n  }\n  return reversedList;\n}\nvar numbers = [1, 2, 3, 4];\nvar reversedNumbers = reverse<number>(numbers); // 4, 3, 2, 1\n\nfunction map<T, U>(a: T[], f: (x: T) => U): U[] {\n  var result: U[] = [];\n  for (var i = 0; i < a.length; i++) result.push(f(a[i]));\n  return result;\n}\nvar names = ["Peter", "Paul", "Mary"];\nvar lengths = map<string, number>(names, s => s.length);\n\n\n\n\n
+jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
+_time_|_.now();\n//=> 1392066795351
+lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
+dict_js_|var item_list: { [k: string]: Object; } = { };
+unique_|jq_unique_
+jq_ajax_multiple_|$.when(\n    getTweets('austintexasgov'),\n    getTweets('greenling_com'),\n    getTweets('themomandpops')\n).done(function(atxArgs, greenlingArgs, momandpopsArgs) {\n    var allTweets = [].concat(atxArgs[0]).concat(greenlingArgs[0]).concat(momandpopsArgs[0]);    \n    alert(sortedTweets);\n});\nvar getTweets = function(user) {\n    var url = 'http://twitter.com/status/user_timeline/' + user + '.json';\n    return $.get(url, { count: 5 }, null, 'jsonp');\n}\n
+jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
+proxy_|jq_proxy_
+stack_|fifo_lifo_
+replace_|s = s.replace("old","new");
+overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
+jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
+apply_|fun.apply(this_obj, array_arguments );
+jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
+moment_|var om = moment("12-25-1995", "MM-DD-YYYY");\nconsole.log( om.format("MM-DD-YYYY") );
+interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
+main_|(function main() {\n\n}());
+jq_key_press_|<input type="text"><span id="test_out">0</span> \n<script type="text/javascript">\nvar i = 0;\n$(function(){\n    $("input").keypress(function(){\n        $("#test_out").text(i += 1);\n    });\n});\n</script>\n
+object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
 while_|while( true ){\|}
+template_|mustache_
+public_|public \|():boolean {\nreturn true;\n}
+jq_fade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
+var_|log_
+url_decode_|var v="JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";// "JavaScript_шеллы"\nvar v = decodeURIComponent(v);
+reg_test_|var re_email = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;\nif ( _.isEmpty(str) || !re_email.test(str)  ) { console.log("not email "+str); } else { console.log('email format ok '+str); }\n\nvar is_numeric = s_num.match(/^[0-9]+$/) !== null;\n\n\n
+jq_grep_|var a_res_months = $.grep(a_months, function(v, i) {\n    return ( v.indexOf('J') == 0 );\n});\n
+jq_by_name_|var email = $("input[name='email']").val();
+mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2 + 4;\n  }\n};\nvar html = Mustache.render("{{title}} spends {{calc}}", data_obj );
+jq_select_|// lavorare con una select\n// al change di un selct variare le options di una select dipendente\n$('#cod_linea').change(function(){\n           var f = $('#form_item_search');\n           var select = $(this);\n           var val = select.find('option:selected').val()\n           console.log(val);\n           $.ajax({\n               url: '<?=$url_ajax_options?>',\n               type: 'POST',\n               dataType: 'json',\n               data: f.serialize(),\n               success: function( resp_o ) {\n                   console.log(resp_o);\n                   var select_col = $('#cod_collection');\n                   // select_col.empty(); // remove old options\n                   $(select_col).find('option:gt(0)').remove(); // remove all options, but not the first\n\n                   $.each(resp_o , function(i, rec) {\n                           //console.log( rec );\n                           //console.log( rec['ADESCR'] );                           \n                           var html_value =  rec['ANUCOL'];\n                           var html_label =  rec['AAACOL'];\n                           select_col.append($("<option></option>").attr("value", html_value).text(html_label));\n                   });\n               },\n               error: function( req, status, err ) {\n                   console.log( 'something went wrong', status, err );\n               }\n    });\n});\n
+enum_|const enum Comparison {\n    LessThan = -1,\n    EqualTo = 0,\n    GreaterThan = 1\n}\nvar x:number = Comparison.EqualTo; // Ok, replaced with 0 in emitted code\nvar y:string = Comparison[Comparison.EqualTo];\n
+jq_deferred_|jq_promise_
+settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
+interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
+jq_scroll_|// todo!
+str_lower_|str.toLowerCase()
+js_log_|console.log();
+jq_hasnode_|if( $('#selector').length > 0 ) {}
+promise_|jq_promise_
+bind_|fun.bind(this_obj , arg1, arg2 ... );
+js_include_|function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n}
+byid_|var el = document.getElementById('id');
+reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
+_count_|_size_
+is_array_|_.isArray(aaa)
+_has_|_.has({a: 1, b: 2, c: 3}, "b");\n//=> true
+is_string_|_.isString(myVar)\n// typeof myVar === 'string' || myVar instanceof String
+jq_merge_|var a = $.merge( [1,2], [3,4] ); // jq_extend_
+_values_|_.values({one: 1, two: 2, three: 3});\n//=> [1, 2, 3]
+jq_empty_|// rm all child nodes\n$(selector).empty();
+jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
+is_function_|jq_is_function_
+fifo_|fifo_lifo_
+jq_ajax_post_|var jqxhr = $.post("ajax/test.html", {k:v}, function( data ) {\n  \tconsole.log( data );   \n}, 'json') \n  .done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
+interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
+jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
+docstr_|doctring_
+const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
+jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
+typeof_|isset_
+jq_isnode_|if( $('#selector').length > 0 ) {}
+date_now_|var t:number = (new Date()).getTime() / 1000
+console_|log_
+bb_collection_find_|var clientList = new Models.ClientCollection();\nvar p_fetc:JQueryPromise<any> = clientList.fetch({\n    reset: true,\n    data: {\n        cod_cliente: cod_cliente\n    },\n    /*success: ( list: any, response: any, options: any ) => {\n        var client_model:Models.Client = list.at(0);\n        var html = this.getHTML(client_model);\n        this.$('.content').html(html);\n    }*/\n} as any );\np_fetc.done( (rec:Hash ) => {\n    var client_model:Models.Client = <Models.Client> clientList.at(0);\n    var html = this.getHTML(client_model);\n    $(Views.Modals.BaseModal.getContentElement(modal_id)).html(html);\n});\n\n
+reg_replace_|str.replace(/[^A-Za-z0-9_]+/g, "_");
+function_|//\nfunction add(x: number): number {\n    return x;\n}
+throw_|throw new Error("msg");
+stop_|e.stopPropagation();//bubbling\ne.preventDefault();
+jq_filter_f_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
+floor_|var n = Math.floor( 45.95 ); //  45
+regexp_|var re = /\\w+/;\nvar re_m = regex.exec(text);\nconsole.log(re_m[1]); \n// str_match_ str_replace_
+module_|module M {\n    export class C {\n    }\n}
+jq_selector_|jq_selector_list_
+callback_|cb_
+jq_ajax_get_|var jqxhr = $.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n}).done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
+cast_|// var foo: any; var foo = {} as IFooInterface;\np_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
+count_|[].length\n//var k_num:number = _.size(hash);
+jq_ajax_json_|var jqxhr = $.getJSON("/controller/action", { k: v },\n   function(json){\n     console.log("JSON Data: " + json.name);\n}).fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n});
+map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
+bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        finalize() {\n            this.stopListening(model, 'change');\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:JQueryEventObject) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
+jq_rm_|jq_remove_
+array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
+jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
+jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
+localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // eliminare dati:\n    // localStorage[key] = null;\n    // localStorage.removeItem(key);\n}\n
+_each_|_.each<string>(hash, (v:string, k:string) => { \n    \|});
+except_|throw "errormsg\|";
+timeout_|setTimeout(function(){ alert("Hello"); }, 300);
+jq_selector_list_|/*\n    All                         *   \n                                :animated \n    Attribute Contains Prefix   [name|=  value  ]\n    Attribute Contains          [name*=  value  ]\n    Attribute Contains Word     [name~=  value  ]\n    Attribute Ends With         [name$=  value  ]\n    Attribute Equals            [name=  value  ]\n    Attribute Not Equal         [name!=  value  ]\n    Attribute Starts With       [name^=  value  ]\n                                :button\n                                :checkbox \n                                :checked \n    Child                       parent > child   \n    Class                       .class   \n                                :contains   \n                                :disabled \n                                :empty \n                                :enabled \n                                :eq   \n                                :even \n                                :file \n                                :first-child \n                                :first-of-type \n                                :first \n                                :focus \n                                :gt   \n    Has Attribute               [name]\n                                :has   \n                                :header \n                                :hidden \n    ID                          #id   \n                                :image \n                                :input \n                                :lang   \n                                :last-child \n                                :last-of-type \n                                :last \n                                :lt   \n    Multiple Attribute          [name=value][name2=value2″]\n    Multiple                    selector1, 2, N   \n    Next Adjacent               prev + next   \n    Next Siblings               prev ~ siblings   \n                                :not   \n                                :nth-child   \n                                :nth-last-child   \n                                :nth-last-of-type   \n                                :nth-of-type   \n                                :odd \n                                :only-child \n                                :only-of-type \n                                :parent \n                                :password \n                                :radio \n                                :reset \n                                :root \n                                :selected \n                                :submit \n                                :target \n                                :text \n                                :visible \n*/\n
+sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
+json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
+json_parse_|json_decode_
+url_encode_|var s = encodeURIComponent(v);
+class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
+jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
+jq_is_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
+void_|if ( value === void 0) { value = 0; }
+microtime_|profile_
+jq_make_array_|// Returns a NodeList\nvar elems = document.getElementsByTagName( "div" );\n// Convert the NodeList to an Array\nvar arr = jQuery.makeArray( elems );\n// Use an Array method on list of dom elements\narr.reverse();\n$( arr ).appendTo( document.body );
+jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
+date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
+_rand_|_.random(0, 100)
+unset_|delete obj['index'];
 [plaintex]
 [cobol]
 [csv]
@@ -1139,180 +1203,180 @@ css_mediaquery_|// if( $device_width >= $x )\n@media only screen and (min-width:
 [binsource-agc]
 [ans-forth94]
 [javascript]
-//--|\|//------------------------------------------------------------------------------
-_count_|_size_
-_each_|_.each(hash, function(v, k, list){ });
-_empty_|_.isEmpty(|)
-_map_|var a_=_.map([1, 2, 3], function(num){ return num * 3; }); // [3, 6, 9]\nvar a_=_.map({one: 1, two: 2, three: 3}, function(num, key){ return num * 3; }); // [3, 6, 9]
-_reduce_|var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);// 6
-_size_|var a_={one: 1, two: 2, three: 3};// 3\nvar c = _.size(a_);
-_sprintf_|var s = _.str.sprintf('%s', val);
-_template_|var html = _.template("<%=k%>").call(this, {k: "aa"});
-apply_|fun.apply(this_obj, array_arguments );
-bind_|fun.bind(this_obj , arg1, arg2 ... );
-byid_|var el = document.getElementById('id');
-call_|fun.call(this_obj, arg1, arg2, ... );
-ceil_|var n = Math.ceil(7.004); // 8
-class_|// funzione:\nvar Greeter = (function () {\n    // constructor\n    function Greeter(message) {\n        // public\n        this.greeting = message || 'default';\n        // privileged\n        this.publicMethod = function() {\n            alert(privateName + " get from public method!"); \n        }    \t\n    }\n    // public methods\n    Greeter.prototype.greet = function () {\n        return "Hello, " + this.greeting;\n    };\n    // private\n    var privateVar = message || "default"; \n    var privateMethod = function() {\n        return privateVar; \n    }\n    \n    return Greeter;\n})();\n// instance\n// var o = new Greeter("txt");\n
-clo_|func_
-console_|console.log(\|);
-count_|[].length
-date_|function format_date_it(date){\n    var m = date.getMonth() + 1;\n    var str = date.getDate() + "/" + m + "/" + date.getFullYear();\n    return str;\n}\nfunction date_last_week(){\n    var es = (7*24*60*60*1000);//secondi in una settimana\n    var ts = ( (new Date()).getTime() - es );\n    return new Date(ts);\n};\nvar str = format_date_it( date_last_week() );
-define_|define(["my/dependency"],\n    function(dependency) {\n        // private code\n        return function() {\n            // public code\n        }\n    }\n);
-except_|throw "errormsg\|";
-extend_|jq_extend_
-f_|func_
-factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
-filter_|var _a = a.filter(function(v){\n    return v.name === "test";\n});
-floor_|var n = Math.floor( 45.95 ); //  45
-for_|for( var i=0; i<a.length; i++) {\|}
 foreach_|a.forEach(function(v,k){\n    // console.log(v);\n});\n// IE<=8 \n// for(var k in a){ if(a.hasOwnProperty(k)){ var v = a[k]; }}
-func_|function(){\n\|}
-function_|function(){\n\|}
+js_require_|js_include_
+min_|var n = Math.min(n1,n2);
+jq_is_|$( "ul" ).click(function( event ) {\n  var target = $( event.target );\n  if ( target.is( "li" ) ) {\n    target.css( "background-color", "red" );\n  }\n});
 if_|if( $jq_selection.length && !_.isEmpty(o) ) {\|}
-in_array_|var is_present = ["Banana", "Orange"].indexOf("Apple") >= 0; // jq_inarray_
-include_once_|// see require_ require_once_ include_ jq_require_
-include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});\n// see require_ require_once_ include_ jq_require_ js_include_
-indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
-interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
-is_array_|$.isArray(\|)
-is_empty_|jq_is_empty_
-is_function_|jq_is_function_
-is_numeric_|jq_is_numeric_
-is_object_|function is_object(v) {\n    //One of the quirks of JavaScript is that typeof null returns "object". But it’s not an object. So let’s check for that, too\n    return (v instanceof Object && v.toString() == '[object Object]');\n}
-is_string_|_.isString(myVar)\n// typeof myVar === 'string' || myVar instanceof String
-isset_|typeof != 'undefined'\n//  !== void 0
-join_|array.join(',');
-jq_ajax_get_|var jqxhr = $.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n}).done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
-jq_ajax_json_|var jqxhr = $.getJSON("/controller/action", { k: v },\n   function(json){\n     console.log("JSON Data: " + json.name);\n}).fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n});
-jq_ajax_multiple_|$.when(\n    getTweets('austintexasgov'),\n    getTweets('greenling_com'),\n    getTweets('themomandpops')\n).done(function(atxArgs, greenlingArgs, momandpopsArgs) {\n    var allTweets = [].concat(atxArgs[0]).concat(greenlingArgs[0]).concat(momandpopsArgs[0]);    \n    alert(sortedTweets);\n});\nvar getTweets = function(user) {\n    var url = 'http://twitter.com/status/user_timeline/' + user + '.json';\n    return $.get(url, { count: 5 }, null, 'jsonp');\n}\n
-jq_ajax_post_|var jqxhr = $.post("ajax/test.html", {k:v}, function( data ) {\n  \tconsole.log( data );   \n}, 'json') \n  .done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
-jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
-jq_ajax_|$.ajax({\n  url: '/data/people.json',\n  type: 'POST',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
-jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
-jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n// jq_build_\n
+_sprintf_|var s = _.str.sprintf('%s', val);
 jq_attr_|$(selector).attr(k, v);
 jq_build_|$('<div/>', {\n    'id':'myDiv',\n    'class':'myClass',\n    'style':'cursor:pointer;font-weight:bold;',\n    'html':'<span>For HTML</span>',\n    'click':function(){ alert(this.id) },\n    'mouseenter':function(){ $(this).css('color', 'red'); },\n    'mouseleave':function(){ $(this).css('color', 'black'); }\n}).appendTo('body');
-jq_by_attribute_|var el = $("[attribute='value']");
-jq_by_name_|var email = $("input[name='email']").val();
-jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
-jq_checked_|$(":checkbox").is(':checked')
-jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
-jq_contains_|str_contains_
-jq_css_|el.css({\n\tbackgroundColor: '#ffe', \n\tborderLeft: '1px solid #ccc' \n}).css('width', function( i) {\n  return i * 50;\n}).css('width', '+=200');
-jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
-jq_deferred_|jq_promise_
-jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
+reg_get_|var regexp = new RegExp(s_query, 'gi');\nvar res = str.match(regexp);
+redirect_|window.location = "http://www.name.com/";
+try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
+jq_ajax_|$.ajax({\n  url: '/data/people.json',\n  type: 'POST',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
+_template_|var html = _.template("<%=k%>").call(this, {k: "aa"});
+jq_post_|jq_ajax_post_
+include_once_|// see require_ require_once_ include_ jq_require_
+jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
+sprintf_|_sprintf_
+jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
+jq_style_|jq_css_
+jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
+preg_|reg_replace_
+for_|for( var i=0; i<a.length; i++) {\|}
+call_|fun.call(this_obj, arg1, arg2, ... );
+str_match_|var is_found = 'For more information, see Chapter 3.4.5.1'.match( /(chapter \\d+(\\.\\d)*)/i );\nconsole.log(is_found);
+to_array_|var args = Array.prototype.slice.call(arguments);
+is_empty_|jq_is_empty_
+_map_|var a_=_.map([1, 2, 3], function(num){ return num * 3; }); // [3, 6, 9]\nvar a_=_.map({one: 1, two: 2, three: 3}, function(num, key){ return num * 3; }); // [3, 6, 9]
+jq_promise_|/* per una operazione asincrona ritorna .promise(), intercetta il .done() con una callback\n$( "div" ).promise().done(function() {\n     // op Finished!\n});\n$.when( effect() ).done(function() {\n    // op Finished!\n}); */\n\nfunction doSomethingLater( fn, time ) {\n  var dfd = $.Deferred();\n  setTimeout(function() {\n    dfd.resolve( fn() );\n  }, time || 0);\n  return dfd.promise();\n}\nvar success = function( resp ) {\n  $( '#target' ).html( 'it worked' );\n};\nvar err = function( req, status, err ) {\n  $( '#target' ).html( 'it failed' );\n};\nvar dfd = doSomethingLater(function() { /* onTimeOut */ }, 100);\ndfd.then( success, err );\n
+include_|LazyLoad.js(['foo.js', 'bar.js', 'baz.js'], function () {\n  alert('all files have been loaded');\n});\n// see require_ require_once_ include_ jq_require_ js_include_
+jq_json_|jq_ajax_json_
 jq_disable_|// su checkbox\n$('form#form_id #checkid').change(function(){\n    if( this.checked ){\n        $('form#form_id input:text').attr('disabled','disabled');\n    } else {\n        $('form#form_id input:text').removeAttr('disabled');\n    }\n}).trigger('change');\n\n// tutti i submit di una form\n$('form#form_id').map(function(){\n    var selector_btn = 'input[type=button], input[type=submit], :submit';\n    $(this).find(selector_btn).prop('disabled', true);\n});
 jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
-jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
-jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
-jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
-jq_empty_|// rm all child nodes\n$(selector).empty();
-jq_end_|$( "ul.first" )\n  .find( ".foo" )\n    .css( "background-color", "red" )\n  .end()  // returs a query object\n  .find( ".bar" )\n    .css( "background-color", "green" );
-jq_exists_|jq_hasnode_
-jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
-jq_fade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
-jq_filter_f_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
-jq_filter_|$(".parent").find(".bar").filter("p");
-jq_find_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
-jq_foreach_|$.each(a, function(i,key){\|});
-jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
-jq_get_json_|var r: JQueryXHR = $.getJSON(url: string, data?: Object, function(data: any, textStatus: string, jqXHR: JQueryXHR){\n\n});\n
-jq_get_|jq_ajax_get_
-jq_grep_|var a_res_months = $.grep(a_months, function(v, i) {\n    return ( v.indexOf('J') == 0 );\n});\n
-jq_hasnode_|if( $('#selector').length > 0 ) {}
-jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
-jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
-jq_inarray_|var a_ = [ "8", "9", "10", 10 + "" ];\nvar is_ = $.inArray( 10, a_ );
-jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
-jq_is_empty_|jQuery.isEmptyObject({}); // true\njQuery.isEmptyObject({ foo: "bar" }); // false
-jq_is_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
+jq_contains_|str_contains_
 jq_is_numeric_|var is_num = $.isNumeric( num );
-jq_is_|$( "ul" ).click(function( event ) {\n  var target = $( event.target );\n  if ( target.is( "li" ) ) {\n    target.css( "background-color", "red" );\n  }\n});
-jq_isnode_|if( $('#selector').length > 0 ) {}
-jq_json_|jq_ajax_json_
-jq_key_press_|<input type="text"><span id="test_out">0</span> \n<script type="text/javascript">\nvar i = 0;\n$(function(){\n    $("input").keypress(function(){\n        $("#test_out").text(i += 1);\n    });\n});\n</script>\n
-jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
-jq_make_array_|// Returns a NodeList\nvar elems = document.getElementsByTagName( "div" );\n// Convert the NodeList to an Array\nvar arr = jQuery.makeArray( elems );\n// Use an Array method on list of dom elements\narr.reverse();\n$( arr ).appendTo( document.body );
-jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
-jq_merge_|var a = $.merge( [1,2], [3,4] ); // jq_extend_
-jq_mouse_over_|$('div').mouseover(function() {\n    $(this).addClass('blue-bg');\n}).mouseleave(function(){\n    $(this).find('.content').fadeOut();\n});
-jq_post_|jq_ajax_post_
-jq_promise_|/* per una operazione asincrona ritorna .promise(), intercetta il .done() con una callback\n$( "div" ).promise().done(function() {\n     // op Finished!\n});\n$.when( effect() ).done(function() {\n    // op Finished!\n}); */\n\nfunction doSomethingLater( fn, time ) {\n  var dfd = $.Deferred();\n  setTimeout(function() {\n    dfd.resolve( fn() );\n  }, time || 0);\n  return dfd.promise();\n}\nvar success = function( resp ) {\n  $( '#target' ).html( 'it worked' );\n};\nvar err = function( req, status, err ) {\n  $( '#target' ).html( 'it failed' );\n};\nvar dfd = doSomethingLater(function() { /* onTimeOut */ }, 100);\ndfd.then( success, err );\n
-jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
-jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
-jq_ready_|$(function(){\|});
-jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
-jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
-jq_rm_|jq_remove_
-jq_scroll_|// todo!
-jq_select_|// lavorare con una select\n// al change di un selct variare le options di una select dipendente\n$('#cod_linea').change(function(){\n           var f = $('#form_item_search');\n           var select = $(this);\n           var val = select.find('option:selected').val()\n           console.log(val);\n           $.ajax({\n               url: '<?=$url_ajax_options?>',\n               type: 'POST',\n               dataType: 'json',\n               data: f.serialize(),\n               success: function( resp_o ) {\n                   console.log(resp_o);\n                   var select_col = $('#cod_collection');\n                   // select_col.empty(); // remove old options\n                   $(select_col).find('option:gt(0)').remove(); // remove all options, but not the first\n\n                   $.each(resp_o , function(i, rec) {\n                           //console.log( rec );\n                           //console.log( rec['ADESCR'] );                           \n                           var html_value =  rec['ANUCOL'];\n                           var html_label =  rec['AAACOL'];\n                           select_col.append($("<option></option>").attr("value", html_value).text(html_label));\n                   });\n               },\n               error: function( req, status, err ) {\n                   console.log( 'something went wrong', status, err );\n               }\n    });\n});\n
-jq_selector_list_|/*\n    All                         *   \n                                :animated \n    Attribute Contains Prefix   [name|=  value  ]\n    Attribute Contains          [name*=  value  ]\n    Attribute Contains Word     [name~=  value  ]\n    Attribute Ends With         [name$=  value  ]\n    Attribute Equals            [name=  value  ]\n    Attribute Not Equal         [name!=  value  ]\n    Attribute Starts With       [name^=  value  ]\n                                :button\n                                :checkbox \n                                :checked \n    Child                       parent > child   \n    Class                       .class   \n                                :contains   \n                                :disabled \n                                :empty \n                                :enabled \n                                :eq   \n                                :even \n                                :file \n                                :first-child \n                                :first-of-type \n                                :first \n                                :focus \n                                :gt   \n    Has Attribute               [name]\n                                :has   \n                                :header \n                                :hidden \n    ID                          #id   \n                                :image \n                                :input \n                                :lang   \n                                :last-child \n                                :last-of-type \n                                :last \n                                :lt   \n    Multiple Attribute          [name=value][name2=value2″]\n    Multiple                    selector1, 2, N   \n    Next Adjacent               prev + next   \n    Next Siblings               prev ~ siblings   \n                                :not   \n                                :nth-child   \n                                :nth-last-child   \n                                :nth-last-of-type   \n                                :nth-of-type   \n                                :odd \n                                :only-child \n                                :only-of-type \n                                :parent \n                                :password \n                                :radio \n                                :reset \n                                :root \n                                :selected \n                                :submit \n                                :target \n                                :text \n                                :visible \n*/\n
-jq_selector_|jq_selector_list_
-jq_serialize_|// URL-encoded notation\nvar url_data = $('form').serialize();\n// array [{ name: "a", value: "1" }]\nvar a_data   = $('form').serializeArray();\n
-jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
-jq_style_|jq_css_
-jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
-jq_target_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
-jq_unique_|var a_unique = $.unique( a_ );
+jq_get_|jq_ajax_get_
 jq_wrap_all_|$( ".inner" ).wrapAll( "<div class='my_css' />");
-jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
-js_include_|function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n}
-js_log_|console.log();
-js_require_|js_include_
-json_decode_|try {  \n    var o_ = $.parseJSON(json_str);\n} catch(e) { \n    console.log(e.message); \n}
-json_encode_|var text = JSON.stringify(data);
-json_parse_|JSON.parse(text);
-json_|var data = JSON.parse(text);\nvar text = JSON.stringify(data);
-lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
-localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // eliminare dati:\n    // localStorage[key] = null;\n    // localStorage.removeItem(key);\n}\n
-log_|console.log(\|);
-map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
-max_|var n = Math.max(n1,n2);
-merge_|jq_merge_
-method_|    method: function() {\n    },
-min_|var n = Math.min(n1,n2);
-module_|module = function() {\n  // ... module privates and aliases\n\n  // public\n  return {\n    // ... module constants\n    init: function() {\n      return this;\n    },\n\n  };\n}().init();
-now_|var now_ts = (new Date).getTime();//timestamp
-object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
-preg_|reg_replace_
-prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
-proxy_|jq_proxy_
-rand_|// Returns a random integer between min (included) and max (included)\n// Using Math.round() will give you a non-uniform distribution!\nfunction getRandomIntInclusive(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nvar n = Math.random();// between 0 (inclusive) and 1 (exclusive)\n
-redirect_|window.location = "http://www.name.com/";
-reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
-reg_get_|var regexp = new RegExp(s_query, 'gi');\nvar res = str.match(regexp);
-reg_replace_|var str = str_result.replace(new RegExp('[a-z]', 'g'), '_');
-reg_test_|var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;\n if ( _.isEmpty(str) || !re_email.test(str)  ) { } else { }
-regexp_|var re = /\\w+/;\nvar re_m = regex.exec(text);\nconsole.log(re_m[1]); \n// str_match_ str_replace_
-replace_|s = s.replace("old","new");
-require_once_|// see require_ require_once_ include_ jq_require_
-require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});\n// see require_ require_once_ include_ jq_require_
-settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
-sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
-sprintf_|_sprintf_
-static_|myclass.method = function() {\n};
-stop_|e.stopPropagation();//bubbling\ne.preventDefault();
 str_contains_|var is_containing_x = url.search(/xxx/) != -1;\nvar is_containing_x = /yes/i.test('xxx') ;\nvar is_containing_x = str.toLowerCase().indexOf("xxx") >= 0);
-str_match_|var is_found = 'For more information, see Chapter 3.4.5.1'.match( /(chapter \\d+(\\.\\d)*)/i );\nconsole.log(is_found);
-str_replace_|var str = 'John Smith'.replace(/(\\w+)\\s(\\w+)/, '$2, $1');
+is_object_|function is_object(v) {\n    //One of the quirks of JavaScript is that typeof null returns "object". But it’s not an object. So let’s check for that, too\n    return (v instanceof Object && v.toString() == '[object Object]');\n}
+jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
+jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
+clo_|func_
+factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
+jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
+_size_|var a_={one: 1, two: 2, three: 3};// 3\nvar c = _.size(a_);
+jq_exists_|jq_hasnode_
 substr_|str.substr( beg=0, len=4);
-switch_|switch(\|) {\n  case : \n  break;\n  default: \n    //istruzioni \n}
-template_|_template_
-throw_|throw new Error(msg);
-timeout_|setTimeout(function(){ alert("Hello"); }, 300);
+max_|var n = Math.max(n1,n2);
+jq_css_|el.css({\n\tbackgroundColor: '#ffe', \n\tborderLeft: '1px solid #ccc' \n}).css('width', function( i) {\n  return i * 50;\n}).css('width', '+=200');
+in_array_|var is_present = ["Banana", "Orange"].indexOf("Apple") >= 0; // jq_inarray_
+json_encode_|var text = JSON.stringify(data);
+log_|console.log(\|);
+func_|function(){\n\|}
+static_|myclass.method = function() {\n};
+jq_ready_|$(function(){\|});
+jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
+_empty_|_.isEmpty(|)
+date_|function format_date_it(date){\n    var m = date.getMonth() + 1;\n    var str = date.getDate() + "/" + m + "/" + date.getFullYear();\n    return str;\n}\nfunction date_last_week(){\n    var es = (7*24*60*60*1000);//secondi in una settimana\n    var ts = ( (new Date()).getTime() - es );\n    return new Date(ts);\n};\nvar str = format_date_it( date_last_week() );
+indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
+jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
+jq_checked_|$(":checkbox").is(':checked')
+define_|define(["my/dependency"],\n    function(dependency) {\n        // private code\n        return function() {\n            // public code\n        }\n    }\n);
+jq_foreach_|$.each(a, function(i,key){\|});
+json_|var data = JSON.parse(text);\nvar text = JSON.stringify(data);
+_reduce_|var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);// 6
+jq_is_empty_|jQuery.isEmptyObject({}); // true\njQuery.isEmptyObject({ foo: "bar" }); // false
 timestamp_|var now = new Date().getTime().toString();
-to_array_|var args = Array.prototype.slice.call(arguments);
+jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
+jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
+jq_target_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
+jq_get_json_|var r: JQueryXHR = $.getJSON(url: string, data?: Object, function(data: any, textStatus: string, jqXHR: JQueryXHR){\n\n});\n
+jq_find_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
+jq_by_attribute_|var el = $("[attribute='value']");
+now_|var now_ts = (new Date).getTime();//timestamp
+jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
+merge_|jq_merge_
+jq_serialize_|// URL-encoded notation\nvar url_data = $('form').serialize();\n// array [{ name: "a", value: "1" }]\nvar a_data   = $('form').serializeArray();\n
+jq_mouse_over_|$('div').mouseover(function() {\n    $(this).addClass('blue-bg');\n}).mouseleave(function(){\n    $(this).find('.content').fadeOut();\n});
+require_|require(["jquery", "undercore"], function($, _) {\n        // $ && _ are available\|\n});\n// see require_ require_once_ include_ jq_require_
+extend_|jq_extend_
 trim_|var s = $.trim(str);
-try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
-typeof_|isset_
+jq_end_|$( "ul.first" )\n  .find( ".foo" )\n    .css( "background-color", "red" )\n  .end()  // returs a query object\n  .find( ".bar" )\n    .css( "background-color", "green" );
+str_replace_|var str = 'John Smith'.replace(/(\\w+)\\s(\\w+)/, '$2, $1');
+jq_unique_|var a_unique = $.unique( a_ );
+isset_|typeof != 'undefined'\n//  !== void 0
+jq_filter_|$(".parent").find(".bar").filter("p");
+f_|func_
+//--|\|//------------------------------------------------------------------------------
+switch_|switch(\|) {\n  case : \n  break;\n  default: \n    //istruzioni \n}
+ceil_|var n = Math.ceil(7.004); // 8
+rand_|// Returns a random integer between min (included) and max (included)\n// Using Math.round() will give you a non-uniform distribution!\nfunction getRandomIntInclusive(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nvar n = Math.random();// between 0 (inclusive) and 1 (exclusive)\n
+require_once_|// see require_ require_once_ include_ jq_require_
+jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
+method_|    method: function() {\n    },
+prompt_|var s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
+filter_|var _a = a.filter(function(v){\n    return v.name === "test";\n});
+is_numeric_|jq_is_numeric_
+join_|array.join(',');
+jq_inarray_|var a_ = [ "8", "9", "10", 10 + "" ];\nvar is_ = $.inArray( 10, a_ );
+jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n// jq_build_\n
+jq_checkbox_|$( 'input:checkbox(:not(:disabled))' ).prop( 'checked', 'checked' );
+lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
 unique_|jq_unique_
-unset_|delete obj['index'];
-url_decode_|var v="JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";// "JavaScript_шеллы"\nvar v = decodeURIComponent(v);
-url_encode_|var s = encodeURIComponent(v);
-var_|console.log(\|);
+jq_ajax_multiple_|$.when(\n    getTweets('austintexasgov'),\n    getTweets('greenling_com'),\n    getTweets('themomandpops')\n).done(function(atxArgs, greenlingArgs, momandpopsArgs) {\n    var allTweets = [].concat(atxArgs[0]).concat(greenlingArgs[0]).concat(momandpopsArgs[0]);    \n    alert(sortedTweets);\n});\nvar getTweets = function(user) {\n    var url = 'http://twitter.com/status/user_timeline/' + user + '.json';\n    return $.get(url, { count: 5 }, null, 'jsonp');\n}\n
+jq_ajax_setup_|//\n// ajax loading indicator\nvar el_loading = $('<div/>').attr('id','loading').text('loading...').css({\n    display: 'none',\n    position: 'fixed',\n    top: '0',\n    right: '0',\n    padding: '10px',\n    border: '1 px solid #ccc',\n    backgroundColor: 'rgba(255,255,255, 0.4)',\n}).appendTo(document.body);\n\n$( document ).ajaxStart(function () {\n    el_loading.show();\n});\n$( document ).ajaxStop(function () {\n    el_loading.hide('slow');\n});\n// intercetta gli eventi jquery ajax per logging\n$(document).ajaxComplete(function() {\n    console.log( "Triggered ajaxComplete handler." );\n});\n$(document).ajaxError(function() {\n    console.log( "Triggered ajaxError handler." );\n});\n$(document).ajaxSend(function() {\n    console.log( "Triggered ajaxSend handler." );\n});\n$(document).ajaxSuccess(function() {\n    console.log( "Triggered ajaxSuccess handler." );\n});
+proxy_|jq_proxy_
+replace_|s = s.replace("old","new");
+jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
+apply_|fun.apply(this_obj, array_arguments );
+jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
+jq_key_press_|<input type="text"><span id="test_out">0</span> \n<script type="text/javascript">\nvar i = 0;\n$(function(){\n    $("input").keypress(function(){\n        $("#test_out").text(i += 1);\n    });\n});\n</script>\n
+object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
 while_|while( true ){\|}
+template_|_template_
+jq_fade_|if (el.is(':visible')) {\nel.fadeOut('slow');\n} else {\nel.fadeIn('slow');\n}
+var_|console.log(\|);
+url_decode_|var v="JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B";// "JavaScript_шеллы"\nvar v = decodeURIComponent(v);
+reg_test_|var re_email = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;\n if ( _.isEmpty(str) || !re_email.test(str)  ) { } else { }
+jq_grep_|var a_res_months = $.grep(a_months, function(v, i) {\n    return ( v.indexOf('J') == 0 );\n});\n
+jq_by_name_|var email = $("input[name='email']").val();
+jq_select_|// lavorare con una select\n// al change di un selct variare le options di una select dipendente\n$('#cod_linea').change(function(){\n           var f = $('#form_item_search');\n           var select = $(this);\n           var val = select.find('option:selected').val()\n           console.log(val);\n           $.ajax({\n               url: '<?=$url_ajax_options?>',\n               type: 'POST',\n               dataType: 'json',\n               data: f.serialize(),\n               success: function( resp_o ) {\n                   console.log(resp_o);\n                   var select_col = $('#cod_collection');\n                   // select_col.empty(); // remove old options\n                   $(select_col).find('option:gt(0)').remove(); // remove all options, but not the first\n\n                   $.each(resp_o , function(i, rec) {\n                           //console.log( rec );\n                           //console.log( rec['ADESCR'] );                           \n                           var html_value =  rec['ANUCOL'];\n                           var html_label =  rec['AAACOL'];\n                           select_col.append($("<option></option>").attr("value", html_value).text(html_label));\n                   });\n               },\n               error: function( req, status, err ) {\n                   console.log( 'something went wrong', status, err );\n               }\n    });\n});\n
+jq_deferred_|jq_promise_
+settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
+interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
+jq_scroll_|// todo!
+js_log_|console.log();
+jq_hasnode_|if( $('#selector').length > 0 ) {}
+bind_|fun.bind(this_obj , arg1, arg2 ... );
+js_include_|function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n}
+byid_|var el = document.getElementById('id');
+reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
+_count_|_size_
+is_array_|$.isArray(\|)
+is_string_|_.isString(myVar)\n// typeof myVar === 'string' || myVar instanceof String
+jq_merge_|var a = $.merge( [1,2], [3,4] ); // jq_extend_
+jq_empty_|// rm all child nodes\n$(selector).empty();
+jq_require_|// Load a JavaScript file from the server using a GET HTTP request, then execute it \nvar r:JQueryXHR = $.getScript(url: string, function(script: string, textStatus: string, jqXHR: JQueryXHR){ \n\n});
+is_function_|jq_is_function_
+jq_ajax_post_|var jqxhr = $.post("ajax/test.html", {k:v}, function( data ) {\n  \tconsole.log( data );   \n}, 'json') \n  .done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
+jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
+jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
+typeof_|isset_
+jq_isnode_|if( $('#selector').length > 0 ) {}
+console_|console.log(\|);
+reg_replace_|var str = str_result.replace(new RegExp('[a-z]', 'g'), '_');
+function_|function(){\n\|}
+throw_|throw new Error(msg);
+stop_|e.stopPropagation();//bubbling\ne.preventDefault();
+jq_filter_f_|$('li').filter(function(index) {\n  return $('strong', this).length == 1;\n}).css('background-color', 'red');
+floor_|var n = Math.floor( 45.95 ); //  45
+regexp_|var re = /\\w+/;\nvar re_m = regex.exec(text);\nconsole.log(re_m[1]); \n// str_match_ str_replace_
+module_|module = function() {\n  // ... module privates and aliases\n\n  // public\n  return {\n    // ... module constants\n    init: function() {\n      return this;\n    },\n\n  };\n}().init();
+jq_selector_|jq_selector_list_
+jq_ajax_get_|var jqxhr = $.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n}).done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
+count_|[].length
+jq_ajax_json_|var jqxhr = $.getJSON("/controller/action", { k: v },\n   function(json){\n     console.log("JSON Data: " + json.name);\n}).fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n});
+map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
+jq_rm_|jq_remove_
+jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
+jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
+localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // eliminare dati:\n    // localStorage[key] = null;\n    // localStorage.removeItem(key);\n}\n
+_each_|_.each(hash, function(v, k, list){ });
+except_|throw "errormsg\|";
+timeout_|setTimeout(function(){ alert("Hello"); }, 300);
+jq_selector_list_|/*\n    All                         *   \n                                :animated \n    Attribute Contains Prefix   [name|=  value  ]\n    Attribute Contains          [name*=  value  ]\n    Attribute Contains Word     [name~=  value  ]\n    Attribute Ends With         [name$=  value  ]\n    Attribute Equals            [name=  value  ]\n    Attribute Not Equal         [name!=  value  ]\n    Attribute Starts With       [name^=  value  ]\n                                :button\n                                :checkbox \n                                :checked \n    Child                       parent > child   \n    Class                       .class   \n                                :contains   \n                                :disabled \n                                :empty \n                                :enabled \n                                :eq   \n                                :even \n                                :file \n                                :first-child \n                                :first-of-type \n                                :first \n                                :focus \n                                :gt   \n    Has Attribute               [name]\n                                :has   \n                                :header \n                                :hidden \n    ID                          #id   \n                                :image \n                                :input \n                                :lang   \n                                :last-child \n                                :last-of-type \n                                :last \n                                :lt   \n    Multiple Attribute          [name=value][name2=value2″]\n    Multiple                    selector1, 2, N   \n    Next Adjacent               prev + next   \n    Next Siblings               prev ~ siblings   \n                                :not   \n                                :nth-child   \n                                :nth-last-child   \n                                :nth-last-of-type   \n                                :nth-of-type   \n                                :odd \n                                :only-child \n                                :only-of-type \n                                :parent \n                                :password \n                                :radio \n                                :reset \n                                :root \n                                :selected \n                                :submit \n                                :target \n                                :text \n                                :visible \n*/\n
+sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
+json_decode_|try {  \n    var o_ = $.parseJSON(json_str);\n} catch(e) { \n    console.log(e.message); \n}
+json_parse_|JSON.parse(text);
+url_encode_|var s = encodeURIComponent(v);
+class_|// funzione:\nvar Greeter = (function () {\n    // constructor\n    function Greeter(message) {\n        // public\n        this.greeting = message || 'default';\n        // privileged\n        this.publicMethod = function() {\n            alert(privateName + " get from public method!"); \n        }    \t\n    }\n    // public methods\n    Greeter.prototype.greet = function () {\n        return "Hello, " + this.greeting;\n    };\n    // private\n    var privateVar = message || "default"; \n    var privateMethod = function() {\n        return privateVar; \n    }\n    \n    return Greeter;\n})();\n// instance\n// var o = new Greeter("txt");\n
+jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
+jq_is_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
+jq_make_array_|// Returns a NodeList\nvar elems = document.getElementsByTagName( "div" );\n// Convert the NodeList to an Array\nvar arr = jQuery.makeArray( elems );\n// Use an Array method on list of dom elements\narr.reverse();\n$( arr ).appendTo( document.body );
+jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
+unset_|delete obj['index'];
 [uscript]
 [gnuplot]
 [xq]

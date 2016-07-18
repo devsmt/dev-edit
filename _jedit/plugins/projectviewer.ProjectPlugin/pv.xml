@@ -2,6 +2,7 @@
 
 <projects name="All Projects" >
 <group name="DMS" >
+<project name="dms_mobile" file="dms_mobile.xml" root="/var/www/dms_mobile/mobile"  />
 <project name="lampa_shop" file="lampa.xml" root="/var/www/lampa.it"  />
 </group>
 <group name="EV" >
@@ -15,4 +16,5 @@
 </group>
 <group name="FOSS" >
 </group>
+<project name="mirabello" file="mirabello.xml" root="/var/www/dms_caleffi/trunk"  />
 </projects>

@@ -43,15 +43,19 @@
             <END>"</END>
         </SPAN>
 
-        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+        <SPAN TYPE="LITERAL2" NO_LINE_BREAK="TRUE" ESCAPE="\">
             <BEGIN>'</BEGIN>
             <END>'</END>
         </SPAN>
 
-        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+        <SPAN TYPE="LITERAL3" NO_LINE_BREAK="TRUE" ESCAPE="\" >
             <BEGIN>`</BEGIN>
             <END>`</END>
         </SPAN>
+
+
+
+
 
         <MARK_PREVIOUS TYPE="FUNCTION" MATCH_TYPE="OPERATOR">(</MARK_PREVIOUS>
         <SEQ TYPE="OPERATOR">)</SEQ>
@@ -108,6 +112,7 @@
             <KEYWORD1>typeof</KEYWORD1>
             <KEYWORD1>var</KEYWORD1>
             <KEYWORD1>let</KEYWORD1>
+            <KEYWORD1>of</KEYWORD1>
             <KEYWORD3>void</KEYWORD3>
             <KEYWORD1>while</KEYWORD1>
             <KEYWORD1>with</KEYWORD1>

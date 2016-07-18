@@ -1,5 +1,5 @@
 rm ~/.SciTEUser.properties
-ln -s  ~/Dropbox/projects_versioned/dev-edit/scite/_.SciTEUser.properties ~/.SciTEUser.properties
+ln -s  /data/dev-edit/scite/_.SciTEUser.properties ~/.SciTEUser.properties
 
 
 # installa
