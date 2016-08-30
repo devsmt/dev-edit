@@ -16,7 +16,7 @@ nb_|&nbsp;
 html_comment_|htmlcomment_
 hc_|html_comment_
 for_|for($i=0;$i<count($a);$i++){\|}
-center_|text-align:center; vertical-align: middle;
+center_|text-align:center; vertical-align: middle;\n\n.center_2 {\n   width: 300px;\n   height: 300px;\n   position: absolute;\n   left: 50%;\n   top: 50%;\n   margin-left: -150px;\n   margin-top: -150px;\n}
 qunit_equal_|equal( func(), true, "testname" );
 sql_select_|SELECT \nFROM       \nWHERE\nORDER BY
 //--|//------------------------------------------------------------------------------
@@ -59,11 +59,12 @@ lorem_|Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel
 mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body.
 foreach_|foreach($a as $k=>$v){\|}
 twb_form_horizontal_|<!-- v2.2.2 -->\n<form class="form-horizontal">\n  <div class="control-group">\n    <label class="control-label" for="inputEmail">Email</label>\n    <div class="controls">\n      <input type="text" id="inputEmail" placeholder="Email">\n    </div>\n  </div>\n  <div class="control-group">\n    <label class="control-label" for="inputPassword">Password</label>\n    <div class="controls">\n      <input type="password" id="inputPassword" placeholder="Password">\n    </div>\n  </div>\n  <div class="control-group">\n    <div class="controls">\n      <label class="checkbox">\n        <input type="checkbox"> Remember me\n      </label>\n      <button type="submit" class="btn">Sign in</button>\n    </div>\n  </div>\n</form>
+sql_replace_|REPLACE [LOW_PRIORITY | DELAYED]\n    [INTO] tbl_name\n    [PARTITION (partition_name,...)] \n    SET col_name={expr | DEFAULT}, ...
 input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0" pattern="[0-9.]+" />\n// HTML5: tel search url email datetime date month week time datetime-local number range color
 phpo_|<?=\|?>
 htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
 b_|<b>\|</b>
-sql_insert_|INSERT INTO T2 (EMPID, EMPNAME, EMPADDR)\n     VALUES (DEFAULT, :hv_name, :hv_addr)
+sql_insert_|INSERT INTO TABLE_NAME (EMPID, EMPNAME, EMPADDR)\n     VALUES (DEFAULT, :hv_name, :hv_addr)\n-- mysql specific\n  ON DUPLICATE KEY \n    UPDATE EMP_COUNT = EMP_COUNT+1;
 td_|<td>\|&nbsp;</td>
 autocomplete_|html5_autocomplete_
 h5_|<h5>\|</h5>
@@ -100,7 +101,7 @@ twb_form_inline_|<!-- v2.2.2 -->\n<form class="form-inline">\n  <input type="tex
 getById_|document.getElementById('username').value
 new_|$1 $2 = new $1(\|);
 pattern_|patterns_
-form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form_1">\|\t<input type="submit" value="Salva" id="">\n        <input type="button" value="Reset" id="form_reset"/>\n</form>\n<script>\n$(function(){\n    $('#form_1').submit(function(event) {\n      alert('valid form');\n      event.preventDefault();\n      return true;\n    });\n    $('#form_1 #form_reset').click(function(){\n        var f = $(this).parents('form');\n        f.find('input:text, input:password, input:file, select, textarea').val('');\n        f.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');\n    });\n});\n</script>
+form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form_1">\|\t<input type="submit" value="Salva" id="">\n        <input type="button" value="Reset" id="form_reset"/>\n</form>\n<script>\n$(function(){\n   function is_valid(){\n                // @see ts_utils validation\n                var is_valid = true;\n                var a_sel = [ '#num_from' , '#num_to' ];\n                for( var i=0; i<a_sel.length; i++) {\n                    var selector = a_sel[i];\n                    var el = $(selector);\n                    var is_ok = SimpleValidation.isNumeric( el.val() ) ;\n                    if( !is_ok ){\n                        is_valid = false;\n                        SimpleValidation.errorReport( el, false);\n                        break;\n                    }\n                }\n                return is_valid;\n    }\n    $('#form_1').submit(function(event) {\n\t\tif( !is_valid() ) {\n                    event.preventDefault();\n                    return false;\n                } else\n                    return true;\n    });\n    $('#form_1 #form_reset').click(function(){\n        var f = $(this).parents('form');\n        f.find('input:text, input:password, input:file, select, textarea').val('');\n        f.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');\n    });\n});\n</script>
 br_|<br />
 label_|<label for="male">Male</label>\n  <input type="radio" name="sex" id="male" />\n  <br />
 h3_|<h3>\|</h3>
@@ -128,8 +129,9 @@ code_|<code>\n</code>
 anchor_|link_
 [asp]
 [latex]
-[factor]
 [cfscript]
+[factor]
+[m4]
 [batch]
 [assembly-mcs51]
 [vrml2]
@@ -140,28 +142,28 @@ anchor_|link_
 [patch]
 [beanshell]
 [pl1]
-[fortran90]
 [pyrex]
+[fortran90]
 [inno-setup]
 [inform]
 [netrexx]
 [eiffel]
 [fortran]
-[pl-sql9]
 [chill]
+[pl-sql9]
 [json]
 [macroscheduler]
 [smalltalk]
 [mustache-template]
 [idl]
 [haxe]
-[pvwave]
 [smarty]
+[pvwave]
 [ada95]
 [pl-sql]
 [vala]
-[apacheconf]
 [htaccess]
+[apacheconf]
 [clojure]
 [io]
 [pure]
@@ -172,12 +174,11 @@ anchor_|link_
 [powerdynamo]
 [vhdl]
 [logs]
-[java module-info]
 [maple]
 [lotos]
-[PowerCenter Parameter File]
+[java module-info]
 [django]
-[ada]
+[PowerCenter Parameter File]
 [php]
 tempname_|$file_path = tempnam(sys_get_temp_dir(), $prefix='X');
 substr_|substr($s\|,0,2);\n\n// str = grp.0001-0002-0004\n$strip_str = substr($str, $i_pos=1+strpos($str, ".") );\n// rturn 0001-0002-0004\n\n
@@ -210,6 +211,7 @@ dba_|$id = dba_open("/tmp/test.db", "n", "db2");\nif (!$id) {\n    die( "dba_ope
 memory_get_peak_usage_|round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB',
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 js_comment_|/* \| */
+hh_array_|array<User> $users
 str_repeat_|str_repeat('tmpl',5)
 bc_|bcscale(4);// setta il default scale, va settato prima delle chiamate\n$a = '1.234';\n$b = '5';\necho bcadd($a, $b);     // 6\necho bcadd($a, $b, 4);  // 6.2340\necho bcsub($a, $b);     // -3\necho bcsub($a, $b, 4);  // -3.7660\necho bcmul('1.34747474747', '35', 3); // 47.161\necho bcmul('2', '4'); // 8\necho bcdiv('105', '6.55957', 3);  // 16.007\n// compare ==\n// Returns 0 if the two operands are equal, 1 if the left_operand is larger than the right_operand, -1 otherwise.\necho bccomp('1', '2') . "\\n";   // -1\necho bccomp('1.00001', '1', 3); // 0, EQUAL\necho bccomp('1.00001', '1', 5); // 1, first operand is bigger\n\n// bcmod bcpow bcsqrt\n\n\n\n
 zf_forward_|// $this->_helper->flashMessenger->addMessage('confirm msg');\nreturn $this->_forward($action="index");
@@ -225,6 +227,7 @@ zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(
 trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
 publics_|staticp_
 var_dump_|var_
+exec_find_|// elimina files di log grandi e troppo vecchi per essere di interesse\n            $log_regex = APPLICATION_PATH.'/../var/logs/AS400-CLI-*.log';\n            $s_result = `sudo find $log_regex -maxdepth 2 -type f -mtime +60 -exec rm -f {} \\;`;
 qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
 methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.' '.__FUNCTION__);
 __destruct_|function __destruct() {\n\|\n}
@@ -238,7 +241,7 @@ zf_redirect_|$url = $this->view->url(['controller'=>'items','action'=>''], $r_na
 die_|die(__FUNCTION__.\|);
 chmod_|chmod('/somedir/somefile', 0755);// use octal val
 array_key_exists_|array_key_exists($key, $a\|)
-test_|function ok($res, $expected, $label ) {\n    $GLOBALS['test_count']++;\n    if( $res === $expected ) {\n        echo colored( "ok $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo printc( "ok (but type differ) $label \\n", 'green' );\n    } else {\n        echo colored( sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n",\n            $label, json_encode($res), json_encode($expected)\n        ) , 'red' );\n    }\n}\nfunction is($res, $label ) {\n    return ok($res, $expected=true, $label );\n}\nfunction colored($str, $foreground_color = 'green' ) {\n    static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n    return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n}
+test_|function ok($res, $expected, $label='' ) {\n    $colored = function($str, $foreground_color = 'green' ) {\n        static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n        return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n    };\n    if( $res === $expected ) {\n        echo $colored( "ok $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo $colored( "ok (but type differ) $label \\n", 'green' );\n    } else {\n        $s = sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n", $label, json_encode($res), json_encode($expected) );\n        echo $colored($s, 'red');\n    }\n}\n// function is($res, $label ) { return ok($res, $expected=true, $label ); }\n
 map_|array_map_
 exception_|spl_
 _empty_|_.isEmpty(obj)
@@ -277,6 +280,7 @@ s_|$s_ = '';
 math_|bc_
 _memoize_|$fibonacci = function($n) use (&$fibonacci) {\n  return $n < 2 ? $n : $fibonacci($n - 1) + $fibonacci($n - 2);\n};\n$fastFibonacci = __::memoize($fibonacci);
 require_|require_once __DIR__.'/\|';
+array_find_|_find_
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
 zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev()
 nbsp_|&nbsp;
@@ -301,6 +305,7 @@ use_|use My\\Full\\Classname as Another;\n// this is the same as use My\\Full\\N
 location_|header('Location: http://www.test.it/');\n// $logger->info('reason');\ndie('redirect');
 <<<|$\| = <<<__END__\n__END__;
 _pluck_|$a_names = __::pluck($a_recs, $k='name');
+hh_cb_|function f(  (function(int, string): string) $callback  ) { }\nfunction f(mixed $m, int $i): void { }\n$f = function(string $s): ?int {   };\nfunction f(?string $s):?string {\n  if ($s === null) {\n    return "";\n  }\n  return null;\n}\nfunction f( array<string, mixed> $options ){}\n\n\n\n\n\n\n\n
 pthreads_|http://nl1.php.net/manual/en/class.thread.php
 fork_|\t    $maxt=5;// thread nun\n            for ($x = 1; $x < $maxt; $x++) {\n                switch ($pid = pcntl_fork()) {\n                case -1:\n                    die('could not fork');\n                    break;\n                case 0:\n                    // run child\n                    $local_pid = posix_getpid();\n                    //echo $local_pid;\n                    io_detach();\n\n                    $cl_generator();\n                    echo "Child ".posix_getpid()." completed\\n";\n                    register_shutdown_function(function () {\n                            echo "Child ".posix_getpid()." SIGHUP \\n";\n                            posix_kill(posix_getpid(), SIGHUP);\n                    } );\n                    break;\n                default:\n                    // parent\n                    $local_pid = posix_getpid();\n                    echo "parent($local_pid) waiting child pid($pid): \\n";\n                    pcntl_waitpid($pid, $status);\n                    break;\n                }\n            }\n            // control all child processes gets completed\n            while (pcntl_waitpid(0, $status) != -1) {\n                $status = pcntl_wexitstatus($status);\n                echo "Child $status completed\\n";\n            }
 filter_alpha_|filterstr_
@@ -310,6 +315,7 @@ list_|list($a, $b) = ['a','b'];
 class_|// funzione:\nclass \|{\n    public function __construct(){}\n    public function method(){}\n    public function __toString(){ return __CLASS__; }\n}
 chart_bar_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_bar.php");\ninclude ("../../jpgraph/jpgraph_line.php");\n// We need some data\n$datay=[31,44,49,40,24,47,12];\n// Set up the graph\n$graph = new Graph(600,300,"auto");\n$graph->img->SetMargin(60,30,30,40);\n$graph->SetScale("textlin");\n$graph->SetMarginColor("teal");\n$graph->SetShadow();\n// Create the bar pot\n$bplot = new BarPlot($datay);\n$bplot->SetWidth(0.6);\n// Set up color for gradient fill style\n$tcol=[100,100,255];\n$fcol=[255,100,100];\n$bplot->SetFillGradient($fcol,$tcol,GRAD_VERT);\n$bplot->SetFillColor("orange");\n$graph->Add($bplot);\n// Set up the title for the graph\n$graph->title->Set("Sample Bargraph");\n$graph->title->SetColor("yellow");\n$graph->title->SetFont(FF_VERDANA,FS_BOLD,12);\n// Set up color for axis and labels\n$graph->xaxis->SetColor("black","white");\n$graph->yaxis->SetColor("black","white");\n// Set up font for axis\n$graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->SetFont(FF_VERDANA,FS_NORMAL,10);\n$graph->yaxis->title->Set("Value Range");\n$graph->yaxis->title->SetColor("white");\n$graph->yaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Set up X-axis title (color & font)\n$graph->xaxis->title->Set("item Count");\n$graph->xaxis->title->SetColor("white");\n$graph->xaxis->title->SetFont(FF_VERDANA,FS_NORMAL,10);\n// Finally send the graph to the browser\n$graph->Stroke();
 private_|//\nprivate function \|(){ return true; }
+rand_array_|$rand_X = function() {\n    $a = [\n      'Tergi', 'Pulizia',\n      // ... string array\n    ];\n    $i = count($a)-1;\n    return $a[ rand(0,$i) ];\n};\n$s = $rand_X();\n
 str_reg_|if ( preg_match('/1999/', $s) ) {\n    // ok\n}
 zf_render_view_|// Render 'foo' instead of current action script\n        $this->_helper->viewRenderer('index');
 namespace_|namespace PrjName {\n    use Exception;\n}\nnamespace {\n// global code\n}
@@ -317,38 +323,43 @@ __reject_|$a_ = __::reject($a_=[1,2,3], function($n) {\n  return $n % 2 === 0; \
 sleep_|sleep(10);// seconds
 sscanf_|$iso_date = '2000-07-30';\nlist($year, $month, $day) = sscanf($iso_date, '%d-%d-%d');\n
 isset_|if( !isset(\|)){\n}
+hh_|<?hh // strict
 hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $next_rec) {\n        $k = 'column_key';  \n\treturn $rec[$k] > $next_rec[$k];\n});\n     \n
 in_array_|in_array( $str, $a_ )
 strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
 while_|while($a=mysql_fetch_array($rs)){\|}
+_reduce_|$final_v = __::reduce( [1, 2, 3], function($carry_v, $cur_v) { return $carry_v + $cur_v; }, $initial_v=0);
 zf_get_view_|$view = Zend_Layout::getMvcInstance()->getView();
 dirname_|dirname(__FILE__).'/lib.php'
 zf_cache_|zf_cache_get_
-__map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
 str_contains_|str_pos_
+__map_|__::map(['one'=>1], function($v, $k) {\n  return $v * 3;\n});
 enum_|class Month extends SplEnum {\n    const __default = self::January;\n    \n    const January = 1;\n    const February = 2;\n    const March = 3;\n    const April = 4;\n    const May = 5;\n    const June = 6;\n    const July = 7;\n    const August = 8;\n    const September = 9;\n    const October = 10;\n    const November = 11;\n    const December = 12;\n}\n\necho new Month(Month::June) . PHP_EOL;\n\ntry {\n    new Month(13);\n} catch (UnexpectedValueException $uve) {\n    echo $uve->getMessage() . PHP_EOL;\n}
 error_|set_error_handler_\nerror_reporting_\nset_exception_handler_
-preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);
+preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str = preg_replace('/[^a-zA-Z0-9_]/', '', $str);\n$str = preg_replace("/[[:blank:]]+/", ' ', $str );
 explode_|explode( ',', $s\|);
 zf_route_regex_|$router->addRoute('fornitori_genlabel', new Zend_Controller_Router_Route_Regex(\n        'fornitori/genlabel/Etichette_federe_(\\d+)_(\\d+)\\.pdf',\n        [\n            'controller' => 'Fornitori',\n            'action' => 'genlabel'\n        ],\n        $mappings=[\n            1 => 'ord_num'  ,\n            2 => 'ord_date' ,\n        ],\n        'fornitori/genlabel/Etichette_federe_%d_%d.pdf'\n));
 construct_|public function __construct(){\n   parent::__construct();\n\|}
 for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
 mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
+system_|exec_
+require_once_|require_
 pf_|sprintf_
-_filter_|__::filter([1, 2, 3, 4], function($num) { return $num % 2 === 0; }); // [2, 4]
+_filter_|$a_data = __::filter([1, 2, 3, 4], function($num) { return $num % 2 === 0; });\n// => [2, 4]
 zf_post_|$this->getRequest()->getPost('name\|');
 array_fill_|array_fill($i=0, $n=10 , $v='');
 define_|define("\|", "", false);
 ol_|<ol class="">\n\|</ol>
-exec_|$s_result = `ls -la`;\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
+exec_|$cmd = "ls -la";\n$s_result = trim(`$cmd`);\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   - to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//     $_res = exec($cmd . " > /dev/null &", $_output, $_retval);\n//     $pid = exec("nohup $cmd > /dev/null 2>&1 & echo $!", $_output, $_retval);// we can return the pid of the process\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
 filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ){\n\techo "validation error param: vvv ";\n}\nctype_\npreg_replace_
 dir_exists_|if( file_exists($path_) ) {\n}
 apc_clear_cache_|apc_clear_cache($cache_type='user');
-json_encode_|json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-array_reduce_|$reduced = array_reduce($a, function($carry_v, $cur_v) {\n    $carry_v *= $cur_v;\n    return $carry_v;\n}, $initial_v='');
+json_encode_|$json = json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);\nif( $json === false ) { die( json_last_error_msg() ); }
+array_reduce_|$final_v = array_reduce($a_, function($carry_v, $cur_v) {\n    $carry_v += $cur_v;\n    return $carry_v;\n}, $initial_v=0);
 obj_|new stdClass()
 banchmark_|profile_
 assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
+_find_|// Return the value of the first item in the collection that passes the truth test (iterator)\n$v = __::find( [1, 2, 3, 4], function($num) { return $num % 2 === 0; }); \n// => 2
 filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
 register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
 finally_|finally {\n\|}
@@ -364,10 +375,10 @@ argv_|$_SERVER['argv'][1];
 memory_limit_|ini_set("memory_limit","256M");
 http_auth_|// HTTP basic AUTH\nunction pc_validate($user,$pass) {\n    /* replace with appropriate username and password checking from DB */\n    $users = ['david' => 'fadj&32',\n                   'adam'  => '8HEj838'];\n    if (isset($users[$user]) && ($users[$user] == $pass)) {\n        return true;\n    } else {\n        return false;\n    }\n}\nif (! pc_validate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {\n    header('WWW-Authenticate: Basic realm="My Website"');\n    header('HTTP/1.0 401 Unauthorized');\n    echo "You need to enter a valid username and password.";\n    exit;\n}
 thread_|pthreads_
-array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});
+array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});\n// for keys see array_filter_assoc_
 implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
 zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',\n            $val=2,\n            $opt=[\n              'class' => 'baz',\n            ],\n            $a_options=[ 1 => 'One',\n              2 => 'Two',\n              3 => 'Three' ]\n);
-var_|echo '<pre>',var_dump(\|),'</pre>'; // DEBUG\n//echo '<pre>',debug_print_backtrace(),'</pre>';\ndie(__FUNCTION__.'() F:'.__FILE__.' L:'.__LINE__.PHP_EOL ); \n
+var_|echo '<pre>'.__FUNCTION__.'()'.' L:'.__LINE__.' F:'.__FILE__."\\n", var_dump(\n\|\n);\n// ,debug_print_backtrace() ;\ndie("</pre>\\n");\n\n
 http_build_query_|$url_data = http_build_query([]);
 zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(['rel' => 'icon',\n                                  'href' => '/img/favicon.ico'],\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     ['id' => 'my_stylesheet']);\n  \n// rendering the links in layout\necho $this->headLink() ?>
 opt_|$option = array_merge([\n], $opt );\nextract($option);
@@ -378,20 +389,23 @@ issetor_|$\|= isset($a['']) ? $a[''] : null;
 login_|// simplistic login to protect a web page\n<form method="post" action="login.php">\nUsername: <input type="text" name="username"> <br>\nPassword: <input type="password" name="password"> <br>\n<input type="submit" value="Log In">\n</form>\n\n \nif (pc_validate($_REQUEST['username'],$_REQUEST['password'])) {\n    $_SESSION['login'] = \n        $_REQUEST['username'].','.md5($_REQUEST['username'].$secret_word));\n    error_log('Session id '.session_id().' log in as '.$_REQUEST['username']);\n}\n// verification\nunset($username);\nif ($_SESSION['login']) {\n    list($c_username,$cookie_hash) = explode(',',$_SESSION['login']);\n    if (md5($c_username.$secret_word) == $cookie_hash) {\n        $username = $c_username;\n    } else {\n        print "You have tampered with your session.";\n    }\n}
 zf_cache_get_|$cacheEngine = Zend_Registry::get('cache');\n$c_key = '';\nif( ($c_result = $cacheEngine->load($c_key)) === false ) {\n    $c_result = ; // do computation\n    $cacheEngine->save($c_result, $c_key);\n} else {\n    // get from cache\n}\nreturn $c_result;
 zf_registry_|if( Zend_Registry::isRegistered('acl') ){\n    $acl = Zend_Registry::get('acl');\n} else {\n    $acl =;\n    Zend_Registry::set('acl', $acl);\n}
+autocomplete_|function render($name, $value, array $a_data){\n    // @see https://github.com/devbridge/jQuery-Autocomplete\n    $id="autocomplete_$name";\n    /*\n    var js_data = [\n    { value: 'Andorra', data: 'AD' },\n    { value: 'Zimbabwe', data: 'ZZ' },\n    { value: 'Italy', data: 'IT' },\n    { value: 'France', data: 'FR' },\n    ];\n    */\n    $json_data = json_encode($a_data);\n\n    return <<<__END__\n<!-- if not present \n<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>\n-->\n<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.24/jquery.autocomplete.min.js"></script>\n\n<input type="text" name="$name" value="$value" id="$id" />\n<script >\nvar a_data = $json_data;\n$('#$id').autocomplete({\n    lookup: a_data,\n    onSelect: function (suggestion) {\n        console.log('You selected: ' + suggestion.value + ', ' + suggestion.data);\n    }\n});\n</script>\n<style type="text/css">\n// TODO: define globally if you plan to reuse it\n.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }\n.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }\n.autocomplete-selected { background: #F0F0F0; }\n.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }\n.autocomplete-group { padding: 2px 5px; }\n.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }\n</style>\n__END__;\n}
 base_convert_|base_convert($i, 10, $tobase=36 );
 k_|'\|' => '',
 __END__|$html = <<<__END__\n\|__END__;\n
 rand_|rand(0,100);
 config_|$a_config = include 'config/application.config.php';\n<?php\n// config/application.config.php\nreturn [];
+json_last_error_|$json = json_encode( $data, JSON_UNESCAPED_UNICODE );\n                if( $json === false ) {\n                    die( json_last_error_msg() );\n                }\n                file_put_contents($file_cache_path, $json);
 header_download_|// inizia output\nfunction binary_download($file_path){\n  header('Content-Description: File Transfer');\n  header('Content-Type: application/octet-stream');\n  header('Content-Transfer-Encoding: binary');\n  header('Content-Disposition: attachment; filename=' . basename($file_path));\n  header('Expires: 0');\n  header('Cache-Control: must-revalidate');\n  header('Pragma: public');\n  header('Content-Length: ' . filesize($file_path));\n  readfile($file_path);\n}\nbinary_download($file_path);\nexit;
 file_is_older_|$file_mtime = filemtime($this->xml_file);\nif (time()-$file_mtime > 2 * 3600) {\n    // file older than 2 hours\n} else {\n    // file younger than 2 hours\n}
-file_put_contents_|protected function logRequest($isOK, $message, array $errors){\n    $log_msg =  sprintf('%s %s action:%s msg:"%s" errors:%s params:%s %s'.PHP_EOL,\n        date('Y-m-d H:i:s'),\n        $isOK ? 'OK' : 'KO',\n        $action=$this->getRequest()->getActionName(),\n        $message,\n        json_encode($errors),\n        $request = substr(json_encode(array_merge($_GET,$_POST)),0,2000),\n        substr($_SERVER['REQUEST_METHOD'],0,1)\n    );\n    $log_path = APPLICATION_PATH.'/../var/logs/api_requests_'.date('my').'.log';\n    file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX));\n}\n
+file_put_contents_|\n// log routine\nprotected function logRequest( $message, $isOK=true, array $errors=[]) {\n    $log_msg =  sprintf('%s %s action:%s msg:"%s" errors:%s params:%s %s'.PHP_EOL,\n        date('Y-m-d H:i:s'),\n        $isOK ? 'OK' : 'KO',\n        $action=$this->getRequest()->getActionName(),\n        $message,\n        json_encode($errors),\n        $request = substr(json_encode(array_merge($_GET,$_POST)),0,2000),\n        substr($_SERVER['REQUEST_METHOD'],0,1)\n    );\n    $log_path = sprintf('%s/../var/logs/%s_%s.log', APPLICATION_PATH, basename(__FILE__), date('my') );\n    file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX) );\n}\n\n\n\n
 asort_|hash_sort_
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
 substr_count_|$c = substr_count($str, $usbstr\|);
 defined_|defined('MYCONST')
 sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
 goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
+_map_|$a_data = __::map( ['one'=>1, 'two'=>2, 'three'=>3], function($num, $key) {\n  return $num * 3;\n});
 error_reporting_|error_reporting(E_ALL); // Report all PHP errors \nini_set('display_errors', '1');\nini_set('html_errors', '1');\n// log app errors\nini_set('log_errors', '1');\nini_set('error_log', __DIR__.'/data/log/PHP_'.date('y_m').'.php' );
 typeof_|$var instanceof ParentClass
 try_|try {\n\n\|//} catch ( Zend_Controller_Dispatcher_Exception $e) {\n} catch (Exception $e) {\n    $fmt = 'Exception: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    ); \n    Zend_Registry::get('logger')->err(strip_tags($msg));\n    // your UI notify routine\n    die($msg);\n//} finally {\n}\n\n
@@ -402,6 +416,7 @@ dir_|glob_
 check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
 pattern_signleton_|class Singleton {\n    // Returns the *Singleton* instance of this class.\n    public static function getInstance() {\n        static $instance = null;\n        if (null === $instance) {\n            $instance = new static();\n        }\n        return $instance;\n    }\n    // Protected constructor to prevent creating a new instance via the `new` operator from outside of this class \n    protected function __construct() { }\n    private function __clone() { }\n    private function __wakeup() { }\n}\n\nclass SingletonChild extends Singleton { }\n\n
 range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
+array_sort_|sort_
 autoload_|        spl_autoload_register(function ($pClassName) {\n            $path = str_replace('\\\\', DIRECTORY_SEPARATOR, $pClassName);\n            require_once (__DIR__ . DIRECTORY_SEPARATOR . $path . ".php");\n            return true;\n        });
 array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
 _min_|$a_recs =array(  array( 'age'=>60 )  );\n$min = __::min($a_recs, function($rec) { return $rec['age']; });
@@ -409,6 +424,7 @@ zf_h_escape_|$this->escape($this->str)
 tempnam_|tempnam(sys_get_temp_dir(), 'PREFIX');
 method_|protected function \|(hint $v){ \nreturn ; \n}
 ajax_|request_is_ajax_
+zf_form_|\nclass Application_Form_Mail extends EasyBib_Form {\n\n    public function init() {\n\n        $this->setAction('/mail/new')->setMethod('post');\n        $this->setAttrib('id', 'mail');\n        //\n        // subject\n        $el_subject = new Zend_Form_Element_Text('subject');\n        //$el_subject->addValidator( new Zend_Validate_Regex(array('pattern' => '/[a-zA-Z0-9\\,\\.\\-\\_]/')) );\n        $el_subject->addValidator(new Zend_Validate_StringLength(array('max' => 90)) );\n        $el_subject->setLabel('Subject:');\n        $el_subject->setRequired(true);\n        $a_el['subject']=$el_subject;        \n\n        // from\n        $el_from = new Zend_Form_Element_Select('from');\n        $el_from->addValidator('EmailAddress');\n        $el_from->setLabel('From:');\n \t$a_el['from']=$el_from;\n\n\n        // add all elements \n        foreach( $a_el as $el_name => $el_obj ) {\n            $this->addElement($el_obj, $el_name );\n\t}\n        //\n        $this->addElement('submit', 'invia', array('label' => 'Invia') );\n        EasyBib_Form_Decorator::setFormDecorator($this, EasyBib_Form_Decorator::BOOTSTRAP, 'invia', 'cancel');\n    }\n}\n\n\nclass controller {\n\n    public function usernewAction() {\n        $request = $this->getRequest();\n        $form = new Application_Form_FornitoriUser();\n        $this->view->usr_form = $form;\n\n        if ($request->isPost()) {\n            $form->populate( $request->getPost() );\n            if (!$form->isValid($request->getPost())) {\n                $msg = sprintf('errore di validazione: %s ',\n                    json_encode($form->getErrors() )\n                    );\n                $this->view->SetMessage($msg,'error');\n            } else {\n\n                $LoginTable = new Application_Model_Login();\n                try {\n                    $login_id = $request->getPost( 'login_id' );\n\n                    $data = [\n                        'username'      => $request->getPost( 'username' ),\n                        'cod_fornitore' => $cod_fornitore = $request->getPost( 'cod_fornitore' ),\n                        'email'         => $request->getPost( 'email' ),\n                        'password_str'  => $request->getPost( 'password_str' ),\n                    ];\n                    $data['password'] = md5( $data['password_str'] );\n\n                    // salvataggio record\n                    $rec_id = $LoginTable->insert($data);\n\n                    $url_edit = $this->view->url([\n                        'cod_fornitore' => $cod_fornitore\n                        ], $r_name='fornitori_useredit' );\n\n                    $this->_helper->flashMessenger->addMessage( $msg='Salvataggio insert riuscito' );\n                    return $this->_redirect($url_edit);\n\n                } catch (Exception $e) {\n                    $fmt = 'Exception: <b>%s</b> line:%s file:%s<br> trace:<pre>%s</pre>';\n                    $msg = sprintf($fmt, $e->getMessage(),$e->getFile(), $e->getLine(), $e->getTraceAsString() );\n                    $this->view->SetMessage($msg, 'error');\n                }\n            }\n        }\n    }\n\n    public function usereditAction() {\n        $request = $this->getRequest();\n        $usr_form = new Application_Form_FornitoriUser();\n        $this->view->usr_form = $usr_form;\n        $cod_fornitore = $request->getParam('cod_fornitore', '');\n        if( !empty($cod_fornitore) ) {\n            $rec_fornitore = Application_Model_Login::findByCodFornitore($cod_fornitore);\n            if( empty($rec_fornitore) ) {\n                $this->view->SetMessage($msg='login non trovato', 'error');\n            }\n            $usr_form->populate( $rec_fornitore );// $data=$request->getPost()\n            $url_edit = $this->view->url([ 'cod_fornitore' => $cod_fornitore ], $r_name='fornitori_useredit' );\n            $usr_form->setAction($url_edit);\n        } else {\n            $this->view->SetMessage($msg='cod_fornitore deve essere valorizzato', 'error');\n        }\n        if ($request->isPost()) {\n            if (!$usr_form->isValid($request->getPost())) {\n                $msg = sprintf('errore di validazione: %s ', json_encode($usr_form->getErrors() ) );\n                $this->view->SetMessage($msg, 'error');\n            } else {\n                try {\n                    $login_id = $request->getPost( 'login_id' );\n                    $data = [\n                        'username'      => $request->getPost( 'username' ),\n                        'cod_fornitore' => $request->getPost( 'cod_fornitore' ),\n                        'email'         => $request->getPost( 'email' ),\n                        'password_str'  => $request->getPost( 'password_str' ),\n                    ];\n                    $data['password'] = md5( $data['password_str'] );\n                    //\n                    $LoginTable = new Application_Model_Login();\n                    $rec_id = $LoginTable->update($data, "cod_fornitore=$cod_fornitore");\n                    $this->view->SetMessage($msg='Salvataggio apdate riuscito', 'success');\n                } catch (Exception $e) {\n                    $this->view->SetMessage( $msg = $e->getMessage(), 'error');\n                }\n            }\n        }\n    }    \n}\n\n\n\n\n\n
 set_time_limit_|set_time_limit(0);
 sf_|sprintf_
 limit_|set_time_limit_\nmemory_limit_
@@ -423,12 +439,14 @@ zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
 nl_|PHP_EOL
 curl_get_|$c = curl_init('http://www.example.com/directory');\ncurl_setopt($c, CURLOPT_RETURNTRANSFER, 1);\ncurl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);\n// alternative per processare il file\n// curl_setopt($c, CURLOPT_WRITEFUNCTION, function($c,$page) {\n//    $info = curl_getinfo($c);\n//});\n// curl_setopt($c,CURLOPT_FILE);\n//curl_setopt($c, CURLOPT_HTTPHEADER, ['X-Factor: 12', 'My-Header: Bob'] );\n//curl_setopt($c, CURLOPT_VERBOSE, 1);\n//curl_setopt($c, CURLOPT_REFERER, 'http://www.example.com/form.php');\n//curl_setopt($c, CURLOPT_USERAGENT, 'CURL via PHP');\n$page = curl_exec($c);\ncurl_close($c);
 whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
+type_|gettype($v)
 header_json_|header('Content-Type: application/json');
 scan_|$n = sscanf($auth, "%d\\t%s %s", $id, $first, $last);
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array([$foo, "bar"], ["three", "four"] );
 collapse_|border-collapse:collapse;
 move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
 print_r_|print_r(\|,true);
+passthru_|// useful for commands outputting binary data to pass to browser as is\nheader("Content-Type: application/octet-stream");\nheader("Content-Disposition: attachment; filename=\\"myfile.zip\\"");\nheader("Content-Length: 11111");\npassthru("/usr/bin/cat $path/myfile.zip", $err);\n// see exec_
 //--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
 php_sapi_name_|if (php_sapi_name() != 'cli') {\n    die("You have to use {$argv[0]} with cli version of php.");\n}
 header_|header("Location: $url");
@@ -447,7 +465,7 @@ strategy_|interface ISerializable {\n    public function serialize();\n}\nclass 
 reflection_|$reflect = new ReflectionClass($this);\n$props   = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);\nforeach ($props as $prop) {\n    print $prop->getName() . "\\n";\n}
 command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = [ new Command_1(), new Command_2() ];\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
-cache_|define('TTL_FOREVER',  0, false);\ndefine('TTL_H',  60 * 60, false);\ndefine('TTL_8H', 8 * TTL_H, false);\ndefine('TTL_D',  24 * TTL_H, false);\n/* uso:\n$cache_key = '';//__METHOD__.'_'.json_encode(func_get_args());\n$data = cache($cache_key, function() {\n\treturn [];\n});\nreturn $data;\n*/\nfunction cache($cache_key, \\Closure $generator, $ttl_secs = TTL_8H ) {\n    $val = apc_fetch($cache_key);\n    if (false === $val) {\n        $val = $generator();\n        apc_store($cache_key, $val, $ttl_secs );//secs, 0=forever\n    } else {\n        // from cache\n    }\n    return $val;\n}\n
+cache_|define('TTL_FOREVER',  0, false);\ndefine('TTL_H',  60 * 60, false);\ndefine('TTL_8H', 8 * TTL_H, false);\ndefine('TTL_D',  24 * TTL_H, false);\n/* uso:\n$cache_key = '';//__METHOD__.'_'.json_encode(func_get_args());\n$data = cache($cache_key, function() {\n\treturn [];\n});\nreturn $data;\n*/\nfunction cache($cache_key, \\Closure $generator, $ttl_secs = TTL_8H ) {\n    $val = apc_fetch($cache_key);\n    if (false === $val) {\n        $val = $generator();\n        apc_store($cache_key, $val, $ttl_secs );//secs, 0=forever\n    } else {\n        // from cache\n    }\n    return $val;\n}\n// put data in file for later reuse\nfunction fcache( $file_cache_path, \\Closure $generator ) {\n    if( file_exists($file_cache_path) && filesize($file_cache_path) >= 1024 ) {\n        $json_str = file_get_contents( $file_cache_path );\n        $data = json_decode($json_str, $use_assoc=true);\n    } else {\n        $data = $generator(); \n        $data = \\Mobile\\Response::to_UTF8($data);\n        $json = json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) or die( json_last_error_msg() );  \n        file_put_contents($file_cache_path, $json);\n    }\n    return $data;\n}\n\n
 main_|__MAIN__
 static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
 date_default_timezone_set_|date_default_timezone_set('Europe/Rome');
@@ -464,13 +482,15 @@ zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Ses
 phpunit_assert_true_|$this->assertTrue($val);
 log_|file_put_contents_
 zf_h_partial_loop_|$model = [\n    ['key' => 'Mammal', 'value' => 'Camel'],\n    ['key' => 'Bird', 'value' => 'Penguin']\n];\necho $this->partialLoop('partialLoop.phtml', $model);
-_reject_|__::reject(array(1, 2, 3, 4), function($num) { return $num % 2 === 0; }); // array(1, 3)
+_reject_|// Return an array where the items failing the truth test (iterator) are removed.\n$a_data = __::reject( [1, 2, 3, 4], function($num) { return $num % 2 === 0; }); \n// => array(1, 3)
 sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
 hash_|if (function_exists("hash_algos") && in_array("sha512", hash_algos())) {\n    $token = hash("sha512", mt_rand(0, mt_getrandmax()));\n}
 gz_compress_|$filename = tempnam('/tmp', 'zlibtest') . '.gz';\n$s = "Only a test, test, test, test, test, test, test, test!\\n";\n$zp = gzopen($filename, "w9");// open file for writing with maximum compression\ngzwrite($zp, $s);// write string to file\ngzclose($zp);// close file
 function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
 intval_|$i_num = intval($s);
 dbg_|var_dump(\|);die();
+array_collect_|array_reduce_
+default_|default:\nbreak;
 jq_promise_|jq_deferred_
 ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
 extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
@@ -493,6 +513,8 @@ array_merge_|$a = array_merge( $a_1, $a_2 ...);
 is_cli_|php_sapi_name_
 gz_|gz_compress_\ngz_extract_
 profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );\nmicrotime_
+sql_bd2_fetch_|fetch FIRST 100 ROWS ONLY
+array_reject_|_reject_
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
 glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
 php_cli_server_|#!/usr/bin/env php\n<?php\n$dir = dirname(__FILE__).'/../www';\n\n$port = getFirstOpenPort( $port=8080, $c=10 );\nif( !empty($port) ) {\n    echo "serving http://localhost:$port \\n";\n    `google-chrome http://localhost:$port`;\n    `php -S localhost:$port -t $dir`;// il comando blocca l'esecuzione successiva\n} else {\n    echo 'no port found! '.PHP_EOL;\n}\n// scan a port range and return the first open\nfunction getFirstOpenPort($port=8080, $c=10 ) {\n    $_port=0;\n    for( $i=0; $i < $c; $i++) {\n        $_port = $port + $i;\n        $is_open = portIsOpen($_port);\n        if( $is_open ) {\n            echo $str = sprintf('port:%s open:%d '.PHP_EOL, $_port, $is_open );\n            return $_port;\n        }\n    }\n    return 8080;\n}\n// verifica se una porta locale è aperta o chiusa\nfunction portIsOpen($port) {\n    // '127.0.0.1'\n    $fp = @fsockopen('localhost', $port, $errno, $errstr, $timeout=5);\n    if (!$fp) {\n        // If you're getting a connection refused then the (TCP) port is firewalled.\n        echo $str = sprintf('port:%s ern:%d err:%s'.PHP_EOL, $port, $errno, $errstr);\n        // port is closed or blocked\n        return true;\n    } else {\n        echo("opened $port \\n");\n        // port is open and available\n        fclose($fp);\n        return false;\n    }\n}
@@ -504,15 +526,17 @@ apc_get_|cache_
 zf_get_|$name = $this->getRequest()->getParam('name\|', '');
 timing_|profile_
 zf_h_partial_|echo $this->partial('_partial.phtml', $data=[\n    'from' => 'Team Framework',\n    'subject' => 'view partials'] );
-image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
 str_toupper_|strtoupper($str)
+image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
 str_match_|str_match($str, $substr)\|// strpos_ preg_match_\n// $str = "The quick brown fox jumps over the lazy dog";\n$contais = 1 === preg_match('/fox/', $str); // returns 1\n
 ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
 if__|$\| = isset($c) ? $c : null;
+sql_db2_limit_|SELECT * FROM (\n \n    SELECT\n        ROW_NUMBER() OVER ( ORDER BY BCOART ) RID_,\n        ART.BCOART, ART.BDEART, ART.BALIVA FROM MI_DAT.MATP200F ART ORDER BY BCOART\n    WHERE\n        ART.BALIVA > 20\n \n) AS PAG_TBL_\nWHERE\n    PAG_TBL_.RID_ BETWEEN 10 AND 30 -- limit equivalent\n    ORDER BY BALIVA                 -- custom ordering\n
 filter_str_|filterstr_
 strpad_|str_pad_
 border_|border: 1px solid #\|;
 css_transparent_|background-color:rgba(255,0,0,0.5);
+hh_map_|array<string, int> $map = [ 'a' => 1 ];\n
 ff_|( \| ) ? ( ) : ( );
 a_|$\| = [];
 output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n    return preg_replace('/([^@\\s]+)@([-a-z0-9]+\\.)+[a-z]{2,}/is', '<$1@...>', $s);\n}\n// esegue la funzione di pulizzia sull buffer\nob_start('mangle_email');\n// equivalente al settaggio php.ini\n// output_buffering = On\n// output_handler=mangle_email
@@ -528,6 +552,7 @@ zf_flash_|$this->_helper->flashMessenger->addMessage('');
 number_format_|number_format($number, 2, ',', '.');
 preg_match_|// basic match\n$str = "The quick brown fox jumps over the lazy dog";\n$is = 1 === preg_match('/fox/', $str) ; // returns 1\n$is = 1 === preg_match('/^fox/', $strg) ; // returns 0\n$is = 1 === preg_match('/^The/', $str) ; // returns 1\n$is = 1 === preg_match('/^the/', $str) ; // returns 0\n$is = 1 === preg_match('/dog$/', $str; // returns 1\n$is = 1 === preg_match('/f.x/', $str) ; // returns 1\n\n// adv match\n// returns 1 pattern matches, 0 if not, FALSE if an error \n$num_matches = preg_match('/^[A-Za-z0-9]{5,7}$/', $str, $a_matches, PREG_OFFSET_CAPTURE);\nif(false === $num_matches) {\n    $a_pcre_err=array_flip(get_defined_constants(true)['pcre']);\n    die( preg_last_error() /*.' '.$a_pcre_err[preg_last_error()]*/ );\n} elseif($num_matches===0) {\n    // no matches\n} else {\n    // ok\n}
 trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHello();\n        echo 'World!';\n    }\n}\nclass MyHelloWorld extends Base {\n    use SayWorld;\n}
+[ada]
 [yab]
 [lua]
 [makefile]
@@ -536,23 +561,24 @@ trait_|trait SayWorld {\n    public function sayHello() {\n        parent::sayHe
 [ptl]
 [gcbasic]
 [xsl]
+[drawj2d]
 [moin]
 code_|<code bash>\|</code>
 quote_|<quote "">\|</quote>
 [bibtex]
-[hxml]
 [modula3]
-[perl]
+[hxml]
 [tsp]
-[transact-sql]
+[perl]
 [swift]
+[transact-sql]
 [lisp]
 [smi-mib]
 [actionscript]
 [pop11]
 [progress]
-[jamon]
 [ini]
+[jamon]
 [html]
 [go]
 var_|fmt.Printf("%v", v) //DBG
@@ -602,8 +628,8 @@ dir_walk_|// import "os", "path/filepath"\n      dirname := "." + string(filepat
 [bcel]
 [psp]
 [antlr]
-[PostgreSQL]
 [cmake]
+[PostgreSQL]
 [ant]
 [assembly-m68k]
 [omnimark]
@@ -632,8 +658,8 @@ dir_walk_|// import "os", "path/filepath"\n      dirname := "." + string(filepat
 [zpt]
 [objective-c]
 [mqsc]
-[lex]
 [rust]
+[lex]
 [prolog]
 [assembly-r2000]
 [sdl/pr]
@@ -643,8 +669,6 @@ dir_walk_|// import "os", "path/filepath"\n      dirname := "." + string(filepat
 [rebol]
 [s+]
 [dsssl]
-[forth]
-[nqc]
 [RPG]
 function_|     D calc_int        PR            10I 0\n     D    parm1                       5I 0 VALUE\n      * must match the corresponding prototype\n      * (PI is optional if the SubR does not return and does not have any parameters)\n      * Other def of variables, constants and prototypes, are LOCAL definitions\n      * Calc may refer to both local and global definitions\n      * SubR must contain a RETURN operation\n     P calc_int        B\n     D calc_int        PI            10I 0\n     D    parm1                       5I 0 VALUE\n     D Result          S             10I 0\n      /free\n         Result = parm1 +1;\n         return Result;\n      /end-free\n     P                 E
 read_|read(e) File_Name;\nif %error(File_Name);\n    // TODO: error reporting\nelse;\n    dow not %eof(File_Name);\n        // TODO: process record\n        read File_Name;// read next\n    enddo;\nelse;
@@ -677,20 +701,23 @@ sql_select_one_|exec SQL  SELECT FName, LName, email INTO :fstname,:lstname,:ema
 char_replace_|str_dec = %xlate('$.,':' ':'$1,000.11');
 strtoupper_|     D U_case          C                   CONST('ABCDEFGHIJKLMNOPQRST-\n     D                                     UVWXYZAEEIOU')\n     D L_Case          C                   CONST('abcdefghijklmnopqrst-\n     D                                     uvwxyzàèéìòù')\n     $$_des = %xlate(l_case:u_case:$$_des);
 int_|%int() \n//usa unsh() per float, cast a positivo
+[forth]
+[nqc]
 [s#]
+[mavscript]
 [fhtml]
 [occam]
 [objectrexx]
 [rpm-spec]
 [apdl]
-[myghty]
 [cplex-lp]
+[myghty]
 [kotlin]
-[scala]
 [tcl]
+[scala]
 [rcp]
-[template-toolkit]
 [sip]
+[template-toolkit]
 [python]
 [i4gl]
 [clips]
@@ -730,6 +757,7 @@ cli_|#!/usr/bin/php\n<?php\n
 now_|NOW=`date +"%m-%d-%Y-%T"`\nmv test_app test_app_${NOW}
 echo_|echo "$foo World"
 for_|for i in $( ls ); do\n    echo item: $i\ndone
+switch_|cygwin=false;\nmacosx=false;\ncase "`uname -s`" in\n\tCYGWIN*) \n\t\tcygwin=true \n\t\t;;\n\tDarwin*) \n\t\tmacosx=true\n\t\t;;\nesac
 let_|VARNAME=string\necho ${VARNAME}
 str_cat_|echo "The current time is `date`"\necho "$foo World"\necho "${bla}!  ${laber}!" \necho $a$b\nA="X Y"\nA+="Z"\necho "$A"\nvar=${var}.sh\nsprintf_
 concat_|A="X Y"\nA+="Z"\nA="${B}${C}"\necho "$A"
@@ -745,7 +773,7 @@ date_|NOW=`date +"%m-%d-%Y"`\nNOW_STR=home-$(date +%Y%m%d).tgz
 f_|function hello() {\n    local HELLO="hello "\n    echo $HELLO\n    echo $1\n    echo $@\n}\nhello "World"
 sprintf_|foo=$(printf "%s World" "$foo")
 exec_|DBS=`mysql -uroot  -e"show databases"`
-if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nfi
+if_|if [[ `uname` == 'Linux' ]]; then\n    DB=testdb\n    rm -f /tmp/${DB}\nelif [[ `uname` == 'Darwin' ]]; then\n    DB=test.db\nelse\n    #TODO:\nfi
 printf_|printf -v a "%s" "my_var"\nprintf "${color}${text}${nc}"
 func_|function cprint() {\n    local text="${2}"\n    local nc='\\033[0m'\n    case "${1}" in\n        black  | bk) color='\\033[0;30m';;\n        red    |  r) color='\\033[1;31m';;\n        green  |  g) color='\\033[1;32m';;\n        yellow |  y) color='\\033[1;33m';;\n        blue   |  b) color='\\033[1;34m';;\n        purple |  p) color='\\033[1;35m';;\n        cyan   |  c) color='\\033[1;36m';;\n        gray   | gr) color='\\033[0;37m';;\n        *) color=''\n    esac\n    printf "${color}${text}${nc}"\n}\n\ncprint r  "colorful!\\n"\ncprint g  "colorful!\\n"\ncprint y  "colorful!\\n"\ncprint b  "colorful!\\n"\ncprint p  "colorful!\\n"\ncprint c  "colorful!\\n"\n\nfunction y_print() { # $1 = string\n    local TEXT="$1"\n    local COLOR='\\033[1;33m'\n    local NC='\\033[0m'\n    printf "${COLOR}${TEXT}${NC}\\n"\n}\n\ny_print "This will be Yellow"
 OS_|if [[ `uname` == 'Linux' ]]; then\n   OS=android\nelif [[ `uname` == 'Darwin' ]]; then\n   OS=ios\nfi
@@ -755,9 +783,9 @@ argv_|# accede al primo argomento passato in input\nif [ -z "$1" ]; then\n    ec
 [jflex]
 [d]
 [c]
+[maven]
 [coldfusion]
 [b]
-[maven]
 [typoscript]
 [scheme]
 [dart]
@@ -843,6 +871,7 @@ for_a_|for(int $1 = 0; $1 < $2.length; $1++)\n{\n\t$3 \| = $2[$1];\n}
 switch_|switch (args[0]) {  \n    case "aa":\n        System.out.println("much better");\n        break;  \n    default: \n        break;\n}
 echo_|import static java.lang.System.out;\nout.println("str");\n//System.out.println("str");
 load_|String fullClassName = "com.ibm.as400.access.AS400JDBCDriver";\nClass.forName(fullClassName);\nworker = (Worker) c.newInstance();\n
+file_exists_|File f = new File("/Path/To/File/file.txt");\nif ( f.exists() ) {\n   ...\n}\nFile f = new File("/Path/To/File/or/Directory");\nif ( f.isDirectory() ) {\n   ...\n}\n\n
 m_|public void test() {\n}
 sprintf_|String s = String.format("result:%4d", i );\n
 str_join_|    public static String strJoin (String[] a_s, String glue) {\n        int len = a_s.length;\n        if ( 0 == len ) {\n            return null;\n        }\n        StringBuilder out = new StringBuilder();\n        out.append( a_s[0] );\n        for ( int j=1; j < len; j++ ) {\n            out.append(glue).append(a_s[j]);\n        }\n        return out.toString();\n    }\n    public static String strJoin(String[] a_s, String glue) {\n        int len = a_s.length;\n        if ( 0 == len ) {\n            return null;\n        }\n        StringBuilder out = new StringBuilder();\n        out.append( a_s[0] );\n        for ( int j=1; j < len; j++ ) {\n            out.append(glue).append(a_s[j]);\n        }\n        return out.toString();\n    }\n    public static String strJoin(Collection a_s, String glue) {\n        StringOut out = new StringOut();\n        Iterator iter = a_s.iterator();\n        while (iter.hasNext()) {\n            out.append(iter.next());\n            if (iter.hasNext()) {\n                out.append(glue);\n            }\n        }\n        return out.toString();\n    }\n    public static String strJoin(String glue, String... a_s) {\n        return strJoin(a_s, glue);\n    }\n
@@ -868,21 +897,21 @@ _ENV_|// settata con: java -Dsystem.env=$ENV \nString currentEnv = System.getPro
 reg_replace_|String replaceLinks(String html){\n    Pattern p = Pattern.compile("href=(?:\\"|\\')?Topic((?:\\\\d){1,3})\\\\.cjp(?:\\"|\\')?");\n    Matcher m = p.matcher(html);\n    return m.replaceAll("href=#$1");\n}\n\n \n 
 logw|Log.log(Log.WARNING,this,\|);
 [assembly-parrot]
-[xml]
 [dot]
+[xml]
 [rakefile]
-[cil]
 [powershell]
-[postscript]
+[cil]
 [logtalk]
+[postscript]
 [sql-loader]
 [redcode]
 [literate-haskell]
 [renderman-rib]
 [doxygen]
 [javacc]
-[pike]
 [ruby]
+[pike]
 [applescript]
 [ml]
 [pascal]
@@ -895,8 +924,8 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [freemarker]
 [coffeescript]
 [vbscript]
-[url]
 [visualbasic]
+[url]
 [povray]
 [jmk]
 [icalendar]
@@ -975,7 +1004,7 @@ _min_|var numbers = [10, 5, 100, 2, 1000];\n_.min(numbers);\n//=> 2
 cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
 jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
 __END__|var t = `\nmultiline string  ${var}\n`;
-interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n}\n
+interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n    // overloading\n    select2(method: string): any;\n    select2(method: string, value: any, trigger?: boolean): any;\n}\n
 namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
 factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
 jq_each_|$.each(associative_array, function(key, value) { \n  alert(key + ': ' + value); \n});
@@ -1020,9 +1049,9 @@ timestamp_|var now = new Date().getTime().toString();
 opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param: true\n}, p_options );
 parseInt_|parseInt("221100", 10);
 a_num_|var a_: Array<number> = [1, 2];
+jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
 declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
 jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
-jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
 when_|jq_when_
 closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
 cb_|successCallback?: (arg1: number)=>void
@@ -1134,7 +1163,7 @@ interface_func_|interface ICallbackType extends Function { \n  (msg: string): vo
 jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
 docstr_|doctring_
 const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
-jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
+jq_click_|$('form input:checkbox').on('click', function(e:JQueryEventObject){\n  e.preventDefault();\n  var txt = $( this ).text();//accedere all'elemento cliccato\n        \|});\n// passing data\n$("button").on("click", { name: "Karl"}, function greet( e:JQueryEventObject ) {\n  alert( "Hello " + e.data.name );\n});
 typeof_|isset_
 jq_isnode_|if( $('#selector').length > 0 ) {}
 date_now_|var t:number = (new Date()).getTime() / 1000
@@ -1149,22 +1178,25 @@ floor_|var n = Math.floor( 45.95 ); //  45
 regexp_|var re = /\\w+/;\nvar re_m = regex.exec(text);\nconsole.log(re_m[1]); \n// str_match_ str_replace_
 module_|module M {\n    export class C {\n    }\n}
 jq_selector_|jq_selector_list_
+is_str_|_.isString( str ) 
 callback_|cb_
 jq_ajax_get_|var jqxhr = $.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n}).done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
 cast_|// var foo: any; var foo = {} as IFooInterface;\np_index_fields:string|string[]\nif( _.isArray(p_index_fields) ) {\n    var a:string[] = <Array<string>>p_index_fields;\n    index_fields = a.join(', ');\n} else {\n    index_fields = <string>p_index_fields;\n}\n//(<any>this)._bindRoutes();\n
 count_|[].length\n//var k_num:number = _.size(hash);
-jq_ajax_json_|var jqxhr = $.getJSON("/controller/action", { k: v },\n   function(json){\n     console.log("JSON Data: " + json.name);\n}).fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n});
+jq_ajax_json_|var params:Hash = { 'k': v };\nvar jqxhr = $.getJSON("/controller/action", params, (data:Hash) => {\n     console.log("JSON Data: " + data.name);\n}).fail((req, status, err) => {\n    console.log( "jqxhr error:"+status+' '+err );\n});\n\n
 map_|var _a = a.map(function(v,k){\n    v.name = '"'+v.name+'"';\n    return v;\n});
 bb_view_|// var instance = new Views.__ViewName__({\n//     el: $('#myid'),\n//     model: mymodel\n// });\n// instance.render().delegateEvents();\n\nmodule Views {\n    export class __ViewName__ extends Backbone.View {\n        // TS constructor\n        constructor( opt: any) {\n            // ... init properties\n            super(opt);// BB chiamerà this.initialize(opt);\n            console.log( sprintf('__ViewName__ iconstruct') );\n        }\n        // BB contructor\n        initialize(opt:any) {\n            // UI events update the model, listen the model change, update the view\n            this.listenTo(this.model, 'change', this.render);\n        }\n        finalize() {\n            this.stopListening(model, 'change');\n        }\n        render() {\n            var data = this.model.attributes;\n            // subviews: preferibile configurarle per renderle manualmente\n            // this.collection.each(function(m){\n            //     var tmpView = new subView({ model: m });\n            //     this.$el.append(tmpView.render().el);\n            // }, this);\n            var html = '<div class="content">test test</div> ';\n            this.$el.html(html);\n            return this;\n        }\n        events() {\n            return {\n                'click .content': 'onOpen',\n            };\n        }\n        onOpen(event:JQueryEventObject) {\n            //this.model.set({ name: $("#name").val()});\n            this.render();\n            alert('test');\n        }\n        // id in cui verrà resa la view come pagina\n        getPageID() { return '__ViewName__'; }\n    }\n}
 jq_rm_|jq_remove_
 array_merge_|var a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
 jq_dom_node_|var dom_node = $( "li" ).get( 0 );\nconsole.log( dom_node+' '+$.type(dom_node) );
+interface_jquery_plugin|\n// define plugin options\ninterface Select2Options {\n    width?: string;\n    dropdownAutoWidth?: boolean;\n    minimumInputLength?: number;\n}\n\ninterface JQuery {\n    select2(): JQuery;\n    select2(it: IdTextPair): JQuery;\n    select2(options: Select2Options): JQuery;\n}
 jq_animate_|$( this ).animate({\n    left: '+=50', // increase by 50\n    opacity: 0.25,\n    fontSize: '12px' //camelcase when prop name like "font-size"\n  },  300,  function() {\n    // executes when the animation is done\n  }\n);\n.stop(); // will stop currently running animations \n.delay(milliseconds); // will pause before the execution of the next animation method
 localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    var = key = 'clickcount';\n    if ( typeof localStorage[key] !== "undefined" ) {\n        localStorage[key] = localStorage[key] + 1;\n    } else {\n        localStorage[key] = 1;\n    }\n    // eliminare dati:\n    // localStorage[key] = null;\n    // localStorage.removeItem(key);\n}\n
-_each_|_.each<string>(hash, (v:string, k:string) => { \n    \|});
+_each_|_.each<string>(hash, (val:string, key:string) => { \n    // do not return, just iter. @see _map_\|});
 except_|throw "errormsg\|";
 timeout_|setTimeout(function(){ alert("Hello"); }, 300);
 jq_selector_list_|/*\n    All                         *   \n                                :animated \n    Attribute Contains Prefix   [name|=  value  ]\n    Attribute Contains          [name*=  value  ]\n    Attribute Contains Word     [name~=  value  ]\n    Attribute Ends With         [name$=  value  ]\n    Attribute Equals            [name=  value  ]\n    Attribute Not Equal         [name!=  value  ]\n    Attribute Starts With       [name^=  value  ]\n                                :button\n                                :checkbox \n                                :checked \n    Child                       parent > child   \n    Class                       .class   \n                                :contains   \n                                :disabled \n                                :empty \n                                :enabled \n                                :eq   \n                                :even \n                                :file \n                                :first-child \n                                :first-of-type \n                                :first \n                                :focus \n                                :gt   \n    Has Attribute               [name]\n                                :has   \n                                :header \n                                :hidden \n    ID                          #id   \n                                :image \n                                :input \n                                :lang   \n                                :last-child \n                                :last-of-type \n                                :last \n                                :lt   \n    Multiple Attribute          [name=value][name2=value2″]\n    Multiple                    selector1, 2, N   \n    Next Adjacent               prev + next   \n    Next Siblings               prev ~ siblings   \n                                :not   \n                                :nth-child   \n                                :nth-last-child   \n                                :nth-last-of-type   \n                                :nth-of-type   \n                                :odd \n                                :only-child \n                                :only-of-type \n                                :parent \n                                :password \n                                :radio \n                                :reset \n                                :root \n                                :selected \n                                :submit \n                                :target \n                                :text \n                                :visible \n*/\n
+_flter_|//all the values that pass\nvar evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ \n\treturn num % 2 == 0; \n});\n// => [2, 4, 6]
 sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
 json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
 json_parse_|json_decode_
@@ -1175,7 +1207,7 @@ jq_is_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(t
 void_|if ( value === void 0) { value = 0; }
 microtime_|profile_
 jq_make_array_|// Returns a NodeList\nvar elems = document.getElementsByTagName( "div" );\n// Convert the NodeList to an Array\nvar arr = jQuery.makeArray( elems );\n// Use an Array method on list of dom elements\narr.reverse();\n$( arr ).appendTo( document.body );
-jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
+jq_proxy_|//var you = {\n//  type: "person",\n//  test: function( event ) {\n//    $( "#log" ).append( this.type + " " );\n//  }};\n \n// Execute you.test() in the context of the `you` object no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.test, you );\n \n// this === "person"\n$("#test").on( "click", youClick );\n\n\n
 date_parts_|t.getHours();\nt.getMinutes();\nt.getSeconds();
 _rand_|_.random(0, 100)
 unset_|delete obj['index'];
@@ -1183,25 +1215,47 @@ unset_|delete obj['index'];
 [cobol]
 [csv]
 [css]
-hide_|visibility:hidden;\n/*occupa posto nel layout*/
-sass_call_|@include func-name($varname);
-foreach_|// less 2.1\n@list: "banana", "tomato", "potato", "peach";\n@n: length(@list);\n.loop(@i) when (@i >= 0) {\n    .loop( (@i - 1) );  // recursivem next iteration\n    @value: extract(@list, @i);\n    // code for each iteration\n    body { color:@value; }\n}\n.loop(@n);
-sass_func_|// \n@mixin func-name($lato_len_px) {\n    // definizioni da ripetere...\n    .hide-txt when ($lato_len_px > 50) {\n        font-size: $font-size-small;\n    }\n}\n@include func-name($lato_len_px);
-if_|sass_if_\nless_if_
-shadow_|/* oriz vert blur_radius spread radius */\n                -webkit-box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.5);
+text_selection_|/* Mozilla based browsers */\n::-moz-selection {\n   background-color: #FFA;\n   color: #000;\n}\n\n/* Works in Safari */\n::selection {\n   background-color: #FFA;\n   color: #000;\n}
 dbg_|border: 1px solid #\|;/*dbg*/
-gradient_|// use less or sass mixin
-show_|display:block;
-media_|mediaquery_
+hide_|visibility:hidden;\n/*occupa posto nel layout*/\ndisplay:none;\n/*SEO friendly, Removes an item from the page, without affecting page flow or causing scrollbars*/\n.SEO_hide {\n    position: absolute;\n    left: -9999px;\n}
+opacity_|.transparent_class {\n  /* IE 8 */\n  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";\n\n  /* IE 5-7 */\n  filter: alpha(opacity=50);\n\n  /* Netscape */\n  -moz-opacity: 0.5;\n\n  /* Safari 1.x */\n  -khtml-opacity: 0.5;\n\n  /* Good browsers */\n  opacity: 0.5;\n}
+text_shadow_|p { text-shadow: 1px 1px 1px #000, 3px 3px 5px blue; }\n// or\np { text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4); }
+box_shadow_|shadow_
+font_helvetica_|   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;\n   font-weight: 300;
+list_horizontal_|<ul class="list-horizontal">\n  <li><a class="active" href="#home">Home</a></li>\n  <li><a href="#news">News</a></li>\n  <li><a href="#contact">Contact</a></li>\n</ul>\n\nul.list-horizontal {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    overflow: hidden;\n    background-color: #333333;\n  li {\n    float: left;\n  }\n  li a {\n    display: block;\n    color: white;\n    text-align: center;\n    padding: 16px;\n    text-decoration: none;\n  }\n  li a:hover {\n    background-color: #111111;\n  }\n}\n\n \n\n
+center_div_of_dinamic_height_|* { margin: 0; padding: 0; }\n#page{display:table;overflow:hidden;margin:0px auto;}\n*:first-child+html #page {position:relative;}/*ie7*/\n* html #page{position:relative;}/*ie6*/\n\n#content_container{display:table-cell;vertical-align: middle;}\n*:first-child+html #content_container{position:absolute;top:50%;}/*ie7*/\n* html #content_container{position:absolute;top:50%;}/*ie6*/\n\n*:first-child+html #content{position:relative;top:-50%;}/*ie7*/\n* html #content{position:relative;top:-50%;}/*ie6*/\n\nhtml,body{height:100%;}\n#page{height:100%;width:465px;}\nHTML\n\n<div id="page">\n       <div id="content_container">\n               <div id="content">\n                     <p>your content</p>\n               </div>\n       </div>\n</div>
+transparent_|opacity_
+selection_|text_selection_
+triangle_|.upper {\n  position:absolute;\n  left:150px; top:100px; /* pos.*/   }\n\n  .upper div {\n    border-left-color: transparent;\n    border-style: solid;\n  }\n  .inner{\n  border-width: 0 0 /* x: */ 100px /* h: */ 100px;\n  border-bottom-color: #955;\n}\n \n\n<div class="upper">\n  <div class="inner"></div>\n</div>
+sass_call_|@include func-name($varname);
 remove_|display: none;
-mediaquery_|/* 480 768 */\n@media only screen and (max-width : 1024px) {\n}
+show_|display:block;
+page_center_|#page-wrap {\n     width: 800px;\n     margin: 0 auto;\n}\nHTML\n\n<body>\n  <div id="page-wrap">\n    <!-- all websites HTML here -->\n  </div>\n</body>
+if_|sass_if_\nless_if_
+IE6_fixed_position_|// The 100% height on the body and html stuff is in case you want to do fixed positioning along the bottom edge of the browser window.\n* { margin:0; padding:0; }\nhtml, body {\n   height: 100%;\n}\nbody #fixedElement {\n   position:fixed !important;\n   position: absolute; /*ie6 and above*/\n   top: 0;\n   right: 0;\n}\n#page-wrap {\n   width: 600px;\n   margin: 0 auto;\n   font: 16px/2 Georgia, Serif;\n}
+sass_func_|// \n@mixin func-name($lato_len_px) {\n    // definizioni da ripetere...\n    .hide-txt when ($lato_len_px > 50) {\n        font-size: $font-size-small;\n    }\n}\n@include func-name($lato_len_px);
+text_rotate_|.rotate {\n  /* Safari */\n  -webkit-transform: rotate(-90deg);\n  /* Firefox */\n  -moz-transform: rotate(-90deg);\n  /* Internet Explorer */\n  -ms-transform: rotate(90deg);\n  /* Opera */\n  -o-transform:rotate(-90deg);\n  transform: rotate(90deg);\n}
+media_types_|<link rel="stylesheet" type="text/css" href="print.css" media="print">\n\nall - Used for all media typedevices\naural - Used for speech and sound synthesizers\nbraille - Used for braille tactile feedback devices\nembossed - Used for paged braille printers\nhandheld - Used for small or handheld devices\nprint - Used for printers\nprojection - Used for projected presentations, like slides\nscreen - Used for computer screens\ntty - Used for media using a fixed-pitch character grid, like teletypes and terminals\ntv - Used for television-type devices
 sass_if_|@if ($lato_len_px > 50) {\n\n} @else if($lato_len_px <= 50) {\n\n}
+font_families_|.x {\n   font-family: 'CustomFont', Helvetica, Arial, sans-serif;\n}\n\n\n//Sans-Serif:\nArial, sans-serif; Helvetica, sans-serif; Gill Sans, sans-serif; Lucida, sans-serif; Helvetica Narrow, sans-serif; sans-serif;\n\n//Serif:\nTimes, serif; Times New Roman, serif; Palatino, serif; Bookman, serif; New Century Schoolbook, serif; serif;\n\n//Monospace:\n'Andale Mono, monospace; Courier New, monospace; Courier, monospace; Lucidatypewriter, monospace; Fixed, monospace; monospace;\n\n//Cursive:\n'Comic Sans, Comic Sans MS, cursive; Zapf Chancery, cursive; Coronetscript, cursive; Florence, cursive; Parkavenue, cursive; cursive;\n\n//Fantasy:\n'Impact, fantasy; Arnoldboecklin, fantasy; Oldtown, fantasy; Blippo, fantasy; Brushstroke, fantasy; fantasy;
+mediaquery_|/* 480 768 */\n@media only screen and (max-width : 1024px) {\n}
+shadow_|/* oriz vert blur_radius spread radius */\n-webkit-box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.5);\n\n.shadow {\n  box-shadow: 5px 5px 5px #ccc;\n  -moz-box-shadow: 5px 5px 5px #ccc;\n  -webkit-box-shadow: 5px 5px 5px #ccc;\n}
 alpha_|opacity:0.85;\nfilter:alpha(opacity=85);
+gradient_|// use less or sass mixin\n\nbackground-image: linear-gradient(45deg,#7990f5 0,#0a1855 100%);
+footer_sticky_|* { margin:0; padding:0; }\n\nhtml, body, #wrap { height: 100%; }\n\nbody > #wrap {height: auto; min-height: 100%;}\n\n#main { padding-bottom: 150px; } /* must be same height as the footer */\n\n#footer {\n\n  position: relative;\n\n  margin-top: -150px; /* negative value of footer height */\n  height: 150px;\n  clear:both;\n}\n\n/* CLEAR FIX*/\n.clearfix:after {content: ".";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;}\n.clearfix {display: inline-block;}\n/* Hides from IE-mac \\*/\n* html .clearfix { height: 1%;}\n.clearfix {display: block;}\n/* End hide from IE-mac */\n\n\n<div id="wrap">\n\t<div id="main" class="clearfix">\n\t</div>\n</div>\n<div id="footer">\n</div>
+media_|mediaquery_
 less_func_|// func def...\n.btn-square-parametric(@lato_len_px) {\n    .hide-txt when (@lato_len_px > 50) {\n        font-size: @font-size-small;\n    }\n}\n// func call \n.btn-square-parameter(@lato_len_px);
+font_face_|@font-face {\n   font-family: 'CustomFont';\n   src: url('customfont.eot');\n   src: url('customfont.eot?#iefix') format('embedded-opentype'),\n   url('customfont.woff') format('woff'),\n   url('customfont.ttf')  format('truetype'),\n   url('customfont.svg#CustomFont') format('svg');\n}\n\nbody {\n   font-family: 'CustomFont', Helvetica, Arial, sans-serif;\n}
+foreach_|// less 2.1\n@list: "banana", "tomato", "potato", "peach";\n@n: length(@list);\n.loop(@i) when (@i >= 0) {\n    .loop( (@i - 1) );  // recursivem next iteration\n    @value: extract(@list, @i);\n    // code for each iteration\n    body { color:@value; }\n}\n.loop(@n);
+text_replacement_|h1 #logo {\n  width: 200px; // width of image\n  height: 100px; // height of image\n  background: url(/path/to/image.jpg);\n  text-indent: -9999px;\n}
+IE_conditiona_comment_|<!--[if IE 5]>\n<style type="text/css">@import "IE5_only.css";</style>\n<![endif]-->\n \n<!--[if !IE]><!-->\n<p>This is not Internet Explorer</p>\n<!--<![endif]-->\n \n<!--[if gte IE 7]>\n  At least IE7 and not\n<!-->
 css_mediaquery_|// if( $device_width >= $x )\n@media only screen and (min-width: 640px  ) { }\n@media only screen and (min-width: 667px  ) { }\n@media only screen and (min-width: 732px  ) { }\n@media only screen and (min-width: 960px  ) { }\n@media only screen and (min-width: 1024px ) { }\n@media only screen and (min-width: 1280px ) { }\n\n// if( $device_width <= $x )\n@media only screen and (max-width: 1280px) { }\n\n
+blockquote_|blockquote {\n  background:#f9f9f9;\n  border-left:10px solid #ccc;\n  margin:1.5em 10px;\n  padding:.5em 10px;\n  quotes:"\\201C""\\201D""\\2018""\\2019";\n}\nblockquote:before {\n  color:#ccc;\n  content:open-quote;\n  font-size:4em;\n  line-height:.1em;\n  margin-right:.25em;\n  vertical-align:-.4em;\n}\nblockquote p {\n  display:inline;\n}
 [assembly-x86]
 [binsource-agc]
 [ans-forth94]
+[xq]
+[gnuplot]
 [javascript]
 foreach_|a.forEach(function(v,k){\n    // console.log(v);\n});\n// IE<=8 \n// for(var k in a){ if(a.hasOwnProperty(k)){ var v = a[k]; }}
 js_require_|js_include_
@@ -1378,5 +1432,3 @@ jq_make_array_|// Returns a NodeList\nvar elems = document.getElementsByTagName(
 jq_proxy_|// Execute you.test() in the context of the `you` object\n// no matter where it is called\n// i.e. the `this` keyword will refer to `you`\nvar youClick = $.proxy( you.func_name, you );\n// this === "person"\n$(selector).on("click", youClick );
 unset_|delete obj['index'];
 [uscript]
-[gnuplot]
-[xq]
