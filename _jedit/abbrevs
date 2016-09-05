@@ -36,6 +36,7 @@ css_font_|<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="sty
 input_numeric_|<input type="number" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="0" max="999" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode || event.keyCode))'>
 docstring_|\n/**\n * funzione:\n *\n */\n
 p_|<p>\|</p>
+password_|    <input type="password" id="field" data-indicator="pwindicator">\n        <div id="pwindicator">\n            <div class="bar"></div>\n            <div class="label"></div>\n        </div>\nscript_\n@see https://github.com/devsmt/jquery.pwstrength\n  jQuery(function($) { \n        $('#field').pwstrength(); \n    });
 tr_|<tr>\n\t<td>\|\t&nbsp;</td>\n</tr>
 twb_col_|<div class="col-lg-6 col-md-6 col-xs-12"> aaa </div>
 script_|<script src="\|"></script>
@@ -288,9 +289,9 @@ out_|echo htmlspecialchars($s, ENT_QUOTES);
 sql_replace_|REPLACE [LOW_PRIORITY | DELAYED] INTO $tbl_name SET col_name=$val
 printf_|pf_
 zf_mail_|$mail = new Zend_Mail();\n$mail->setFrom(Zend_Registry::get('config')->email->support);\n$mail->addTo($form->getValue('email'));\n$mail->setSubject("subject");\n// Retrieve the e-mail message text\ninclude "_email_template.phtml";\n$mail->setBodyText($email);\n$mail->send();
+sp_|sprintf_
 __get_|public function __call($name, $arguments) {\n    // Note: value of $name is case sensitive.\n    echo "Calling object method '$name' " . print_r( $arguments, 1). "\\n";\n}
 filesize_|file_size_
-sp_|sprintf_
 spl_autoload_register_|        //\n        // @see PSR-4 autoload reference implementation\n        //\n        // new \\Foo\\Bar\\Baz\\Qux;\n        // \\Foo\\Bar\\Baz\\Qux class => /path/to/project/src/Baz/Qux.php:\n        //\n        spl_autoload_register(function ($pClassName) {\n            // project-specific namespace prefix\n            $prefix = '';//'Mobile';// Foo\\\\Bar\\\\\n            // base directory for the namespace prefix\n            $base_dir = __DIR__.'/'; // . '/src/';\n            // does the class use the namespace prefix?\n            $len = strlen($prefix);\n            if (strncmp($prefix, $pClassName, $len) !== 0) {\n                // DBG echo " autoloading NS prefix: $pClassName \\n";\n                // no, move to the next registered autoloader\n                return;\n            }\n            // get the relative class name\n            $relative_class = substr($pClassName, $len);\n            // replace the namespace prefix with the base directory, replace namespace\n            // separators with directory separators in the relative class name, append\n            // with .php\n            $file = $base_dir . str_replace('\\\\', '/', $relative_class) . '.php';\n            if (file_exists($file)) {\n                // echo "LOADING: $file\\n"; // DBG\n                require $file;\n            } else {\n                // DBG\n                die( " autoloading KO: $file\\n" );\n            }\n        });
 _max_|$a_recs =array(  array( 'age'=>60 )  );\n$max = __::max($a_recs, function($rec) { return $rec['age']; });
 filter_char_|filterstr_
@@ -340,7 +341,7 @@ preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= ';\n$str
 explode_|explode( ',', $s\|);
 zf_route_regex_|$router->addRoute('fornitori_genlabel', new Zend_Controller_Router_Route_Regex(\n        'fornitori/genlabel/Etichette_federe_(\\d+)_(\\d+)\\.pdf',\n        [\n            'controller' => 'Fornitori',\n            'action' => 'genlabel'\n        ],\n        $mappings=[\n            1 => 'ord_num'  ,\n            2 => 'ord_date' ,\n        ],\n        'fornitori/genlabel/Etichette_federe_%d_%d.pdf'\n));
 construct_|public function __construct(){\n   parent::__construct();\n\|}
-for_|for( $i=0; $c=count($a); $i < $c; $i++) {\|}
+for_|$c=count($a);\nfor( $i=0; $i < $c; $i++) {\|}
 mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
 system_|exec_
 require_once_|require_
@@ -402,6 +403,7 @@ file_put_contents_|\n// log routine\nprotected function logRequest( $message, $i
 asort_|hash_sort_
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
 substr_count_|$c = substr_count($str, $usbstr\|);
+phpversion_|php_version_
 defined_|defined('MYCONST')
 sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
 goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
@@ -417,7 +419,7 @@ check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value=
 pattern_signleton_|class Singleton {\n    // Returns the *Singleton* instance of this class.\n    public static function getInstance() {\n        static $instance = null;\n        if (null === $instance) {\n            $instance = new static();\n        }\n        return $instance;\n    }\n    // Protected constructor to prevent creating a new instance via the `new` operator from outside of this class \n    protected function __construct() { }\n    private function __clone() { }\n    private function __wakeup() { }\n}\n\nclass SingletonChild extends Singleton { }\n\n
 range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
 array_sort_|sort_
-autoload_|        spl_autoload_register(function ($pClassName) {\n            $path = str_replace('\\\\', DIRECTORY_SEPARATOR, $pClassName);\n            require_once (__DIR__ . DIRECTORY_SEPARATOR . $path . ".php");\n            return true;\n        });
+autoload_|// @see composer ClassLoader.php for PSR-04 compliant autloader\nspl_autoload_register(function ($pClassName) {\n    $ds = DIRECTORY_SEPARATOR;\n    $path_local = str_replace('\\\\', $ds, $pClassName);\n    // TODO: define your lib path\n    $path = __DIR__ . $ds . '../lib'. $ds. $path_local . ".php"\n    require_once $path;\n    return true;\n});
 array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
 _min_|$a_recs =array(  array( 'age'=>60 )  );\n$min = __::min($a_recs, function($rec) { return $rec['age']; });
 zf_h_escape_|$this->escape($this->str)
@@ -476,6 +478,7 @@ sapi_|php_sapi_name_
 filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
 phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
 e_|<?= escape_\|?>
+method_exists_|method_exists($obj, 'method')
 singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
 strpos_|str_pos_
 zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
@@ -507,6 +510,7 @@ jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .sub
 zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
 __construct_|public function __construct(){\n    parent::__construct();\n}
 empty_|_empty_
+php_version_|// test software version\nif( \n  !defined('PHP_VERSION_ID') \n  || !(PHP_VERSION_ID >= 50600 && PHP_VERSION_ID < 50700 || PHP_VERSION_ID === 70002 || PHP_VERSION_ID >= 70006)\n) {\n    if (PHP_SAPI == 'cli') {\n        echo 'Magento supports PHP 5.6, 7.0.2, and 7.0.6 or later. ' .\n            'Please read http://devdocs.magento.com/guides/v1.0/install-gde/system-requirements.html';\n    } else {\n        die('\n<div style="font:12px/1.35em arial, helvetica, sans-serif;">\n    <p>Magento supports PHP 5.6, 7.0.2, and 7.0.6 or later. Please read\n    <a target="_blank" href="http://devdocs.magento.com/guides/v1.0/install-gde/system-requirements.html">\n    Magento System Requirements</a>.\n</div>');\n  \n    }\n}\n
 redirect_|location_
 parse_int_|intval($i)
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
@@ -1216,6 +1220,7 @@ unset_|delete obj['index'];
 [csv]
 [css]
 text_selection_|/* Mozilla based browsers */\n::-moz-selection {\n   background-color: #FFA;\n   color: #000;\n}\n\n/* Works in Safari */\n::selection {\n   background-color: #FFA;\n   color: #000;\n}
+bg_|background-color: rgba(255,255,255,0.9);
 dbg_|border: 1px solid #\|;/*dbg*/
 hide_|visibility:hidden;\n/*occupa posto nel layout*/\ndisplay:none;\n/*SEO friendly, Removes an item from the page, without affecting page flow or causing scrollbars*/\n.SEO_hide {\n    position: absolute;\n    left: -9999px;\n}
 opacity_|.transparent_class {\n  /* IE 8 */\n  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";\n\n  /* IE 5-7 */\n  filter: alpha(opacity=50);\n\n  /* Netscape */\n  -moz-opacity: 0.5;\n\n  /* Safari 1.x */\n  -khtml-opacity: 0.5;\n\n  /* Good browsers */\n  opacity: 0.5;\n}
@@ -1226,7 +1231,9 @@ list_horizontal_|<ul class="list-horizontal">\n  <li><a class="active" href="#ho
 center_div_of_dinamic_height_|* { margin: 0; padding: 0; }\n#page{display:table;overflow:hidden;margin:0px auto;}\n*:first-child+html #page {position:relative;}/*ie7*/\n* html #page{position:relative;}/*ie6*/\n\n#content_container{display:table-cell;vertical-align: middle;}\n*:first-child+html #content_container{position:absolute;top:50%;}/*ie7*/\n* html #content_container{position:absolute;top:50%;}/*ie6*/\n\n*:first-child+html #content{position:relative;top:-50%;}/*ie7*/\n* html #content{position:relative;top:-50%;}/*ie6*/\n\nhtml,body{height:100%;}\n#page{height:100%;width:465px;}\nHTML\n\n<div id="page">\n       <div id="content_container">\n               <div id="content">\n                     <p>your content</p>\n               </div>\n       </div>\n</div>
 transparent_|opacity_
 selection_|text_selection_
+transition_|// transition on BG\n.admin__menu .submenu a {\n    color: #fcfcfc;\n    transition: background-color .1s linear;\n}\n.admin__menu .submenu a:hover {\n     background-color: #333;\n}\n// animation on dimension\ndiv {\n    width: 100px;\n    height: 100px;\n    background: red;\n    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */\n    transition: width 2s;\n}\ndiv:hover {\n    width: 300px;\n}
 triangle_|.upper {\n  position:absolute;\n  left:150px; top:100px; /* pos.*/   }\n\n  .upper div {\n    border-left-color: transparent;\n    border-style: solid;\n  }\n  .inner{\n  border-width: 0 0 /* x: */ 100px /* h: */ 100px;\n  border-bottom-color: #955;\n}\n \n\n<div class="upper">\n  <div class="inner"></div>\n</div>
+list_vertical_|<ul class="list-vertical">\n  <li><a href="#home">Home</a></li>\n  <li><a href="#news">News</a></li>\n  <li><a href="#contact">Contact</a></li>\n</ul>\nul.list-vertical {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n  li a {\n    display: block;\n    width: 60px;\n    background-color: #dddddd;\n  }\n}\n\n\n \n\n
 sass_call_|@include func-name($varname);
 remove_|display: none;
 show_|display:block;
@@ -1240,9 +1247,10 @@ sass_if_|@if ($lato_len_px > 50) {\n\n} @else if($lato_len_px <= 50) {\n\n}
 font_families_|.x {\n   font-family: 'CustomFont', Helvetica, Arial, sans-serif;\n}\n\n\n//Sans-Serif:\nArial, sans-serif; Helvetica, sans-serif; Gill Sans, sans-serif; Lucida, sans-serif; Helvetica Narrow, sans-serif; sans-serif;\n\n//Serif:\nTimes, serif; Times New Roman, serif; Palatino, serif; Bookman, serif; New Century Schoolbook, serif; serif;\n\n//Monospace:\n'Andale Mono, monospace; Courier New, monospace; Courier, monospace; Lucidatypewriter, monospace; Fixed, monospace; monospace;\n\n//Cursive:\n'Comic Sans, Comic Sans MS, cursive; Zapf Chancery, cursive; Coronetscript, cursive; Florence, cursive; Parkavenue, cursive; cursive;\n\n//Fantasy:\n'Impact, fantasy; Arnoldboecklin, fantasy; Oldtown, fantasy; Blippo, fantasy; Brushstroke, fantasy; fantasy;
 mediaquery_|/* 480 768 */\n@media only screen and (max-width : 1024px) {\n}
 shadow_|/* oriz vert blur_radius spread radius */\n-webkit-box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.5);\n\n.shadow {\n  box-shadow: 5px 5px 5px #ccc;\n  -moz-box-shadow: 5px 5px 5px #ccc;\n  -webkit-box-shadow: 5px 5px 5px #ccc;\n}
-alpha_|opacity:0.85;\nfilter:alpha(opacity=85);
+alpha_|opacity:0.85;\nfilter:alpha(opacity=85);\n// or see bg_
 gradient_|// use less or sass mixin\n\nbackground-image: linear-gradient(45deg,#7990f5 0,#0a1855 100%);
 footer_sticky_|* { margin:0; padding:0; }\n\nhtml, body, #wrap { height: 100%; }\n\nbody > #wrap {height: auto; min-height: 100%;}\n\n#main { padding-bottom: 150px; } /* must be same height as the footer */\n\n#footer {\n\n  position: relative;\n\n  margin-top: -150px; /* negative value of footer height */\n  height: 150px;\n  clear:both;\n}\n\n/* CLEAR FIX*/\n.clearfix:after {content: ".";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;}\n.clearfix {display: inline-block;}\n/* Hides from IE-mac \\*/\n* html .clearfix { height: 1%;}\n.clearfix {display: block;}\n/* End hide from IE-mac */\n\n\n<div id="wrap">\n\t<div id="main" class="clearfix">\n\t</div>\n</div>\n<div id="footer">\n</div>
+close_|// implementa bottone chiudi con segno X\n<div class=".admin__menu">\n<a href="#" class="action-close _close" data-role="close-submenu"></a>\n</div>\n\n.admin__menu .action-close {\n    padding: 2.4rem 2.8rem;\n    position: absolute;\n    right: 0;\n    top: 0;\n}\n.action-close:before {\n    content: '\\e62f';\n    transition: color .1s linear;\n}\n.admin__menu .submenu a:hover, .admin__menu .submenu a:focus {\n    box-shadow: none;\n    text-decoration: none;\n}\n.admin__menu .submenu a {\n    color: #fcfcfc;\n    transition: background-color .1s linear;\n}\n.action-close:hover {\n    cursor: pointer;\n    text-decoration: none;\n}\n// fa cambiare il colore con animazione\n.admin__menu .action-close:hover:before {\n    color: #fff;\n}\n
 media_|mediaquery_
 less_func_|// func def...\n.btn-square-parametric(@lato_len_px) {\n    .hide-txt when (@lato_len_px > 50) {\n        font-size: @font-size-small;\n    }\n}\n// func call \n.btn-square-parameter(@lato_len_px);
 font_face_|@font-face {\n   font-family: 'CustomFont';\n   src: url('customfont.eot');\n   src: url('customfont.eot?#iefix') format('embedded-opentype'),\n   url('customfont.woff') format('woff'),\n   url('customfont.ttf')  format('truetype'),\n   url('customfont.svg#CustomFont') format('svg');\n}\n\nbody {\n   font-family: 'CustomFont', Helvetica, Arial, sans-serif;\n}
