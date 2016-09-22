@@ -4,6 +4,7 @@ twb_popover_|<span  \n  data-toggle="popover" \n  title="Popover title" \n  oncl
 input_file_|<input type="file" accept=".someext,image/*">
 li_|<li>\|</li>
 include_js_|js_
+twb3_grid_|<div class="container">     \n    <div class="row">\n            <div class="col-md-8">\n                test content\n            </div>\n            <div class="col-md-4">\n                test content\n            </div>\n    </div>\n</div>\n 
 <!|html_comment_
 javascript_|js_
 twb_btn_dropdowns_|<!-- v2.2.2 -->\n<div class="input-append">\n  <input class="span2" id="appendedDropdownButton" type="text">\n  <div class="btn-group">\n    <button class="btn dropdown-toggle" data-toggle="dropdown">\n      Action\n      <span class="caret"></span>\n    </button>\n    <ul class="dropdown-menu">\n      ...\n    </ul>\n  </div>\n</div>
@@ -74,7 +75,7 @@ caret_|&#9660;
 html5_autocomplete_|\n<input id="countryInput"\n       type="text"\n       data-bind="value: selectedCountry"\n       list="countryList" />\n\n<datalist id="countryList" data-bind="foreach: countries">\n    <option data-bind="value: country"></option>\n</datalist>
 css_attribute_like_|img[attribute~="value"] { }
 if_|if(!empty(\|)){}
-div_|<div>\|</div>
+div_|<div id="" class="">\|</div>
 dief_|die(__FUNCTION__."\|");
 option_|<option value="" selected></option>
 input_num_|input_numeric_
@@ -85,6 +86,7 @@ background_|background:#ffffff url('img_tree.png') no-repeat right top;
 border_|border: 1px solid #\|;
 hr_|<hr style="" />
 comment_|html_comment_
+ajax_spinner_|//adds an ajax spinngin indicator\nhttps://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js\n\nvar opts = {\n  lines: 13 // The number of lines to draw\n, length: 28 // The length of each line\n, width: 8 // The line thickness\n, radius: 42 // The radius of the inner circle\n, scale: 1 // Scales overall size of the spinner\n, corners: 1 // Corner roundness (0..1)\n, color: '#000' // #rgb or #rrggbb or array of colors\n, opacity: 0.25 // Opacity of the lines\n, rotate: 21 // The rotation offset\n, direction: 1 // 1: clockwise, -1: counterclockwise\n, speed: 0.9 // Rounds per second\n, trail: 19 // Afterglow percentage\n, fps: 20 // Frames per second when using setTimeout() as a fallback for CSS\n, zIndex: 2e9 // The z-index (defaults to 2000000000)\n, className: 'spinner' // The CSS class to assign to the spinner\n, top: '50%' // Top position relative to parent\n, left: '50%' // Left position relative to parent\n, shadow: false // Whether to render a shadow\n, hwaccel: false // Whether to use hardware acceleration\n, position: 'absolute' // Element positioning\n}\nvar target = document.getElementById('foo')\nvar spinner = new Spinner(opts).spin(target);
 css_mp0_|margin:0; padding:0;
 bs_|&nbsp;
 twb_panel_|<div class="panel panel-primary _panel-success _panel-info _panel-warning _panel-danger ">\n  <div class="panel-heading">\n    <h3 class="panel-title">\n        Panel title\n    </h3>\n  </div>\n  <div class="panel-body">\n    Panel content\n  </div>\n</div>\n\n \n
@@ -99,8 +101,8 @@ pattern_chain_of_responsibility_|pattern_chain_
 sql_update_|UPDATE EMPLOYEE\n     SET JOB=NULL, SALARY=0, BONUS=0, COMM=0\n     WHERE WORKDEPT = 'E21' AND JOB <> 'MANAGER'
 html_progress_|<progress id="" max="100" value="90"></progress>
 twb_form_inline_|<!-- v2.2.2 -->\n<form class="form-inline">\n  <input type="text" class="input-small" placeholder="Email">\n  <input type="password" class="input-small" placeholder="Password">\n  <label class="checkbox">\n    <input type="checkbox"> Remember me\n  </label>\n  <button type="submit" class="btn">Sign in</button>\n</form>
-getById_|document.getElementById('username').value
 new_|$1 $2 = new $1(\|);
+getById_|document.getElementById('username').value
 pattern_|patterns_
 form_|<form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data" id="form_1">\|\t<input type="submit" value="Salva" id="">\n        <input type="button" value="Reset" id="form_reset"/>\n</form>\n<script>\n$(function(){\n   function is_valid(){\n                // @see ts_utils validation\n                var is_valid = true;\n                var a_sel = [ '#num_from' , '#num_to' ];\n                for( var i=0; i<a_sel.length; i++) {\n                    var selector = a_sel[i];\n                    var el = $(selector);\n                    var is_ok = SimpleValidation.isNumeric( el.val() ) ;\n                    if( !is_ok ){\n                        is_valid = false;\n                        SimpleValidation.errorReport( el, false);\n                        break;\n                    }\n                }\n                return is_valid;\n    }\n    $('#form_1').submit(function(event) {\n\t\tif( !is_valid() ) {\n                    event.preventDefault();\n                    return false;\n                } else\n                    return true;\n    });\n    $('#form_1 #form_reset').click(function(){\n        var f = $(this).parents('form');\n        f.find('input:text, input:password, input:file, select, textarea').val('');\n        f.find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');\n    });\n});\n</script>
 br_|<br />
@@ -209,6 +211,7 @@ date_diff_|date_add_
 chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgraph_pie.php");\n$data = [12, 15, 23, 18, 5];\n// Create the Pie Graph.\n$piechart = new PieGraph(300,350);\n// Set a title for the plot\n$piechart->title->Set("Sample Pie Chart");\n$piechart->title->SetFont(FF_VERDANA,FS_BOLD,12);\n$piechart->title->SetColor("darkblue");\n$piechart->legend->Pos(0.1,0.2);\n// Create pie plot\n$pPlot = new PiePlot($data);\n$pPlot->SetCenter(0.5,0.55);\n$pPlot->SetSize(0.3);\n// Setup the labels\n$pPlot->SetLabelType(PIE_VALUE_PER);\n$pPlot->value->Show();\n$pPlot->value->SetFont(FF_ARIAL,FS_NORMAL,9);\n$pPlot->value->SetFormat('%2.1f%%');\n// Add and stroke\n$piechart->Add($pPlot);
 preg_quote_|$reg = preg_quote($reg, '/');
 dba_|$id = dba_open("/tmp/test.db", "n", "db2");\nif (!$id) {\n    die( "dba_open failed\\n" );\n}\ndba_replace("key", "This is an example!", $id);\nif (dba_exists("key", $id)) {\n    echo dba_fetch("key", $id);\n    dba_delete("key", $id);\n}\n// read all the keys to read all the db\n$key = dba_firstkey($id);\nwhile ($key != false) {\n    $a_keys[] = $key;\n    $key = dba_nextkey($id);\n}\ndba_close($id);
+version_|version_compare_
 memory_get_peak_usage_|round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB',
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 js_comment_|/* \| */
@@ -220,16 +223,19 @@ global_|$GLOBALS[''] = '';
 zf_alert_|$this->alert($msg, 'error');
 pattern_factory_|class ObjFactory {\n    public static function create($p1, $p2) {\n        return new Obj($p1, $p2);\n    }\n}\n
 destruct_|function __destruct() {\n  // cleanup your DB, disk or RAM cache\n}
+apc_delete_|apc_delete($key);\n\n// delete all by regexp on key\n$a_cache = apc_cache_info('user', false);\n$a_cache_keys = $a_cache['cache_list'];\nforeach ($a_cache_keys as $a_entry ) {\n    $key = $a_entry['key'];\n    $key_is_matching_DAO = preg_match('/^'.$DAO.'/i', $key  ) > 0;\n\n    if( $key_is_matching_DAO ) {\n        // echo " $key is deletable <br />";\n        apc_delete( $key );\n    }\n}
 hidden_|<input name="" value="" type="hidden">
 switch_|switch($\|){\n  case 0:\n  break;\n  default:\n  break;\n}
 date_past_|$time_ago = strtotime('-3 months');
+SplFixedArray_|$array = new SplFixedArray(5); //  fixed length of 5\n$array[1] = 2;\n// Increase the size of the array to 10\n$array->setSize(10);
+twb3_form_|<form class="form-inline">\n                <input type="text" class="form-control" placeholder="Email" style="width: 200px;"> <input type="password" class="form-control" placeholder="Password" style="width: 200px;">\n                <div class="checkbox">\n                    <label> <input type="checkbox">Remember me</label>\n                </div>\n                <button type="submit" class="btn btn-default">Sign in</button>\n</form>
 contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
 zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(\n        'user/:username',\n        [\n            'controller' => 'user',\n            'action'     => 'info',\n        ]\n    )\n);
 trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
 publics_|staticp_
 var_dump_|var_
 exec_find_|// elimina files di log grandi e troppo vecchi per essere di interesse\n            $log_regex = APPLICATION_PATH.'/../var/logs/AS400-CLI-*.log';\n            $s_result = `sudo find $log_regex -maxdepth 2 -type f -mtime +60 -exec rm -f {} \\;`;
-qry_|$rs = qry(\|$sql, __LINE__, __FILE__);
+qry_|$a_tbl = qry_a_a(\|$sql, __LINE__, __FILE__);
 methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.' '.__FUNCTION__);
 __destruct_|function __destruct() {\n\|\n}
 button_|<button onclick="myFunction()">Click me</button>
@@ -251,9 +257,10 @@ protected_|protected function \|(){}
 const_|const CONSTANT = 'str';
 ini_get_|$v = ini_get('display_errors');
 is_callable_|is_callable([$obj, 'method_name'], false);
+version_compare_|// PHP version test\nif (PHP_VERSION_ID >= 70000) {\n  // v.7 code\n}\n// alternative\n//if( version_compare(PHP_VERSION, '7.0', '>=') ) {\n//    // v7 code\n//}\n
 str_pad_|str_pad($s, 5, '_', STR_PAD_LEFT);
 zf_h_select_|zf_h_select_multi_
-array_map_|$values = array_map(function($v) {\n    return '"'.$v.'"';\n}, $a);
+array_map_|$a_mapped_values = array_map(function($val) {\n    return trim($val);\n}, $a_initial );
 apc_store_|cache_
 array_filter_assoc_|$a_data = array_filter($a_data, function($v, $k) {\n    return $k == 'b' || $v == 4;\n}, ARRAY_FILTER_USE_BOTH);
 zf_url_|$url_ = $this->url($par=['username' => 'aa'], $r_name='default');
@@ -263,8 +270,9 @@ zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, ['yes', 'no'] )
 if_|if( empty(\|) ) {\n    // do init\n}
 zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();
 execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
-coalesce_|$w = $x ?? $y ?? $z;
+coalesce_|$w = $x ?? $y ?? $z;\n\nfunction coalesce() {\n    $args = func_get_args();\n    foreach ($args as $arg) {\n        if (!empty($arg)) {\n            return $arg;\n        }\n    }\n    return null;\n}\n
 assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
+mysql_fetch_array_|while($a_ = mysql_fetch_assoc($rs) ){\n}
 date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');
 include_|require_
 zf_h_e_|zf_h_escape_
@@ -326,6 +334,7 @@ sscanf_|$iso_date = '2000-07-30';\nlist($year, $month, $day) = sscanf($iso_date,
 isset_|if( !isset(\|)){\n}
 hh_|<?hh // strict
 hash_sort_|// Sort the multidimensional array\nusort($a_list, function ($rec, $next_rec) {\n        $k = 'column_key';  \n\treturn $rec[$k] > $next_rec[$k];\n});\n     \n
+file_rm_|unlink($filename);
 in_array_|in_array( $str, $a_ )
 strip_tags_|$txt = strip_tags($txt, $allowed='<p><a>');
 while_|while($a=mysql_fetch_array($rs)){\|}
@@ -399,13 +408,13 @@ config_|$a_config = include 'config/application.config.php';\n<?php\n// config/a
 json_last_error_|$json = json_encode( $data, JSON_UNESCAPED_UNICODE );\n                if( $json === false ) {\n                    die( json_last_error_msg() );\n                }\n                file_put_contents($file_cache_path, $json);
 header_download_|// inizia output\nfunction binary_download($file_path){\n  header('Content-Description: File Transfer');\n  header('Content-Type: application/octet-stream');\n  header('Content-Transfer-Encoding: binary');\n  header('Content-Disposition: attachment; filename=' . basename($file_path));\n  header('Expires: 0');\n  header('Cache-Control: must-revalidate');\n  header('Pragma: public');\n  header('Content-Length: ' . filesize($file_path));\n  readfile($file_path);\n}\nbinary_download($file_path);\nexit;
 file_is_older_|$file_mtime = filemtime($this->xml_file);\nif (time()-$file_mtime > 2 * 3600) {\n    // file older than 2 hours\n} else {\n    // file younger than 2 hours\n}
-file_put_contents_|\n// log routine\nprotected function logRequest( $message, $isOK=true, array $errors=[]) {\n    $log_msg =  sprintf('%s %s action:%s msg:"%s" errors:%s params:%s %s'.PHP_EOL,\n        date('Y-m-d H:i:s'),\n        $isOK ? 'OK' : 'KO',\n        $action=$this->getRequest()->getActionName(),\n        $message,\n        json_encode($errors),\n        $request = substr(json_encode(array_merge($_GET,$_POST)),0,2000),\n        substr($_SERVER['REQUEST_METHOD'],0,1)\n    );\n    $log_path = sprintf('%s/../var/logs/%s_%s.log', APPLICATION_PATH, basename(__FILE__), date('my') );\n    file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX) );\n}\n\n\n\n
+file_put_contents_|\n// log routine\nprotected static function logRequest( $message, $isOK=true, array $errors=[]) {\n    $log_msg =  sprintf('%s %s %s action:%s msg:"%s" errors:%s params:%s %s %s'.PHP_EOL,\n        date('Y-m-d H:i:s'),\n        $isOK ? 'OK' : 'KO',\n        $IP = coalesce(@$_SERVER['HTTP_X_REAL_IP'], $_SERVER['REMOTE_ADDR']),\n        $action=$this->getRequest()->getActionName(),\n        $message,\n        json_encode($errors),\n        $request = substr(json_encode(array_merge($_GET,$_POST)),0,2000),\n        substr($_SERVER['REQUEST_METHOD'],0,1),\n        $BROWSER = DMS_Browser::translate()\n    );\n    $log_path = sprintf('%s/../var/logs/%s_%s.log', APPLICATION_PATH, basename(__FILE__), date('my') );\n    file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX) );\n}\n\n\n\n
 asort_|hash_sort_
 once_|static $c = 0;\nif( $c === 0 ) {$c++;\n\|\n}
 substr_count_|$c = substr_count($str, $usbstr\|);
 phpversion_|php_version_
 defined_|defined('MYCONST')
-sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s
+sprintf_|$str = sprintf('%s %d', $str, $int); \n// second: %2$s ; first: %1$s "%04d-%02d-%02d"\n
 goto_|GOTO_LABEL:\ngoto GOTO_LABEL; \n\n
 _map_|$a_data = __::map( ['one'=>1, 'two'=>2, 'three'=>3], function($num, $key) {\n  return $num * 3;\n});
 error_reporting_|error_reporting(E_ALL); // Report all PHP errors \nini_set('display_errors', '1');\nini_set('html_errors', '1');\n// log app errors\nini_set('log_errors', '1');\nini_set('error_log', __DIR__.'/data/log/PHP_'.date('y_m').'.php' );
@@ -418,6 +427,7 @@ dir_|glob_
 check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
 pattern_signleton_|class Singleton {\n    // Returns the *Singleton* instance of this class.\n    public static function getInstance() {\n        static $instance = null;\n        if (null === $instance) {\n            $instance = new static();\n        }\n        return $instance;\n    }\n    // Protected constructor to prevent creating a new instance via the `new` operator from outside of this class \n    protected function __construct() { }\n    private function __clone() { }\n    private function __wakeup() { }\n}\n\nclass SingletonChild extends Singleton { }\n\n
 range_|$a_range = range(0, 50, 10);//[10,20,30,40,50]
+mysql_fetch_assoc_|mysql_fetch_array_
 array_sort_|sort_
 autoload_|// @see composer ClassLoader.php for PSR-04 compliant autloader\nspl_autoload_register(function ($pClassName) {\n    $ds = DIRECTORY_SEPARATOR;\n    $path_local = str_replace('\\\\', $ds, $pClassName);\n    // TODO: define your lib path\n    $path = __DIR__ . $ds . '../lib'. $ds. $path_local . ".php"\n    require_once $path;\n    return true;\n});
 array_map_assoc_|$a_err = array_map(function($k, $v) {\n    return "$k => $v";\n}, array_keys($a_err), array_values($a_err) );
@@ -431,6 +441,7 @@ set_time_limit_|set_time_limit(0);
 sf_|sprintf_
 limit_|set_time_limit_\nmemory_limit_
 unique_|$a = array_unique($a);
+check_ip_|function is_valid_ip() {\n    $IP = $_SERVER['REMOTE_ADDR'];\n    $a_valid_ip = [ '127.0.0.1', '93.91.142.162' ];\n\n    // aggiungi ip rete locale\n    foreach( range(1, 255) as $i) $a_valid_ip[] = '192.168.1.'.$i;\n\n    $is_valid = in_array( $IP, $a_valid_ip );\n    return $is_valid;\n}\nif( !is_valid_ip() ) {\n    die("risorsa non accessibile da $IP ");\n}
 is_|test_
 interface_|interface ICommand {\n    // \n    public function run();\n}
 captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
@@ -455,10 +466,13 @@ header_|header("Location: $url");
 zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
 unlink_|if( unlink($path) ){}
 microtime_|$time_from_begin = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 4);\n$time_start = microtime(true);\n// long operation here\nvar_dump( microtime(true) - $time_start );\nprofile_
+vsprintf_|$str = vsprintf("%04d-%02d-%02d", explode('-', '1988-8-1'))
 preg_replace_callback_|$line = preg_replace_callback( '|<p>\\s*\\w|', function ($matches) {\n    return strtolower($matches[0]);\n}, $line );
+twb3_tabs_|<ul class="nav nav-tabs" id="tab_details_{$a_rec['id']}" role="tablist">\n                <li role="presentation" class="active">\n                    <a href="#a_{$a_rec['id']}" id="tab-a_{$a_rec['id']}" role="tab" data-toggle="tab"  >\n                        {$content['0']['title']}\n                    </a>\n                </li>\n                <li role="presentation">\n                    <a href="#b_{$a_rec['id']}" id="tab-b_{$a_rec['id']}" role="tab"  data-toggle="tab"  >\n                        {$content['1']['title']}\n                    </a>\n                </li>\n\n            </ul>\n            <div class="tab-content" id="tab_deatils_content_{$a_rec['id']}">\n                <div class="tab-pane fade in active" role="tabpanel" id="a_{$a_rec['id']}"  >\n                    {$content['0']['content']}\n                </div>\n                <div class="tab-pane fade" role="tabpanel" id="b_{$a_rec['id']}"  >\n                    {$content['1']['content']}\n                </div>\n            </div>
 zf_partial_|echo $this->partial('_partial.phtml', [\n    // injiect vars\n    'from' => 'Team Framework',\n] ); \n
 zf_dbg_|Zend_Debug::dump($, 'label:');
 array_unique_|$a_ = array_unique($a_ , SORT_STRING);
+todo_|// TODO: 
 file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
 f_|function(){}
 hack_|#!/usr/bin/hhvm -vEval.Jit=1\n<?hh
@@ -467,7 +481,7 @@ strategy_|interface ISerializable {\n    public function serialize();\n}\nclass 
 reflection_|$reflect = new ReflectionClass($this);\n$props   = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);\nforeach ($props as $prop) {\n    print $prop->getName() . "\\n";\n}
 command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = [ new Command_1(), new Command_2() ];\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
-cache_|define('TTL_FOREVER',  0, false);\ndefine('TTL_H',  60 * 60, false);\ndefine('TTL_8H', 8 * TTL_H, false);\ndefine('TTL_D',  24 * TTL_H, false);\n/* uso:\n$cache_key = '';//__METHOD__.'_'.json_encode(func_get_args());\n$data = cache($cache_key, function() {\n\treturn [];\n});\nreturn $data;\n*/\nfunction cache($cache_key, \\Closure $generator, $ttl_secs = TTL_8H ) {\n    $val = apc_fetch($cache_key);\n    if (false === $val) {\n        $val = $generator();\n        apc_store($cache_key, $val, $ttl_secs );//secs, 0=forever\n    } else {\n        // from cache\n    }\n    return $val;\n}\n// put data in file for later reuse\nfunction fcache( $file_cache_path, \\Closure $generator ) {\n    if( file_exists($file_cache_path) && filesize($file_cache_path) >= 1024 ) {\n        $json_str = file_get_contents( $file_cache_path );\n        $data = json_decode($json_str, $use_assoc=true);\n    } else {\n        $data = $generator(); \n        $data = \\Mobile\\Response::to_UTF8($data);\n        $json = json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) or die( json_last_error_msg() );  \n        file_put_contents($file_cache_path, $json);\n    }\n    return $data;\n}\n\n
+cache_|// since apcu >= 5.1.0(php7)\n$config = apcu_entry("config", function($key) {\n return [\n   "fruit" => apcu_entry("config.fruit", function($key){\n     return [\n       "apples",\n       "pears"\n     ];\n   })\n ];\n});\n\ndefine('TTL_FOREVER',  0, false);\ndefine('TTL_H',  60 * 60, false);\ndefine('TTL_8H', 8 * TTL_H, false);\ndefine('TTL_D',  24 * TTL_H, false);\n/* uso:\n$cache_key = '';//__METHOD__.'_'.json_encode(func_get_args());\n$data = cache($cache_key, function() {\n\treturn [];\n});\nreturn $data;\n*/\nfunction cache($cache_key, \\Closure $generator, $ttl_secs = TTL_8H ) {\n    $val = apc_fetch($cache_key);\n    if (false === $val) {\n        $val = $generator();\n        apc_store($cache_key, $val, $ttl_secs );//secs, 0=forever\n    } else {\n        // from cache\n    }\n    return $val;\n}\n// put data in file for later reuse\nfunction fcache( $file_cache_path, \\Closure $generator, $ttl = TTL_8H ) {\n    $ttl_is_valid = function() use($ttl) {\n        // se esiste, verifica data ed elimina vecchio\n        $file_mtime = filemtime($file_cache_path);\n        if (time()-$file_mtime > $ttl ) {\n            // file older than 2 hours\n            unlink($filename);\n            return false;\n        } else {\n            // file younger than x hours\n            return true;\n        }\n    };\n\n    if( file_exists($file_cache_path) && filesize($file_cache_path) >= 1024 && $ttl_is_valid() ) {\n        $json_str = file_get_contents( $file_cache_path );\n        $data = json_decode($json_str, $use_assoc=true);\n    } else {\n        $data = $generator(); \n        //$data = \\Mobile\\Response::to_UTF8($data);\n        $json = json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ) or die( json_last_error_msg() );  \n        file_put_contents($file_cache_path, $json);\n    }\n    return $data;\n}\n\n
 main_|__MAIN__
 static_|//\n\tprotected static function \| () {\t\t\nreturn ; \n}
 date_default_timezone_set_|date_default_timezone_set('Europe/Rome');
@@ -477,9 +491,10 @@ call_|call_user_func_array_
 sapi_|php_sapi_name_
 filter_int_|$int = filter_var( \|, FILTER_SANITIZE_NUMBER_INT);
 phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
+ip_|$IP = $_SERVER['REMOTE_ADDR'];\ncheck_ip_
 e_|<?= escape_\|?>
-method_exists_|method_exists($obj, 'method')
 singleton_|    public static function getInstance() {\n        static $__instance = null;\n        if (null === $__instance) {\n            $__instance = new static();\n        }\n        return $__instance;\n    }\n    // should not circumvent the singleton\n    protected function __construct() { }
+method_exists_|method_exists($obj, 'method')
 strpos_|str_pos_
 zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
 phpunit_assert_true_|$this->assertTrue($val);
@@ -520,7 +535,7 @@ profile_|//--- DBG -----------------------------------------------------------\n
 sql_bd2_fetch_|fetch FIRST 100 ROWS ONLY
 array_reject_|_reject_
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
-glob_|foreach (glob("*.txt") as $filename) {\n    echo "$filename size " . filesize($filename) . "\\n";\|}
+glob_|$dir = __DIR__.'/../public/images/';\nforeach( glob($dir.'*.jpg') as $file_path ) {\n    echo sprintf("%s size %s \\n", $file_path, filesize($file_path) );\n}\n
 php_cli_server_|#!/usr/bin/env php\n<?php\n$dir = dirname(__FILE__).'/../www';\n\n$port = getFirstOpenPort( $port=8080, $c=10 );\nif( !empty($port) ) {\n    echo "serving http://localhost:$port \\n";\n    `google-chrome http://localhost:$port`;\n    `php -S localhost:$port -t $dir`;// il comando blocca l'esecuzione successiva\n} else {\n    echo 'no port found! '.PHP_EOL;\n}\n// scan a port range and return the first open\nfunction getFirstOpenPort($port=8080, $c=10 ) {\n    $_port=0;\n    for( $i=0; $i < $c; $i++) {\n        $_port = $port + $i;\n        $is_open = portIsOpen($_port);\n        if( $is_open ) {\n            echo $str = sprintf('port:%s open:%d '.PHP_EOL, $_port, $is_open );\n            return $_port;\n        }\n    }\n    return 8080;\n}\n// verifica se una porta locale è aperta o chiusa\nfunction portIsOpen($port) {\n    // '127.0.0.1'\n    $fp = @fsockopen('localhost', $port, $errno, $errstr, $timeout=5);\n    if (!$fp) {\n        // If you're getting a connection refused then the (TCP) port is firewalled.\n        echo $str = sprintf('port:%s ern:%d err:%s'.PHP_EOL, $port, $errno, $errstr);\n        // port is closed or blocked\n        return true;\n    } else {\n        echo("opened $port \\n");\n        // port is open and available\n        fclose($fp);\n        return false;\n    }\n}
 else_|else {\|}
 set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\n    /* switch ($errno) {\n        case E_NOTICE:\n        case E_USER_NOTICE:\n            $errors = "Notice";\n            break;\n        case E_WARNING:\n        case E_USER_WARNING:\n            // log your warning or transform in exception:\n            $errors = "Warning";\n            break;\n        case E_ERROR:\n        case E_USER_ERROR:\n            $errors = "Fatal Error";\n            break;\n        default:\n            $errors = "Unknown Error";\n            break;\n    } */\n\t// log your warning or transform in exception:\n        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, \n  // on which error report level the user-defined error will be shown. Default is "E_ALL"\n  $on_err_level = self::isEnvProd() ? E_WARNING : E_ALL\n);\n\n
@@ -965,6 +980,7 @@ jq_post_|jq_ajax_post_
 include_once_|// see require_ require_once_ include_ jq_require_
 jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
 sprintf_|sprintf('%s/%s', aa, bb )
+round_|Math.ceil( num )
 lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
 jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
 jq_style_|jq_css_
@@ -1061,8 +1077,8 @@ closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_han
 cb_|successCallback?: (arg1: number)=>void
 jq_target_|$('').click(function(e){\nvar el = jQuery(e.target).closest('tr');\n});
 jq_get_json_|var r:JQueryXHR = $.getJSON(url: string, data?: Object, \n\tfunction(data: any, textStatus: string, jqXHR: JQueryXHR){\n});\n
-_every_|// Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found.\n_.every([2, 4, 5], function(num) { return num % 2 == 0; });\n// => false
 jq_find_|$( 'li' )\n.find( 'span' )\n.attr( 'title', 'Hover over me' )\n.click(function() {\n    $( this ).addClass( 'clicked' );\n});
+_every_|// Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found.\n_.every([2, 4, 5], function(num) { return num % 2 == 0; });\n// => false
 jq_promise_multiple_|jq_promise_when_
 jq_by_attribute_|var el = $("[attribute='value']");
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
@@ -1153,6 +1169,7 @@ js_include_|function include(js_url){\n        var s = document.createElement('s
 byid_|var el = document.getElementById('id');
 reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
 _count_|_size_
+jq_events_|// custom events\n$( document ).on("light:on", {\n    foo: "bar"\n}, function( event, arg1, arg2 ) {\n    console.log( event.data.foo, arg1, arg2 );\n});\n$(document).trigger("light:on", ["bim", "baz"]);\n\n
 is_array_|_.isArray(aaa)
 _has_|_.has({a: 1, b: 2, c: 3}, "b");\n//=> true
 is_string_|_.isString(myVar)\n// typeof myVar === 'string' || myVar instanceof String
@@ -1232,6 +1249,7 @@ center_div_of_dinamic_height_|* { margin: 0; padding: 0; }\n#page{display:table;
 transparent_|opacity_
 selection_|text_selection_
 transition_|// transition on BG\n.admin__menu .submenu a {\n    color: #fcfcfc;\n    transition: background-color .1s linear;\n}\n.admin__menu .submenu a:hover {\n     background-color: #333;\n}\n// animation on dimension\ndiv {\n    width: 100px;\n    height: 100px;\n    background: red;\n    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */\n    transition: width 2s;\n}\ndiv:hover {\n    width: 300px;\n}
+import_|@import url("/css/style.css");
 triangle_|.upper {\n  position:absolute;\n  left:150px; top:100px; /* pos.*/   }\n\n  .upper div {\n    border-left-color: transparent;\n    border-style: solid;\n  }\n  .inner{\n  border-width: 0 0 /* x: */ 100px /* h: */ 100px;\n  border-bottom-color: #955;\n}\n \n\n<div class="upper">\n  <div class="inner"></div>\n</div>
 list_vertical_|<ul class="list-vertical">\n  <li><a href="#home">Home</a></li>\n  <li><a href="#news">News</a></li>\n  <li><a href="#contact">Contact</a></li>\n</ul>\nul.list-vertical {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n  li a {\n    display: block;\n    width: 60px;\n    background-color: #dddddd;\n  }\n}\n\n\n \n\n
 sass_call_|@include func-name($varname);
@@ -1282,6 +1300,7 @@ jq_post_|jq_ajax_post_
 include_once_|// see require_ require_once_ include_ jq_require_
 jq_prop_|var el = $(selector).prop(k, v); // see jq_attr_
 sprintf_|_sprintf_
+round_|Math.round( float );
 jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
 jq_style_|jq_css_
 jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
@@ -1321,6 +1340,7 @@ static_|myclass.method = function() {\n};
 jq_ready_|$(function(){\|});
 jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
 _empty_|_.isEmpty(|)
+jq_on_ready_|$(function() {\n  //  as soon as the page's Document Object Model (DOM) becomes safe to manipulate\n});
 date_|function format_date_it(date){\n    var m = date.getMonth() + 1;\n    var str = date.getDate() + "/" + m + "/" + date.getFullYear();\n    return str;\n}\nfunction date_last_week(){\n    var es = (7*24*60*60*1000);//secondi in una settimana\n    var ts = ( (new Date()).getTime() - es );\n    return new Date(ts);\n};\nvar str = format_date_it( date_last_week() );
 indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
 jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
@@ -1374,6 +1394,7 @@ replace_|s = s.replace("old","new");
 jq_insert_|$( "h2" ).insertAfter( $( ".container" ) );
 apply_|fun.apply(this_obj, array_arguments );
 jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
+jq_on_load_|jq_on_ready_
 jq_key_press_|<input type="text"><span id="test_out">0</span> \n<script type="text/javascript">\nvar i = 0;\n$(function(){\n    $("input").keypress(function(){\n        $("#test_out").text(i += 1);\n    });\n});\n</script>\n
 object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
 while_|while( true ){\|}
@@ -1393,6 +1414,7 @@ js_log_|console.log();
 jq_hasnode_|if( $('#selector').length > 0 ) {}
 bind_|fun.bind(this_obj , arg1, arg2 ... );
 js_include_|function include(js_url){\n        var s = document.createElement('script');\n        s.type = 'text/javascript';\n        s.async = true;\n        s.src = js_url;\n        var x = document.getElementsByTagName('script')[0];\n        x.parentNode.insertBefore(s, x);\n}
+parse_int_|var i = parseInt(s, 10);
 byid_|var el = document.getElementById('id');
 reduce_|var _a = a.reduce(function(carry, v) {\n    carry = carry + v;\n    return carry;\n}, (var initial=0) );
 _count_|_size_
@@ -1404,7 +1426,7 @@ jq_require_|// Load a JavaScript file from the server using a GET HTTP request, 
 is_function_|jq_is_function_
 jq_ajax_post_|var jqxhr = $.post("ajax/test.html", {k:v}, function( data ) {\n  \tconsole.log( data );   \n}, 'json') \n  .done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
 jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
-jq_click_|$('form input:checkbox').live('click', function(e){\ne.preventDefault();\n        \|});
+jq_click_|$('form input:checkbox').on('click', function(e){\n    e.preventDefault();\n        \|});
 typeof_|isset_
 jq_isnode_|if( $('#selector').length > 0 ) {}
 console_|console.log(\|);
