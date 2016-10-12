@@ -1,3 +1,4 @@
+<?php
 
 /* USE IN CLI_BAREBONES.PHP !!! */
     class ZF {

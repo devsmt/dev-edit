@@ -32,7 +32,7 @@ else_|else {\n}
 ul_|<ul>\|</ul>
 len_|length
 fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
-radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male">
+radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male" checked="checked" disabled="disabled">
 css_font_|<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">\n<style>\nbody {\n  font-weight: 100;\n  font-family: 'Lato';\n}\n</style>
 input_numeric_|<input type="number" name="cod_customer" value="" placeholder="" \n  pattern="[0-9.]+" min="0" max="999" step="1"\n  onkeypress='return /[0-9\\.]/.test(String.fromCharCode(event.charCode || event.keyCode))'>
 docstring_|\n/**\n * funzione:\n *\n */\n
@@ -62,7 +62,7 @@ mailto_|mailto:?subject=some%20subject&body=some%20very%20long%20body.
 foreach_|foreach($a as $k=>$v){\|}
 twb_form_horizontal_|<!-- v2.2.2 -->\n<form class="form-horizontal">\n  <div class="control-group">\n    <label class="control-label" for="inputEmail">Email</label>\n    <div class="controls">\n      <input type="text" id="inputEmail" placeholder="Email">\n    </div>\n  </div>\n  <div class="control-group">\n    <label class="control-label" for="inputPassword">Password</label>\n    <div class="controls">\n      <input type="password" id="inputPassword" placeholder="Password">\n    </div>\n  </div>\n  <div class="control-group">\n    <div class="controls">\n      <label class="checkbox">\n        <input type="checkbox"> Remember me\n      </label>\n      <button type="submit" class="btn">Sign in</button>\n    </div>\n  </div>\n</form>
 sql_replace_|REPLACE [LOW_PRIORITY | DELAYED]\n    [INTO] tbl_name\n    [PARTITION (partition_name,...)] \n    SET col_name={expr | DEFAULT}, ...
-input_|<input type="text" name="\|" value="" maxlength="255" tabindex="0" pattern="[0-9.]+" />\n// HTML5: tel search url email datetime date month week time datetime-local number range color
+input_|// HTML5 type="" tel search url email datetime date month week time datetime-local number range color \n// pattern="^\\d{4}-\\d{3}-\\d{4}$"\n// pattern="[0-9.]+"\n<input type="text" name="\|" value="" placeholder="label" maxlength="255" tabindex="0" required />\n
 phpo_|<?=\|?>
 htmlcomment_|<!--\nbegin\n-->\|<!--\nend\n-->
 b_|<b>\|</b>
@@ -236,6 +236,7 @@ publics_|staticp_
 var_dump_|var_
 exec_find_|// elimina files di log grandi e troppo vecchi per essere di interesse\n            $log_regex = APPLICATION_PATH.'/../var/logs/AS400-CLI-*.log';\n            $s_result = `sudo find $log_regex -maxdepth 2 -type f -mtime +60 -exec rm -f {} \\;`;
 qry_|$a_tbl = qry_a_a(\|$sql, __LINE__, __FILE__);
+axa_controller_|class UploaderController extends ActionController {\n    public function ActionIndex() {\n        return $html='ok';;\n    }\n}\n$c = new UploaderController();\necho $c->run();
 methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.' '.__FUNCTION__);
 __destruct_|function __destruct() {\n\|\n}
 button_|<button onclick="myFunction()">Click me</button>
@@ -245,7 +246,7 @@ array_slice_|array_slice($a, $pos, $len);
 array_pad_|$a = array_pad($a_input, 20, '0' );
 json_decode_|$a = json_decode($json_str, $use_assoc=true);
 zf_redirect_|$url = $this->view->url(['controller'=>'items','action'=>''], $r_name='default');\nreturn $this->_redirect($url);\n
-die_|die(__FUNCTION__.\|);
+die_|die(__FUNCTION__.'/'.__LINE__.'ok'\|);
 chmod_|chmod('/somedir/somefile', 0755);// use octal val
 array_key_exists_|array_key_exists($key, $a\|)
 test_|function ok($res, $expected, $label='' ) {\n    $colored = function($str, $foreground_color = 'green' ) {\n        static $a_fg = [ 'red' => '0;31', 'green' => '0;32' ];\n        return sprintf("\\e[%sm", $a_fg[$foreground_color] ) . $str . "\\033[0m";\n    };\n    if( $res === $expected ) {\n        echo $colored( "ok $label \\n", 'green' );\n    } elseif( $res == $expected ) {\n        echo $colored( "ok (but type differ) $label \\n", 'green' );\n    } else {\n        $s = sprintf("ERROR(%s)    GOT<>EXP  %s<>%s \\n", $label, json_encode($res), json_encode($expected) );\n        echo $colored($s, 'red');\n    }\n}\n// function is($res, $label ) { return ok($res, $expected=true, $label ); }\n
@@ -288,6 +289,7 @@ filter_var_|filter_
 s_|$s_ = '';
 math_|bc_
 _memoize_|$fibonacci = function($n) use (&$fibonacci) {\n  return $n < 2 ? $n : $fibonacci($n - 1) + $fibonacci($n - 2);\n};\n$fastFibonacci = __::memoize($fibonacci);
+date_time_|$d_ = new DateTime('2016-11-20');
 require_|require_once __DIR__.'/\|';
 array_find_|_find_
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
@@ -388,7 +390,7 @@ thread_|pthreads_
 array_filter_|$a_data = array_filter($a_data, function ($v){ \n    // false will be skipped\n    return !empty($v); \n});\n// for keys see array_filter_assoc_
 implode_|implode(',', array_filter($a, function ($s){ return !empty($s); }) );
 zf_h_select_multi_|$html_select = $this->formSelect(\n            $name='foo[]',\n            $val=2,\n            $opt=[\n              'class' => 'baz',\n            ],\n            $a_options=[ 1 => 'One',\n              2 => 'Two',\n              3 => 'Three' ]\n);
-var_|echo '<pre>'.__FUNCTION__.'()'.' L:'.__LINE__.' F:'.__FILE__."\\n", var_dump(\n\|\n);\n// ,debug_print_backtrace() ;\ndie("</pre>\\n");\n\n
+var_|echo '<pre>'.__FUNCTION__.'()'.' L:'.__LINE__.' F:'.__FILE__."\\n", var_dump(\n\|\n),"</pre>\\n"; die();// debug_print_backtrace()\n\n
 http_build_query_|$url_data = http_build_query([]);
 zf_h_headlink_|<?php \n// setting links in a view script:\n$this->headLink()->appendStylesheet('/styles/basic.css')\n                 ->headLink(['rel' => 'icon',\n                                  'href' => '/img/favicon.ico'],\n                                  'PREPEND')\n                 ->prependStylesheet('/styles/moz.css',\n                                     'screen',\n                                     true,\n                                     ['id' => 'my_stylesheet']);\n  \n// rendering the links in layout\necho $this->headLink() ?>
 opt_|$option = array_merge([\n], $opt );\nextract($option);
@@ -446,6 +448,7 @@ is_|test_
 interface_|interface ICommand {\n    // \n    public function run();\n}
 captcha_|require_once "../../jpgraph/jpgraph_antispam.php";\n$spam = new AntiSpam();\n// saved to $chars for later verification of correct entry\n$chars = $spam->Rand(8);\n$spam->Stroke() ;
 mysql_|mysqli_
+strict_|declare(strict_types=1);\nfunction sum(int $a, int $b):int {\n    return $a + $b;\n}
 str_replace_|str_replace('','',\|);
 memoize_|cache_
 zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
@@ -461,7 +464,7 @@ move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
 print_r_|print_r(\|,true);
 passthru_|// useful for commands outputting binary data to pass to browser as is\nheader("Content-Type: application/octet-stream");\nheader("Content-Disposition: attachment; filename=\\"myfile.zip\\"");\nheader("Content-Length: 11111");\npassthru("/usr/bin/cat $path/myfile.zip", $err);\n// see exec_
 //--|//----------------------------------------------------------------------------\n//  \|\n//----------------------------------------------------------------------------
-php_sapi_name_|if (php_sapi_name() != 'cli') {\n    die("You have to use {$argv[0]} with cli version of php.");\n}
+php_sapi_name_|if (php_sapi_name() != 'cli') {\n    die("You have to use {$argv[0]} with cli version of php.");\n}\nif(PHP_SAPI != 'cli'){\n\n}
 header_|header("Location: $url");
 zf_log_|$logger = Zend_Registry::get('logger');\n$logger->info('');\n$logger->warn('');\n$logger->err('');
 unlink_|if( unlink($path) ){}
@@ -474,7 +477,7 @@ zf_dbg_|Zend_Debug::dump($, 'label:');
 array_unique_|$a_ = array_unique($a_ , SORT_STRING);
 todo_|// TODO: 
 file_get_contents_|$str_content = file_get_contents( realpath( __DIR__ .'/file.txt') );
-f_|function(){}
+f_|function(int $i):int {}
 hack_|#!/usr/bin/hhvm -vEval.Jit=1\n<?hh
 throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new \\Exception($msg);
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
@@ -504,7 +507,7 @@ _reject_|// Return an array where the items failing the truth test (iterator) ar
 sqlite_|$db = new SQLite3('test.db',SQLITE3_OPEN_CREATE);\nif(!$db){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Opened database successfully\\n";\n}\n\n$sql =<<<EOF\n  CREATE TABLE TEST_TBL\n  (ID INT PRIMARY KEY     NOT NULL,\n  NAME           TEXT    NOT NULL,\n  AGE            INT     NOT NULL,\n  ADDRESS        CHAR(50),\n  NUM            REAL);\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (1, 'Paul', 32, 'California', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (2, 'Allen', 25, 'Texas', 15000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );\n\n  INSERT INTO TEST_TBL (ID,NAME,AGE,ADDRESS,NUM)\n  VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );\nEOF;\n//---------\n$ret = $db->exec($sql);\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo "Table created successfully\\n";\n}\n//---------\n// or DELETE from TEST_TBL where ID=2;\n$ret = $db->exec($sql="UPDATE TEST_TBL set NUM = 25000 where ID=1;");\nif(!$ret){\n    echo $db->lastErrorMsg();\n} else {\n    echo $db->changes(), " Record updated successfully\\n";\n}\n//---------\n$ret = $db->query($sql="SELECT * from TEST_TBL;");\nwhile($row = $ret->fetchArray(SQLITE3_ASSOC) ){\n    echo "ID = ". $row['ID'] . "\\n";\n    echo "NAME = ". $row['NAME'] ."\\n";\n    echo "ADDRESS = ". $row['ADDRESS'] ."\\n";\n    echo "NUM =  ".$row['NUM'] ."\\n\\n";\n}\n$db->close();
 hash_|if (function_exists("hash_algos") && in_array("sha512", hash_algos())) {\n    $token = hash("sha512", mt_rand(0, mt_getrandmax()));\n}
 gz_compress_|$filename = tempnam('/tmp', 'zlibtest') . '.gz';\n$s = "Only a test, test, test, test, test, test, test, test!\\n";\n$zp = gzopen($filename, "w9");// open file for writing with maximum compression\ngzwrite($zp, $s);// write string to file\ngzclose($zp);// close file
-function_|//\nfunction \|() {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
+function_|//\nfunction \|(int $i=0):string {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
 intval_|$i_num = intval($s);
 dbg_|var_dump(\|);die();
 array_collect_|array_reduce_
@@ -517,7 +520,7 @@ session_|session_start();  \n$_SESSION['count'] = 0;
 mail_|$mail_res = mail($to, $subject, $message);
 echo_|echo "\|"; // dbg
 sf_get_|$request->getParameter($name);
-php_|<?php\n\n\|\n?>
+php_|<?php\ndeclare(strict_types=1);\n\|\n?>
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
 phpo_|<?=\|;?>
 mysqli_|$mysqli = new mysqli("127.0.0.1", $user, $password, $database, 3306 );\nif ($mysqli->connect_errno) {\n    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;\n}\necho $mysqli->host_info . "\\n";\n\n// Create table doesn't return a resultset  \nif ($mysqli->query("CREATE TEMPORARY TABLE myCity LIKE City") === TRUE) {\n    printf("Table myCity successfully created.\\n");\n}\n\n// Select queries return a resultset  \nif ($result = $mysqli->query("SELECT Name FROM City LIMIT 10")) {\n    printf("Select returned %d rows.\\n", $result->num_rows);\n\n    // free result set \n    $result->close();\n}\n\n// If we have to retrieve large amount of data we use MYSQLI_USE_RESULT \nif ($result = $mysqli->query("SELECT * FROM City", MYSQLI_USE_RESULT)) {\n\n}\n\n$mysqli->close();\n \n \n
@@ -537,8 +540,8 @@ array_reject_|_reject_
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
 glob_|$dir = __DIR__.'/../public/images/';\nforeach( glob($dir.'*.jpg') as $file_path ) {\n    echo sprintf("%s size %s \\n", $file_path, filesize($file_path) );\n}\n
 php_cli_server_|#!/usr/bin/env php\n<?php\n$dir = dirname(__FILE__).'/../www';\n\n$port = getFirstOpenPort( $port=8080, $c=10 );\nif( !empty($port) ) {\n    echo "serving http://localhost:$port \\n";\n    `google-chrome http://localhost:$port`;\n    `php -S localhost:$port -t $dir`;// il comando blocca l'esecuzione successiva\n} else {\n    echo 'no port found! '.PHP_EOL;\n}\n// scan a port range and return the first open\nfunction getFirstOpenPort($port=8080, $c=10 ) {\n    $_port=0;\n    for( $i=0; $i < $c; $i++) {\n        $_port = $port + $i;\n        $is_open = portIsOpen($_port);\n        if( $is_open ) {\n            echo $str = sprintf('port:%s open:%d '.PHP_EOL, $_port, $is_open );\n            return $_port;\n        }\n    }\n    return 8080;\n}\n// verifica se una porta locale è aperta o chiusa\nfunction portIsOpen($port) {\n    // '127.0.0.1'\n    $fp = @fsockopen('localhost', $port, $errno, $errstr, $timeout=5);\n    if (!$fp) {\n        // If you're getting a connection refused then the (TCP) port is firewalled.\n        echo $str = sprintf('port:%s ern:%d err:%s'.PHP_EOL, $port, $errno, $errstr);\n        // port is closed or blocked\n        return true;\n    } else {\n        echo("opened $port \\n");\n        // port is open and available\n        fclose($fp);\n        return false;\n    }\n}
-else_|else {\|}
 set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { return false; }\n\n    /* switch ($errno) {\n        case E_NOTICE:\n        case E_USER_NOTICE:\n            $errors = "Notice";\n            break;\n        case E_WARNING:\n        case E_USER_WARNING:\n            // log your warning or transform in exception:\n            $errors = "Warning";\n            break;\n        case E_ERROR:\n        case E_USER_ERROR:\n            $errors = "Fatal Error";\n            break;\n        default:\n            $errors = "Unknown Error";\n            break;\n    } */\n\t// log your warning or transform in exception:\n        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, \n  // on which error report level the user-defined error will be shown. Default is "E_ALL"\n  $on_err_level = self::isEnvProd() ? E_WARNING : E_ALL\n);\n\n
+else_|else {\|}
 jq_ready_|$(function(){\n    // DOM ready\n\|\n});
 file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
 apc_get_|cache_
@@ -555,13 +558,14 @@ filter_str_|filterstr_
 strpad_|str_pad_
 border_|border: 1px solid #\|;
 css_transparent_|background-color:rgba(255,0,0,0.5);
+img_size_|list($width, $height, $mime_type_i, $html_attr) = getimagesize($img_path);
 hh_map_|array<string, int> $map = [ 'a' => 1 ];\n
 ff_|( \| ) ? ( ) : ( );
 a_|$\| = [];
 output_handler_|function mangle_email($s) {\n    // elimina email dall'output\n    return preg_replace('/([^@\\s]+)@([-a-z0-9]+\\.)+[a-z]{2,}/is', '<$1@...>', $s);\n}\n// esegue la funzione di pulizzia sull buffer\nob_start('mangle_email');\n// equivalente al settaggio php.ini\n// output_buffering = On\n// output_handler=mangle_email
 date_format_|$date = DateTime::createFromFormat('Y-m-d', $last_date);\n\t\techo $date->format('d/m/Y');
 pattern_strategy_|// Incapsulando gli algoritmi permetti agli sviluppatori di aggiungere altri tipi di output senza che questo influisca sul chiamante\n// implementando un’interfaccia comune potrai sfruttare il Type Hinting nel chiamante\ninterface OutputInterface {\n    public function load();\n}\nclass SerializedArrayOutput implements OutputInterface {\n    public function load() {\n        return serialize($arrayOfData);\n    }\n}\nclass JsonStringOutput implements OutputInterface {\n    public function load() {\n        return json_encode($arrayOfData);\n    }\n}\nclass ArrayOutput implements OutputInterface {\n    public function load() {\n        return $arrayOfData;\n    }\n}\n// ... il chiamante sceglie l'algoritmo più opportuno\n
-php_cli_|#!/usr/bin/env php\n<?php\n// php_sapi_name_
+php_cli_|#!/usr/bin/env php\n<?php\ndeclare(strict_types=1);\n\n// php_sapi_name_\n\n// try_\n\n// Write to stdout for useful information, stderr for warnings and errors\n\n// Exit with nonzero status codes if and only if the program terminated with errors.\nif( $is_error ) { $statusCode = 1; }\nexit( isset($statusCode) ? $statusCode : 0 );
 date_|date('Y-m-d H:i:s');
 apc_|cache_
 if___|$v = $v ?: $def;
@@ -603,43 +607,51 @@ quote_|<quote "">\|</quote>
 var_|fmt.Printf("%v", v) //DBG
 array_string_|as_ := [...]string{"7", "8","9"}
 err_|if err != nil { panic(err) }
+func_|function_
 print_|fmt.Printf("Hello %d\\n", 23)\nfmt.Fprint(os.Stdout, "Hello ", 23, "\\n")\nfmt.Println("Hello", 23)\nfmt.Println(fmt.Sprint("Hello ", 23))
 switch_|    // switch\n    switch os := runtime.GOOS; os {\n    case "darwin":\n        fmt.Println("OS X.")\n    case "linux":\n        fmt.Println("Linux.")\n    default:\n        fmt.Printf("%s.", os)\n    }
 rand_|// import "math/rand" "time"\nrand.Seed(time.Now().UnixNano())\nfmt.Println( rand.Intn(100) )
 interface_|type Block interface {\n    BlockSize() int\n    Encrypt(src, dst []byte)\n    Decrypt(src, dst []byte)\n}
 ife_|if value, err := pack1.Func1(param1); err != nil {\n}
+import_|import (\n  "bytes"\n  "encoding/json"\n  "fmt"\n  "log"\n  "os/exec"\n  "strings"\n)
 isset_|cities := map[string]string{"city1": "New York", "city2": "Portland"}\n// ok is boolean\nvalue, ok := cities["city2"] // return value if found or ok=false if not found\nif ok {\n    fmt.Println("value: ", value)\n} else {\n    fmt.Println("key not found")\n}
 get_env_|str := os.Getenv("HOME")
 file_exists_|// import os\nfile := "file.txt"\nif _, err := os.Stat(file); err == nil {\n    fmt.Println(file, "exist!")\n}
+crosscompile_|//  GOOS=windows GOARCH=386 go build -o virgo.exe main.go
 explode_|// import strings\n//str := "ADAM, EVE, JAMES"\na_str := strings.Split(str, ",")
 class_|// Simple counter server.\ntype Counter struct {\n    n int\n}\n\nfunc (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {\n    ctr.n++\n    fmt.Fprintf(w, "counter = %d\\n", ctr.n)\n}
 float_to_string_|// import strconv\nstr := strconv.FormatFloat(12342323.234232, 'f', 6, 64)
 _POST_|R *http.Request\nname := R.FormValue("k")
-if_|if v, ok := map[k]; ok { \n    fmt.Println(k, v, " key is present")\n}
 map_struct_|m = map[string]Vertex{\n    "Bell Labs": Vertex{X:2, Y:5},\n    "Google":    Vertex{X:5, Y:8},\n}\nfor k, v := range m {\n    fmt.Printf("The value for %s: %d %d \\n", k, v.X, v.Y )\n}
+if_|if v, ok := map[k]; ok { \n    fmt.Println(k, v, " key is present")\n}
 flag_|    var goRoot = "";\n    flag.StringVar(&goRoot, "goroot", goRoot, "Go root directory")
 function_|func Fnamw(url string) (string, error) {\n    if ok {\n        return res, nil\n    }\n    return "", fmt.Errorf("not found: %s", url)\n}
 str_replace_|// import stings\nstr := strings.Replace(my_str, " ", "", -1)
+exec_|import (\n    "fmt"\n    "os/exec"\n    "sync"\n    "strings"\n)\n\nfunc exe_cmd(cmd string, wg *sync.WaitGroup) {\n    fmt.Println(cmd)\n    parts := strings.Fields(cmd)\n    out, err := exec.Command(parts[0],parts[1]).Output()\n    if err != nil {\n        fmt.Println("error occured")\n        fmt.Printf("%s", err)\n    }\n    fmt.Printf("out: %s ", out)\n    wg.Done()\n}\n\n// main() \n    wg := new(sync.WaitGroup)\n    commands := []string{\n        "copy g:\\\\wp\\\\Elenco_Clienti_16.CSV          c:\\\\wp /y",\n        "copy g:\\\\wp\\\\Elenco_Contratti_19.CSV        c:\\\\wp /y",\n        "copy g:\\\\wp\\\\Elenco_Contratti_-_Auto_31.CSV c:\\\\wp /y",\n        "copy g:\\\\wp\\\\TABELLA_SINISTRI_2016-1.CSV    c:\\\\wp /y",\n        "copy g:\\\\wp\\\\TABELLA_TITOLI_2016-1.CSV      c:\\\\wp /y"  }\n\n    for _, str := range commands {\n        wg.Add(1)\n        go exe_cmd(str, wg)\n    }\n    wg.Wait()
 new_|//for arrays, structs and all value types: returns pinter\nvar f File = new(File)
 file_open_|w, err := os.Create("output.txt")\nif err != nil {\n    panic(err)\n}\ndefer w.Close()
 make_|//for slices, maps and channels: use make, initilize to zero\n//for arrays, structs and all value types: use new\nvar v  []int = make([]int, 100) // slice int inizializzata a 0 di 100 elementi
 struct_|type Circle struct {\nx, y, r float64\n}\nc := new(Circle)\nc := Circle{x: 0, y: 0, r: 5}\nfmt.Println(c.x, c.y, c.r)
+log_file_|    f, err := os.OpenFile("testlogfile", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)\n    if err != nil {\n        fmt.Printf( "error opening file: %v", err)\n    }\n    defer f.Close()\n    log.SetOutput(f)\n    log.Println("This is a test log entry")
 echo_|//import "fmt"\nfmt.Println("Hello", 23)
 _GET_|R http.Request\nstr := R.URL.Query().Get("k");
 mapi_|imap := map[string]int{\n    "a": 1,\n    "b": 2,\n}
 file_put_contents_|// import os\nfile, err := os.OpenFile("input.txt", os.O_APPEND|os.O_WRONLY,0600)\nif err != nil {\n    panic(err)\n}\ndefer file.Close()\nif _, err = file.WriteString(" this is the APPENDED text"); err != nil {\n    panic(err)\n}
 args_|func myadd(args ...int) int {\n    total := 0\n    for _, v := range args {\n        total += v\n    }\n    return total\n}
+printf_|fmt.Printf("%s \\n", str )
 argv_|// import "flag"\nflag.Parse() \narg := flag.Arg(0) // get 1st argument
 for_|for i := 0; i < len(p); i++ {\n    fmt.Printf("p[%d] == %d\\n", i, p[i])\n}
+sprintf_|fmt.Sprintf("foo: %s", bar) 
 array_int_|array := [...]int{7, 8, 9}
 file_get_contents_|// import "io/ioutil"\nfile, err := ioutil.ReadFile("testfile.txt")\nif err != nil {\n    fmt.Println(err)\n    return\n}\n// out the file content\nfmt.Println(string(file))
 method_|func (f *fakeFetcher) Fetch(url string) (body string, urls []string, error) {\n    res, ok := some_method_call();\n    if ok {\n        return res.body, res.urls, nil\n    }\n    return "", nil, fmt.Errorf("not found: %s", url)\n}
 md5_|//import "crypto/md5"\nhash := md5.New()\nio.WriteString(hash, my_str)  // append into the hash\nfmt.Printf("%x", hash.Sum(nil)) // get the hash
 log_|log.Fatal("$USER not set")
+str_join_|reg := []string {"a","b","c"}\n// convert array to a slice\nstr := strings.Join(reg[:], ",") 
 delete_|delete(map, "key")
 foreach_|    for k, v := range pow {\n        fmt.Printf("2**%d = %d\\n", k, v)\n    }
 unset_|cities := map[string]string{ "city1":"New York", "city2":"Adelaide" };\ndelete(m, k)  // remove element m[k] from map m
-main_|/*\nscopo del programma:\n*/\npackage main\nimport (\n    "fmt"\n)\nfunc init(){}\nfunc main() {\n    fmt.Println("Hello, go")\n}
+main_|/*\nscopo del programma:\n*/\n// compilation:\n//  GOOS=windows GOARCH=386 go build -o virgo.exe main.go\n//  go build main.go\n\npackage main\nimport (\n    "fmt"\n)\nfunc init(){}\nfunc main() {\n    fmt.Println("Hello, go")\n}
 array_|slice1 := []int{1,2,3}
 map_|mi := make(map[string]int)\nmi["Answer"] = 42    \nfor k, v := range mi {\n}\n
 dir_walk_|// import "os", "path/filepath"\n      dirname := "." + string(filepath.Separator)\n      d, err := os.Open(dirname)\n      if err != nil {\n          fmt.Println(err)\n          os.Exit(1)\n      }\n      defer d.Close()\n      files, err := d.Readdir(-1)\n      if err != nil {\n          fmt.Println(err)\n          os.Exit(1)\n      }\n      fmt.Println("Reading "+ dirname)\n      for _, file := range files {\n          if file.Mode().IsRegular() {\n              if filepath.Ext(file.Name()) == ".png" {\n                fmt.Println(file.Name())\n              }\n          }\n      }
@@ -775,7 +787,7 @@ include_|#source _common.sh    # include is in $PATH\nsource $(dirname $0)/_vars
 cli_|#!/usr/bin/php\n<?php\n
 now_|NOW=`date +"%m-%d-%Y-%T"`\nmv test_app test_app_${NOW}
 echo_|echo "$foo World"
-for_|for i in $( ls ); do\n    echo item: $i\ndone
+for_|for i in $( ls ); do\n    echo "item: $i";\ndone
 switch_|cygwin=false;\nmacosx=false;\ncase "`uname -s`" in\n\tCYGWIN*) \n\t\tcygwin=true \n\t\t;;\n\tDarwin*) \n\t\tmacosx=true\n\t\t;;\nesac
 let_|VARNAME=string\necho ${VARNAME}
 str_cat_|echo "The current time is `date`"\necho "$foo World"\necho "${bla}!  ${laber}!" \necho $a$b\nA="X Y"\nA+="Z"\necho "$A"\nvar=${var}.sh\nsprintf_
