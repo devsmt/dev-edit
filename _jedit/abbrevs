@@ -366,6 +366,7 @@ exec_|$cmd = "ls -la";\n$s_result = trim(`$cmd`);\n// $s_result = trim(shell_exe
 filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ){\n\techo "validation error param: vvv ";\n}\nctype_\npreg_replace_
 dir_exists_|if( file_exists($path_) ) {\n}
 apc_clear_cache_|apc_clear_cache($cache_type='user');
+twb_btn_|twb_button_
 json_encode_|$json = json_encode($a, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);\nif( $json === false ) { die( json_last_error_msg() ); }
 array_reduce_|$final_v = array_reduce($a_, function($carry_v, $cur_v) {\n    $carry_v += $cur_v;\n    return $carry_v;\n}, $initial_v=0);
 obj_|new stdClass()
@@ -1169,7 +1170,7 @@ mustache_|var data_obj = {\n  title: "Joe",\n  calc: function () {\n    return 2
 jq_select_|// lavorare con una select\n// al change di un selct variare le options di una select dipendente\n$('#cod_linea').change(function(){\n           var f = $('#form_item_search');\n           var select = $(this);\n           var val = select.find('option:selected').val()\n           console.log(val);\n           $.ajax({\n               url: '<?=$url_ajax_options?>',\n               type: 'POST',\n               dataType: 'json',\n               data: f.serialize(),\n               success: function( resp_o ) {\n                   console.log(resp_o);\n                   var select_col = $('#cod_collection');\n                   // select_col.empty(); // remove old options\n                   $(select_col).find('option:gt(0)').remove(); // remove all options, but not the first\n\n                   $.each(resp_o , function(i, rec) {\n                           //console.log( rec );\n                           //console.log( rec['ADESCR'] );                           \n                           var html_value =  rec['ANUCOL'];\n                           var html_label =  rec['AAACOL'];\n                           select_col.append($("<option></option>").attr("value", html_value).text(html_label));\n                   });\n               },\n               error: function( req, status, err ) {\n                   console.log( 'something went wrong', status, err );\n               }\n    });\n});\n
 enum_|const enum Comparison {\n    LessThan = -1,\n    EqualTo = 0,\n    GreaterThan = 1\n}\nvar x:number = Comparison.EqualTo; // Ok, replaced with 0 in emitted code\nvar y:string = Comparison[Comparison.EqualTo];\n
 jq_deferred_|jq_promise_
-settimeout_|var timer = window.setTimeout(function(params){\n    console.log(params);\n}, 500, params);\nwindow.clearTimeout(timer);
+settimeout_|// function is only executed once\nvar timer = window.setTimeout(function(params){\n    console.log(params);\n}, 2*1000, params);\n// window.clearTimeout(timer); // deletes the scheduled execution
 interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
 jq_scroll_|// todo!
 str_lower_|str.toLowerCase()
