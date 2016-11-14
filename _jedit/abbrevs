@@ -29,7 +29,7 @@ checkbox_|<input type="checkbox" name="" value="" />
 h1_|<h1>\|</h1>
 fontfamily_|font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 else_|else {\n}
-ul_|<ul>\|</ul>
+ul_|<ul class="list-unstyled" >\|</ul>
 len_|length
 fieldset_|<fieldset>\n    <legend>Personalia:</legend>\n\n</fieldset>
 radio_|<label for="male">Male</label>\n<input type="radio" name="sex" id="male" value="male" checked="checked" disabled="disabled">
@@ -360,7 +360,7 @@ pf_|sprintf_
 _filter_|$a_data = __::filter([1, 2, 3, 4], function($num) { return $num % 2 === 0; });\n// => [2, 4]
 zf_post_|$this->getRequest()->getPost('name\|');
 array_fill_|array_fill($i=0, $n=10 , $v='');
-define_|define("\|", "", false);
+define_|define('\|', '', false);
 ol_|<ol class="">\n\|</ol>
 exec_|$cmd = "ls -la";\n$s_result = trim(`$cmd`);\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   - to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//     $_res = exec($cmd . " > /dev/null &", $_output, $_retval);\n//     $pid = exec("nohup $cmd > /dev/null 2>&1 & echo $!", $_output, $_retval);// we can return the pid of the process\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
 filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT);//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ){\n\techo "validation error param: vvv ";\n}\nctype_\npreg_replace_
@@ -606,8 +606,10 @@ quote_|<quote "">\|</quote>
 [html]
 [go]
 var_|fmt.Printf("%v", v) //DBG
+argc_|if len(os.Args) != 2 {\n    fmt.Fprintf(os.Stderr, "Usage: %s URL\\n", os.Args[0])\n    // os.Exit(1)\n} else {\n    url := os.Args[1]\n}
 array_string_|as_ := [...]string{"7", "8","9"}
 err_|if err != nil { panic(err) }
+date_|import "time"\nt0 := time.Now()\nfmt.Println("Unix format:", t0.Format(time.UnixDate))\nfmt.Println(t)\n
 func_|function_
 print_|fmt.Printf("Hello %d\\n", 23)\nfmt.Fprint(os.Stdout, "Hello ", 23, "\\n")\nfmt.Println("Hello", 23)\nfmt.Println(fmt.Sprint("Hello ", 23))
 switch_|    // switch\n    switch os := runtime.GOOS; os {\n    case "darwin":\n        fmt.Println("OS X.")\n    case "linux":\n        fmt.Println("Linux.")\n    default:\n        fmt.Printf("%s.", os)\n    }
@@ -619,6 +621,7 @@ isset_|cities := map[string]string{"city1": "New York", "city2": "Portland"}\n//
 get_env_|str := os.Getenv("HOME")
 file_exists_|// import os\nfile := "file.txt"\nif _, err := os.Stat(file); err == nil {\n    fmt.Println(file, "exist!")\n}
 crosscompile_|//  GOOS=windows GOARCH=386 go build -o virgo.exe main.go
+net_get_|import(\n    "log"\n    "net/http"\n    "io/ioutil" )\nfunc http_get( url string) {\n    resp, err := http.Get(url)\n    //the browsers,IE\\firefox access it is ok.\n\n    if err != nil {\n        log.Fatalf("http.Get => %v", err.Error())\n    }\n    body, _ := ioutil.ReadAll(resp.Body)\n    fmt.Printf("\\n%v\\n\\n", string(body) )\n}
 explode_|// import strings\n//str := "ADAM, EVE, JAMES"\na_str := strings.Split(str, ",")
 class_|// Simple counter server.\ntype Counter struct {\n    n int\n}\n\nfunc (ctr *Counter) ServeHTTP(w http.ResponseWriter, req *http.Request) {\n    ctr.n++\n    fmt.Fprintf(w, "counter = %d\\n", ctr.n)\n}
 float_to_string_|// import strconv\nstr := strconv.FormatFloat(12342323.234232, 'f', 6, 64)
@@ -628,10 +631,11 @@ if_|if v, ok := map[k]; ok { \n    fmt.Println(k, v, " key is present")\n}
 flag_|    var goRoot = "";\n    flag.StringVar(&goRoot, "goroot", goRoot, "Go root directory")
 function_|func Fnamw(url string) (string, error) {\n    if ok {\n        return res, nil\n    }\n    return "", fmt.Errorf("not found: %s", url)\n}
 str_replace_|// import stings\nstr := strings.Replace(my_str, " ", "", -1)
+exit_|os.Exit(1)
 exec_|import (\n    "fmt"\n    "os/exec"\n    "sync"\n    "strings"\n)\n\nfunc exe_cmd(cmd string, wg *sync.WaitGroup) {\n    fmt.Println(cmd)\n    parts := strings.Fields(cmd)\n    out, err := exec.Command(parts[0],parts[1]).Output()\n    if err != nil {\n        fmt.Println("error occured")\n        fmt.Printf("%s", err)\n    }\n    fmt.Printf("out: %s ", out)\n    wg.Done()\n}\n\n// main() \n    wg := new(sync.WaitGroup)\n    commands := []string{\n        "copy g:\\\\wp\\\\Elenco_Clienti_16.CSV          c:\\\\wp /y",\n        "copy g:\\\\wp\\\\Elenco_Contratti_19.CSV        c:\\\\wp /y",\n        "copy g:\\\\wp\\\\Elenco_Contratti_-_Auto_31.CSV c:\\\\wp /y",\n        "copy g:\\\\wp\\\\TABELLA_SINISTRI_2016-1.CSV    c:\\\\wp /y",\n        "copy g:\\\\wp\\\\TABELLA_TITOLI_2016-1.CSV      c:\\\\wp /y"  }\n\n    for _, str := range commands {\n        wg.Add(1)\n        go exe_cmd(str, wg)\n    }\n    wg.Wait()
 new_|//for arrays, structs and all value types: returns pinter\nvar f File = new(File)
-file_open_|w, err := os.Create("output.txt")\nif err != nil {\n    panic(err)\n}\ndefer w.Close()
 make_|//for slices, maps and channels: use make, initilize to zero\n//for arrays, structs and all value types: use new\nvar v  []int = make([]int, 100) // slice int inizializzata a 0 di 100 elementi
+file_open_|w, err := os.Create("output.txt")\nif err != nil {\n    panic(err)\n}\ndefer w.Close()
 struct_|type Circle struct {\nx, y, r float64\n}\nc := new(Circle)\nc := Circle{x: 0, y: 0, r: 5}\nfmt.Println(c.x, c.y, c.r)
 log_file_|    f, err := os.OpenFile("testlogfile", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)\n    if err != nil {\n        fmt.Printf( "error opening file: %v", err)\n    }\n    defer f.Close()\n    log.SetOutput(f)\n    log.Println("This is a test log entry")
 echo_|//import "fmt"\nfmt.Println("Hello", 23)
@@ -640,11 +644,11 @@ mapi_|imap := map[string]int{\n    "a": 1,\n    "b": 2,\n}
 file_put_contents_|// import os\nfile, err := os.OpenFile("input.txt", os.O_APPEND|os.O_WRONLY,0600)\nif err != nil {\n    panic(err)\n}\ndefer file.Close()\nif _, err = file.WriteString(" this is the APPENDED text"); err != nil {\n    panic(err)\n}
 args_|func myadd(args ...int) int {\n    total := 0\n    for _, v := range args {\n        total += v\n    }\n    return total\n}
 printf_|fmt.Printf("%s \\n", str )
-argv_|// import "flag"\nflag.Parse() \narg := flag.Arg(0) // get 1st argument
+argv_|// import os\nif len(os.Args) != 2 {\n    fmt.Fprintf(os.Stderr, "Usage: %s URL\\n", os.Args[0])\n    // os.Exit(1)\n} else {\n    // url := os.Args[1]\n}\n\n// import "flag"\nflag.Parse() \narg := flag.Arg(0) // get 1st argument
 for_|for i := 0; i < len(p); i++ {\n    fmt.Printf("p[%d] == %d\\n", i, p[i])\n}
 sprintf_|fmt.Sprintf("foo: %s", bar) 
 array_int_|array := [...]int{7, 8, 9}
-file_get_contents_|// import "io/ioutil"\nfile, err := ioutil.ReadFile("testfile.txt")\nif err != nil {\n    fmt.Println(err)\n    return\n}\n// out the file content\nfmt.Println(string(file))
+file_get_contents_|// import "io/ioutil"\nfile, err := ioutil.ReadFile("testfile.txt")\nif err != nil {\n    fmt.Println(err)\n    return\n}\n// out the file content\nfmt.Println(string(file))\n\n// net_get_\n\n
 method_|func (f *fakeFetcher) Fetch(url string) (body string, urls []string, error) {\n    res, ok := some_method_call();\n    if ok {\n        return res.body, res.urls, nil\n    }\n    return "", nil, fmt.Errorf("not found: %s", url)\n}
 md5_|//import "crypto/md5"\nhash := md5.New()\nio.WriteString(hash, my_str)  // append into the hash\nfmt.Printf("%x", hash.Sum(nil)) // get the hash
 log_|log.Fatal("$USER not set")
@@ -970,7 +974,7 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [n3]
 [typescript]
 _reject_|var a_list = [1, 2, 3, 4, 5, 6];\nvar odds = _.reject<number>(a_list, (num:number):number => { return num % 2 == 0; });\n// => [1, 3, 5]
-foreach_|_each_\n//for ( let k in _hash_ ) { if( _hash_.hasOwnProperty(k) ) { \n//    let v:any = <any>_a_[k];\n//}}\n
+foreach_|_each_\nfor_of_\n//for ( let k in _hash_ ) { if( _hash_.hasOwnProperty(k) ) { \n//    let v:any = <any>_a_[k];\n//}}\n
 js_require_|js_include_
 date_make_|var yr = 1999;\nvar mo = 9;\nvar dy = 10;\nvar hr = 23;\nvar mi = 30;\nvar ss = 0;\nvar t = new Date(yr, mo - 1, dy, hr, mi, ss);
 min_|var n = Math.min(n1,n2);
@@ -985,6 +989,7 @@ jq_build_|$('<div/>', {\n    'id':'myDiv',\n    'class':'myClass',\n    'style':
 reg_get_|rx = /^(\\d{4})-(\\d{2})-(\\d{2})$/;\nm = rx.exec('2009-06-03');\nyr = m[1];\nmo = m[2];\ndy = m[3];
 redirect_|window.location = "http://www.name.com/";
 try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
+es6_promise_|// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise\n// typings install --save --global dt~es6-promise\nfunction printAfterTimeout(val:any, timeout:number){\n  return new Promise((resolve:Function, reject:Function) => {\n    setTimeout(function(){\n      resolve(val);\n    }, timeout);\n  });\n}\nprintAfterTimeout('Hello ', 2000)\n.then((result:any) => {\n  console.log(result);\n  return printAfterTimeout(result + ' 2', 1000);\n})\n.then((result:any) => {\n  console.log(result);\n  return printAfterTimeout(result + ' 3', 1000);\n})\n.then((result:any) => {\n  console.log(result);\n});
 jq_ajax_|$.ajax({\n  url: '/data/people.json',\n  type: 'POST',\n  dataType: 'json',\n  success: function( resp_o ) {\n    $( '#target').html( resp_o.name );\n  },\n  error: function( req, status, err ) {\n    console.log( 'something went wrong', status, err );\n  }\n});
 type_|type Hash = { [k: string]: any; };\ntype Dictionary<T> = { [k: string]: T; };// C#like: var aaa:Dictionary<number> = { 'a': 1 };\ntype Map<K,T> = { [key: K]: T; };// javalike: aaa:Map<Integer,String> \ntype List<T> = Array<T>;\n/*\n// shortcuts\ntype HashStr = Dictionary<string>;\ntype HashNum = Dictionary<number>;\n\n// optionals\ntype TStringOrNumber = string | number;\ntype TText_ = string | { text: string };\n// alias\ntype TObjectStatics = typeof Object;\n// tuple\nexport type TSQLExecTuple = [ string, any[] ];\n// parametricas\ntype TPair<T> = [T, T];\ntype TCoordinates_ = TPair<number>;\ntype TTree<T> = T | { left: Tree<T>, right: Tree<T> };\ntype TNameLookup = Dictionary<string, any>;\n// callbacks\ntype TMyHandler = (myArgument: string) => void;\ntype TCallback<T> = (data: T) => void;\n*/\n\n\n\ntype TCallbackFunc = () => void;\ntype TCallbackData = TCallback<any>;\ntype TCallback<T> = (data: T) => void;\ntype TCallback2<T,Y> = (a: T, b:Y) => void;\ntype TCallback3<T,Y,U> = (a: T, b:Y, c:U) => void;\n\n// String Literal Type:\ntype TCardinalDirection = "North" | "East" | "South" | "West";\nfunction move(direction: TCardinalDirection) {}\nmove("Nurth"); // Error!\n
 dict_bb_|var a_list: _.Dictionary<string> = {};
@@ -997,10 +1002,11 @@ round_|Math.ceil( num )
 lambda_|var sqr2: (x: number) => number = (x) => {\n  return x * x;\n};
 jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
 jq_style_|jq_css_
+list_|// ES6 Destructuring multiple return values\nfunction margin(): Hash {\n    let left=1, right=2, top=3, bottom=4;    \n    return { left, right, top, bottom };\n}\nconst { left, bottom } = margin();\nconsole.log(left, bottom); // 1 4\nA.equal( left, 1, 'des_1' );\nA.equal( bottom, 4, 'des_2' );
 jq_html_|// Load HTML from the server and place into the matched elements\n$("#result").load("ajax/test.html", function() {\n    alert( "Load was performed." );\n});
 preg_|reg_replace_
 fifo_lifo_|var stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nvar i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nvar queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nvar i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
-for_|for (let _value_ of _a_ ) {  }  \n//for( let i:number=0; i<_a_.length; i++) { _value_[i] }
+for_|for_of_\nfor (let _value_ of _a_ ) {  }  \n//for( let i:number=0; i<_a_.length; i++) { _value_[i] }
 _find_|var a_list = [1, 2, 3, 4, 5, 6];\nvar even = _.find<number>(a_list, function(num){ \n    return num % 2 == 0; \n});\n//=> 2 returning the first one
 array_|var a_: string[] = ['hello', 'world'];
 time_|var t_start:number = Date.now();\n_time_
@@ -1036,7 +1042,7 @@ jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
 _min_|var numbers = [10, 5, 100, 2, 1000];\n_.min(numbers);\n//=> 2
 cache_|var key:string = _.str.sprintf('%s_%s_%s', 'app.adapters.items', searchKey, use_bestsellers );\n        if( MemCache.has(key) ) {\n            results = MemCache.get(key);\n        } else {\n            // compute list\n            results = getItemsFilterd(searchKey, use_bestsellers);\n        }
 jq_wrap_|$("p").slice(1,3).wrap("<i></i>");\n
-__END__|var t = `\nmultiline string  ${var}\n`;
+__END__|let t = `\n  multiline string  ${var}\n  call ${description()}\n  array ${arr['test']}\n`;\n
 interface_rec_|interface IPerson {\n    name: string;\n    descr?: string;\n    methodName(): string;\n    // overloading\n    select2(method: string): any;\n    select2(method: string, value: any, trigger?: boolean): any;\n}\n
 namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
 factory_|function createObject(name) \n{\n  var privateName = name || "I am private name";\n  var privateMethod = function () {\n    return "result of private"; \n  }\n  return {\n    publicName: "I am public name",\n    publicMethod: function () {\n           alert("privateName is " + privateName + ", privateMethod called: "+ privateMethod()); \n      }\n  }\n}
@@ -1062,9 +1068,10 @@ _pick_|_.pick({name: 'moe', age: 50, userid: 'moe1'}, 'name', 'age');\n=> {name:
 jq_delegate_|$( "table" ).delegate( "td", "click", function() {\n  $( this ).toggleClass( "chosen" );\n});
 _pluck_|// extracting a list of property values.\nvar a_customer = [\n{name: 'moe', age: 40}, \n{name: 'larry', age: 50}, \n{name: 'curly', age: 60}\n];\n_.pluck(a_customer, 'name');\n//=> ["moe", "larry", "curly"]
 _empty_|_.isEmpty(obj)
+sleep_|settimeout_
 bb_model_|\nexport class Order extends Backbone.Model {\n    // Data.local.promotions.getItemPromotion(BCOART);\n    initialize(attributes?: any): void {}\n    defaults(){ return {} }\n    validate(attrs, options) { }\n}\nexport class OrderCollection extends Backbone.Collection {\n    constructor(models?: any, options?: any){ \n        super(models, options); \n    }\n    initialize() { \n        this.model = Models.Order;\n    }\n}\n\n
 date_|moment().format('YYYY-MM-DD HH:mm:ss');
-let_|let foo = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual\n}\nconsole.log(foo); => 123 */
+let_|let num:numeric = 123;\n\n \n
 indexof_|//var a = ['apple','orange','pear'];\nvar is_found = (a.indexOf("orange") != -1);\nvar has_char = str.indexOf('@') === -1;
 jq_submit_|$('form').submit(function(e){\n    e.preventDefault();// prevent the default browser behaviour on this case\n    var isErrorFree = true;\n    // custom validation\n    $('input.required, select.required, textarea.required',this).each(function(){\n        if ( validateElement.isValid(this) == false ){\n            isErrorFree = false;\n        };\n    });\n    if (isErrorFree){ \n\t// disable multiple submissions\n        $(this).find('button, input[type=submit]').attr('disabled', 'disabled');\n\t// send data\n\tvar a_ = $(this).serializeArray();\n\t$.post( url, data, callback, type );\n    }\n    return isErrorFree;\n});\n\n
 jq_checked_|$(":checkbox").is(':checked')
@@ -1076,6 +1083,7 @@ jq_foreach_|$.each(a, function(i,key){\|});
 _reduce_|var a_list:Array<number> = [1, 2, 3];\nvar sum:number = _.reduce< number, number>(a_list, function(memo, num) { \n    return memo + num; \n}, 0);\n// 6
 funzione_|docstring_
 jq_is_empty_|jQuery.isEmptyObject({}); // true\njQuery.isEmptyObject({ foo: "bar" }); // false
+str_|__END__
 bb_find_|this.$('scoped selector');
 func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
 timestamp_|var now = new Date().getTime().toString();
@@ -1083,8 +1091,8 @@ opt_|p_options:{[k: string]:any;}\nvar options = _.extend({         \n    param:
 parseInt_|parseInt("221100", 10);
 a_num_|var a_: Array<number> = [1, 2];
 jq_form_validate_|// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js\n// https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js\n// @see http://jqueryvalidation.org/\n$().ready(function() {\n    // Selecting the form and defining validation method\n    $("#form").validate({\n        // Passing the object with custom rules\n        rules : {\n            // login - is the name of an input in the form\n            login : {\n              // Setting login to be required\n              required : true\n            },\n            email : {\n                required : true,\n                // Setting email pattern for email input\n                email : true\n            },\n            password : {\n                required : true,\n                // Setting minimum and maximum lengths of a password\n                minlength : 5,\n                maxlength : 8\n            }\n        },\n        // Setting error messages for the fields\n        messages: {\n            login: "Enter you login",\n            password: {\n                required: "Enter your password",\n                minlength: "Minimum password length is 5",\n                maxlength: "Maximum password length is 8"\n            },\n            email: "Enter you email"\n        },\n        // Setting submit handler for the form\n        submitHandler: function(form) {\n            form.submit();\n        }\n    });\n});
-declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
 jq_extend_|var settings = $.extend({ test: 1 }, opt);\n
+declare_|declare function sprintf(fmt: string, ...args: any[]): string;\n// global var typing\ndeclare var cordova: Cordova;
 when_|jq_when_
 closure_|for (var i = 0; i < 3; i++) {\n    // sulution 1\n    function make_handler(index): () => {\n        var handler = () => {\n            index += 1;\n            return i;\n        }\n        return handler;\n    }\n    // sulution 2\n    (function(index) {\n        console.log('iterator: ' + index);\n    })(i);\n    on_click( make_handler(i) );\n}\n// @see foreach_\n
 cb_|successCallback?: (arg1: number)=>void
@@ -1095,6 +1103,7 @@ _every_|// Returns true if all of the values in the list pass the predicate trut
 jq_promise_multiple_|jq_promise_when_
 jq_by_attribute_|var el = $("[attribute='value']");
 now_|moment().format('YYYY-MM-DD hh:mm:ss')
+array_keys_|Object.keys(a_recs)
 merge_|jq_merge_
 jq_data_|data-hidden="true" data-options='{"name":"John"}'\n$("div").data("hidden") === true;\n$("div").data("options").name === "John";
 jq_serialize_|// URL-encoded notation\nvar url_data = $('form').serialize();\n// array [{ name: "a", value: "1" }]\nvar a_data   = $('form').serializeArray();\n
@@ -1154,6 +1163,7 @@ apply_|fun.apply(this_obj, array_arguments );
 jq_load_|// it and all sub-elements have been completely loaded\n$('#book').load(function() {\n\n});
 moment_|var om = moment("12-25-1995", "MM-DD-YYYY");\nconsole.log( om.format("MM-DD-YYYY") );
 interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
+jq_class_add_|$(el).addClass('css_class')
 main_|(function main() {\n\n}());
 jq_key_press_|<input type="text"><span id="test_out">0</span> \n<script type="text/javascript">\nvar i = 0;\n$(function(){\n    $("input").keypress(function(){\n        $("#test_out").text(i += 1);\n    });\n});\n</script>\n
 object_|var T = {\n    name: "a", \n    say: function() {\n        alert(this.a); \n    }\n};
@@ -1173,6 +1183,7 @@ jq_deferred_|jq_promise_
 settimeout_|// function is only executed once\nvar timer = window.setTimeout(function(params){\n    console.log(params);\n}, 2*1000, params);\n// window.clearTimeout(timer); // deletes the scheduled execution
 interval_|var intervalID = window.setInterval(function(){}, 500); \nclearInterval(intervalID);
 jq_scroll_|// todo!
+for_of_|for (const v of a_vals ) {\n    console.log('val: '+v);\n}\nfor (const k of Object.keys(a_recs) ) {\n    let v = a_recs[k];\n    console.log(k+'='+v);\n}\n
 str_lower_|str.toLowerCase()
 js_log_|console.log();
 jq_hasnode_|if( $('#selector').length > 0 ) {}
@@ -1196,7 +1207,7 @@ jq_ajax_post_|var jqxhr = $.post("ajax/test.html", {k:v}, function( data ) {\n  
 interface_func_|interface ICallbackType extends Function { \n  (msg: string): void;  // def firma di una callback\n}\n// inline:  callback: { (pos: number): void }\n// inline2: callback: (pos: number) => void \n
 jq_map_|var a = $.map( [2,3,4], function(n){\n   return n*2;\n});//[4, 6, 8]
 docstr_|doctring_
-const_|const MAX_DIM_CHUNK=50; //sqlite limit 999
+const_|const MAX_DIM_CHUNK = 50; // immutable\npublic static final PLATFORM_NATIVE = 'cordova' ;
 jq_click_|$('form input:checkbox').on('click', function(e:JQueryEventObject){\n  e.preventDefault();\n  var txt = $( this ).text();//accedere all'elemento cliccato\n        \|});\n// passing data\n$("button").on("click", { name: "Karl"}, function greet( e:JQueryEventObject ) {\n  alert( "Hello " + e.data.name );\n});
 typeof_|isset_
 jq_isnode_|if( $('#selector').length > 0 ) {}
@@ -1233,9 +1244,10 @@ jq_selector_list_|/*\n    All                         *   \n                    
 _flter_|//all the values that pass\nvar evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ \n\treturn num % 2 == 0; \n});\n// => [2, 4, 6]
 sort_|var a_ = [1, 10, 2, 21]; \na_.sort(); // [1, 10, 2, 21]
 json_decode_|try{ \n    var obj:any = JSON.parse(json); \n} catch(e) { \n    console.log('JSON parse error:'+e.message); \n}
+let_block_|let num:numeric = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual, like in a function\n    let private_var = 1; // block scoped\n}\nconsole.log(foo); => 123 \nconsole.log(private_var); // Uncaught ReferenceError */
 json_parse_|json_decode_
 url_encode_|var s = encodeURIComponent(v);
-class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
+class_|class AClass {\n    constructor(public msg: string) {\n\tsuper(msg);\n    }\n    toString() {\n        return 'Class-'+this.msg ;\n    }\n}\n\nclass BClass extends AClass {\n    private str: string;\n    private el: HTMLElement;\n    private num: number;\n    constructor(m: string) {\n        super("aaa");\n        this.str = m;\n    }\n    public getStr() {\n\tsuper.stoString();// call super class methods\n        return "str: " + this.str;\n    }\n    public static member(b: string): string { return ''; }   \n    // typed callback\n    public save(callback: (n: number) => any): void {\n        callback(42);\n    }\n}
 jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
 jq_is_function_|if ( $.isFunction( settings.onShow ) ) {\nsettings.onShow.call(this);\n}\n
 void_|if ( value === void 0) { value = 0; }
