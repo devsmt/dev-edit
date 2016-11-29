@@ -15,10 +15,11 @@
   <!-- disable typoscript -->
   <MODE NAME="typoscript"  FILE="typoscript.xml" FILE_NAME_GLOB="*.tsXXX"/>
   <MODE NAME="typescript" FILE="typescript.xml" FILE_NAME_GLOB="*.ts" />
-  
+
   <MODE NAME="RPG" FILE="RPG.xml" FILE_NAME_GLOB="*.*rpgle" />
 
   <MODE NAME="go" FILE="go.xml" FILE_NAME_GLOB="*.go" />
+  <MODE NAME="hack" FILE="hack.xml" FILE_NAME_GLOB="*.hh" />
 
 
   <!--
