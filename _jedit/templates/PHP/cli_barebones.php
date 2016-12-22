@@ -33,6 +33,16 @@ namespace {
             ini_set('display_errors', 'stderr');
             ini_set('html_errors', '0');
 
+            ini_set('memory_limit', -1);
+            ini_set('apc.enable_cli', 1);// attenione, apc non funziona in CLI, funziona solo quando richiamto da web
+            ini_set('apc.enabled', 1);
+
+            define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/..'));
+            //set_include_path(implode(PATH_SEPARATOR, [LIBRARY_ROOT, get_include_path()]));
+
+            $config_env = 'dev';// 'test' 'prod'
+            defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : $config_env));
+
             // test software version
             if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 70001) {
                 die("this program needs php 7 \n");
@@ -50,6 +60,33 @@ namespace {
                     throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
             }, E_WARNING);
         }
+        /*
+        //----------------------------------------------------------------------------
+        // log procedure apposita per programmi CLI
+        //----------------------------------------------------------------------------
+        public static function flog($isOK, $message, array $errors=[]) {
+            $log_msg =  sprintf('%s %s msg:"%s" errors:%s params:%s '.PHP_EOL,
+                date('Y-m-d H:i:s'),
+                $isOK ? 'OK' : 'KO',
+                $message,
+                json_encode($errors),
+                $request =  implode(' ', array_slice($GLOBALS['argv'], $pos=1 ) )
+                );
+            $pgm_name = str_replace('.php','', basename( $GLOBALS['argv'][0] ) );
+            $_log_path = sprintf('%s/../var/logs', APPLICATION_PATH );
+            $_log_file = sprintf('%s_%s.log', $pgm_name, date('my') );
+
+            $log_path = realpath( $_log_path );
+            if( empty($log_path) ) {
+                echo "log_path non valido $_log_path \n";
+                return;
+            } else {
+                $log_path = "$log_path/$_log_file";
+                return file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX) );
+            }
+        }
+        */
+
     }
 
     // funzione: base controller
@@ -141,6 +178,7 @@ namespace {
     //----------------------------------------------------------------------------
     CLI::bootstrap();
     try {
+        // CLI::flog($isOK=true, $message='begin procedure');
         $c = new Main();
         exit( $statusCode = $c->run()  );
     } catch (Exception $e) {

@@ -2,6 +2,7 @@
 
 <projects name="All Projects" >
 <group name="DMS" >
+<project name="cantini_mobile" file="cantini_mobile.xml" root="/var/www/cantini_mobile"  />
 <project name="dms_mobile" file="dms_mobile.xml" root="/var/www/dms_mobile/mobile"  />
 <project name="lampa_shop" file="lampa.xml" root="/var/www/lampa.it"  />
 </group>

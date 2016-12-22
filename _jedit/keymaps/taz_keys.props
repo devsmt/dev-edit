@@ -1,5 +1,5 @@
 #jEdit's keymap taz
-#Mon Sep 19 18:17:55 CEST 2016
+#Thu Dec 15 09:45:06 CET 2016
 Add_Prefix_and_Suffix.shortcut=C+m p s
 CI/Duplicate_Line.shortcut=C+m d
 Color_Picker.shortcut=C+m p
@@ -178,6 +178,7 @@ prev-page.shortcut2=A+q
 prev-paragraph.shortcut=C+UP
 prev-textarea.shortcut=A+PAGE_UP
 prev-word.shortcut=C+LEFT
+project-compile.shortcut2=C+r C
 project-run.shortcut2=C+r p
 quick-search-word.shortcut=A+COMMA
 quick-search.shortcut=C+COMMA
