@@ -9,7 +9,7 @@ twb3_grid_|<div class="container">     \n    <div class="row">\n            <div
 javascript_|js_
 twb_btn_dropdowns_|<!-- v2.2.2 -->\n<div class="input-append">\n  <input class="span2" id="appendedDropdownButton" type="text">\n  <div class="btn-group">\n    <button class="btn dropdown-toggle" data-toggle="dropdown">\n      Action\n      <span class="caret"></span>\n    </button>\n    <ul class="dropdown-menu">\n      ...\n    </ul>\n  </div>\n</div>
 table_|\|<table id="" border="0" cellpadding="0" cellspacing="0" class="table table-condensed">\n    <caption>Caption</caption>\n    <thead>\n        <tr>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n            <th> content </th>\n        </tr>\n    </thead>    \n    <tbody>\n        <tr>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n            <td> content </td>\n        </tr>\n    </tbody>\n</table>
-img_|<img src="/img/\|" border="0" alt="" onerror="this.src='/img/NA.png'"/>
+img_|<img src="/img/\|" border="0" alt="" onerror="this.src='/img/NA.png'"/>\n<script>\n    export function set_default_img(el_img: HTMLImageElement, w=750, h=450, msg = 'Image Not Found' ) {\n        let canvas = document.createElement('canvas');\n        // browser check\n        if (typeof canvas.getContext == 'function') {\n            canvas.width = w; // set the width\n            canvas.height = h; // set the height\n            let context = canvas.getContext('2d');\n            context.font = '30px Arial';\n            let x = Math.ceil( (canvas.width - 200) / 2 );\n            let y = Math.ceil( (canvas.height - 40) / 2 );\n            context.fillText(msg, x , y );\n            let url = canvas.toDataURL('image/png');\n            el_img.src = url;\n            $(el_img).css({ 'background-color': '#dddddd' });\n        }\n    }\n</script>
 h2_|<h2>\|</h2>
 twb_button_|<!--\nbtn-large   btn-small   btn-mini\n\nbtn-primary  \nbtn-info   \t\nbtn-success \nbtn-warning\t \nbtn-danger\t \nbtn-inverse\t \nbtn-link\t\n\nbtn-block   disabled \n-->\n<button type="button" class="btn btn-primary btn-small">txt</button>
 select_|<select name="">\n  <option value="">Value 1</option> \n</select>
@@ -216,6 +216,7 @@ chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgra
 preg_quote_|$reg = preg_quote($reg, '/');
 dba_|$id = dba_open("/tmp/test.db", "n", "db2");\nif (!$id) {\n    die( "dba_open failed\\n" );\n}\ndba_replace("key", "This is an example!", $id);\nif (dba_exists("key", $id)) {\n    echo dba_fetch("key", $id);\n    dba_delete("key", $id);\n}\n// read all the keys to read all the db\n$key = dba_firstkey($id);\nwhile ($key != false) {\n    $a_keys[] = $key;\n    $key = dba_nextkey($id);\n}\ndba_close($id);
 version_|version_compare_
+strtotime_|// accepted format\n$ts = strtotime("2009-01-31 +1 month" );\n/*\n// convert to accepted format or get error\n$date='27/05/1990';\nif (strpos($date,'/') !== false)  \n\tstrtotime(str_replace('/', '-', $date));\n\n// format resolver\nfunction from_apachedate($date) {\n    list($d, $M, $y, $h, $m, $s, $z) = sscanf($date, "[%2d/%3s/%4d:%2d:%2d:%2d %5s]");\n    return strtotime("$d $M $y $h:$m:$s $z");\n}\n// others accepted formats:\nmm/dd/yyyy - 02/01/2003  - strtotime() returns : 1st February 2003\nmm/dd/yy   - 02/01/03    - strtotime() returns : 1st February 2003\nyyyy/mm/dd  - 2003/02/01 - strtotime() returns : 1st February 2003\ndd-mm-yyyy - 01-02-2003  - strtotime() returns : 1st February 2003\nyy-mm-dd   - 03-02-01    - strtotime() returns : 1st February 2003\nyyyy-mm-dd - 2003-02-01  - strtotime() returns : 1st February 2003\n\n\n\n\nstrtotime('-3 months', $now = time() )\nstrtotime("+5 hours") \nstrtotime("+1 week") \nstrtotime("+1 week 3 days 7 hours 5 seconds")\nstrtotime("next Monday") \nstrtotime("last Sunday")\nstrtotime('-5 weeks monday') // returns the monday of 5 weeks ago.\n// error\n//  PHP < 5.1.0  compare with -1, instead of false\nif( ( $timestamp = strtotime( 'Not Good') ) === false) { }\n\n// @see datetime_\n$d = new DateTime( '2010-01-31' );\n$d->modify( 'next month' );\necho $d->format( 'F' ), "\\n";\n\n// period loop\n$ts_start = strtotime('2009-02-01'); \n$ts_end = strtotime('+1 month', $ts_start); \n$ts_date = $ts_start; \nwhile($ts_date < $ts_end) {  \n   $ts_date = strtotime("+1 day", $ts_date); \n   echo date('',$ts_date);\n}\n// MySQL:  2009-02-28\n"SELECT DATE_ADD( '2009-01-31', INTERVAL 1 MONTH );"\n*/ \n\n\n\n
 memory_get_peak_usage_|round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB',
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
 js_comment_|/* \| */
@@ -236,11 +237,11 @@ SplFixedArray_|$array = new SplFixedArray(5); //  fixed length of 5\n$array[1] =
 twb3_form_|<form class="form-inline">\n                <input type="text" class="form-control" placeholder="Email" style="width: 200px;"> <input type="password" class="form-control" placeholder="Password" style="width: 200px;">\n                <div class="checkbox">\n                    <label> <input type="checkbox">Remember me</label>\n                </div>\n                <button type="submit" class="btn btn-default">Sign in</button>\n</form>
 contruct_|function __construct() {\n    parent::__construct();\n    \|\n}
 zf_route_|$router->addRoute('route_name',\n    new Zend_Controller_Router_Route(\n        'user/:username',\n        [\n            'controller' => 'user',\n            'action'     => 'info',\n        ]\n    )\n);
-trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
+trace_|echo '<pre>',var_dump( debug_backtrace() ),'</pre>'; // DEBUG\necho '<pre>',debug_print_backtrace(),'</pre>'; // DEBUG\ndie(__FUNCTION__.__FILE__);
 publics_|staticp_
 var_dump_|var_
-exec_find_|// elimina files di log grandi e troppo vecchi per essere di interesse\n            $log_regex = APPLICATION_PATH.'/../var/logs/AS400-CLI-*.log';\n            $s_result = `sudo find $log_regex -maxdepth 2 -type f -mtime +60 -exec rm -f {} \\;`;
 qry_|$a_tbl = qry_a_a(\|$sql, __LINE__, __FILE__);
+exec_find_|// elimina files di log grandi e troppo vecchi per essere di interesse\n            $log_regex = APPLICATION_PATH.'/../var/logs/AS400-CLI-*.log';\n            $s_result = `sudo find $log_regex -maxdepth 2 -type f -mtime +60 -exec rm -f {} \\;`;
 axa_controller_|class UploaderController extends ActionController {\n    public function ActionIndex() {\n        return $html='ok';;\n    }\n}\n$c = new UploaderController();\necho $c->run();
 methods_|echo '<pre>';\necho implode( "\\n", get_class_methods(\|));\ndie(__FILE__.' '.__FUNCTION__);
 __destruct_|function __destruct() {\n\|\n}
@@ -274,13 +275,13 @@ zf_url_|$url_ = $this->url($par=['username' => 'aa'], $r_name='default');
 instanceof_|if( !($var instanceof ParentClass) ){ }
 set_exception_handler_|if( ENV::isPROD() ) {\n    \n    $prev_handler = set_exception_handler(['Bootstrap', '_ExcpLoggerMail']);\n    // es. err handler\n    function exp_hndl_test(Exception $e){  }\n}
 zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, ['yes', 'no'] )
-if_|if( empty(\|) ) {\n    // do init\n}
+if_|if( !isset($1) || empty($1) \| ) {\n    // do init\n}\n
 zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();\n\n//  basato su CLI\n$cmd = sprintf("zip -9 -j -q -r %s/tets.zip %s/*.jpg", $path, $path );
 execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
-coalesce_|$w = $x ?? $y ?? $z;\n\nfunction coalesce() {\n    $args = func_get_args();\n    foreach ($args as $arg) {\n        if (!empty($arg)) {\n            return $arg;\n        }\n    }\n    return null;\n}\n
+coalesce_|$xxx = $1 ?? $2 ?? $3;\n\nfunction coalesce() {\n    $args = func_get_args();\n    foreach ($args as $arg) {\n        if (!empty($arg)) {\n            return $arg;\n        }\n    }\n    return null;\n}\n
 assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
 mysql_fetch_array_|while($a_ = mysql_fetch_assoc($rs) ){\n}
-date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');
+date_add_|$date_str = sprintf('2010-09-17');\n$date = new DateTime($date_str);\n$date_period_str = sptintf('P%sD', $i=1); // 'P1D': P1D=Period of 1 day(Y/M/W/D/H/S)\n$date->add(new DateInterval($date_period_str));  \n$str_date = $date->format('Y-m-d');\n\n$date_month_ago = date('Ymd', strtotime('-3 months'));\n
 include_|require_
 zf_h_e_|zf_h_escape_
 PDO_|return $settings = [\n    'host' => '127.0.0.1',\n    'port' => '3306',\n    'name' => 'books',\n    'username' => 'root',\n    'password' => 'jlwaxhaw',\n    'charset' => 'utf8'\n];\n$settings = include(__DIR__.'/settings.php');\ntry {\n    $pdo = new PDO(\n        sprintf(\n            'mysql:host=%s;dbname=%s;port=%s;charset=%s',\n            $settings['host'],\n            $settings['name'],\n            $settings['port'],\n            $settings['charset']\n        ),\n        $settings['username'],\n        $settings['password']\n    );\n} catch (PDOException $e) {\n    die("Database connection failed");\n}\n$sql = 'SELECT id FROM users WHERE email = :email';\n$email = filter_input(INPUT_GET, 'email');\n$statement = $pdo->prepare($sql);\n$statement->bindValue(':email', $email);\n$statement->bindValue(':email', $email, PDO::PARAM_INT);\n\n\nclass DbAuto_Connection {\n    protected static $db = null;\n    protected static function getConnection() {\n        $registry = Zend_Registry::getInstance();\n        $C = $registry->config->dbauto;\n        try {\n            if (self::$db == null) {\n                self::$db = new PDO(\n                    sprintf('mysql:host=%s;dbname=%', $C->host, $C->dbname ),\n                    $C->username,\n                    $C->password\n                );\n                self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n            }\n        } catch (PDOException $e) {\n            echo "DB2 PDO error '".$e->getMessage()."'";\n        }\n    }\n    // permette di lanciare una query diretta sul db, ritorna array records\n    //   SQL: WHERE calories < :calories AND colour = :colour\n    //   $params = [':calories' => $calories, ':colour' => $colour ]\n    public static function query($sql, $params=[] ) {\n        $data = [];\n        self::getConnection();\n        if (self::$db) {\n            $stmt = self::$db->prepare($sql);\n            $res = $stmt->execute( $params );\n            if ($res) {\n                while ($oRow = $stmt->fetch(PDO::FETCH_ASSOC)) {\n                    $data[] = $oRow;\n                }\n            }\n            $stmt->closeCursor();\n        } else {\n            die(__FUNCTION__.' errore connessione mysql');\n        }\n        return $data;\n    }\n}
@@ -288,7 +289,7 @@ min_|$i_min = min([0,$x]);
 zf_config_|Zend_Registry::get('config')->company->email->support;
 Object_|stdClass
 constants_|echo '<pre>',var_dump( get_defined_constants(true) ),'</pre>'; // DEBUG\ndie(__FILE__.''.__FUNCTION__);
-file_size_|// in bytes, or FALSE\n$bytes = filesize($path);\nfunction human_filesize($bytes, $decimals = 2) {\n  $a_sz = [0=>'B',0=>'K',2=>'M',3=>'G',4=>'T',5=>'P'];\n  $factor = floor((strlen($bytes) - 1) / 3);//quale potenza di 1000\n  $n = $bytes / pow(1024, $factor);\n  return sprintf("%s %s", \n      round($n, $decimals),\n      $a_sz[$factor]\n  );\n}
+file_size_|$bytes = intval(filesize($path));// in bytes, or FALSE\nfunction human_filesize($bytes, $decimals = 2) {\n  $a_sz = [0=>'B',1=>'K',2=>'M',3=>'G',4=>'T',5=>'P'];\n  $factor = floor((strlen($bytes) - 1) / 3);//quale potenza di 1000\n  $n = $bytes / pow(1024, $factor);\n  return sprintf("%s %s", \n      round($n, $decimals),\n      $a_sz[$factor]\n  );\n}\n\n
 array_pluck_|pluck_
 array_|$\|=[];
 filter_var_|filter_
@@ -422,7 +423,7 @@ __END__|$html = <<<__END__\n\|__END__;\n
 rand_|rand(0,100);
 config_|$a_config = include 'config/application.config.php';\n<?php\n// config/application.config.php\nreturn [];
 json_last_error_|$json = json_encode( $data, JSON_UNESCAPED_UNICODE );\n                if( $json === false ) {\n                    die( json_last_error_msg() );\n                }\n                file_put_contents($file_cache_path, $json);
-header_download_|// inizia output\nfunction binary_download($file_path){\n  header('Content-Description: File Transfer');\n  header('Content-Type: application/octet-stream');\n  header('Content-Transfer-Encoding: binary');\n  header('Content-Disposition: attachment; filename=' . basename($file_path));\n  header('Expires: 0');\n  header('Cache-Control: must-revalidate');\n  header('Pragma: public');\n  header('Content-Length: ' . filesize($file_path));\n  readfile($file_path);\n}\nbinary_download($file_path);\nexit;
+header_download_|// inizia output\n$_binary_download = function ($file_path){\n  // toglie eventuale output\n  if (ob_get_level()) {\n      ob_end_clean();\n  }\n  header('Content-Description: File Transfer');\n  header('Content-Type: application/octet-stream');\n  header('Content-Transfer-Encoding: binary');\n  header('Content-Disposition: attachment; filename=' . basename($file_path));\n  header('Expires: 0');\n  header('Cache-Control: must-revalidate');\n  header('Pragma: public');\n  header('Content-Length: ' . filesize($file_path));\n  readfile($file_path);\n};\n$_binary_download($file_path);\nexit;\n\n\n\n 
 file_is_older_|$_file_is_current = function(string $path, $m_ttl = 2 * 24 * (60*60)  ) {\n    $file_mtime = filemtime($path);\n    if( (time()-$file_mtime) > $m_ttl ) {\n        // file older than x hours\n        $file_is_current = false;\n    } else {\n        // file younger than x hours\n        $file_is_current = true;\n    }\n    return $file_is_current;\n};\n$file_exists     = file_exists($path);\n$file_is_current = $_file_is_current( $path );\nif( !$file_exists || !$file_is_current ) {\n    // TODO: rebuild the file\n}\n\n\n\n\n
 file_put_contents_|file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX) );\n/* log routine\nprotected static function logRequest( $message, $isOK=true, array $errors=[]) {\n    $IP = coalesce(@$_SERVER['HTTP_X_REAL_IP'], $_SERVER['REMOTE_ADDR']);\n    $IP = str_pad( $IP, 15, ' ', STR_PAD_RIGHT);\n    $log_msg = sprintf('%s %s %s %s action:%s msg:"%s" errors:%s params:%s %s'.PHP_EOL,\n        date('Y-m-d H:i:s'),\n        $isOK ? 'OK' : 'KO',\n        $METHOD = substr($_SERVER['REQUEST_METHOD'],0,1),\n        $IP,\n        $action=$this->getRequest()->getActionName(),\n        $message,\n        json_encode($errors),\n        $request_par = substr(json_encode(array_merge($_GET,$_POST)),0,2000),\n        $BROWSER = DMS_Browser::translate()\n    );\n    $log_path = APPLICATION_PATH.'/../var/logs/api_requests_'.date('my').'.log';\n    file_put_contents($log_path, $log_msg, (FILE_APPEND | LOCK_EX));\n} */\n\n
 asort_|hash_sort_
@@ -474,6 +475,7 @@ whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
 type_|gettype($v)
 scan_|$n = sscanf($auth, "%d\\t%s %s", $id, $first, $last);
 header_json_|header('Content-Type: application/json');
+mysqli_connect_|$link = mysqli_connect("127.0.0.1", "my_user", "my_password", "my_db");\n\nif (!$link) {\n    echo "Error: Unable to connect to MySQL." . PHP_EOL;\n    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;\n    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;\n    exit;\n}\n\necho "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;\necho "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 call_user_func_array_|// Call the $foo->bar() method with 2 arguments\n$foo = new foo;\ncall_user_func_array([$foo, "bar"], ["three", "four"] );
 collapse_|border-collapse:collapse;
 move_uploaded_file_|$b_res = move_uploaded_file($tmp_name, $dest_path);
@@ -500,6 +502,7 @@ hack_|#!/usr/bin/hhvm -vEval.Jit=1\n<?hh
 throw_|$msg = sprintf('Errore %s ', \n\|);\nthrow new \\Exception($msg);
 strategy_|interface ISerializable {\n    public function serialize();\n}\nclass PHPOutput implements ISerializable {\n    public function serialize()    {\n        return serialize($a);\n    }\n}\nclass JsonOutput implements ISerializable {\n    public function serialize() {\n        return json_encode($a);\n    }\n}\n// caller code will use the strategy preferred at runtime\n$serializer = ;// get a serializer at runtime\n$serializer->serialize();\n\n\n
 reflection_|$reflect = new ReflectionClass($this);\n$props   = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);\nforeach ($props as $prop) {\n    print $prop->getName() . "\\n";\n}
+jedit_abbr_|// example using jedit abbreviations\nif_#$x#
 command_|// pattern Command\n// definisce un oggetto operazione, assegna le operazioni a una lista, esegue le operazioni nella lista\ninterface ICommand{\n  public funcion execute();\n}\n \nclass Commnad_1 implements ICommand{}\nclass Commnad_2 implements ICommand{}\n \n \nclass Commander {\n  function __constructor(){\n    // i command possono essere caricati a runtime o seguendo logiche opportune\n    $this->commands = [ new Command_1(), new Command_2() ];\n  }\n \n  // esegue i comandi per aggregare un output complesso\n  function operate(){\n    //  l'output può essere di un tipo qualsiasi, dipende dalla logica corrente\n    $output = '';\n    foreach( $this->command as $c ){\n      $output .= $c->execute();\n    }\n    return $output;\n  }\n}
 escape_|echo htmlspecialchars($s, ENT_QUOTES);
 cache_|cache_apc_\ncache_file_\ncache_mem_\n\n\n\n
@@ -511,7 +514,7 @@ url_exists_|$file_headers = @get_headers($url = 'http://www.domain.com/somefile.
 array_intersect_|$is_contained = count( array_intersect($a_1, $a_2) );
 call_|call_user_func_array_
 sapi_|php_sapi_name_
-filter_int_|$int = filter_var( $int, FILTER_SANITIZE_NUMBER_INT);\n//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ) {\n    $msg = "validation error param vvv: $vvv ";\n}\n
+filter_int_|$int = filter_var( $int, FILTER_SANITIZE_NUMBER_INT);\n//  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ) {\n    $msg = "validation error param vvv: $vvv ";\n}\n// $zip_id = preg_replace('/[^0-9]/', '', $zip_id);
 phpunit_assert_|$this->assertEquals($expect, $val, $msg='');\n
 ip_|$IP = $_SERVER['REMOTE_ADDR'];\ncheck_ip_
 e_|<?= escape_\|?>
@@ -533,6 +536,7 @@ intval_|$i_num = intval($s);
 dbg_|var_dump(\|);die();
 array_collect_|array_reduce_
 default_|default:\nbreak;
+cosnstructor_|construct_
 jq_promise_|jq_deferred_
 ob_|ob_start();\n$this->debugDumpParams();\n$dump = ob_get_clean();
 extract_|extract($data, $flgs=EXTR_OVERWRITE, $sprefix=null);
@@ -545,6 +549,7 @@ php_|<?php\ndeclare(strict_types=1);\n\|\n?>
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
 phpo_|<?=\|;?>
 mysqli_|$mysqli = new mysqli("127.0.0.1", $user, $password, $database, 3306 );\nif ($mysqli->connect_errno) {\n    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;\n}\necho $mysqli->host_info . "\\n";\n\n// Create table doesn't return a resultset  \nif ($mysqli->query("CREATE TEMPORARY TABLE myCity LIKE City") === TRUE) {\n    printf("Table myCity successfully created.\\n");\n}\n\n// Select queries return a resultset  \nif ($result = $mysqli->query("SELECT Name FROM City LIMIT 10")) {\n    printf("Select returned %d rows.\\n", $result->num_rows);\n\n    // free result set \n    $result->close();\n}\n\n// If we have to retrieve large amount of data we use MYSQLI_USE_RESULT \nif ($result = $mysqli->query("SELECT * FROM City", MYSQLI_USE_RESULT)) {\n\n}\n\n$mysqli->close();\n \n \n
+mysql_connect_|mysqli_connect_
 jq_submit_|$( "#target" ).submit(function( event ) {\n  alert( "Handler for .submit() called." );\n  event.preventDefault();\n});
 zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column');
 __construct_|public function __construct(){\n    parent::__construct();\n}
@@ -562,7 +567,7 @@ public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
 glob_|$dir = __DIR__.'/../public/images/';\nforeach( glob($dir.'*.jpg') as $file_path ) {\n    echo sprintf("%s size %s \\n", $file_path, filesize($file_path) );\n}\n
 php_cli_server_|#!/usr/bin/env php\n<?php\n$dir = dirname(__FILE__).'/../www';\n\n$port = getFirstOpenPort( $port=8080, $c=10 );\nif( !empty($port) ) {\n    echo "serving http://localhost:$port \\n";\n    `google-chrome http://localhost:$port`;\n    `php -S localhost:$port -t $dir`;// il comando blocca l'esecuzione successiva\n} else {\n    echo 'no port found! '.PHP_EOL;\n}\n// scan a port range and return the first open\nfunction getFirstOpenPort($port=8080, $c=10 ) {\n    $_port=0;\n    for( $i=0; $i < $c; $i++) {\n        $_port = $port + $i;\n        $is_open = portIsOpen($_port);\n        if( $is_open ) {\n            echo $str = sprintf('port:%s open:%d '.PHP_EOL, $_port, $is_open );\n            return $_port;\n        }\n    }\n    return 8080;\n}\n// verifica se una porta locale è aperta o chiusa\nfunction portIsOpen($port) {\n    // '127.0.0.1'\n    $fp = @fsockopen('localhost', $port, $errno, $errstr, $timeout=5);\n    if (!$fp) {\n        // If you're getting a connection refused then the (TCP) port is firewalled.\n        echo $str = sprintf('port:%s ern:%d err:%s'.PHP_EOL, $port, $errno, $errstr);\n        // port is closed or blocked\n        return true;\n    } else {\n        echo("opened $port \\n");\n        // port is open and available\n        fclose($fp);\n        return false;\n    }\n}
 set_error_handler_|// defining your own way of handling errors during runtime,\n// you need to do cleanup of data/files when a critical error happens\nset_error_handler(function ($errno, $errstr,  $errfile, $errline, array $errcontext) { \n    \n    // error was suppressed with the @-operator\n    if (0 === error_reporting()) { \n      return false;// ignore error \n    }\n\n    /* switch ($errno) {\n        case E_NOTICE:\n        case E_USER_NOTICE:\n            $errors = "Notice";\n            break;\n        case E_WARNING:\n        case E_USER_WARNING:\n            // log your warning or transform in exception:\n            $errors = "Warning";\n            break;\n        case E_ERROR:\n        case E_USER_ERROR:\n            $errors = "Fatal Error";\n            break;\n        default:\n            $errors = "Unknown Error";\n            break;\n    } */\n\t// log your warning or transform in exception:\n        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);\n\n\t//  is your responsibility to die() if necessary\n\t//  standard PHP error handler is completely bypassed for the error types specified by error_types unless the callback function returns FALSE\n\treturn false;\n}, \n  // on which error report level the user-defined error will be shown. Default is "E_ALL"\n  $on_err_level = self::isEnvProd() ? E_WARNING : E_ALL\n);\n// test: trigger_error("This becomes an exception");\n\n\n\n\n
-else_|else {\|}
+else_|else {\n\|\n}\n
 jq_ready_|$(function(){\n    // DOM ready\n\|\n});
 file_ext_|$ext = pathinfo($file_path, PATHINFO_EXTENSION);
 apc_get_|cache_
@@ -574,7 +579,7 @@ str_toupper_|strtoupper($str)
 image_size_|list($width, $height, $type, $attr) = getimagesize("$file_path");
 str_match_|str_match($str, $substr)\|// strpos_ preg_match_\n// $str = "The quick brown fox jumps over the lazy dog";\n$contais = 1 === preg_match('/fox/', $str); // returns 1\n
 ctype_|$is_ = ctype_alpha($str); // Only letters\n$is_ = ctype_digit($str); // Only numbers\n$is_ = ctype_space($str); // Only whitespace\n$is_ = ctype_print($str); // Only printable characters\n$is_ = ctype_alnum($str); // Numbers or letters
-if__|$\| = isset($c) ? $c : null;
+if__|$xxx\| = isset($1) ? $1 : null;\n// coalesce_
 sql_db2_limit_|SELECT * FROM (\n \n    SELECT\n        ROW_NUMBER() OVER ( ORDER BY BCOART ) RID_,\n        ART.BCOART, ART.BDEART, ART.BALIVA FROM MI_DAT.MATP200F ART ORDER BY BCOART\n    WHERE\n        ART.BALIVA > 20\n \n) AS PAG_TBL_\nWHERE\n    PAG_TBL_.RID_ BETWEEN 10 AND 30 -- limit equivalent\n    ORDER BY BALIVA                 -- custom ordering\n
 filter_str_|filterstr_
 strpad_|str_pad_
@@ -590,7 +595,7 @@ pattern_strategy_|// Incapsulando gli algoritmi permetti agli sviluppatori di ag
 php_cli_|#!/usr/bin/env php\n<?php\ndeclare(strict_types=1);\nfunction e(string $cmd){\n    echo "cmd: ".$cmd."\\n";\n    echo `$cmd`."\\n";\n}\necho e("rm $d/tags ");\n// use jedit template php>cli.php\n\n
 date_|date('Y-m-d H:i:s');
 apc_|cache_
-if___|$v = $v ?: $def;
+if___|$xxx = $1 ?: $2;\n// coalesce_\n
 defines_|// includono sia quelle create dalle estensioni sia quelle create con la funzione define()\necho '<pre>',print_r(get_defined_constants());\ndie();
 redis_cache_|// usa composer per gestire le dipendenze\n//require "predis/autoload.php";\n//Predis\\Autoloader::register();\ntry {\n    $R = new Predis\\Client([\n        //'scheme' => 'tcp',\n        //'host' => 'localhost',\n        //'port' => port,\n        //'password' => 'password',\n        'persistent' => '1'  // persistent!\n    ]);\n} catch (Exception $e) {\n    $fmt = 'Exception Redis Connect: <b>%s</b><br>\n    file:%s line:%s <br>\n    trace:<pre>%s</pre>';\n    $msg = sprintf($fmt,\n        $e->getMessage(),\n        $e->getFile(), $e->getLine(),\n        $e->getTraceAsString()\n    );\n    die($msg);\n}\n$k = 'foo';\nif( $R->exists($k) ){\n    $value = $R->get($k);\n    var_dump($value);\n} else {\n    // $R->set($k, "bar");\n    // $v = json_encode($v);\n    $R->setex($k, 60*60*24, "value" );\n}
 zf_flash_|$this->_helper->flashMessenger->addMessage('');
@@ -1050,7 +1055,7 @@ switch_|switch(string) {\n    case 'nnn':\n        teststr();\n    break;\n    d
 lastIndexOf_|-1 !== window.location.pathname.lastIndexOf('/lampa_Orders/');
 func_get_args_|function test(s: string, ...rest: string[]): void {\n    console.log(s);\n    if (rest.length) {\n        console.log(rest[rest.length - 1]);\n    }\n}
 type_union_|// AKA algebraic data types\ntype TPadding = string | number;\n\ninterface Square {\n    kind: "square";\n}\ninterface Rectangle {\n    kind: "rectangle";\n}\ntype TShape = Square | Rectangle  ;\nfunction area(s: Shape): number {\n    switch (s.kind) {\n        case "square": return s.size * s.size;\n        case "rectangle": return s.height * s.width;\n    }\n}\n// default: return assertNever(s); // error here if there are missing cases\nfunction assertNever(x: never): never {\n    throw new Error("Unexpected object: " + x);\n}\n
-module_|module M {\n    export class C {\n    }\n}
+module_|module M {\n    export class C {\n    }\n}\n// namespace_
 jq_remove_|// elimina dal DOM i nodi selezionati\n$(selector).remove();
 prompt_|let s = prompt("question","default");\nif ( s!=null && s!="" ) {\n}
 _sprintf_|let s = _.str.sprintf('%s', val);
@@ -1132,7 +1137,7 @@ bb_route_go_to_|Backbone.history.navigate('itemcarousel', { trigger:true });
 let_block_|let num:numeric = 123;\n/* if (true) {\n    let foo = 456;//this is block scoped, will not effect the prev. def as usual, like in a function\n    let private_let = 1; // block scoped\n}\nconsole.log(foo); => 123 \nconsole.log(private_var); // Uncaught ReferenceError */
 overload_|interface IFoo {\n    bar: {\n        (s: string): number;\n        (n: number): string;\n    }\n}\nclass Foo{\n    public bar(s: string): number;\n    public bar(n: number): string;\n    public bar(arg: any): any {\n        if (typeof(arg) === 'number'){\n            return arg.toString();\n        }\n        if (typeof(arg) === 'string'){\n            return arg.length;\n        }\n    }\n}
 jq_is_numeric_|let is_num = $.isNumeric( num );
-namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export function error(msg) {\n        console.error(msg);\n    }\n}
+namespace_|namespace Utils {\n    export function log(msg) {\n        console.log(msg);\n    }\n    export var Registry = new TRegistry();\n    export class Main {}\n}\n\n\n
 jq_slide_|if (el.height() > 0) {\nel.animate({ height : 0 });\n} else {\nel.animate({ height : '100%' });\n}
 jq_isnode_|if( $('#selector').length > 0 ) {}
 _rand_|_.random(0, 100)
@@ -1189,6 +1194,7 @@ __END__|let str_template = `\n  multiline string  ${var}\n  call ${description()
 is_object_|function is_object(v) {\n    //One of the quirks of JavaScript is that typeof null returns "object". But it’s not an object. So let’s check for that, too\n    return (v instanceof Object && v.toString() == '[object Object]');\n}
 preg_|reg_replace_
 rand_|_rand_
+async_queue_|// http://www.dustindiaz.com/async-method-queues\nlet q_check = new Utils.AsyncQueue();\nq_check.deferred( (ctx: any) => {\n    q_check.resolve(ctx);\n} );\nq_check.catch((ctx: any, error: Error) => {\n    console.log( 'q_check initDB error:' + error );\n});\nq_check.finally((ctx) => {\n\n});\nq_check.run({});\n\n\n\n                 
 bb_router_|namespace Views {\n    export class Router extends Backbone.Router {\n        public routes:Hash = {\n            '': this.homeAction,\n            // '*actions': this.homeAction, // catch all route\n            // 'home': this.homeAction,\n            'client/:id': this.clientDetailAction,\n        };\n        constructor(options?: Backbone.RouterOptions) {\n            super(options);\n            // routes va inizializzato prima di richiamre super, che inizierà la gestione della url\n            // vedi come TS compila il costruttore\n            // call _bindRoutes() here function to bind your routes\n            (<any>this)._bindRoutes();\n        }\n        public initialize():void { }\n        protected clientDetailAction(id:string):void {\n            console.log(lf('Router.clientDetailAction ' + id));\n            let modal_id = Views.Modals.BaseModal.buildModalID('client_detail', 'main');\n            let modal_el = Views.Modals.BaseModal.show(modal_id, 'Dettaglio Cliente', '');\n            let modal_content_el = Views.Modals.BaseModal.getContentElement(modal_id);\n            let client = new Models.Client({ IDCLI: id });\n            client.fetch({\n                success: (model) => {\n                    let V = Views.Utils.traceView(new Views.ClientDetailView({\n                        el: modal_content_el,\n                        model: model\n                    }));\n                    V.render().delegateEvents();\n                }\n            });\n        }\n    }\n}\n\n\n\n
 js_require_|js_include_
 parent_|super.methodName()
