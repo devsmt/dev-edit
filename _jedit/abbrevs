@@ -203,7 +203,7 @@ pluck_|__::pluck($a, $k);
 is_str_|ctype_graph($s) || ctype_space($s)
 __MAIN__|// if colled directly, run the tests:\nif (basename($argv[0]) == basename(__FILE__)) {\n    include substr(__FILE__, 0, -4) . 'Test.php';\n}
 round_|round($f, 2);
-filterstr_|$s = preg_replace('/[^0-9A-Z_\\s]/i', '', $s );\n\n// to strip all(line feeds, carriage returns, and UTF8 characters) except printable ASCII characters (32...127 range)\n$string = preg_replace( '/[^[:print:]]/', '',$string);\n\n// matches  range 0-31, 128-255 \n$s = preg_replace('/[\\x00-\\x1F\\x80-\\xFF]/', '', $s);\n\n$s = filter_var($s, FILTER_SANITIZE_STRING,  FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH );\n// filter_var("00011PP!='", FILTER_SANITIZE_STRING )  => "00011PP!=&#39;"\n\n\n// unicode characters öä , must use single quotes \n$s = preg_replace('/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F-\\x9F]/u', '', $s);\n// strip line feeds, carriage returns, and tabs  \n$string = preg_replace('/[\\x00-\\x1F\\x7F-\\x9F]/u', '', $s);\n\n$s = substr(trim($s), 0, 6);\n\n\n\n\n\n \n
+filterstr_|$s = preg_replace('/[^a-z0-9_\\s]/i', '', $s );\n\n// to strip all(line feeds, carriage returns, and UTF8 characters) except printable ASCII characters (32...127 range)\n$string = preg_replace( '/[^[:print:]]/', '',$string);\n\n// matches  range 0-31, 128-255 \n$s = preg_replace('/[\\x00-\\x1F\\x80-\\xFF]/', '', $s);\n\n$s = filter_var($s, FILTER_SANITIZE_STRING,  FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH );\n// filter_var("00011PP!='", FILTER_SANITIZE_STRING )  => "00011PP!=&#39;"\n\n\n// unicode characters öä , must use single quotes \n$s = preg_replace('/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F-\\x9F]/u', '', $s);\n// strip line feeds, carriage returns, and tabs  \n$string = preg_replace('/[\\x00-\\x1F\\x7F-\\x9F]/u', '', $s);\n\n$s = substr(trim($s), 0, 6);\n\n\n\n\n\n \n
 reset_|<input type="reset" />
 _all_|// true if all values test()\n__::all([1, 2, 3, 4], function($num) { return $num < 5; }); // true
 table_a_|\n// genera tabella\n$_build_table = function( array $a_rs ) {\n \n  $html_table = '';\nif( !empty($a_rs) ) {\n    // data mappings\n    $data = array_map(function($a_row) {\n        return [\n            'Nome Campo' => $a_row['field'],\n        ];\n    }, $a_rs);\n    $first_index = current(array_keys($data));\n\n    $tmpl = '<table class="table table-condensed table-bordered table-striped" id="table_1">\n                <thead>%s</thead>\n                <tbody>%s</tbody>\n            </table>';\n    $html_table = sprintf($tmpl,\n        // genera head\n        $s_tr_th = sprintf('<tr>%s</tr>',\n            implode('',\n                array_map(function($v) {\n                    return sprintf("<th>%s</th>", $v);\n            } , $a_cols=array_keys($data[$first_index]) ) )\n        ),\n\n        // genera tr\n        $s_tr_mov = implode('',\n            $a_tr = array_map(function($a_row) {\n                return sprintf('<tr>%s</tr>', \n                    $s_td = implode('', array_map(function($v) {\n                            $contains_euro = strpos($v, '&euro;' ) !== false;\n                            $css = is_numeric($v) || $contains_euro ? 'numeric' : '';\n                            return sprintf('<td class="%s">%s</td>', $css, $v );                        \n                    }, $a_row) ) \n                );\n            }, $data)\n        )\n    );\n    // datatables\n    $html_table .= <<<__END__\n            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">\n            <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>\n            <script >\n            $(document).ready(function(){\n                $('#table_1').DataTable({\n                    "paging":     true,\n                    "ordering":   false,\n                    "info":       false,\n                    "scrollY":    500,\n                    "scrollX":    false,\n                    "pagingType": "full_numbers",\n                    "lengthMenu": [10,20,50,100],\n                    "pageLength": 50\n                });\n            });\n            </script>\n__END__;\n\n\n} else {\n    $html_table = $V->alert('nessun record trovato per i parametri selezionati');\n}\n    return $html_table;\n};
@@ -216,6 +216,7 @@ chart_pie_|include ("../../jpgraph/jpgraph.php");\ninclude ("../../jpgraph/jpgra
 preg_quote_|$reg = preg_quote($reg, '/');
 dba_|$id = dba_open("/tmp/test.db", "n", "db2");\nif (!$id) {\n    die( "dba_open failed\\n" );\n}\ndba_replace("key", "This is an example!", $id);\nif (dba_exists("key", $id)) {\n    echo dba_fetch("key", $id);\n    dba_delete("key", $id);\n}\n// read all the keys to read all the db\n$key = dba_firstkey($id);\nwhile ($key != false) {\n    $a_keys[] = $key;\n    $key = dba_nextkey($id);\n}\ndba_close($id);
 version_|version_compare_
+SplStack_|$stack = new SplStack();\n$stack->push( $obj );
 strtotime_|// accepted format\n$ts = strtotime("2009-01-31 +1 month" );\n/*\n// convert to accepted format or get error\n$date='27/05/1990';\nif (strpos($date,'/') !== false)  \n\tstrtotime(str_replace('/', '-', $date));\n\n// format resolver\nfunction from_apachedate($date) {\n    list($d, $M, $y, $h, $m, $s, $z) = sscanf($date, "[%2d/%3s/%4d:%2d:%2d:%2d %5s]");\n    return strtotime("$d $M $y $h:$m:$s $z");\n}\n// others accepted formats:\nmm/dd/yyyy - 02/01/2003  - strtotime() returns : 1st February 2003\nmm/dd/yy   - 02/01/03    - strtotime() returns : 1st February 2003\nyyyy/mm/dd  - 2003/02/01 - strtotime() returns : 1st February 2003\ndd-mm-yyyy - 01-02-2003  - strtotime() returns : 1st February 2003\nyy-mm-dd   - 03-02-01    - strtotime() returns : 1st February 2003\nyyyy-mm-dd - 2003-02-01  - strtotime() returns : 1st February 2003\n\n\n\n\nstrtotime('-3 months', $now = time() )\nstrtotime("+5 hours") \nstrtotime("+1 week") \nstrtotime("+1 week 3 days 7 hours 5 seconds")\nstrtotime("next Monday") \nstrtotime("last Sunday")\nstrtotime('-5 weeks monday') // returns the monday of 5 weeks ago.\n// error\n//  PHP < 5.1.0  compare with -1, instead of false\nif( ( $timestamp = strtotime( 'Not Good') ) === false) { }\n\n// @see datetime_\n$d = new DateTime( '2010-01-31' );\n$d->modify( 'next month' );\necho $d->format( 'F' ), "\\n";\n\n// period loop\n$ts_start = strtotime('2009-02-01'); \n$ts_end = strtotime('+1 month', $ts_start); \n$ts_date = $ts_start; \nwhile($ts_date < $ts_end) {  \n   $ts_date = strtotime("+1 day", $ts_date); \n   echo date('',$ts_date);\n}\n// MySQL:  2009-02-28\n"SELECT DATE_ADD( '2009-01-31', INTERVAL 1 MONTH );"\n*/ \n\n\n\n
 memory_get_peak_usage_|round(memory_get_peak_usage() / (1024 * 1024), 2) . 'MB',
 except_|$msg = sprintf('Errore %s', );\nthrow new Exception($msg);
@@ -259,8 +260,8 @@ test_|/* own test suite:\n        ok(0, 0, 'ok for same value');// should pass\n
 map_|array_map_
 exception_|spl_
 _empty_|_.isEmpty(obj)
-ksort_|ksort($a);//in-place sort!
 protected_|protected function \|(){}
+ksort_|ksort($a);//in-place sort!
 const_|const CONSTANT = 'str';
 ini_get_|$v = ini_get('display_errors');
 is_callable_|is_callable([$obj, 'method_name'], false);
@@ -276,7 +277,7 @@ instanceof_|if( !($var instanceof ParentClass) ){ }
 set_exception_handler_|if( ENV::isPROD() ) {\n    \n    $prev_handler = set_exception_handler(['Bootstrap', '_ExcpLoggerMail']);\n    // es. err handler\n    function exp_hndl_test(Exception $e){  }\n}
 zf_h_checkbox_|$this->formCheckbox('opt_in', 'yes', null, ['yes', 'no'] )
 if_|if( !isset($1) || empty($1) \| ) {\n    // do init\n}\n
-zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();\n\n//  basato su CLI\n$cmd = sprintf("zip -9 -j -q -r %s/tets.zip %s/*.jpg", $path, $path );
+zip_|$zip = new \\ZipArchive();\n$file_path = sprintf("/zip/test_%s.zip", date('Ymd_His') );\nif ( $zip->open($file_path, \\ZipArchive::CREATE) !== true ) {\n    $msg = sprintf('Errore: impossibile aprire %s ', $zip_path );\n    throw new Exception($msg);\n}\n$zip->addFromString("testfile.txt" . time(), "#1 This is a test string added as testfilephp.txt.\\n");\n$zip->addFile($target_file_path, "/testfromfile.php");\n$zip->close();\n\n/* //  basato su CLI\n// crea un nuovo zip file\n$cmd = sprintf("zip -9 -j -q -r %s %s/*.jpg", $zip_path, $img_path );\n$out = trim( ''. ( `$cmd` ?? '' )  );\nif( !empty($out) ) {\n    $msg = sprintf('Errore %s ', $out );\n    throw new \\Exception($msg);\n} */
 execute_|  public function executeSpese(sfWebRequest $request)\n  {\n\treturn $this->renderText('da implementare');\n  }
 coalesce_|$xxx = $1 ?? $2 ?? $3;\n\nfunction coalesce() {\n    $args = func_get_args();\n    foreach ($args as $arg) {\n        if (!empty($arg)) {\n            return $arg;\n        }\n    }\n    return null;\n}\n
 assert_|if( !is_numeric($n) ) {\n    throw new Exception("VARNAME deve essere in formato numerico, '$n' ricevuto");\n}
@@ -299,6 +300,7 @@ _memoize_|$fibonacci = function($n) use (&$fibonacci) {\n  return $n < 2 ? $n : 
 date_time_|$d_ = new DateTime('2016-11-20');\n// Static constructor with format\n$d_3 = DateTime::createFromFormat('M j, Y H:i:s', 'Jan 2, 2014 23:04:12');\n\n// interval operations\n$d_start = new DateTime();\n$interval_ = new DateInterval('P2W');\n$period = new DatePeriod($start, $interval_, 3);\nforeach ($period as $nextDateTime) {\n    echo $nextDateTime->format('Y-m-d H:i:s'), PHP_EOL;\n}\n\n
 require_|require_once __DIR__.'/\|';
 sql_db2_update_|$sql_now = sprintf("TIMESTAMP_FORMAT('%s', 'YYYY-MM-DD HH24:MI:SS')", date('Y-m-d H:i:s') );\n$sql = "UPDATE " . DB2Liblist::qualify('ZNTCT00F') . "\n        SET\n            TT_TIPRE = 'A',\n            TT_STAOR = 'WA',\n            TT_DUPD  = $sql_now\n        WHERE (1=1)\n            and TT_STAOR in ('WA','SL')\n            and TT_NUORD = $order_id\n            and TT_DAORD = $order_date \\n";
+fifo_|SplQueue_
 array_find_|_find_
 file_get_a_|// ottiene contenuto del file in array di righe da processare in successione\n$a_file_lines = file($file_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);\n$process_line = function($line){ return $line; };\nforeach ($a_file_lines as $i => $line) {\n     $a_file_lines[$i] = process_line($line);\n}\n$s_result = implode("\\n", $a_file_lines );\n\n
 zf_env_|// 'DEVELOPMENT'|'PRODUCTION' == strtoupper(APPLICATION_ENV)\nBootstrap::isEnvProd() ||  Bootstrap::isEnvDev()
@@ -362,19 +364,21 @@ enum_|class Month extends SplEnum {\n    const __default = self::January;\n    \
 error_|set_error_handler_\nerror_reporting_\nset_exception_handler_
 preg_replace_|$reg_char = '\\,\\;\\-\\+\\*\\/\\(\\)\\[\\]\\:\\.\\!\\?#= '; // "/[[:blank:]]+/"\n$str = preg_replace('/[^a-z0-9_]/i', '', $str);\n 
 explode_|explode( ',', $s\|);
+declare_|declare(strict_types = 1);\n// By default, PHP **will coerce** values of the wrong type into the expected scalar type if possible. \n// For example, a function that is given an integer for a parameter that expects a string will get a variable of type string.\n// It is possible to enable strict mode on a per-file basis. \n// In strict mode, **only a variable of exact type of the type declaration will be accepted**, or a TypeError will be thrown. \n// The only exception to this rule is that an integer may be given to a function expecting a float. \n// Function calls from within internal functions will not be affected by the strict_types declaration.\n\n\n\n\n
 zf_route_regex_|$router->addRoute('fornitori_genlabel', new Zend_Controller_Router_Route_Regex(\n        'fornitori/genlabel/Etichette_federe_(\\d+)_(\\d+)\\.pdf',\n        [\n            'controller' => 'Fornitori',\n            'action' => 'genlabel'\n        ],\n        $mappings=[\n            1 => 'ord_num'  ,\n            2 => 'ord_date' ,\n        ],\n        'fornitori/genlabel/Etichette_federe_%d_%d.pdf'\n));
 construct_|public function __construct(){\n   parent::__construct();\n\|}
 for_|$c=count($a);\nfor( $i=0; $i < $c; $i++) {\|}
 mktime_|$timestamp = mktime($hour=date("H"), $minute=date("i"), $second=date("s"), $month=date("n"), $day=date("j"), $year=date("Y") );
 system_|exec_
 require_once_|require_
+queue_|fifo_
 pf_|sprintf_
 _filter_|$a_data = __::filter([1, 2, 3, 4], function($num) { return $num % 2 === 0; });\n// => [2, 4]
 zf_post_|$this->getRequest()->getPost('name\|');
 array_fill_|array_fill($i=0, $n=10 , $v='');
 define_|define('\|', '', false);
 ol_|<ol class="">\n\|</ol>
-exec_|$cmd = "ls -la";\n$s_result = trim(`$cmd`);\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   - to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//     $_res = exec($cmd . " > /dev/null &", $_output, $_retval);\n//     $pid = exec("nohup $cmd > /dev/null 2>&1 & echo $!", $_output, $_retval);// we can return the pid of the process\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
+exec_|function e(string $cmd):string {\n    // echo "cmd: ".$cmd."\\n";\n    $s_result = trim(''.`$cmd`);\n    if( '' != $s_result ){ }\n    return $s_result;\n}\n$cmd = "ls -la";\n$s_result = e($cmd);\n// $s_result = trim(shell_exec(sprintf('/usr/bin/ls -la 2>&1',  escapeshellarg($cmdarg) ));\n// return:\n//   returns a line break at the end, use trim()\n//   `1> /dev/null` eliminando stdout si  vede solo l'errore\n//   return NULL if the executed command doesn't output anything, strict comparisons to '' return false\n// trobleshooting:\n//   It is not possible to detect execution failures using this function. exec() should be used\n//   check www-data has rights to files or directories you are accessing\n//   check safemode\n//   check not using an alias \n//   check script is in your path, the error will be logged to error_log\n//   check "memory_limit" php.ini the program memory used is computed for the total\n//   memory-hogging operations use system() instead\n//   - to run in the background, the output must be redirected to a file, or will hang until the execution ends\n//     $_res = exec($cmd . " > /dev/null &", $_output, $_retval);\n//     $pid = exec("nohup $cmd > /dev/null 2>&1 & echo $!", $_output, $_retval);// we can return the pid of the process\n//   `pwd` e chdir() per settare le directory su cui lavorerà lo script, `cd $dir && $cmd`\n//   $r=getenv("REMOTE_ADDR"); putenv('LANG=en_US.UTF-8'); // to share config \n
 filter_|$vvv = filter_var($vvv, FILTER_SANITIZE_NUMBER_INT); //  FILTER_SANITIZE_EMAIL  FILTER_SANITIZE_STRING\nif( false === $vvv ) {\n    $msg = "validation error param vvv: $vvv ";\n}\n\nctype_\npreg_replace_\nfilter_str_\nfilter_char_\nfilter_float_\nfilter_html_\nfilter_int_\n\n
 dir_exists_|if( file_exists($path_) ) {\n}
 apc_clear_cache_|apc_clear_cache($cache_type='user');
@@ -386,12 +390,13 @@ obj_|new stdClass()
 banchmark_|profile_
 assert_int_|if( !is_numeric($num) ) {\n    throw new Exception("num deve essere in formato numerico, '$num' ricevuto");\n}\n\n
 _find_|// Return the value of the first item in the collection that passes the truth test (iterator)\n$v = __::find( [1, 2, 3, 4], function($num) { return $num % 2 === 0; }); \n// => 2
+typeoff_|instanceof_
 register_shutdown_function_|register_shutdown_function(function (){ \n    echo "script is shuting down";\n});
 filter_float_|$f = filter_var($f, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION|FILTER_FLAG_ALLOW_THOUSAND);
 finally_|finally {\n\|}
 m_|method_
 css_input_type_|input[type="text"]
-spl_|Interfaces\n    Countable\n    OuterIterator\n    RecursiveIterator\n    SeekableIterator\n    SplObserver\n    SplSubject\nClasses\n    AppendIterator\n    ArrayIterator\n    ArrayObject\n    CachingIterator\n    CallbackFilterIterator\n    DirectoryIterator\n    EmptyIterator\n    FilesystemIterator\n    FilterIterator\n    GlobIterator\n    InfiniteIterator\n    IteratorIterator\n    LimitIterator\n    MultipleIterator\n    NoRewindIterator\n    ParentIterator\n    RecursiveArrayIterator\n    RecursiveCachingIterator\n    RecursiveCallbackFilterIterator\n    RecursiveDirectoryIterator\n    RecursiveFilterIterator\n    RecursiveIteratorIterator\n    RecursiveRegexIterator\n    RecursiveTreeIterator\n    RegexIterator\n    SplDoublyLinkedList\n    SplFileInfo\n    SplFileObject\n    SplFixedArray\n    SplHeap\n    SplMinHeap\n    SplMaxHeap\n    SplObjectStorage\n    SplPriorityQueue\n    SplQueue\n    SplStack\n    SplTempFileObject\nException\n    LengthException\n    InvalidArgumentException\n    LogicException\n    BadFunctionCallException\n    BadMethodCallException\n    DomainException\n    RangeException\n    RuntimeException\n    UnderflowException\n    UnexpectedValueException\n    BadFunctionCallException\n    BadMethodCallException\n    OutOfBoundsException\n    OutOfRangeException\n    OverflowException
+spl_|/* http://php.net/book.spl\nInterfaces\n    Countable\n    OuterIterator\n    RecursiveIterator\n    SeekableIterator\n    SplObserver\n    SplSubject\nIterator Classes\n    AppendIterator\n    ArrayIterator\n    ArrayObject\n    CachingIterator\n    CallbackFilterIterator\n    DirectoryIterator\n    EmptyIterator\n    FilesystemIterator\n    FilterIterator\n    GlobIterator\n    InfiniteIterator\n    IteratorIterator\n    LimitIterator\n    MultipleIterator\n    NoRewindIterator\n    ParentIterator\n    RecursiveArrayIterator\n    RecursiveCachingIterator\n    RecursiveCallbackFilterIterator\n    RecursiveDirectoryIterator\n    RecursiveFilterIterator\n    RecursiveIteratorIterator\n    RecursiveRegexIterator\n    RecursiveTreeIterator\n    RegexIterator\nClasses\n    SplDoublyLinkedList\n    SplFileInfo\n    SplFileObject\n    SplFixedArray_\n    SplHeap\n    SplMinHeap\n    SplMaxHeap\n    SplObjectStorage\n    SplPriorityQueue\n    SplQueue_\n    SplStack_\n    SplTempFileObject\nException\n    LengthException\n    InvalidArgumentException\n    LogicException\n    BadFunctionCallException\n    BadMethodCallException\n    DomainException\n    RangeException\n    RuntimeException\n    UnderflowException\n    UnexpectedValueException\n    BadFunctionCallException\n    BadMethodCallException\n    OutOfBoundsException\n    OutOfRangeException\n    OverflowException\n*/\n
 ok_|ok($result, $expected, $label); // test_
 zf_view_|$html = $this->view->render('alternate.phtml');
 ex_|throw_
@@ -442,6 +447,7 @@ sort_records_|// Sort the multidimensional array\nusort($results, function ($a, 
 func_|function golang_like_func($str){\n    return [false, "String is invalid"];\n}\nlist($res, $err) = golang_like_func($str);\nif($err){\n  // use $err\n}\n\n
 controller_|// funzione: controller con nomenclatura simile a ZF\nclass BaseController {\n    public function run($uri) {\n        $action = self::resolveAction($uri);\n        if (method_exists($this, $action)) {\n            return $this->$action();\n        } else {\n            return "unimplemented action:$action \\n";\n        }\n    }\n    // logica di composizioe della action\n    public static function resolveAction($uri) {\n        if (empty($uri)) {\n            return '';\n        }\n        $action = str_replace(['/mobile/','/'], '', $uri);\n        $action .= 'Action'; \n        return $action;\n    }\n}\n// esempio uso e azione\nclass AppController extends BaseController {    \n    function loginAction(){}\n}\nok('/mobile/login', 'loginAction');//test resolver\n$controller = new AppController();\ndie( $controller->run($uri = $_SERVER['REQUEST_URI']) );
 dir_|glob_
+SplQueue_|$q = new SplQueue();\n$q->enqueue(1);\n$q->enqueue(2);\n$q->enqueue(3);\n$last = $q->dequeue()\nvar_dump($q, $last);
 db_|pdo_
 check_|<input type="checkbox" name="<?=setFieldInfoName($currentIndex)?>" value="1" <?=$\|->enabled() ? "checked" : ""?>>
 pattern_signleton_|class Singleton {\n    // Returns the *Singleton* instance of this class.\n    public static function getInstance() {\n        static $instance = null;\n        if (null === $instance) {\n            $instance = new static();\n        }\n        return $instance;\n    }\n    // Protected constructor to prevent creating a new instance via the `new` operator from outside of this class \n    protected function __construct() { }\n    private function __clone() { }\n    private function __wakeup() { }\n}\n\nclass SingletonChild extends Singleton { }\n\n
@@ -472,7 +478,7 @@ zf_action_|public function __Action(){\n    $this->view->myval = null;\n}
 nl_|PHP_EOL
 curl_get_|$c = curl_init('http://www.example.com/directory');\ncurl_setopt($c, CURLOPT_RETURNTRANSFER, 1);\ncurl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);\n// alternative per processare il file\n// curl_setopt($c, CURLOPT_WRITEFUNCTION, function($c,$page) {\n//    $info = curl_getinfo($c);\n//});\n// curl_setopt($c,CURLOPT_FILE);\n//curl_setopt($c, CURLOPT_HTTPHEADER, ['X-Factor: 12', 'My-Header: Bob'] );\n//curl_setopt($c, CURLOPT_VERBOSE, 1);\n//curl_setopt($c, CURLOPT_REFERER, 'http://www.example.com/form.php');\n//curl_setopt($c, CURLOPT_USERAGENT, 'CURL via PHP');\n$page = curl_exec($c);\ncurl_close($c);
 whilers_|while ($a = mysql_fetch_assoc($rs)) {\|}
-type_|gettype($v)
+type_|// return hinting\nstring\nfloat\nint\nbool\nself\ncallable
 scan_|$n = sscanf($auth, "%d\\t%s %s", $id, $first, $last);
 header_json_|header('Content-Type: application/json');
 mysqli_connect_|$link = mysqli_connect("127.0.0.1", "my_user", "my_password", "my_db");\n\nif (!$link) {\n    echo "Error: Unable to connect to MySQL." . PHP_EOL;\n    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;\n    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;\n    exit;\n}\n\necho "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;\necho "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
@@ -522,6 +528,7 @@ singleton_|    public static function getInstance() {\n        static $__instanc
 method_exists_|method_exists($obj, 'method')
 strpos_|str_pos_
 zf_session_|$session = Zend_Registry::get('session');\n//$session = new Zend_Session_Namespace('_l10n_');\n$session->var = '';
+image_resize_|convert myfigure.png -resize 200x100 myfigure.jpg
 array_contains_|    // @see in_array_\n\n    $is_contained = count( array_intersect($a_1, $a_2) );\n\n    // intersection of arrays using keys for comparison\n    // restituisce solo i codici richiesti\n    $data=['a'=>1,'b'=>2];$item_list=['a'];\n    $part_list = array_intersect_key($data =['a'=>1,'b'=>2] , array_flip($item_list=['a']) );\n
 phpunit_assert_true_|$this->assertTrue($val);
 log_|file_put_contents_
@@ -532,6 +539,7 @@ hash_|if (function_exists("hash_algos") && in_array("sha512", hash_algos())) {\n
 gz_compress_|$filename = tempnam('/tmp', 'zlibtest') . '.gz';\n$s = "Only a test, test, test, test, test, test, test, test!\\n";\n$zp = gzopen($filename, "w9");// open file for writing with maximum compression\ngzwrite($zp, $s);// write string to file\ngzclose($zp);// close file
 function_|//\nfunction \|(int $i=0):string {\n    $html = '';\n    $html .= '';\n    return $html;\n}\n
 max_|$max = max([0,1,2]);
+lifo_|SplStack_
 intval_|$i_num = intval($s);
 dbg_|var_dump(\|);die();
 array_collect_|array_reduce_
@@ -545,7 +553,7 @@ session_|session_start();  \n$_SESSION['count'] = 0;
 mail_|$mail_res = mail($to, $subject, $message);
 echo_|echo "\|"; // dbg
 sf_get_|$request->getParameter($name);
-php_|<?php\ndeclare(strict_types=1);\n\|\n?>
+php_|<?php\ndeclare(strict_types=1);\n\|\n
 __call_|function __call($name, $args){\n  echo "no def: $name  arity: ".count($args)."\\n";\n}
 phpo_|<?=\|;?>
 mysqli_|$mysqli = new mysqli("127.0.0.1", $user, $password, $database, 3306 );\nif ($mysqli->connect_errno) {\n    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;\n}\necho $mysqli->host_info . "\\n";\n\n// Create table doesn't return a resultset  \nif ($mysqli->query("CREATE TEMPORARY TABLE myCity LIKE City") === TRUE) {\n    printf("Table myCity successfully created.\\n");\n}\n\n// Select queries return a resultset  \nif ($result = $mysqli->query("SELECT Name FROM City LIMIT 10")) {\n    printf("Select returned %d rows.\\n", $result->num_rows);\n\n    // free result set \n    $result->close();\n}\n\n// If we have to retrieve large amount of data we use MYSQLI_USE_RESULT \nif ($result = $mysqli->query("SELECT * FROM City", MYSQLI_USE_RESULT)) {\n\n}\n\n$mysqli->close();\n \n \n
@@ -555,12 +563,14 @@ zf_layout_|$layout = $this->_helper->layout();\n$layout->setLayout('three-column
 __construct_|public function __construct(){\n    parent::__construct();\n}
 empty_|_empty_
 php_version_|// test software version\nif( \n  !defined('PHP_VERSION_ID') \n  || !(PHP_VERSION_ID >= 50600 && PHP_VERSION_ID < 50700 || PHP_VERSION_ID === 70002 || PHP_VERSION_ID >= 70006)\n) {\n    if (PHP_SAPI == 'cli') {\n        echo 'Magento supports PHP 5.6, 7.0.2, and 7.0.6 or later. ' .\n            'Please read http://devdocs.magento.com/guides/v1.0/install-gde/system-requirements.html';\n    } else {\n        die('\n<div style="font:12px/1.35em arial, helvetica, sans-serif;">\n    <p>Magento supports PHP 5.6, 7.0.2, and 7.0.6 or later. Please read\n    <a target="_blank" href="http://devdocs.magento.com/guides/v1.0/install-gde/system-requirements.html">\n    Magento System Requirements</a>.\n</div>');\n  \n    }\n}\n
+modulus_|abs($int)
 redirect_|location_
+stack_|lifo_
 parse_int_|intval($i)
 array_merge_|$a = array_merge( $a_1, $a_2 ...);
 is_cli_|php_sapi_name_
-gz_|gz_compress_\ngz_extract_
 profile_|//--- DBG -----------------------------------------------------------\n// define profile macro\n$__profile = function ( $label, \\Closure $op) {\n    $mt_begin=microtime(true);\n    $res = $op();\n    echo sprintf('<pre>[%s] time:%F ms</pre>',\n        $label,\n        microtime(true)-$mt_begin\n    );\n    return $res;\n};\n//--- end DBG ------------------------------------------------------   \n$__op_result__ = $__profile('__LABEL__', function() use($V) {\n    return __the_operation__; \n} );\nmicrotime_
+gz_|gz_compress_\ngz_extract_
 sql_bd2_fetch_|fetch FIRST 100 ROWS ONLY
 array_reject_|_reject_
 public_|\t//\n\tpublic function \|(){\n\t  return true;\n\t}
@@ -1015,6 +1025,7 @@ switch_|Case i of\n     15 : begin\n     end\n     else begin\n     end\nend;
 [hlsl]
 [n3]
 [typescript]
+confirm_|if( confirm("Press a button!") == true ) {\n    console.log("You pressed OK!");\n} else {\n    console.log("You pressed Cancel!");\n}\n\n
 jq_dom_map_|$("input").map(function(){\n      return $(this).val();\n    }).get().join(", ")
 jq_hover_|jQuery('#something').hover(\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 1, 1000 )\n.animate( {height:500}, 1000 );\n},\nfunction(){\njQuery(this).stop(true)\n.fadeTo( 0.8, 1000 )\n.animate( {height:200}, 1000 );\n}\n);\n
 unset_|delete obj['index'];
@@ -1082,6 +1093,7 @@ floor_|let n = Math.floor( 45.95 ); //  45
 funzione_|docstring_
 if_|if( typeof_  $jq_selection.length && !_.isEmpty(o) ) {\|}
 indexof_|//let a = ['apple','orange','pear'];\nlet is_found = (a.indexOf("orange") != -1);\nlet has_char = str.indexOf('@') === -1;
+coalesce_|    public static coalesce(...rest: any[]):any {\n        if (rest.length) {\n            for (const v of rest ) {\n                if( 0 ===v || v ) {\n                    return v;\n                }\n            }\n        }\n        return null;\n    }
 date_add_|// use moment()\nlet t1 = new Date();\nlet delta = (10 * 60 + 3) * 1000;\nlet t2 = new Date(t1.getTime() + delta);
 include_|require_
 when_|jq_when_
@@ -1212,6 +1224,7 @@ localstorage_|if(typeof localStorage !== "undefined") {\n    // update key\n    
 try_|try {\n\|} catch(e){\n        //console.log(e.message); \n\t//alert(format_exception(e));\n} finally {}
 jq_append_|$('<div/>').append(text).css({}).appendTo('#log');\n$('<option/>').attr('value',optionValue).text(optionName).appendTo('#colors');\n// jq_build_\n
 func_|function(){\n\|}
+arguments_|var args = [].slice.call(arguments);
 promise_|jq_promise_
 jq_click_|$('form input:checkbox').on('click', (e:JQueryEventObject) => {\n  e.preventDefault();\n  let txt = $( this ).text();//accedere all'elemento cliccato\n}); \n\|\n// passing data\n$('button').on('click', { name: 'Karl'}, ( e:JQueryEventObject ) => {\n  alert( "Hello " + e.data.name );\n});\n// proxy assicura che _method_ sia chimato nel contesto di classe\n$('button').on('click', jQuery.proxy(this._method_, this) );
 fluent_|// fluent interface pattern\nclass BasicCalculator {\n    public constructor(protected value: number = 0) { }\n    public currentValue(): number {\n        return this.value;\n    }\n    public add(operand: number): this {\n        this.value += operand;\n        return this;\n    }\n    public multiply(operand: number): this {\n        this.value *= operand;\n        return this;\n    }\n}\nlet v = new BasicCalculator(2).multiply(5).add(1).currentValue();
@@ -1224,7 +1237,7 @@ unique_|jq_unique_
 str_lower_|str.toLowerCase()
 interface_|interface_rec_\ninterface_func_\ninterface Window { device: IDevice; }\n\n
 _has_|_.has({a: 1, b: 2, c: 3}, "b");\n//=> true
-bb_collection_find_|let item: null|Models.ItemsCollection = new Models.ItemsCollection();\nlet opt_items:Backbone.CollectionFetchOptions = {\n    reset: true,\n    success: ( list: any, response: any, options: any ):any => {\n        console.log( 'ItemsCollection fetch' );\n        console.log( list );\n    },\n    error: (list: any, jqxhr: JQueryXHR, options: any):any => {\n        console.log( 'ItemsCollection fetch error' );\n    }\n};\nlet p_items:JQueryPromise<any> = item.fetch( opt_items );\np_items.done( (rec: Array<Hash> ) => {\n    let _model:Models.Item = <Models.Item> rec; // itemModel.at(0);\n    let html = ''; // generation of the view\n    $('#el').html(html);\n});\n\n\n\n\n
+bb_collection_find_|// Collection\nlet item: null|Models.ItemsCollection = new Models.ItemsCollection();\nlet opt_items:Backbone.CollectionFetchOptions = {\n    reset: true,\n    success: ( list: any/*Models.ClientCollection*/, response: any, options: any ):any => {\n        console.log( 'ItemsCollection fetch' );\n        console.log( list );\n    },\n    error: (list: any, jqxhr: JQueryXHR, options: any):any => {\n        console.log( 'ItemsCollection fetch error' );\n    }\n};\n\n// Entity\nlet p_items:JQueryPromise< Backbone.Model > = item.fetch( opt_items );\np_items.done( (rec: Backbone.Model ) => {\n    let _model:Models.Item = <Models.Item> rec; // itemModel.at(0);\n    let html = ''; // generation of the view\n    $('#el').html(html);\n});\n\n\n\n\n
 dict_js_|let item_list: { [k: string]: Object; } = { };
 jq_ajax_get_|let jqxhr = $.get( '/data/people.html', function( html ){\n  $( '#target' ).html( html );\n}).done(function(req) {\n    console.log( "jqxhr success" );\n  })\n  .fail(function(req, status, err) {\n    console.log( "jqxhr error:"+status+' '+err );\n  })\n  .always(function() {\n    console.log( "jqxhr finished" );\n});
 str_replace_|s = "do re mi mi mi";\ns.replace(/mi/g, "ma");
@@ -1261,7 +1274,7 @@ stop_|e.stopPropagation();//bubbling\ne.preventDefault();
 call_|cb.call(thisArg|null, arg1, arg2 );
 for_of_|for (const v of a_vals ) {\n    console.log('val: '+v);\n}\nfor (const k of Object.keys(a_recs) ) {\n    let v = a_recs[k];\n    console.log(k+'='+v);\n}\n
 jq_contains_|str_contains_
-jq_promise_when_|let d1 = $.Deferred();\nlet d2 = $.Deferred();\nlet d3 = $.Deferred();\n \n$.when( d1, d2, d3 ).done(function ( v1, v2, v3 ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n    console.log( v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]\n});\n \nd1.resolve();\nd2.resolve( "abc" );\nd3.resolve( 1, 2, 3, 4, 5 );
+jq_promise_when_|let d1 = $.Deferred();\nlet d2 = $.Deferred();\nlet d3 = $.Deferred();\n \n$.when( d1, d2, d3 ).done(function ( v1, v2, v3 ) {\n    console.log( v1 ); // v1 is undefined\n    console.log( v2 ); // v2 is "abc"\n    console.log( v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]\n});\n \nd1.resolve();\nd2.resolve( "abc" );\nd3.resolve( 1, 2, 3, 4, 5 );\n// array traversing\n            var promises = [];\n            collection.each( (m) => {\n                let p = asicn_op();\n                promises.push( p );\n            });\n            $.when.apply($, promises).done( (result) => {\n            });\n// example\n            $.when(\n                $.ajax( "/main.php" ),\n                $.ajax( "/modules.php" ),\n                $.ajax( "/lists.php" )\n            ).then( successFunc, failureFunc )\n            .done(()=>{})\n            .fail(()=>{});\n
 __CLASS__|instance.constructor.name \n// or MyClass.name \n
 _flter_|//all the values that pass\nlet evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ \n\treturn num % 2 == 0; \n});\n// => [2, 4, 6]
 jq_deferred_|jq_promise_
@@ -1270,7 +1283,7 @@ proxy_|jq_proxy_
 jq_radio_|$('input[name=radioName]:checked', '#FormID').val()
 jq_events_|// custom events\n$( document ).on("light:on", {\n    foo: "bar"\n}, function( event, arg1, arg2 ) {\n    console.log( event.data.foo, arg1, arg2 );\n});\n$(document).trigger("light:on", ["bim", "baz"]);\n\n
 is_string_|_.isString(myVar)\n// typeof mylet === 'string' || mylet instanceof String
-bb_view_events_|    public events() {\n        return {\n            'click #cart_current_edit': this.onCartCurrentOpen,\n        };\n    }\n    public onCartCurrentOpen(event:JQueryEventObject):void {\n        let el_btn = event.target;\n        event.stopPropagation();\n        Backbone.history.navigate('cart_edit_current', { trigger:true });\n\n            // this.model.set({ name: this.$("#name").val() });\n            // this.model.save({ name: name });\n            this.render();\n\n    }\n    // 'keypress #txt_search': this.searchOnEnter,\n    public searchOnEnter( e:JQueryEvent ) {\n        if ( e.which === ENTER_KEY ) { }\n    }\n\n\n\n\n
+bb_view_events_|    public events() {\n        return {\n            'click #cart_current_edit': this.onCartCurrentOpen,\n        };\n    }\n    public onCartCurrentOpen(event:JQueryEventObject):void {\n        let el_btn = event.target;\n        event.stopPropagation();\n        Backbone.history.navigate('cart_edit_current', { trigger:true });\n\n        // this.model.set({ name: this.$("#name").val() });\n        // this.model.save({ name: name });\n        this.render();\n    }\n    const KEYCODE_ENTER = 13;\n    // 'keypress #txt_search': this.searchOnEnter,\n    public searchOnEnter( event:JQueryEventObject ) {\n        if ( event.which === KEYCODE_ENTER ) { }\n    }\n\n\n\n\n
 _count_|_size_
 log_|console.log( sprintf('%s', aaaa) );\n// console.trace();
 _reject_|let a_list = [1, 2, 3, 4, 5, 6];\nlet odds = _.reject<number>(a_list, (num:number):number => { return num % 2 == 0; });\n// => [1, 3, 5]
@@ -1282,7 +1295,7 @@ function_|//\nfunction add(x: number): number {\n    return x;\n}
 max_|let n = Math.max(n1,n2);
 lifo_|fifo_lifo_
 _template_|let html = _.template("<%=k%>").call(this, {k: "aa"});
-jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    let deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    let data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nlet promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
+jq_promise_|// \npublic static findById(item_id:string): JQueryPromise< Array<T> > {\n    let deferred:JQueryDeferred< Array<any> > = $.Deferred();\n    let data: Array<T> = [];\n    // eg. async\n    setTimeout(function() {\n        deferred.resolve( data );// il tipo di JQueryPromise<T>\n    }, 100 );\n    return deferred.promise();\n}\nfunction xxx() {\n    return $.Deferred(( dfd ) => {\n         setTimeout(() => {\n             // $(".news, .reactions").removeClass("active");\n             dfd.resolve();\n        }, 4000);  \n    }).promise();\n}\n\n// caller: per una operazione asincrona ritorna .promise(),\n// intercetta il .done() con una callback\nlet promise: JQueryPromise<T> = findById(item_id);\npromise.done( function(data:T) { });
 moment_|let om = moment("12-25-1995", "MM-DD-YYYY");\nconsole.log( om.format("MM-DD-YYYY") );
 type_rec_|type TAvailabilityResult = {\n    css_label: string,\n    msg: string;\n    [key: string]: string;\n};
 jq_effects_|$(this).show()       ;// Show the selected elements.\n$(this).hide()       ;// Hide the selected elements.\n$(this).fadeIn()     ;// Animate the opacity of the selected elements to 100%.\n$(this).fadeOut()    ;// Animate the opacity of the selected elements to 0%.\n$(this).slideDown()  ;// Display the selected elements with a vertical sliding motion.\n$(this).slideUp()    ;// Hide the selected elements with a vertical sliding motion.\n$(this).slideToggle();// Show or hide the selected elements with a vertical sliding motion
@@ -1300,6 +1313,7 @@ regexp_|let re = /\\w+/;\nlet re_m = regex.exec(text);\nconsole.log(re_m[1]); \n
 jq_by_name_|let email = $("input[name='email']").val();
 array_merge_|let a = _.extend(a1, a2);\n// a_val.concat(a_val2); // merge di array sequenziali
 is_array_|_.isArray(aaa)
+strlen_|str.length
 jq_json_|jq_ajax_json_
 profile_|let t_start:number = Date.now();\nlet timeElapsed:number = (Date.now()-t_start);\n"time: "+timeElapsed+" msec"
 jq_css_|el.css({\n\tbackgroundColor: '#ffe', \n\tborderLeft: '1px solid #ccc' \n}).css('width', function( i) {\n  return i * 50;\n}).css('width', '+=200');
@@ -1311,6 +1325,7 @@ time_|let t_start:number = Date.now();\n_time_
 f_es6_|//ES6 \nlet multiply = (x, y) => x*y;\nlet str_split = str => str.split(" ");// 1 args, () are optional\nlet doc_log = () => { console.log(document); };// 0 args\nlet rec_new = (id, name) => ({ id: id, name: name });\n \n\n\n
 str_toupper_|str.toUpperCase()
 str_match_|let is_found = 'For more information, see Chapter 3.4.5.1'.match( /(chapter \\d+(\\.\\d)*)/i );\nlet is_numeric = s_num.match(/^[0-9]+$/) !== null;\nconsole.log(is_found, is_numeric);
+promise_jq_|jq_promise_
 dict_|dict_js_
 bind_|fun.bind(this_obj , arg1, arg2 ... );
 fifo_lifo_|let stack = [];\nstack.push(2);       // stack is now [2]\nstack.push(5);       // stack is now [2, 5]\nlet i = stack.pop(); // stack is now [2]\nconsole.log(i);      //  5\n\nlet queue = [];\nqueue.push(2);         // queue is now [2]\nqueue.push(5);         // queue is now [2, 5]\nlet i = queue.shift(); // queue is now [5]\nconsole.log(i);        // 2
