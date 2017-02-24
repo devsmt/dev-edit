@@ -1,5 +1,5 @@
 #jEdit's keymap taz
-#Thu Dec 15 09:45:06 CET 2016
+#Mon Feb 13 11:45:07 CET 2017
 Add_Prefix_and_Suffix.shortcut=C+m p s
 CI/Duplicate_Line.shortcut=C+m d
 Color_Picker.shortcut=C+m p
@@ -241,6 +241,8 @@ shift-right.shortcut=A+RIGHT
 show-context-menu.shortcut=CONTEXT_MENU
 sidekick-complete.shortcut=C+e b 4
 sidekick.parser.ctags-switch.shortcut=C+p s t
+spell-check-selection-with-lang.shortcut=C+p s c
+spell-check-selection-with-lang.shortcut2=C+p C
 split-horizontal.shortcut=C+2
 split-vertical.shortcut=C+3
 stop-recording.shortcut=C+m C+s
