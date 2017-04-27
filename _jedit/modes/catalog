@@ -19,8 +19,9 @@
   <MODE NAME="RPG" FILE="RPG.xml" FILE_NAME_GLOB="*.*rpgle" />
 
   <MODE NAME="go" FILE="go.xml" FILE_NAME_GLOB="*.go" />
+  <!-- mapped to normal php in /usr/local/bin/jEdit/modes/catalog
   <MODE NAME="hack" FILE="hack.xml" FILE_NAME_GLOB="*.hh" />
-
+  -->
 
   <!--
   meglio impostare {*.css,*.less,*.scss} nel pattern del modo CSS
