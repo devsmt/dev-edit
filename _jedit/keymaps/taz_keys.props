@@ -1,5 +1,5 @@
 #jEdit's keymap taz
-#Mon Feb 13 11:45:07 CET 2017
+#Mon Aug 07 09:40:37 CEST 2017
 Add_Prefix_and_Suffix.shortcut=C+m p s
 CI/Duplicate_Line.shortcut=C+m d
 Color_Picker.shortcut=C+m p
@@ -130,6 +130,7 @@ left-docking-area.shortcut=C+e C+LEFT
 lucene-search.shortcut=CS+f
 lucene-search.shortcut2=C+p f
 macroManager-popup.shortcut=C+p m
+macroManager-popup.shortcut2=C+m l
 make_it_pretty.shortcut=C+m f
 match-bracket.shortcut=C+CLOSE_BRACKET
 narrow-to-fold.shortcut=C+e n n
@@ -248,6 +249,7 @@ split-vertical.shortcut=C+3
 stop-recording.shortcut=C+m C+s
 swap-marker.shortcut=C+k
 tags-cache-dialog.shortcut=C+p t c
+tags-cache-dialog.shortcut2=C+p t r
 tags-enter-and-follow-tag.shortcut=CS+t
 tags-follow-tag-new-view.shortcut=CAS+t
 tags-follow-tag.shortcut=C+t
