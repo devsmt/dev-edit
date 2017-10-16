@@ -1,28 +1,22 @@
-
+<!-- a unified interface for linters
+-->
 <COMMANDO>
 <UI>
-<CAPTION LABEL="php-cs-fixer">
-<FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
+<CAPTION LABEL="cmd options">
+    <FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
 </CAPTION>
 <!--
 <CAPTION LABEL="Path to bin">
 <ENTRY LABEL="(no spaces)" VARNAME="bin_path" DEFAULT="/usr/local/bin/"/>
 </CAPTION>
--->
 <CAPTION LABEL="standard">
 <CHOICE LABEL="standard" VARNAME="standard" DEFAULT="@PSR1" >
     <OPTION  LABEL="@PSR1" VALUE="@PSR1"/>
     <OPTION  LABEL="@PSR2" VALUE="@PSR2"/>
 </CHOICE>
 </CAPTION>
-<!--
-<CAPTION LABEL="Choose compile or run">
-<CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
-<OPTION  LABEL="run" VALUE="run"/>
-<OPTION LABEL="compile" VALUE="compile"/>
-</CHOICE>
-</CAPTION>
 -->
+
 
 
 </UI>
@@ -40,13 +34,12 @@ buf.toString();
 
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
-buf = new StringBuilder("/usr/local/bin/");
-buf.append("php-cs-fixer");
-buf.append(" ");
 //if (type.equals("compile")){}
-buf.append(" --verbose --rules=");
-buf.append(standard);
-buf.append(" fix ");
+// buf.append(standard); // append var
+
+buf = new StringBuilder("/data/bin_tools/");
+buf.append("fmt");
+buf.append(" ");
 buf.append(file)
 </COMMAND>
 

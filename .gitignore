@@ -28,3 +28,4 @@ _jedit/plugins/projectviewer.ProjectPlugin/projects/*
 _jedit/__sessions/*.xml
 
 /_jedit/plugins/ftp.FtpPlugin/password-cache
+/_jedit/macros/.macroManagerCache

@@ -1,28 +1,21 @@
-
+<!--
+PHP_CodeSniffer
+/usr/bin/phpcs -sw --standard=PSR2 file.php
+-->
 <COMMANDO>
 <UI>
-<CAPTION LABEL="php-cs-fixer">
+<CAPTION LABEL="PHP_CodeSniffer">
 <FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
 </CAPTION>
-<!--
-<CAPTION LABEL="Path to bin">
-<ENTRY LABEL="(no spaces)" VARNAME="bin_path" DEFAULT="/usr/local/bin/"/>
-</CAPTION>
--->
+
 <CAPTION LABEL="standard">
 <CHOICE LABEL="standard" VARNAME="standard" DEFAULT="@PSR1" >
-    <OPTION  LABEL="@PSR1" VALUE="@PSR1"/>
-    <OPTION  LABEL="@PSR2" VALUE="@PSR2"/>
+    <OPTION  LABEL="PSR1" VALUE="PSR1"/>
+    <OPTION  LABEL="PSR2" VALUE="PSR2"/>
+    <OPTION  LABEL="PSR4" VALUE="PSR4"/>
 </CHOICE>
 </CAPTION>
-<!--
-<CAPTION LABEL="Choose compile or run">
-<CHOICE LABEL="Select" VARNAME="type" DEFAULT="run" >
-<OPTION  LABEL="run" VALUE="run"/>
-<OPTION LABEL="compile" VALUE="compile"/>
-</CHOICE>
-</CAPTION>
--->
+
 
 
 </UI>
@@ -40,13 +33,12 @@ buf.toString();
 
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
-buf = new StringBuilder("/usr/local/bin/");
-buf.append("php-cs-fixer");
+buf = new StringBuilder("/usr/bin/phpcs");
 buf.append(" ");
 //if (type.equals("compile")){}
-buf.append(" --verbose --rules=");
+buf.append(" -sw --verbose --standard=");
 buf.append(standard);
-buf.append(" fix ");
+buf.append(" ");
 buf.append(file)
 </COMMAND>
 
