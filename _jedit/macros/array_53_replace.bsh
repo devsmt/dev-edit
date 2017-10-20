@@ -1,0 +1,45 @@
+// This is a recorded macro. First, check over the
+// commands to make sure this is what you intended. Then,
+// save this buffer, and the macro should appear in the
+// Macros menu.
+
+// replace empty array() preceded by anything that is not a char as in in_array() toArray()
+SearchAndReplace.setSearchString("([^_a-z]{1})array\\(\\)");
+SearchAndReplace.setReplaceString("$1[]");
+SearchAndReplace.setAutoWrapAround(true);
+SearchAndReplace.setReverseSearch(false);
+SearchAndReplace.setWholeWord(false);
+SearchAndReplace.setIgnoreCase(true);
+SearchAndReplace.setRegexp(true);
+SearchAndReplace.setSearchFileSet(new AllBufferSet("*.ph*", view));
+SearchAndReplace.hyperSearch(view,false);
+SearchAndReplace.setBeanShellReplace(false);
+SearchAndReplace.replaceAll(view);
+
+
+// try replace array
+SearchAndReplace.setSearchString("([^_a-z]{1})array\\(([a-zA-Z0-9\\_\"\'\\s\\n,=>.]*)\\);");
+SearchAndReplace.setAutoWrapAround(true);
+SearchAndReplace.setReverseSearch(false);
+SearchAndReplace.setWholeWord(false);
+SearchAndReplace.setIgnoreCase(true);
+SearchAndReplace.setRegexp(true);
+SearchAndReplace.setSearchFileSet(new CurrentBufferSet());
+SearchAndReplace.find(view);
+SearchAndReplace.setSearchString("([^_a-z]{1})array\\(([a-zA-Z0-9\\_\"\'\\s\\n,=>.]*)\\);");
+SearchAndReplace.setReplaceString("$1[$2];");
+SearchAndReplace.setBeanShellReplace(false);
+SearchAndReplace.setWholeWord(false);
+SearchAndReplace.setIgnoreCase(true);
+SearchAndReplace.setRegexp(true);
+SearchAndReplace.setSearchFileSet(new CurrentBufferSet());
+SearchAndReplace.replaceAll(view);
+
+
+// call a macro
+// Macros.getMacro("array_53_replace").invoke(view);
+// call external program
+// runCommandInConsole(view,"System","/usr/bin/php -l file_path ");
+
+
+
