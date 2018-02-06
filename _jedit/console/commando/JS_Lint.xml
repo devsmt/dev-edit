@@ -34,19 +34,12 @@ buf.toString();
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
 <!--
-parametri accettati
-[--indent] [--maxerr] [--maxlen] [--predef] [--anon] [--bitwise] [--browser]
-[--cap] [--continue] [--css] [--debug] [--devel] [--eqeq] [--es5] [--evil]
-[--forin] [--fragment] [--newcap] [--node] [--nomen] [--on] [--passfail]
-[--plusplus] [--properties] [--regexp] [--rhino] [--undef] [--unparam] [--sloppy]
-[--stupid] [--sub] [--vars] [--white] [--widget] [--windows] [--json] [--color]
-[--terse]
+https://github.com/palantir/tslint
 -->
 
 buf = new StringBuilder(bin_path);
-#buf.append("jslint");
-buf.append("gjslint");
-#buf.append(" --nojsdoc ");
+
+buf.append("tslint");
 buf.append(" ");
 buf.append(file);
 

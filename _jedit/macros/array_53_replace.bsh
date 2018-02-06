@@ -11,30 +11,33 @@ SearchAndReplace.setReverseSearch(false);
 SearchAndReplace.setWholeWord(false);
 SearchAndReplace.setIgnoreCase(true);
 SearchAndReplace.setRegexp(true);
-SearchAndReplace.setSearchFileSet(new AllBufferSet("*.ph*", view));
+SearchAndReplace.setSearchFileSet(new CurrentBufferSet());// new AllBufferSet("*.ph*", view)
 SearchAndReplace.hyperSearch(view,false);
 SearchAndReplace.setBeanShellReplace(false);
 SearchAndReplace.replaceAll(view);
 
 
 // try replace array
-SearchAndReplace.setSearchString("([^_a-z]{1})array\\(([a-zA-Z0-9\\_\"\'\\s\\n,=>.]*)\\);");
+SearchAndReplace.setSearchString("([^_a-z]{1})array\\(([^\)]*)\\);");
+SearchAndReplace.setReplaceString("[$2]");
 SearchAndReplace.setAutoWrapAround(true);
 SearchAndReplace.setReverseSearch(false);
 SearchAndReplace.setWholeWord(false);
 SearchAndReplace.setIgnoreCase(true);
 SearchAndReplace.setRegexp(true);
-SearchAndReplace.setSearchFileSet(new CurrentBufferSet());
+SearchAndReplace.setSearchFileSet(new CurrentBufferSet());// new AllBufferSet("*.ph*", view)
 SearchAndReplace.find(view);
-SearchAndReplace.setSearchString("([^_a-z]{1})array\\(([a-zA-Z0-9\\_\"\'\\s\\n,=>.]*)\\);");
-SearchAndReplace.setReplaceString("$1[$2];");
-SearchAndReplace.setBeanShellReplace(false);
-SearchAndReplace.setWholeWord(false);
-SearchAndReplace.setIgnoreCase(true);
-SearchAndReplace.setRegexp(true);
-SearchAndReplace.setSearchFileSet(new CurrentBufferSet());
-SearchAndReplace.replaceAll(view);
 
+// //
+// SearchAndReplace.setSearchString("([^_a-z]{1})array\\(([a-zA-Z0-9\\_\"\'\\s\\n,=>.]*)\\);");
+// SearchAndReplace.setReplaceString("$1[$2];");
+// SearchAndReplace.setBeanShellReplace(false);
+// SearchAndReplace.setWholeWord(false);
+// SearchAndReplace.setIgnoreCase(true);
+// SearchAndReplace.setRegexp(true);
+// SearchAndReplace.setSearchFileSet(new CurrentBufferSet());// new AllBufferSet("*.ph*", view)
+// SearchAndReplace.replaceAll(view);
+//
 
 // call a macro
 // Macros.getMacro("array_53_replace").invoke(view);

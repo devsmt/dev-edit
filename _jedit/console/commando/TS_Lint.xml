@@ -1,12 +1,11 @@
 
 <COMMANDO>
 <UI>
-<CAPTION LABEL="PHP_MD">
+<CAPTION LABEL="jsLint">
 <FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
 </CAPTION>
-
 <CAPTION LABEL="Path to bin">
-<ENTRY LABEL="(no spaces)" VARNAME="bin_path" DEFAULT="/usr/local/bin/" />
+<ENTRY LABEL="(no spaces)" VARNAME="bin_path" DEFAULT="/usr/local/bin/"/>
 </CAPTION>
 
 <!--
@@ -23,28 +22,35 @@
 
 <COMMANDS>
 
-<!--  cd to working dir
 <COMMAND SHELL="System" CONFIRM="FALSE">
+<!-- cd to working dir -->
+
 buf = new StringBuilder("cd ");
 buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
 buf.toString();
+
 </COMMAND>
--->
 
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
-buf = new StringBuilder(bin_path);
-buf.append("phpmd ");
-buf.append(" ");
-buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
-buf.append(file);
-buf.append(" text unusedcode ");
-buf.toString();
-</COMMAND>
 <!--
-// cleancode, codesize, controversial, design, naming, unusedcode
---->
+parametri accettati
+[--indent] [--maxerr] [--maxlen] [--predef] [--anon] [--bitwise] [--browser]
+[--cap] [--continue] [--css] [--debug] [--devel] [--eqeq] [--es5] [--evil]
+[--forin] [--fragment] [--newcap] [--node] [--nomen] [--on] [--passfail]
+[--plusplus] [--properties] [--regexp] [--rhino] [--undef] [--unparam] [--sloppy]
+[--stupid] [--sub] [--vars] [--white] [--widget] [--windows] [--json] [--color]
+[--terse]
+-->
 
+buf = new StringBuilder(bin_path);
+#buf.append("jslint");
+buf.append("gjslint");
+#buf.append(" --nojsdoc ");
+buf.append(" ");
+buf.append(file);
+
+</COMMAND>
 
 
 </COMMANDS>
