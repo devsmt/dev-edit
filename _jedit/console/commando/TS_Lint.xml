@@ -43,9 +43,9 @@ parametri accettati
 [--terse]
 -->
 
-buf = new StringBuilder(bin_path);
+buf = new StringBuilder("/data/bin_tools/ts_lint");
 #buf.append("jslint");
-buf.append("gjslint");
+#buf.append("gjslint");
 #buf.append(" --nojsdoc ");
 buf.append(" ");
 buf.append(file);
