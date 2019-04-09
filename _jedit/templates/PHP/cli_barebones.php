@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+// # !/usr/bin/env php
 <?php
 /*
 scopo del programma
@@ -136,16 +136,16 @@ namespace {
         return sprintf( "\033[%sm%s\033[0m", $a_fg[$foreground_color], $str );
     }
 
-    /* // configurazioni del programma
-    class Config {
-        public static $config = [
-            'DEV' => [
-            ],
-        ];
-        public static function get($key, $env=null) {
-            return self::$config[ENV][$key];
-        }
-    } */
+    // configurazioni del programma
+    // class Config {
+    //     public static $config = [
+    //         'DEV' => [
+    //         ],
+    //     ];
+    //     public static function get($key, $env=null) {
+    //         return self::$config[ENV][$key];
+    //     }
+    // }
 
     //----------------------------------------------------------------------------
     //  controller
