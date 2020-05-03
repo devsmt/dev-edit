@@ -1,5 +1,5 @@
 #jEdit's keymap taz
-#Thu Dec 13 12:15:25 CET 2018
+#Mon Apr 29 12:06:02 CEST 2019
 Add_Prefix_and_Suffix.shortcut=C+m p s
 CI/Duplicate_Line.shortcut=C+m d
 Color_Picker.shortcut=C+m p
@@ -88,6 +88,7 @@ esempi_macro/Move_Line_Down.shortcut2=C+PAGE_DOWN
 esempi_macro/Move_Line_Up.shortcut=C+e PAGE_UP
 esempi_macro/Move_Line_Up.shortcut2=C+PAGE_UP
 esempi_macro/Text/Add_Prefix_and_Suffix.shortcut=C+e p s
+esempi_macro/Text/Duplicate_Line.shortcut=C+m C+d
 exit.shortcut=C+q
 expand-abbrev.shortcut=C+TAB
 expand-abbrev.shortcut2=C+e SPACE
