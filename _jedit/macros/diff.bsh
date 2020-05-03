@@ -1,0 +1,144 @@
+/*****************************************************************************
+
+    diff.bsh
+
+    Allows jEdit to function as a two-way diff tool.
+
+    Note: You must have the JDiff plugin installed.
+
+    To configure an outside application to use jEdit as its diff tool, the
+    command is (assuming jedit is in your path):
+
+        jedit -run=/path/to/diff.bsh left_file right_file
+
+*****************************************************************************/
+
+
+/**
+ * checkBufferPane
+ *
+ * Checks the buffer to see if it's in the specified EditPane (by index).
+ * If the buffer is not in the given EditPane, it is moved.  Either way,
+ * the buffer is selected as the current buffer in the EditPane.
+ *
+ * @param buffer The buffer to check
+ * @param paneIndex The index of the desired EditPane
+ * @return true on success, false on failure
+ */
+checkBufferPane( buffer, paneIndex ) {
+
+    //get list of EditPanes in the current view
+    panes = view.getEditPanes();
+    if( paneIndex >= panes.length ) {
+        return false;
+    }
+
+    //find the EditPane where the buffer is currently
+    sourcePane = getBufferPane( buffer );
+
+    //look up the target EditPane
+    targetPane = panes[ paneIndex ];
+
+    //see if the source and target EditPanes are the same
+    if( sourcePane.equals( targetPane ) == true ) {
+
+        //select the active buffer in the target EditPane
+        targetPane.setBuffer( buffer );
+        return true;
+    }
+
+    //re-open the file in a new buffer in the target EditPane
+    jEdit.openFile( targetPane, buffer.getPath() );
+
+    //close the current buffer in the source EditPane
+    jEdit.closeBuffer( sourcePane, buffer );
+
+    //select the active buffer in the target EditPane
+    targetPane.setBuffer( buffer );
+
+    return true;
+}
+
+
+/**
+ * getBufferPane
+ *
+ * Finds the first EditPane where a given buffer is open.
+ *
+ * @param buffer The buffer to resolve.
+ * @return The first EditPane where the buffer is open, or null if none.
+ */
+getBufferPane( buffer ) {
+
+    //get list of EditPanes in the current view
+    panes = view.getEditPanes();
+
+    //search each EditPane for this buffer
+    for( i = 0; i < panes.length; ++i ) {
+
+        //pull the BufferSet attached to this EditPane
+        bufferSet = panes[ i ].getBufferSet();
+
+        //attempt to find the buffer in this BufferSet
+        check = bufferSet.indexOf( buffer );
+
+        //should return -1 if it couldn't be found
+        if( check >= 0 ) {
+
+            //buffer is in current pane
+            return panes[ i ];
+        }
+    }
+
+    //buffer was not open in any pane
+    return null;
+}
+
+
+/**
+ * startDiff
+ *
+ * Start diff'ing the currently-selected file with the next file opened in the
+ * current buffer set.
+ */
+startDiff() {
+
+    //first, check to see if the editor is not running in split mode.
+    if( view.getEditPanes().length < 2 ) {
+        view.splitVertically();
+    }
+
+    //the current buffer will be opened to the first file specified on the
+    //  command line (regardless if it was already open).  the typical
+    //  "difftool" method will specify the previous version of the file here.
+    //  always put it on the left side.
+    checkBufferPane( buffer, 0 );
+
+    //reference the next buffer in the current EditPane
+    nextBuffer = buffer.getNext();
+
+    //check if there is no next buffer (indicates one or both of the files was
+    //  already open)
+    if( nextBuffer == null ) {
+
+        //the typical "difftool" method is to put the previous file on the
+        //  left, and the current file on the right.  if the file was already
+        //  open, 99% of the time, it is the current file.  put it on the
+        //  right side.
+        checkBufferPane( buffer.getPrev(), 1 );
+    }
+
+    //both specified files are new files
+    else {
+
+        //put the next file from the command line on the right side.
+        checkBufferPane( nextBuffer, 1 );
+    }
+
+    //enable the visual diff
+    jdiff.DualDiffManager.toggleFor( view );
+}
+
+
+//start the visual diff
+startDiff();
