@@ -126,6 +126,8 @@
             <KEYWORD3>string</KEYWORD3>
             <KEYWORD3>number</KEYWORD3>
             <KEYWORD3>byte</KEYWORD3>
+            <KEYWORD3>undefined</KEYWORD3>
+            <KEYWORD3>object</KEYWORD3>
             <KEYWORD1>case</KEYWORD1>
             <KEYWORD1>catch</KEYWORD1>
             <KEYWORD3>char</KEYWORD3>
