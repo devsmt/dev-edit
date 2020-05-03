@@ -2,20 +2,24 @@
 
 <projects name="All Projects" >
 <group name="DMS" >
+<group name="Lampa" >
+<project name="Backoffice" file="Backoffice.xml" root="/var/www/lampa_backoffice"  />
+<project name="lampa_FE" file="lampa_FE.xml" root="/var/www/lampa_FE_T"  />
+<project name="lampa_shop" file="lampa.xml" root="/var/www/lampa.it"  />
+<project name="v4" file="v4.xml" root="/var/www/lampa_agenti_v4"  />
+</group>
+<project name="caleffi_IR" file="caleffi_IR.xml" root="/var/www/dms_investor_relations/"  />
 <project name="cantini_mobile" file="cantini_mobile.xml" root="/var/www/cantini_mobile"  />
 <project name="dms_mobile" file="dms_mobile.xml" root="/var/www/dms_mobile/mobile"  />
-<project name="lampa_shop" file="lampa.xml" root="/var/www/lampa.it"  />
+<project name="mirabello" file="mirabello.xml" root="/var/www/dms_caleffi/trunk"  />
 </group>
 <group name="EV" >
 <project name="axa" file="axa.xml" root="/var/www/axa"  />
-<project name="axatest" file="axatest.xml" root="/var/www/axatest"  />
 <project name="evidenceweb" file="evidenceweb.xml" root="/home/taz/Dropbox/mywebsite/evidenceweb"  />
 <project name="ipc" file="ipc.xml" root="/var/www/ipc"  />
 <project name="jedit" file="jedit.xml" root="/home/taz/.jedit"  />
 <project name="time-tracker" file="time-tracker.xml" root="/var/www/time_tracker"  />
-<project name="zz_amams" file="amams.xml" root="/var/www/amams"  />
 </group>
 <group name="FOSS" >
 </group>
-<project name="mirabello" file="mirabello.xml" root="/var/www/dms_caleffi/trunk"  />
 </projects>

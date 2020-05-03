@@ -1,0 +1,62 @@
+
+/*
+ * Macro_Popup.bsh -- A Popup with your macros.
+ *
+ * TODO: I can't figure out how to get first level macros in. Can you? =)
+ *
+ * @author Delvin Johnson (delvinj@gmail.com)
+ * @version 1.0 Sep 15, 2005
+ */
+
+void addItems( JPopupMenu parent, JMenu menu, Vector items,
+	ActionListener al)
+{
+
+	for(Iterator iter = items.iterator(); iter.hasNext();)
+	{
+		Object next = iter.next();
+		if(next instanceof Vector)
+		{
+			Vector v = (Vector) next;
+			String label = (String) v.firstElement();
+			JMenu subMenu = (JMenu) parent.add(new JMenu(label));
+			addItems(parent, subMenu, v, al);
+		}
+		else
+		{
+			Macros.Macro mm = Macros.getMacro((String)next);
+			if(mm != null)
+			{
+				JMenuItem item = menu.add(
+					new EnhancedMenuItem(
+						mm.getLabel(), mm.getName(),
+						jEdit.getActionContext()));
+			}
+		}
+	}
+}
+
+
+void showIt()
+{
+	Vector items = Macros.getMacroHierarchy();
+	JMenu macros = new JMenu("Macros");
+	ActionListener al = new ActionListener()
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Macros.Macro mm = Macros.getMacro(e.getActionCommand());
+			if(mm != null)
+				mm.invoke(jEdit.getActiveView());
+			else
+				Macros.message(jEdit.getActiveView(), "Macro not found: " + e.getActionCommand());
+		}
+	};
+	JPopupMenu popup = new JPopupMenu();
+	addItems(popup, macros, items, al);
+	Point p = textArea.getMousePosition();
+	popup.show(textArea, p != null ? p.x : 0, p != null ? p.y : 0);
+}
+
+
+showIt();
