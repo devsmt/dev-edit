@@ -1,5 +1,5 @@
 #jEdit's keymap taz
-#Mon Apr 27 15:23:35 CEST 2020
+#Sun May 03 18:03:31 CEST 2020
 Add_Prefix_and_Suffix.shortcut=C+m p s
 CI/Duplicate_Line.shortcut=C+m d
 Color_Picker.shortcut=C+m p
@@ -11,7 +11,9 @@ Move_Line_Down.shortcut=C+PAGE_DOWN
 Move_Line_Up.shortcut=C+PAGE_UP
 Move_Lines_Down.shortcut=CS+PAGE_DOWN
 Move_Lines_Up.shortcut=CS+PAGE_UP
+_jedit_default/Interface/Toggle_Bottom_Docking_Area.shortcut=AS+UP
 _jedit_default/Interface/Toggle_Bottom_Docking_Area.shortcut2=AS+DOWN
+_jedit_default/Interface/Toggle_Left_Docking_Area.shortcut=AS+RIGHT
 _jedit_default/Interface/Toggle_Left_Docking_Area.shortcut2=AS+LEFT
 action-bar.shortcut=C+ENTER
 add-marker-shortcut.shortcut=C+e m M
@@ -111,7 +113,7 @@ find-previous.shortcut=C+e g
 find.shortcut=C+f
 finishhim.execute.shortcut=C+e b 2
 focus-buffer-switcher.shortcut=A+BACK_QUOTE
-focus-textarea.shortcut=C+e 0
+focus-textarea.shortcut=C+e i
 focus-textarea.shortcut2=C+e INSERT
 format-paragraph.shortcut=C+e f
 gatchan-highlight.shortcut=C+p h h
@@ -130,7 +132,6 @@ indent-lines.shortcut=C+i
 insert-literal.shortcut=C+e v
 insert-newline-indent.shortcut=ENTER
 insert-tab-indent.shortcut=TAB
-invert-selection.shortcut=C+e i
 jdiff-lines.shortcut=C+p d n
 jdiff.first-diff.shortcut=C+p d HOME
 jdiff.last-diff.shortcut=C+p d END
