@@ -1,7 +1,7 @@
 
 <COMMANDO>
 <UI>
-<CAPTION LABEL="php_beautifier">
+<CAPTION LABEL="PSALM">
 <FILE_ENTRY LABEL="script" VARNAME="file" EVAL="buffer.getName()"/>
 </CAPTION>
 <CAPTION LABEL="Path to bin">
