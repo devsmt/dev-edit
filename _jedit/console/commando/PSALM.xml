@@ -27,7 +27,7 @@
 <COMMAND SHELL="System" CONFIRM="FALSE">
 
 buf = new StringBuilder("");
-buf.append("/home/taz/.composer/vendor/bin/psalm");
+buf.append("/home/taz/.config/composer/vendor/bin/psalm");
 buf.append(" ");
 buf.append(MiscUtilities.getParentOfPath(buffer.getPath()));
 buf.append(file);
