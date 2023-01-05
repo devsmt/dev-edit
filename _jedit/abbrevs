@@ -191,7 +191,7 @@ abbrev_|isset_#aa#
 img_inline_|icon_svg_
 twb_label_|<span class="label label-default">Default</span>\n<span class="label label-primary">Primary</span>\n<span class="label label-success">Success</span>\n<span class="label label-info">Info</span>\n<span class="label label-warning">Warning</span>\n<span class="label label-danger">Danger</span>
 twb3_grid_|<div class="container">     \n    <div class="row">\n            <div class="col-md-8">\n                test content\n            </div>\n            <div class="col-md-4">\n                test content\n            </div>\n    </div>\n</div>\n
-solid_|Single responsibility: class should have one, and only one, function. do one thing well.\nOpen–closed: should be possible to extend the behavior of a class without modifying it.\nLiskov substitution: subclasses should be substitutable for their superclasses. \nInterface segregation: many small specific interfaces instead of one general-purpose interface. Client should not be forced to use a interface if it does not need.\nDependency inversion: do not create new objects in clients, inject or use factories. High level modules should not depend on low level modules but should depend on abstraction.
+solid_|/*\nSingle responsibility: class should have one, and only one, function. do one thing well.\nOpen–closed: should be possible to extend the behavior of a class without modifying it.\nLiskov substitution: subclasses should be substitutable for their superclasses. \nInterface segregation: many small specific interfaces instead of one general-purpose interface. Client should not be forced to use a interface if it does not need.\nDependency inversion: do not create *new objects in clients*, inject or use factories. High level modules should not depend on low level modules but should depend on abstraction.\n*/
 small_|<small></small>
 html5_progressbar_|<progress max="100" value="80"></progress>\n<style >\n    progress[value] {\n      -webkit-appearance: none;\n         -moz-appearance: none;\n              appearance: none;\n      border: none;\n\n      width: 250px;\n      height: 20px;\n\n      background-color: blue; color: blue;\n    }\n</style>
 else_|else {\n}
@@ -2403,7 +2403,7 @@ jq_prop_|let el = $(selector).prop(k, v); // see jq_attr_
 f__|function \|():void { return; }
 boundaries_|let boundaries = (val, min_val, max_val) => {\n  return Math.max(min_val, Math.min(val, max_val ) );\n};\n/* different implementation\nlet boundaries = (num, a, b) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));\n*/\nboundaries(2, 3, 5); // 3\nboundaries(1, -1, -5); // -1\nboundaries(3, 2, 4); // 3\n \n
 fifo_|fifo_lifo_
-array_find_|// The first element that pass function\nconst a2 = array_num.find(e => e > 10);\n
+array_find_|// The first element that pass function\nconst f = array_num.find(e => e > 10);
 bb_observable_|bb_events_
 preg_scan_|"dolor sit amet".match(/\\w+/g);
 jq_attr_|$(selector).attr(k, v);
